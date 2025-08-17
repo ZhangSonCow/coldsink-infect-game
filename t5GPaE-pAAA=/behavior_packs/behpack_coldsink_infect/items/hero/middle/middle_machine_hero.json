@@ -1,0 +1,26 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "coldsink:middle_machine_hero",
+      "menu_category": {  
+        "group": "itemGroup.name.arrow",  
+        "category": "equipment", 
+        "is_hidden_in_commands": false 
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": {
+        "texture": "become_machine_hero"
+      },
+      "minecraft:display_name": {
+        "value": "§b选择进化 [机械猎手]"
+      },
+      "minecraft:use_duration": 99999,
+      "minecraft:food": {
+        "can_always_eat": true
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.smoker_ai": {
+			"states": {
+				"default": {
+					"animations": [
+						"smoker_idle.arm"
+					],
+					"transitions": [
+						{
+							"move": "query.modified_move_speed > 0.1 && !q.is_sheared"
+						},
+						{
+							"attack_1": "v.attack_time && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && variable.random_choices >= 50"
+						},
+						{
+							"skill": "q.is_sheared"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"move": {
+					"animations": [
+						"smoker_move.arm"
+					],
+					"transitions": [
+						{
+							"default": "query.modified_move_speed <= 0.1 && !q.is_sheared"
+						},
+						{
+							"attack_1": "v.attack_time && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && variable.random_choices >= 50"
+						},
+						{
+							"skill": "q.is_sheared"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"attack_1": {
+					"animations": [
+						"smoker_attack1"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"attack_2": {
+					"animations": [
+						"smoker_attack2"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"skill": {
+					"animations": [
+						"smoker_skill"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!q.is_sheared"
+						},
+						{
+							"attack_1": "v.attack_time && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && variable.random_choices >= 50"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.smoker_walk": {
+			"states": {
+				"default": {
+					"animations": [
+						"smoker_idle.leg"
+					],
+					"transitions": [
+						{
+							"move": "query.modified_move_speed > 0.1"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"move": {
+					"animations": [
+						"smoker_move.leg"
+					],
+					"transitions": [
+						{
+							"default": "query.modified_move_speed <= 0.1"
+						}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		}
+	}
+}

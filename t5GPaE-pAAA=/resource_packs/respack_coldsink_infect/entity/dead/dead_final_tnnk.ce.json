@@ -1,0 +1,32 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:dead_final_tnnk",
+      "materials": {
+        "default": "entity_emissive"
+      },
+      "animations": {
+        "dead": "animation.tank.dead"
+      },
+      "scripts": {
+        "initialize": [
+          "variable.dead_random=math.random(0, 1);"
+        ],
+        "animate": [
+          "dead"
+        ]
+      },
+      "textures": {
+        "default": "textures/entity/final_tank_glow"
+      },
+      "geometry": {
+        "default": "geometry.final_tank"
+      },
+      "render_controllers": [ "controller.render.com" ],
+      "spawn_egg": {
+        "texture": "spawn_final_tnnk"
+      }
+    }
+  }
+}

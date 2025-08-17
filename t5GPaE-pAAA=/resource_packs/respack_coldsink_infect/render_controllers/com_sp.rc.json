@@ -1,0 +1,33 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.com_sp": {
+      "arrays": {
+        "textures": {
+          "Array.sp": [
+            "Texture.sp_0",
+            "Texture.sp_1",
+            "Texture.sp_2",
+            "Texture.sp_3",
+            "Texture.sp_4",
+            "Texture.sp_5",
+            "Texture.sp_6"
+          ]
+        }
+      },
+      "geometry": "geometry.sp",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "textures": [ "Array.sp[ query.variant ]" ],
+      "is_hurt_color": {
+        "r": "1.0",
+        "g": "1.0",
+        "b": "1.0",
+        "a": "0.4"
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.boss_bgm.func": {
+      "loop": true,
+      "animation_length": 53.0,
+      "timeline": {
+        "31.0": [
+          "/event entity @s[tag=witch_bgm] boss_bgm_over"
+        ],
+        "52.0": [
+          "/event entity @s[tag=tnnk_bgm] boss_bgm_over"
+        ]
+      }
+    }
+  }
+}

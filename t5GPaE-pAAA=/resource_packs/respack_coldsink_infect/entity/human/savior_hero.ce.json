@@ -1,0 +1,82 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:savior_hero",
+      "materials": {
+        "default": "entity_alphatest",
+        "nacal_tac_detect": "nacal_tac_detect",
+        "nacal_customblend":"nacal_customblend"
+      },
+      "particle_effects": {
+        "savior_fire_1": "coldsink:savior_fire_1"
+      },
+      "animations": {
+        "jockey_control": "animation.jockey.control",
+        "sign_facing": "animation.sign_facing",
+        "c.savior_hero_ai": "controller.animation.savior_hero_ai",
+        "savior_hero.look": "animation.savior_hero.look",
+        "savior_hero.idle.leg": "animation.savior_hero.idle.leg",
+        "savior_hero.move.leg": "animation.savior_hero.move.leg",
+        "savior_hero_weapon_1.idle": "animation.savior_hero_weapon_1.idle",
+        "savior_hero_weapon_2.idle": "animation.savior_hero_weapon_2.idle",
+        "savior_hero_weapon_1.particle": "animation.savior_hero_weapon_1.particle"
+      },
+      "scripts": {
+        "initialize": [
+          "variable.is_holding_right = 0.0;",
+          "variable.is_blinking = 0.0;",
+          "variable.last_blink_time = 0.0;",
+          "variable.hand_bob = 0.0;",
+          "variable.player_x_rotation=0.0;"
+        ],
+        "pre_animation": [
+          "variable.helmet_layer_visible = 1.0;",
+          "variable.leg_layer_visible = 1.0;",
+          "variable.boot_layer_visible = 1.0;",
+          "variable.chest_layer_visible = 1.0;",
+          "variable.attack_body_rot_y = Math.sin(360*Math.sqrt(variable.attack_time)) * 5.0;",
+          "variable.tcos0 = (math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+          "variable.first_person_rotation_factor = math.sin((1 - variable.attack_time) * 180.0);",
+          "variable.hand_bob = q.life_time < 0.01 ? 0.0 : variable.hand_bob + ((q.is_on_ground && q.is_alive ? math.clamp(math.sqrt(math.pow(q.position_delta(0), 2.0) + math.pow(q.position_delta(2), 2.0)), 0.0, 0.1) : 0.0) - variable.hand_bob) * 0.02;",
+          "variable.map_angle = math.clamp(1 - variable.player_x_rotation / 45.1, 0.0, 1.0);",
+          "variable.item_use_normalized = q.main_hand_item_use_duration / q.main_hand_item_max_duration;"
+        ],
+        "animate": [
+          "c.savior_hero_ai",
+          "savior_hero.look",
+          "sign_facing",
+          {
+            "savior_hero.idle.leg": "q.modified_move_speed <= 0.1"
+          },
+          {
+            "savior_hero.move.leg": "q.modified_move_speed > 0.1"
+          },
+          {
+            "jockey_control": "q.out_of_control"
+          }
+        ]
+      },
+      "textures": {
+        "default": "textures/entity/savior_hero",
+        "savior_hero_sign": "textures/entity/savior_hero_sign",
+        "bile_sign": "textures/entity/bile_sign"
+      },
+      "geometry": {
+        "default": "geometry.savior_hero",
+        "human_sign": "geometry.human_sign",
+        "bile_sign": "geometry.bile_sign"
+      },
+      "render_controllers": [
+        "controller.render.com",
+        {
+          "controller.render.savior_hero_sign": "q.is_ignited"
+        }
+      ],
+      "spawn_egg": {
+        "base_color": "#c0664a",
+        "overlay_color": "#68330f"
+      }
+    }
+  }
+}

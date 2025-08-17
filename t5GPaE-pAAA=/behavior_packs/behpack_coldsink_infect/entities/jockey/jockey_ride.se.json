@@ -1,0 +1,147 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:jockey_ride",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+
+    "components": {
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:health": {
+        "value": 1
+      },
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:rideable": {
+        "controlling_seat": 1,
+        "seat_count": 1,
+        "pull_in_entities": true,
+        "seats": [
+          {
+            "position": [ 0, 1.6, 0 ],
+            "rotate_rider_by": 0
+          }
+        ]
+      },
+      "minecraft:ageable": {
+        "duration": 15,
+        "grow_up": {
+          "event": "godie"
+        }
+      },
+      "minecraft:timer": {
+        "time": 0.1,
+        "time_down_event": {
+          "target": "self",
+          "event": "ride"
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 0.01,
+        "height": 0.01
+      },
+      "minecraft:physics": {}
+
+      //behavivors
+
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "tag @p[tag=jockey_skill] add sound_interval",
+
+            "execute @s[tag=maper] ~~~ tag @e[family=player,family=!tool,type=!item,tag=!neutral,r=5,c=1] add jockey_riding",
+            "execute @s[tag=maper] ~~~ scoreboard players random @e[family=player,family=!tool,type=!item,tag=!neutral,r=5,c=1] jockey_random 1 8",
+            "execute @s[tag=maper] ~~~ event entity @e[family=player,family=!tool,type=!item,tag=!neutral,r=5,c=1] coldsink:jockey_control",
+            "execute @s[tag=maper] ~~~ execute @e[family=player,family=!tool,type=!item,tag=!neutral,tag=jockey_riding,r=5,c=1] ~~~ tp @e[type=coldsink:jockey_ride,c=1] ~~1.5~",
+
+            "execute @s[tag=!maper] ~~~ tag @e[family=!jockey,family=!tool,r=5,c=1] add jockey_riding",
+            "execute @s[tag=!maper] ~~~ scoreboard players random @e[family=!jockey,family=!tool,r=5,c=1] jockey_random 1 8",
+            "execute @s[tag=!maper] ~~~ event entity @e[family=!jockey,family=!tool,r=5,c=1] coldsink:jockey_control",
+            "execute @s[tag=!maper] ~~~ execute @e[family=!jockey,family=!tool,tag=jockey_riding,r=5,c=1] ~~~ tp @e[type=coldsink:jockey_ride,c=1] ~~1.5~",
+            
+            "tag @s add neutral"
+          ]
+        }
+      },
+      "ride": {
+        "queue_command": {
+          "command": [
+            "event entity @s[tag=maper] ride_map",
+            "event entity @s[tag=!maper] ride_mod"
+          ]
+        }
+      },
+      "ride_map": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s bool 0",
+            "execute @e[family=player,family=!tool,type=!item,tag=!neutral,tag=jockey_riding,r=5,c=1] ~~~ scoreboard players set @e[type=coldsink:jockey_ride,tag=maper,c=1] bool 1",
+            "event entity @s[scores={bool=0}] godie",
+            "scoreboard players set @s bool 0",
+            "execute @p[family=jockey,tag=jockey_skill,r=5] ~~~ scoreboard players set @e[type=coldsink:jockey_ride,tag=maper,c=1] bool 1",
+            "event entity @s[scores={bool=0}] godie",
+
+            "ride @p[family=jockey,tag=jockey_skill,tag=maper,r=5] start_riding @s",
+            "scoreboard players reset @p[family=jockey,r=5] idle_time",
+            "tp @s @e[family=player,family=!tool,type=!item,tag=!neutral,r=5,c=1]",
+            "execute @e[family=player,family=!tool,type=!item,tag=!neutral,tag=jockey_riding,r=5,c=1] ~~~ title @s[family=player] actionbar §3被Jockey乘骑中，无法开火！"
+          ]
+        }
+      },
+      "ride_mod": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s bool 0",
+            "execute @e[family=!jockey,family=!tool,tag=jockey_riding,r=5,c=1] ~~~ scoreboard players set @e[type=coldsink:jockey_ride,tag=!maper,c=1] bool 1",
+            "event entity @s[scores={bool=0}] godie",
+            "scoreboard players set @s bool 0",
+            "execute @p[family=jockey,tag=jockey_skill,r=5] ~~~ scoreboard players set @e[type=coldsink:jockey_ride,tag=!maper,c=1] bool 1",
+            "event entity @s[scores={bool=0}] godie",
+        
+            "ride @p[family=jockey,tag=jockey_skill,tag=!maper,r=5] start_riding @s",
+            "scoreboard players reset @p[family=jockey,r=5] idle_time",
+            "tp @s @e[family=!jockey,family=!tool,tag=jockey_riding,r=5,c=1]",
+            "execute @e[family=!jockey,family=!tool,tag=jockey_riding,r=5,c=1] ~~~ title @s[family=player] actionbar §3被Jockey乘骑中，无法开火！"
+          ]
+        }
+      },
+      "godie": {
+        "queue_command": {
+          "command": [
+            "execute @s[tag=maper] ~~~ event entity @e[family=player,family=!tool,type=!item,tag=!neutral,tag=jockey_riding,r=5,c=1] coldsink:jockey_control_over",
+            "execute @s[tag=maper] ~~~ tag @e[family=player,family=!tool,type=!item,tag=!neutral,tag=jockey_riding,r=5,c=1] remove jockey_riding",
+            
+            "execute @s[tag=!maper] ~~~ event entity @e[family=!jockey,family=!tool,tag=jockey_riding,r=5,c=1] coldsink:jockey_control_over",
+            "execute @s[tag=!maper] ~~~ tag @e[family=!jockey,family=!tool,tag=jockey_riding,r=5,c=1] remove jockey_riding",
+            
+            "stopsound @a[r=32] jockey.skill",
+            "event entity @p[family=jockey,tag=jockey_skill,r=5] action_clear",
+            "tag @p[family=jockey,tag=jockey_skill,r=5] remove jockey_skill"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:aid_pack_display",
+      "materials": {
+        "default": "entity_alphatest",
+        "netease_entity_metallic": "netease_entity_alphatest_metallic"
+      },
+      "textures": {
+        "default": "textures/entity/aid_pack"
+      },
+      "geometry": {
+        "default": "geometry.aid_pack_display"
+      },
+      "render_controllers": [ "controller.render.netease_entity_metallic" ],
+      "spawn_egg": {
+        "texture": "aid_pack_give"
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+    "format_version": "1.18",
+    "minecraft:recipe_shaped": {
+      "description": {
+        "identifier": "coldsink:become_smoker"
+      },
+      "tags": [ "crafting_table" ],
+      "pattern": [
+        "SAS",
+        "ABA",
+        "SAS"
+      ],
+      "key": {
+        "S": {
+          "item": "coldsink:smoker_soul"
+        },
+        "A": {
+          "item": "deadbush"
+        },
+        "B": {
+          "item": "weeping_vines"
+        }
+      },
+      "result": [
+        {
+          "item": "coldsink:become_smoker_give_spawn_egg",
+          "count": 1
+        }
+      ]
+    }
+  }
+  

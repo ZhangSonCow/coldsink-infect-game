@@ -1,0 +1,109 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:smoker_ride_ai_1",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      },
+      "coldsink:spawn_seat": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:smoker_ride_ai_2",
+              "num_to_spawn": 1,
+              "should_leash": true
+            }
+          ]
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:health": {
+        "value": 2,
+        "max": 2,
+        "min": 1
+      },
+      "minecraft:leashable": {
+				"soft_distance": 0.1,
+				"hard_distance": 1,
+				"max_distance": 128,
+				"can_be_stolen": false,
+				"on_unleash": {
+					"event": "godie",
+          "target": "self"
+				}
+			},
+      "minecraft:timer": {
+        "time": 8,
+        "time_down_event": {
+          "target": "self",
+          "event": "godie"
+        }
+      },
+      "minecraft:ageable": {
+        "duration": 0.1,
+        "grow_up": {
+          "event": "delay"
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 0.01,
+        "height": 0.01
+      },
+      "minecraft:physics": {}
+
+      //behavivors
+
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "coldsink:spawn_seat"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "scoreboard players operation @s smoker_time = tongue_count smoker_time",
+            "tag @s add neutral",
+            "ride @s start_riding @e[type=!player,family=smoker,c=1]"
+          ]
+        }
+      },
+      "delay": {
+        "queue_command": {
+          "command": [
+            "scoreboard players operation @e[type=coldsink:smoker_ride_ai_2,c=1] smoker_time = @s smoker_time"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

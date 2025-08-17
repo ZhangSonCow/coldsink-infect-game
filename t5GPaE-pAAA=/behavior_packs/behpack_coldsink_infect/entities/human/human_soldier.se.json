@@ -1,0 +1,714 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:human_soldier",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "animations": {
+        "death": "controller.animation.human_ai.func",
+        "jockey_control_timer": "animation.jockey_control_timer.func"
+      },
+      "scripts": {
+        "animate": [
+          "death"
+        ]
+      }
+    },
+
+    "component_groups": {
+
+      "godie": {
+        "minecraft:instant_despawn": {}
+      },
+      "coldsink:boomer.bile": {
+        "minecraft:is_stunned": {},
+        "minecraft:timer": {
+          "time": 8,
+          "time_down_event": {
+            "target": "self",
+            "event": "coldsink:boomer_bile_over"
+          }
+        }
+      },
+      "coldsink:jockey.control": {
+        "minecraft:out_of_control": {}
+      },
+
+      "stop_shoot_run": {
+        "minecraft:is_ignited": {},
+        "minecraft:behavior.avoid_mob_type": {
+          "priority": 1,
+          "max_dist": 5,
+          "max_flee": 10,
+          "remove_target": false,
+          "entity_types": [
+            {
+              "filters": {
+                "any_of": [
+                  {
+                    "all_of": [
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "monster"
+                      },
+                      {
+                        "test": "has_tag",
+                        "subject": "other",
+                        "operator": "!=",
+                        "value": "neutral"
+                      }
+                    ]
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "acid"
+                  }
+                ]
+              },
+              "max_dist": 3,
+              "walk_speed_multiplier": 1.28,
+              "sprint_speed_multiplier": 1.28
+            }
+          ]
+        },
+        "minecraft:ageable": {
+          "duration": 0.8,
+          "grow_up": {
+            "event": "start_shoot"
+          }
+        }
+      },
+      "start_shoot": {
+        "minecraft:target_nearby_sensor": {
+          "inside_range": 4,
+          "outside_range": 5,
+          "on_inside_range": {
+            "event": "stop_shoot_run",
+            "target": "self"
+          }
+        }
+      },
+      "weapon_1": {
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:movement": {
+          "value": 0.38
+        },
+        "minecraft:shooter": {
+          "def": "coldsink:bullet_ai_1"
+        },
+        "minecraft:behavior.ranged_attack": {
+          "priority": 2,
+          "attack_interval_min": 0.3,
+          "attack_interval_max": 0.4,
+          "burst_shots": 1,
+          "attack_radius": 108,
+          "swing": true
+        }
+      },
+      "weapon_2": {
+        "minecraft:variant": {
+          "value": 2
+        },
+        "minecraft:movement": {
+          "value": 0.4
+        },
+        "minecraft:shooter": {
+          "def": "coldsink:bullet_ai_2"
+        },
+        "minecraft:behavior.ranged_attack": {
+          "priority": 2,
+          "attack_interval_min": 0.1,
+          "attack_interval_max": 0.2,
+          "burst_shots": 1,
+          "attack_radius": 72,
+          "swing": true
+        }
+      },
+      "weapon_3": {
+        "minecraft:variant": {
+          "value": 3
+        },
+        "minecraft:movement": {
+          "value": 0.32
+        },
+        "minecraft:shooter": {
+          "def": "coldsink:bullet_ai_3"
+        },
+        "minecraft:behavior.ranged_attack": {
+          "priority": 2,
+          "attack_interval_min": 0.2,
+          "attack_interval_max": 0.3,
+          "burst_shots": 1,
+          "attack_radius": 88,
+          "swing": true
+        }
+      },
+      "weapon_4": {
+        "minecraft:variant": {
+          "value": 4
+        },
+        "minecraft:movement": {
+          "value": 0.34
+        },
+        "minecraft:shooter": {
+          "def": "coldsink:bullet_ai_4"
+        },
+        "minecraft:behavior.ranged_attack": {
+          "priority": 2,
+          "attack_interval_min": 1.2,
+          "attack_interval_max": 1.8,
+          "burst_shots": 1,
+          "attack_radius": 128,
+          "swing": true
+        }
+      },
+      "weapon_5": {
+        "minecraft:variant": {
+          "value": 5
+        },
+        "minecraft:movement": {
+          "value": 0.36
+        },
+        "minecraft:shooter": {
+          "def": "coldsink:bullet_ai_5"
+        },
+        "minecraft:behavior.ranged_attack": {
+          "priority": 2,
+          "attack_interval_min": 0.5,
+          "attack_interval_max": 0.8,
+          "burst_shots": 7,
+          "attack_radius": 64,
+          "swing": true
+        }
+      },
+
+      "melee_1": {
+        "minecraft:mark_variant": {
+          "value": 1
+        }
+      },
+      "melee_2": {
+        "minecraft:mark_variant": {
+          "value": 2
+        }
+      },
+      "melee_3": {
+        "minecraft:mark_variant": {
+          "value": 3
+        }
+      },
+      "melee_4": {
+        "minecraft:mark_variant": {
+          "value": 4
+        }
+      },
+      "melee_5": {
+        "minecraft:mark_variant": {
+          "value": 5
+        }
+      },
+
+      "skin_1": {
+        "minecraft:skin_id": {
+          "value": 0
+        }
+      },
+      "skin_2": {
+        "minecraft:skin_id": {
+          "value": 1
+        }
+      },
+      "skin_3": {
+        "minecraft:skin_id": {
+          "value": 2
+        }
+      },
+      "skin_4": {
+        "minecraft:skin_id": {
+          "value": 3
+        }
+      },
+      "skin_5": {
+        "minecraft:skin_id": {
+          "value": 4
+        }
+      },
+      "skin_6": {
+        "minecraft:skin_id": {
+          "value": 5
+        }
+      },
+      "skin_7": {
+        "minecraft:skin_id": {
+          "value": 6
+        }
+      },
+      "skin_8": {
+        "minecraft:skin_id": {
+          "value": 7
+        }
+      },
+      "skin_9": {
+        "minecraft:skin_id": {
+          "value": 8
+        }
+      },
+      "skin_10": {
+        "minecraft:skin_id": {
+          "value": 9
+        }
+      },
+      "skin_11": {
+        "minecraft:skin_id": {
+          "value": 10
+        }
+      },
+      "skin_12": {
+        "minecraft:skin_id": {
+          "value": 11
+        }
+      },
+      "skin_13": {
+        "minecraft:skin_id": {
+          "value": 12
+        }
+      },
+      "skin_14": {
+        "minecraft:skin_id": {
+          "value": 13
+        }
+      },
+      "skin_15": {
+        "minecraft:skin_id": {
+          "value": 14
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "sdc", "player", "human_ai" ]
+      },
+      "minecraft:behavior.avoid_mob_type": {
+        "priority": 0,
+        "max_dist": 5,
+        "max_flee": 6,
+        "remove_target": false,
+        "entity_types": [
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "acid"
+            },
+            "max_dist": 5,
+            "walk_speed_multiplier": 1.28,
+            "sprint_speed_multiplier": 1.28
+          }
+        ]
+      },
+      "minecraft:rideable": {
+        "family_types": [ "jockey_ai", "tool" ],
+        "controlling_seat": 1,
+        "seat_count": 10,
+        "seats": [
+          {
+            "position": [ 0, 1.6, 0 ]
+          }
+        ]
+      },
+      "minecraft:nameable": {
+        "always_show": false,
+        "allow_name_tag_renaming": true
+      },
+      "minecraft:health": {
+        "value": 20,
+        "max": 20
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:attack": {
+        "damage": 2
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.9
+      },
+      "minecraft:follow_range": {
+        "value": 1024
+      },
+      "minecraft:jump.static": {},
+      "minecraft:physics": {},
+      "minecraft:movement.basic": {},
+      "minecraft:pushable": {},
+      "minecraft:navigation.walk": {
+        "can_walk": true,
+        "can_pass_doors": true,
+        "can_open_doors": true,
+        "is_amphibious": true,
+        "can_float": true
+      },
+
+
+      //behavivors
+
+      "minecraft:behavior.trade_with_player": {},
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 1.2
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 7
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 5,
+        "look_distance": 8,
+        "probability": 0.02
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 2,
+        "max_dist": 64,
+        "entity_types": {
+          "filters": {
+            "all_of": [
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "player"
+              },
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "operator": "!=",
+                "value": "neutral"
+              }
+            ]
+          }
+        }
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "reselect_targets": true,
+        "scan_interval": 32,
+        "must_see": true,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "monster"
+                },
+                {
+                  "test": "has_tag",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "neutral"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "tool"
+                }
+              ]
+            },
+            "max_dist": 64
+          }
+        ]
+      },
+      "minecraft:behavior.melee_attack": {
+        "priority": 10,
+        "track_target": true
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      }
+    },
+
+    "events": {
+      "random_weapon": {
+        "sequence": [
+          {
+            "randomize": [
+              {
+                "weight": 20,
+                "add": {
+                  "component_groups": [
+                    "weapon_1"
+                  ]
+                }
+              },
+              {
+                "weight": 20,
+                "add": {
+                  "component_groups": [
+                    "weapon_2"
+                  ]
+                }
+              },
+              {
+                "weight": 20,
+                "add": {
+                  "component_groups": [
+                    "weapon_3"
+                  ]
+                }
+              },
+              {
+                "weight": 20,
+                "add": {
+                  "component_groups": [
+                    "weapon_4"
+                  ]
+                }
+              },
+              {
+                "weight": 20,
+                "add": {
+                  "component_groups": [
+                    "weapon_5"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "randomize": [
+              {
+                "weight": 20,
+                "add": {
+                  "component_groups": [
+                    "melee_1"
+                  ]
+                }
+              },
+              {
+                "weight": 20,
+                "add": {
+                  "component_groups": [
+                    "melee_2"
+                  ]
+                }
+              },
+              {
+                "weight": 20,
+                "add": {
+                  "component_groups": [
+                    "melee_3"
+                  ]
+                }
+              },
+              {
+                "weight": 20,
+                "add": {
+                  "component_groups": [
+                    "melee_4"
+                  ]
+                }
+              },
+              {
+                "weight": 20,
+                "add": {
+                  "component_groups": [
+                    "melee_5"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "add": {
+              "component_groups": [
+                "start_shoot"
+              ]
+            }
+          }
+        ]
+      },
+      "skin_1": {
+        "add": {
+          "component_groups": [
+            "skin_1"
+          ]
+        }
+      },
+      "skin_2": {
+        "add": {
+          "component_groups": [
+            "skin_2"
+          ]
+        }
+      },
+      "skin_3": {
+        "add": {
+          "component_groups": [
+            "skin_3"
+          ]
+        }
+      },
+      "skin_4": {
+        "add": {
+          "component_groups": [
+            "skin_4"
+          ]
+        }
+      },
+      "skin_5": {
+        "add": {
+          "component_groups": [
+            "skin_5"
+          ]
+        }
+      },
+      "skin_6": {
+        "add": {
+          "component_groups": [
+            "skin_6"
+          ]
+        }
+      },
+      "skin_7": {
+        "add": {
+          "component_groups": [
+            "skin_7"
+          ]
+        }
+      },
+      "skin_8": {
+        "add": {
+          "component_groups": [
+            "skin_8"
+          ]
+        }
+      },
+      "skin_9": {
+        "add": {
+          "component_groups": [
+            "skin_9"
+          ]
+        }
+      },
+      "skin_10": {
+        "add": {
+          "component_groups": [
+            "skin_10"
+          ]
+        }
+      },
+      "skin_11": {
+        "add": {
+          "component_groups": [
+            "skin_11"
+          ]
+        }
+      },
+      "skin_12": {
+        "add": {
+          "component_groups": [
+            "skin_12"
+          ]
+        }
+      },
+      "skin_13": {
+        "add": {
+          "component_groups": [
+            "skin_13"
+          ]
+        }
+      },
+      "skin_14": {
+        "add": {
+          "component_groups": [
+            "skin_14"
+          ]
+        }
+      },
+      "skin_15": {
+        "add": {
+          "component_groups": [
+            "skin_15"
+          ]
+        }
+      },
+      "start_shoot": {
+        "add": {
+          "component_groups": [
+            "start_shoot"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "stop_shoot_run"
+          ]
+        }
+      },
+      "stop_shoot_run": {
+        "add": {
+          "component_groups": [
+            "stop_shoot_run"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "start_shoot"
+          ]
+        }
+      },
+      "coldsink:jockey_control": {
+        "add": {
+          "component_groups": [
+            "coldsink:jockey.control"
+          ]
+        }
+      },
+      "coldsink:jockey_control_over": {
+        "remove": {
+          "component_groups": [
+            "coldsink:jockey.control"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tag @s remove jockey_riding"
+          ]
+        }
+      },
+      "coldsink:boomer_bile": {
+        "add": {
+          "component_groups": [
+            "coldsink:boomer.bile"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "effect @s slowness 10 2 true"
+          ]
+        }
+      },
+      "coldsink:boomer_bile_over": {
+        "remove": {
+          "component_groups": [
+            "coldsink:boomer.bile"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

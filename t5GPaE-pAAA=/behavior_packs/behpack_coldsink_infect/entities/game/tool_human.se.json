@@ -1,0 +1,121 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:tool_human",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:nameable": {
+      },
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:health": {
+        "value": 20,
+        "max": 20
+      },
+      "minecraft:collision_box": {
+          "width": 0.65,
+          "height": 1.6
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "on_damage": {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            }
+          },
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:movement": {
+        "value": 0.0
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "tag @s add 母体备选",
+            "tag @s add 终结者备选",
+            "tag @s add com_point"
+          ]
+        }
+      },
+      "infect": {
+        "queue_command": {
+          "command": [
+            "tag @r[type=player,tag=游戏中,family=player,tag=!母体,tag=!大母体] add 母体",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "infect_big": {
+        "queue_command": {
+          "command": [
+            "tag @r[type=player,tag=游戏中,family=player,tag=!母体,tag=!大母体] add 大母体",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "become_savior_hero": {
+        "queue_command": {
+          "command": [
+            "event entity @r[type=player,tag=游戏中,family=player,tag=!母体,tag=!大母体] coldsink:become_savior_hero",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "become_boss": {
+        "queue_command": {
+          "command": [
+            "tag @r[type=player,tag=游戏中,family=!player,tag=!neutral] add 终结者",
+            "scoreboard players random @p[tag=终结者] wp_random 1 2",
+            "event entity @p[tag=终结者,scores={wp_random=1}] coldsink:become_tnnk",
+            "event entity @p[tag=终结者,scores={wp_random=2}] coldsink:become_witch",
+            "tag * remove 终结者",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "spawn_com": {
+        "queue_command": {
+          "command": [
+            "tag @r[type=player,tag=游戏中,family=player,tag=!neutral] add spawn_com",
+            "execute @p[tag=spawn_com] ~~~ summon nacal_sdc:com ~~~ dirtout",
+            "execute @p[tag=spawn_com] ~~~ summon nacal_sdc:com ~~~ dirtout",
+            "execute @p[tag=spawn_com] ~~~ summon nacal_sdc:com ~~~ dirtout",
+            "execute @p[tag=spawn_com] ~~~ summon nacal_sdc:com ~~~ dirtout",
+            "execute @p[tag=spawn_com] ~~~ summon nacal_sdc:com ~~~ dirtout",
+            "tag @e remove spawn_com",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

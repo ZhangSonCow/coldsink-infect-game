@@ -1,0 +1,87 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.weapon_7_clip",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 8,
+				"visible_bounds_height": 5,
+				"visible_bounds_offset": [0, 1.5, 0]
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "waist",
+					"parent": "root",
+					"pivot": [0, 17, -6.3]
+				},
+				{
+					"name": "body",
+					"parent": "waist",
+					"pivot": [0, 29, -6.3]
+				},
+				{
+					"name": "rightArm",
+					"parent": "body",
+					"pivot": [-5, 22, 0]
+				},
+				{
+					"name": "reload",
+					"parent": "rightArm",
+					"pivot": [-4.87456, 12.72061, -2.71856],
+					"rotation": [-144.93726, -54.31555, -162.5719],
+					"cubes": [
+						{
+							"origin": [-5.14766, 12.91885, -2.23479],
+							"size": [2.2, 2, 1.5],
+							"pivot": [-6.14766, 13.79753, -1.10611],
+							"rotation": [-44.31282, 8.80348, 8.90928],
+							"uv": {
+								"north": {"uv": [26, 9], "uv_size": [2, 2]},
+								"east": {"uv": [14, 28], "uv_size": [1.5, 2]},
+								"south": {"uv": [26, 23], "uv_size": [2, 2]},
+								"west": {"uv": [16, 28], "uv_size": [1.5, 2]},
+								"up": {"uv": [20, 28], "uv_size": [2, 1.5]},
+								"down": {"uv": [22, 29.5], "uv_size": [2, -1.5]}
+							}
+						},
+						{
+							"origin": [-5.72529, 11.40507, -3.53411],
+							"size": [2.1, 2.5, 1.5],
+							"inflate": -0.01,
+							"pivot": [-4.72529, 12.65507, -2.78411],
+							"rotation": [-41.57338, 19.05681, 20.20848],
+							"uv": {
+								"north": {"uv": [24, 24], "uv_size": [2, 2.5]},
+								"east": {"uv": [0, 28], "uv_size": [1.5, 2.5]},
+								"south": {"uv": [0, 25], "uv_size": [2, 2.5]},
+								"west": {"uv": [2, 28], "uv_size": [1.5, 2.5]},
+								"up": {"uv": [28, 23], "uv_size": [2, 1.5]},
+								"down": {"uv": [24, 29.5], "uv_size": [2, -1.5]}
+							}
+						},
+						{
+							"origin": [-6.82529, 10.50507, -4.43411],
+							"size": [2, 2.5, 1.5],
+							"pivot": [-5.92529, 11.75507, -3.68411],
+							"rotation": [-28.24912, 36.6102, 47.98262],
+							"uv": {
+								"north": {"uv": [2, 25], "uv_size": [2, 2.5]},
+								"east": {"uv": [4, 28], "uv_size": [1.5, 2.5]},
+								"south": {"uv": [8, 25], "uv_size": [2, 2.5]},
+								"west": {"uv": [8, 28], "uv_size": [1.5, 2.5]},
+								"up": {"uv": [26, 28], "uv_size": [2, 1.5]},
+								"down": {"uv": [28, 28.5], "uv_size": [2, -1.5]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

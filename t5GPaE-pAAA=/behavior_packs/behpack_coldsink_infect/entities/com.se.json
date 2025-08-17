@@ -1,0 +1,1220 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "nacal_sdc:com",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "animations": {
+        "sp_1": "controller.animation.sp_1"
+      },
+      "scripts": {
+        "animate": [
+          "sp_1"
+        ]
+      }
+    },
+
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      },
+      "dirtout_countdown": {
+        "minecraft:skin_id": {
+          "value": 1
+        },
+        "minecraft:is_sheared": {},
+        "minecraft:timer": {
+          "time": 3,
+          "time_down_event": {
+            "event": "dirtout_over"
+          }
+        }
+      },
+      "fireman": {
+        "minecraft:fire_immune": {}
+      },
+      "detect_countdown": {
+        "minecraft:skin_id": {
+          "value": 2
+        },
+        "minecraft:timer": {
+          "time": 10,
+          "time_down_event": {
+            "event": "detect_over"
+          }
+        }
+      },
+      "detect_able": {
+        "minecraft:skin_id": {
+          "value": 0
+        }
+      },
+
+
+
+
+      //0=普通，1=黄防护服，2=绿防护服，3=特警，4=小丑，5=堕落幸存者，6=工人
+      "sp_type_0": {
+        "minecraft:variant": {
+          "value": 0
+        }
+      },
+      "sp_type_1": { //黄防护服
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:health": {
+          "value": 8,
+          "max": 8
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "fall",
+              "deals_damage": false
+            },
+            {
+              "cause": "fire",
+              "deals_damage": false
+            },
+            {
+              "cause": "fire_tick",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+      "sp_type_2": { //绿防护服
+        "minecraft:variant": {
+          "value": 2
+        },
+        "minecraft:health": {
+          "value": 8,
+          "max": 8
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "fall",
+              "deals_damage": false
+            },
+            {
+              "cause": "fire",
+              "deals_damage": false
+            },
+            {
+              "cause": "fire_tick",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+      "sp_type_3": { //特警
+        "minecraft:variant": {
+          "value": 3
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.9
+        },
+        "minecraft:health": {
+          "value": 20,
+          "max": 20
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "fall",
+              "deals_damage": false
+            },
+            {
+              "cause": "projectile",
+              "deals_damage": true,
+              "damage_multiplier": 0.4,
+              "on_damage": {
+                "event": "sp3_hurt",
+                "target": "self"
+              }
+            },
+            {
+              "cause": "entity_attack",
+              "deals_damage": true,
+              "damage_multiplier": 0.4,
+              "on_damage": {
+                "event": "sp3_hurt",
+                "target": "self"
+              }
+            }
+          ]
+        }
+      },
+      "sp_type_4": { //小丑
+        "minecraft:variant": {
+          "value": 4
+        },
+        "minecraft:movement": {
+          "value": 0.45
+        }
+      },
+      "sp_type_5": { //堕落幸存者
+        "minecraft:variant": {
+          "value": 5
+        },
+        "minecraft:health": {
+          "value": 30,
+          "max": 30
+        },
+        "minecraft:behavior.avoid_mob_type": {
+          "priority": 0,
+          "max_dist": 32,
+          "max_flee": 32,
+          "remove_target": false,
+          "entity_types": [
+            {
+              "filters": {
+                "test": "is_family",
+                "subject": "other",
+                "value": "player"
+              },
+              "max_dist": 32,
+              "walk_speed_multiplier": 1.8,
+              "sprint_speed_multiplier": 1.8
+            }
+          ]
+        }
+      },
+      "sp_type_6": { //工人
+        "minecraft:variant": {
+          "value": 6
+        },
+        "minecraft:attack": {
+          "damage": 3
+        },
+        "minecraft:behavior.nearest_prioritized_attackable_target": {
+          "priority": 2,
+          "within_radius": 32,
+          "reselect_targets": true,
+          "scan_interval": 50,
+          "must_see": false,
+          "must_see_forget_duration": 20.0,
+          "entity_types": [
+            {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "operator": "equals",
+                    "value": "bilebomb_hit"
+                  },
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "operator": "equals",
+                    "value": "boomer_bile"
+                  }
+                ]
+              },
+              "max_dist": 48,
+              "priority": 0,
+              "must_see": false
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "tool"
+                  },
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "neutral"
+                  },
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "no_any_hurt"
+                  }
+                ]
+              },
+              "max_dist": 48,
+              "priority": 1,
+              "must_see": false
+            },
+            {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "operator": "equals",
+                    "value": "bilebomb_attracting"
+                  }
+                ]
+              },
+              "max_dist": 48,
+              "priority": 2,
+              "must_see": false
+            }
+          ]
+        }
+      },
+      "target": {
+        "minecraft:on_target_acquired": {
+          "event": "has_target",
+          "target": "self"
+        },
+        "minecraft:on_target_escape": {
+          "event": "lost_target",
+          "target": "self"
+        },
+        "minecraft:behavior.nearest_prioritized_attackable_target": {
+          "priority": 2,
+          "within_radius": 32,
+          "reselect_targets": true,
+          "must_see": false,
+          "must_see_forget_duration": 20.0,
+          "scan_interval": 50,
+          "entity_types": [
+            {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "operator": "equals",
+                    "value": "bilebomb_hit"
+                  },
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "operator": "equals",
+                    "value": "boomer_bile"
+                  }
+                ]
+              },
+              "max_dist": 48,
+              "priority": 0,
+              "must_see": false
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "tool"
+                  },
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "neutral"
+                  },
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "no_any_hurt"
+                  }
+                ]
+              },
+              "max_dist": 48,
+              "priority": 1,
+              "must_see": false
+            },
+            {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "operator": "equals",
+                    "value": "bilebomb_attracting"
+                  }
+                ]
+              },
+              "max_dist": 48,
+              "priority": 2,
+              "must_see": false
+            },
+            {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "operator": "equals",
+                    "value": "pipebomb_attracting"
+                  }
+                ]
+              },
+              "max_dist": 48,
+              "priority": 3,
+              "must_see": false
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "generator"
+                  },
+                  {
+                    "test": "is_variant",
+                    "subject": "other",
+                    "operator": "=",
+                    "value": 1
+                  }
+                ]
+              },
+              "max_dist": 48,
+              "priority": 5,
+              "must_see": false
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "generator"
+                  },
+                  {
+                    "test": "is_variant",
+                    "subject": "other",
+                    "operator": "=",
+                    "value": 1
+                  }
+                ]
+              },
+              "max_dist": 16,
+              "priority": 5,
+              "must_see": false
+            }
+          ]
+        }
+      },
+      "you_are_adult": { //成年体
+        "minecraft:health": {
+          "value": 5,
+          "max": 5
+        },
+        "minecraft:movement": {
+          "value": 0.38
+        },
+        "minecraft:attack": {
+          "damage": 1
+        },
+        "minecraft:scale": {
+          "value": 1.0
+        }
+      },
+      "you_are_so_baby": { //幼年体
+        "minecraft:health": {
+          "value": 4,
+          "max": 4
+        },
+        "minecraft:movement": {
+          "value": 0.39
+        },
+        "minecraft:attack": {
+          "damage": 1
+        },
+        "minecraft:scale": {
+          "value": 0.75
+        }
+      },
+      "you_are_super_baby": { //幼年体
+        "minecraft:health": {
+          "value": 4,
+          "max": 4
+        },
+        "minecraft:movement": {
+          "value": 0.4
+        },
+        "minecraft:attack": {
+          "damage": 2
+        },
+        "minecraft:scale": {
+          "value": 0.5
+        }
+      },
+      "you_are_so_beautiful": { //只因体（雾
+        "minecraft:health": {
+          "value": 10,
+          "max": 10
+        },
+        "minecraft:movement": {
+          "value": 0.4
+        },
+        "minecraft:attack": {
+          "damage": 2
+        },
+        "minecraft:scale": {
+          "value": 1.15
+        }
+      },
+      "walk": {
+        "minecraft:navigation.walk": {
+          "can_walk": true,
+          "can_pass_doors": true,
+          "can_break_doors": true,
+          "is_amphibious": true,
+          "avoid_damage_blocks": false
+        }
+      },
+      "climb": {
+        "minecraft:navigation.climb": {
+          "can_path_over_water": true,
+          "blocks_to_avoid": [
+            "minecraft:barrier"
+          ]
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "sdc", "monster", "mob", "common", "com_zombie" ]
+      },
+
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test":"has_damage",
+                    "value":"attack"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "monster"
+                  },
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "is_hero"
+                  }
+                ]
+              },
+              "event": "knockback",
+              "target": "self"
+            }
+          },
+          {
+            "cause": "fall",
+            "deals_damage": false
+          },
+          {
+            "cause": "fire",
+            "deals_damage": true,
+            "damage_multiplier": 3.0
+          },
+          {
+            "cause": "fire_tick",
+            "deals_damage": true,
+            "damage_multiplier": 3.0
+          }
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.7
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/parts0_1.json"
+      },
+      "minecraft:follow_range": {
+        "value": 1024
+      },
+      /*"minecraft:target_nearby_sensor": {
+        "inside_range": 31.0,
+        "outside_range": 32.0,
+        "on_inside_range": {
+          "event": "has_target",
+          "target": "self"
+        },
+        "on_outside_range": {
+          "event": "lost_target",
+          "target": "self"
+        }
+      },*/
+
+      "minecraft:can_climb": {},
+      "minecraft:physics": {},
+      "minecraft:jump.static": {},
+      "minecraft:movement.basic": {},
+      "minecraft:pushable": {},
+
+
+
+      //behavivors
+
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 0.8
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 7
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 7,
+        "look_distance": 6,
+        "probability": 0.02
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "entity_types": {
+          "filters": {
+            "all_of": [
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "monster"
+              }
+            ]
+          }
+        },
+        "max_dist": 64
+      },
+      "minecraft:behavior.delayed_attack": {
+        "priority": 0,
+        "attack_once": false,
+        "track_target": true,
+        "require_complete_path": false,
+        "random_stop_interval": 0,
+        "reach_multiplier": 4,
+        "speed_multiplier": 1,
+        "attack_duration": 0.8,
+        "hit_delay_pct": 0.5
+      }
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "sequence": [
+          {
+            "add": {
+              "component_groups": [
+                "walk",
+                "target",
+                "detect_able"
+              ]
+            }
+          },
+          {
+            "randomize": [ //随机体型
+              {
+                "weight": 90,
+                "add": {
+                  "component_groups": [
+                    "you_are_adult"
+                  ]
+                }
+              },
+              {
+                "weight": 8,
+                "add": {
+                  "component_groups": [
+                    "you_are_so_baby"
+                  ]
+                }
+              },
+              {
+                "weight": 2,
+                "add": {
+                  "component_groups": [
+                    "you_are_so_beautiful"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "randomize": [ //随机特殊体
+              //0=普通，1=黄防护服，2=绿防护服，3=特警，4=小丑，5=堕落幸存者，6=工人
+              {
+                "weight": 900,
+                "add": {
+                  "component_groups": [
+                    "sp_type_0"
+                  ]
+                }
+              },
+              {
+                "weight": 8,
+                "add": {
+                  "component_groups": [
+                    "sp_type_1"
+                  ]
+                }
+              },
+              {
+                "weight": 8,
+                "add": {
+                  "component_groups": [
+                    "sp_type_2"
+                  ]
+                }
+              },
+              {
+                "weight": 16,
+                "add": {
+                  "component_groups": [
+                    "sp_type_3"
+                  ]
+                }
+              },
+              {
+                "weight": 16,
+                "add": {
+                  "component_groups": [
+                    "sp_type_4"
+                  ]
+                }
+              },
+              {
+                "weight": 4,
+                "add": {
+                  "component_groups": [
+                    "sp_type_5"
+                  ]
+                },
+                "remove": {
+                  "component_groups": [
+                    "target"
+                  ]
+                }
+              },
+              {
+                "weight": 16,
+                "add": {
+                  "component_groups": [
+                    "sp_type_6"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "dirtout": {
+        "sequence": [
+          {
+            "add": {
+              "component_groups": [
+                "dirtout_countdown"
+              ]
+            }
+          },
+          {
+            "randomize": [ //随机体型
+              {
+                "weight": 90,
+                "add": {
+                  "component_groups": [
+                    "you_are_adult"
+                  ]
+                }
+              },
+              {
+                "weight": 9,
+                "add": {
+                  "component_groups": [
+                    "you_are_so_baby"
+                  ]
+                }
+              },
+              {
+                "weight": 1,
+                "add": {
+                  "component_groups": [
+                    "you_are_so_beautiful"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "randomize": [ //随机特殊体
+              //0=普通，1=黄防护服，2=绿防护服，3=特警，4=小丑，5=堕落幸存者，6=工人
+              {
+                "weight": 900,
+                "add": {
+                  "component_groups": [
+                    "sp_type_0"
+                  ]
+                }
+              },
+              {
+                "weight": 8,
+                "add": {
+                  "component_groups": [
+                    "sp_type_1"
+                  ]
+                }
+              },
+              {
+                "weight": 8,
+                "add": {
+                  "component_groups": [
+                    "sp_type_2"
+                  ]
+                }
+              },
+              {
+                "weight": 16,
+                "add": {
+                  "component_groups": [
+                    "sp_type_3"
+                  ]
+                }
+              },
+              {
+                "weight": 16,
+                "add": {
+                  "component_groups": [
+                    "sp_type_4"
+                  ]
+                }
+              },
+              {
+                "weight": 4,
+                "add": {
+                  "component_groups": [
+                    "sp_type_5"
+                  ]
+                },
+                "remove": {
+                  "component_groups": [
+                    "target"
+                  ]
+                }
+              },
+              {
+                "weight": 16,
+                "add": {
+                  "component_groups": [
+                    "sp_type_6"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "dirtout_over": {
+        "remove": {
+          "component_groups": [
+            "dirtout_countdown"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "walk",
+            "target",
+            "detect_able"
+          ]
+        }
+      },
+      "become_sp0": {
+        "add": {
+          "component_groups": [
+            "walk",
+            "target",
+            "you_are_adult",
+            "sp_type_0",
+            "detect_able"
+          ]
+        }
+      },
+      "become_sp1": {
+        "add": {
+          "component_groups": [
+            "walk",
+            "target",
+            "you_are_adult",
+            "sp_type_1",
+            "detect_able"
+          ]
+        }
+      },
+      "become_sp2": {
+        "add": {
+          "component_groups": [
+            "walk",
+            "target",
+            "you_are_adult",
+            "sp_type_2",
+            "detect_able"
+          ]
+        }
+      },
+      "become_sp3": {
+        "add": {
+          "component_groups": [
+            "walk",
+            "target",
+            "you_are_adult",
+            "sp_type_3",
+            "detect_able"
+          ]
+        }
+      },
+      "become_sp4": {
+        "add": {
+          "component_groups": [
+            "walk",
+            "target",
+            "you_are_adult",
+            "sp_type_4",
+            "detect_able"
+          ]
+        }
+      },
+      "become_sp5": {
+        "add": {
+          "component_groups": [
+            "walk",
+
+            "you_are_adult",
+            "sp_type_5",
+            "detect_able"
+          ]
+        }
+      },
+      "become_sp6": {
+        "add": {
+          "component_groups": [
+            "walk",
+            "target",
+            "you_are_adult",
+            "sp_type_6",
+            "detect_able"
+          ]
+        }
+      },
+      "has_target": {
+        "remove": {
+          "component_groups": [
+            "walk"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "climb"
+          ]
+        }
+      },
+      "lost_target": {
+        "remove": {
+          "component_groups": [
+            "climb"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "walk"
+          ]
+        }
+      },
+      "turn_sp3": {
+        "add": {
+          "component_groups": [
+            "sp_type_3"
+          ]
+        }
+      },
+      "sp3_hurt": {
+        "queue_command": {
+          "command": [
+            "particle nacal_sdc:com_spark ~~~ ",
+            "playsound sdc.common.riot @a ~~~ 1 0.8"
+          ]
+        }
+      },
+      "event_smoke": {
+        "sequence": [
+          {
+            "randomize": [ //随机烟雾
+              {
+                "weight": 50,
+                "queue_command": {
+                  "command": [
+                    "tag @s add boomsnoke"
+                  ]
+                }
+              },
+              {
+                "weight": 50,
+                "queue_command": {
+                  "command": [
+                    "tag @s remove boomsnoke"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "event_small": {
+        "sequence": [
+          {
+            "randomize": [ //随机体型
+              {
+                "weight": 75,
+                "queue_command": {
+                  "command": [
+                    "event entity @s[tag=!trysmall] event_small_2",
+                    "tag @s add trysmall"
+                  ]
+                }
+              },
+              {
+                "weight": 25,
+                "queue_command": {
+                  "command": [
+                    "event entity @s[tag=!trysmall] event_small_3",
+                    "tag @s add trysmall"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "event_small_2": {
+        "add": {
+          "component_groups": [
+            "you_are_so_baby"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "you_are_adult",
+            "you_are_so_beautiful"
+          ]
+        }
+      },
+      "event_small_3": {
+        "add": {
+          "component_groups": [
+            "you_are_super_baby"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "you_are_adult",
+            "you_are_so_beautiful"
+          ]
+        }
+      },
+      "event_acid": {
+        "sequence": [
+          {
+            "randomize": [ //随机酸液
+              {
+                "weight": 25,
+                "queue_command": {
+                  "command": [
+                    "tag @s add acid"
+                  ]
+                }
+              },
+              {
+                "weight": 75,
+                "queue_command": {
+                  "command": [
+                    "tag @s remove acid"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "event_exp": {
+        "sequence": [
+          {
+            "randomize": [ //随机爆炸
+              {
+                "weight": 50,
+                "queue_command": {
+                  "command": [
+                    "tag @s add exp"
+                  ]
+                }
+              },
+              {
+                "weight": 50,
+                "queue_command": {
+                  "command": [
+                    "tag @s remove exp"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "event_fire": {
+        "sequence": [
+          {
+            "add": {
+              "component_groups": [
+                "fireman"
+              ]
+            }
+          },
+          {
+            "randomize": [ //随机爆火
+              {
+                "weight": 25,
+                "queue_command": {
+                  "command": [
+                    "tag @s add fire"
+                  ]
+                }
+              },
+              {
+                "weight": 75,
+                "queue_command": {
+                  "command": [
+                    "tag @s remove fire"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "event_heavy": {
+        "sequence": [
+          {
+            "randomize": [ //随机装甲
+              {
+                "weight": 20,
+                "queue_command": {
+                  "command": [
+                    "event entity @s[tag=!tryheavy] turn_sp3",
+                    "tag @s add tryheavy"
+                  ]
+                }
+              },
+              {
+                "weight": 80,
+                "queue_command": {
+                  "command": [
+                    "tag @s add tryheavy"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "event_undead": {
+        "sequence": [
+          {
+            "randomize": [ //随机复活
+              {
+                "weight": 70,
+                "queue_command": {
+                  "command": [
+                    "tag @s add undead"
+                  ]
+                }
+              },
+              {
+                "weight": 30,
+                "queue_command": {
+                  "command": [
+                    "tag @s remove undead"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "detect_start": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "is_skin_id",
+              "subject": "self",
+              "operator": "!=",
+              "value": 1
+            },
+            "add": {
+              "component_groups": [
+                "detect_countdown"
+              ]
+            },
+            "remove": {
+              "component_groups": [
+                "detect_able"
+              ]
+            }
+          }
+        ]
+      },
+      "detect_over": {
+        "add": {
+          "component_groups": [
+            "detect_able"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "detect_countdown"
+          ]
+        }
+      },
+      "knockback":{
+        "queue_command": {
+          "command": [
+            "effect @s slowness 2 3 true"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

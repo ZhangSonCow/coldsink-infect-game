@@ -1,0 +1,69 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "nacal_tac:detect_playerstep",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "detect_die": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "tac", "tool" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:is_baby": {},
+      "minecraft:ageable": {
+        "duration": 1.4,
+        "grow_up": {
+          "event": "detect_die"
+        }
+      },
+      "minecraft:timer": {
+        "time": 0.05,
+        "time_down_event": {
+          "event": "testfor",
+          "target": "self"
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 0,
+        "height": 0
+      }
+
+      //behavivors
+
+    },
+
+    "events": {
+      "testfor": {
+        "queue_command": {
+          "command": [
+            "tag @s add neutral",
+            "scoreboard players set @s bool 0",
+            "execute @e[family=!player,tag=!neutral,r=2.4,c=1] ~~~ scoreboard players set @e[type=nacal_tac:detect_playerstep,c=1] bool 1",
+            "event entity @s[scores={bool=0}] detect_die"
+          ]
+        }
+      },
+      "detect_die": {
+        "add": {
+          "component_groups": [
+            "detect_die"
+          ]
+        }
+      }
+    }
+  }
+}

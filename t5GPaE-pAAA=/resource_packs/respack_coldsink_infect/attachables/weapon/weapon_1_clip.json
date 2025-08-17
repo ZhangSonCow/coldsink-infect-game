@@ -1,0 +1,33 @@
+﻿{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "coldsink:weapon_1_clip",
+      "materials": {
+        "default": "entity_alphatest",
+        "netease_entity_metallic": "netease_entity_alphatest_metallic"
+      },
+      "textures": {
+        "default": "textures/entity/weapon_1"
+      },
+      "geometry": {
+        "default": "geometry.weapon_1_clip"
+      },
+      "animations": {
+        "third": "animation.wield_mainhand_big",
+        "first": "animation.first_person_wield_mainhand_big"
+      },
+      "scripts": {
+        "animate": [
+          {
+            "third": "c.is_first_person == 0 "
+          },
+          {
+            "first": "c.is_first_person == 1 "
+          }
+        ]
+      },
+      "render_controllers": [ "controller.render.netease_entity_metallic" ]
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.charger_ai.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"death": "!q.is_alive"
+						}
+					]
+				},
+				"death": {
+					"on_entry": [
+						"/execute @s ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§7【Charger】 [\"},{\"selector\":\"@s\"},{\"text\":\"] 死亡！\"}]}",
+						"/execute @s[tag=游戏中] ~~~ playsound charger.death @a",
+						"/execute @s[tag=!游戏中] ~~~ playsound charger.death @a[r=32]",
+						"/summon coldsink:dead_charger",
+						"/execute @s[tag=!melee_damage] ~~~ event entity @e[type=coldsink:dead_charger,c=1] despawn",
+						"/execute @s[tag=melee_damage,tag=melee_no_kill] ~~~ event entity @e[type=coldsink:dead_charger,c=1] despawn",
+						"/execute @s[tag=melee_damage,tag=!melee_no_kill] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§b\"},{\"selector\":\"@s\"},{\"text\":\" 被近战武器杀死，本局无法复活\"}]}",
+						"/execute @s[tag=melee_damage,tag=!melee_no_kill] ~~~ playsound sfzombie_killed @a",
+						"/execute @s[tag=melee_damage,tag=!melee_no_kill] ~~~ function game/dead_keep_score",
+
+						"/tag @s[tag=melee_no_kill] remove melee_damage",
+
+						"/execute @s[tag=!melee_damage,name=忆知艾郎得晓愣沉] ~~~ summon coldsink:respawn_sfzombie 忆知艾郎得晓愣沉",
+						"/execute @s[tag=!melee_damage,name=绿画娜] ~~~ summon coldsink:respawn_sfzombie 绿画娜",
+						"/execute @s[tag=!melee_damage,name=飙啼菌] ~~~ summon coldsink:respawn_sfzombie 飙啼菌",
+						"/execute @s[tag=!melee_damage,name=普罗陀] ~~~ summon coldsink:respawn_sfzombie 普罗陀",
+						"/execute @s[tag=!melee_damage,name=狼掏谜纸] ~~~ summon coldsink:respawn_sfzombie 狼掏谜纸",
+						"/execute @s[tag=!melee_damage,name=鸡姬] ~~~ summon coldsink:respawn_sfzombie 鸡姬",
+						"/execute @s[tag=!melee_damage,name=禽疯] ~~~ summon coldsink:respawn_sfzombie 禽疯",
+						"/execute @s[tag=!melee_damage,name=佬僵] ~~~ summon coldsink:respawn_sfzombie 佬僵",
+						"/execute @s[tag=!melee_damage,name=集锋迫小] ~~~ summon coldsink:respawn_sfzombie 集锋迫小",
+						"/execute @s[tag=!melee_damage,name=瘤皇蒜黄] ~~~ summon coldsink:respawn_sfzombie 瘤皇蒜黄",
+						"/execute @s[tag=!melee_damage,name=水药] ~~~ summon coldsink:respawn_sfzombie 水药",
+						"/execute @s[tag=!melee_damage,name=麟蔑] ~~~ summon coldsink:respawn_sfzombie 麟蔑",
+						"/execute @s[tag=!melee_damage,name=碍登] ~~~ summon coldsink:respawn_sfzombie 碍登",
+						"/execute @s[tag=!melee_damage,name=牛腩面面] ~~~ summon coldsink:respawn_sfzombie 牛腩面面",
+						"/execute @s[tag=!melee_damage,name=蚕币] ~~~ summon coldsink:respawn_sfzombie 蚕币",
+
+						// 分数同步
+						"/scoreboard players operation @e[type=!coldsink:charger_ai,name=忆知艾郎得晓愣沉,c=1] game_score = @s[name=忆知艾郎得晓愣沉] game_score",
+						"/scoreboard players operation @e[type=!coldsink:charger_ai,name=绿画娜,c=1] game_score = @s[name=绿画娜] game_score",
+						"/scoreboard players operation @e[type=!coldsink:charger_ai,name=飙啼菌,c=1] game_score = @s[name=飙啼菌] game_score",
+						"/scoreboard players operation @e[type=!coldsink:charger_ai,name=普罗陀,c=1] game_score = @s[name=普罗陀] game_score",
+						"/scoreboard players operation @e[type=!coldsink:charger_ai,name=狼掏谜纸,c=1] game_score = @s[name=狼掏谜纸] game_score",
+						"/scoreboard players operation @e[type=!coldsink:charger_ai,name=鸡姬,c=1] game_score = @s[name=鸡姬] game_score",
+						"/scoreboard players operation @e[type=!coldsink:charger_ai,name=禽疯,c=1] game_score = @s[name=禽疯] game_score",
+						"/scoreboard players operation @e[type=!coldsink:charger_ai,name=佬僵,c=1] game_score = @s[name=佬僵] game_score",
+						"/scoreboard players operation @e[type=!coldsink:charger_ai,name=集锋迫小,c=1] game_score = @s[name=集锋迫小] game_score",
+						"/scoreboard players operation @e[type=!coldsink:charger_ai,name=瘤皇蒜黄,c=1] game_score = @s[name=瘤皇蒜黄] game_score",
+						"/scoreboard players operation @e[type=!coldsink:charger_ai,name=水药,c=1] game_score = @s[name=水药] game_score",
+						"/scoreboard players operation @e[type=!coldsink:charger_ai,name=麟蔑,c=1] game_score = @s[name=麟蔑] game_score",
+						"/scoreboard players operation @e[type=!coldsink:charger_ai,name=碍登,c=1] game_score = @s[name=碍登] game_score",
+						"/scoreboard players operation @e[type=!coldsink:charger_ai,name=牛腩面面,c=1] game_score = @s[name=牛腩面面] game_score",
+						"/scoreboard players operation @e[type=!coldsink:charger_ai,name=蚕币,c=1] game_score = @s[name=蚕币] game_score",
+						
+						"/event entity @s godie"
+					]
+				}
+			}
+		}
+	}
+}

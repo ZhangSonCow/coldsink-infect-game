@@ -1,0 +1,25 @@
+{
+	"format_version": "1.18.0",
+	"animation_controllers": {
+		"controller.animation.boss_bgm.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"bgm": "q.property('coldsink:boss_bgm')"
+						}
+					]
+				},
+				"bgm": {
+					"animations": [ "boss_bgm" ],
+					"transitions": [
+						{
+							"default": "!q.property('coldsink:boss_bgm')"
+						}
+					]
+				}
+			}
+		}
+	}
+}

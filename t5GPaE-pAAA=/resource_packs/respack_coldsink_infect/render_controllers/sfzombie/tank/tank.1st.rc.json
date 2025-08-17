@@ -1,0 +1,15 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.tank.1st": {
+      "geometry": "geometry.tank.1st",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "textures": [ "texture.tank_rock" ],
+      "is_hurt_color": {}
+    }
+  }
+}

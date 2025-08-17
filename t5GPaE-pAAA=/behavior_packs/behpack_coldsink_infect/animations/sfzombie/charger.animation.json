@@ -1,0 +1,66 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.charger_attack_light.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.65": [
+          "/tag @s add charger_self",
+
+          "/execute @s[tag=maper] ^^1.5^ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=4] ~~~ playsound get_target @p[tag=charger_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=4] 4 suicide",
+
+          "/execute @s[tag=!maper] ^^1.5^ execute @e[tag=!charger_self,family=!tool,type=!item,r=4] ~~~ playsound get_target @p[tag=charger_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^1.5^ damage @e[tag=!charger_self,family=!tool,type=!item,r=4] 10 suicide",
+          
+          "/tag @s remove charger_self"
+        ],
+        "1.5": [
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.charger_attack_heavy.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.0": [
+          "/scoreboard players random @s wp_random 1 3",
+          "/tag @s add self",
+          "/execute @s[scores={wp_random=1},tag=!sound_interval] ~~~ playsound charger.attack_big_1 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=2},tag=!sound_interval] ~~~ playsound charger.attack_big_2 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=3},tag=!sound_interval] ~~~ playsound charger.attack_big_3 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=1},tag=!sound_interval] ~~~ playsound charger.attack_big_1.self @s",
+          "/execute @s[scores={wp_random=2},tag=!sound_interval] ~~~ playsound charger.attack_big_2.self @s",
+          "/execute @s[scores={wp_random=3},tag=!sound_interval] ~~~ playsound charger.attack_big_3.self @s",
+          "/tag @s remove self",
+          "/tag @s add sound_interval"
+        ],
+        "1.8": [
+          "/tag @s add charger_self",
+
+          "/execute @s[tag=maper] ^^2.5^ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=6] ~~~ playsound get_target @p[tag=charger_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=6] 6 suicide",
+
+          "/execute @s[tag=!maper] ^^2.5^ execute @e[tag=!charger_self,family=!tool,type=!item,r=6] ~~~ playsound get_target @p[tag=charger_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^2.5^ damage @e[tag=!charger_self,family=!tool,type=!item,r=6] 18 suicide",
+          
+          "/tag @s remove charger_self"
+        ],
+        "2.08": [
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.charger_skill_timer.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "4.0": [
+          "/event entity @s action_clear"
+        ]
+      }
+    }
+  }
+}

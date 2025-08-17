@@ -1,0 +1,210 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.witch": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "witch_idle.arm" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"move": "query.modified_move_speed > 0.1"
+						},
+						{
+							"cry": "!q.property('coldsink:freeze') && q.property('coldsink:action_status') == 4"
+						},
+						{
+							"attack_1": "!q.property('coldsink:freeze') && v.attack_time && !q.is_saddled && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "!q.property('coldsink:freeze') && v.attack_time && !q.is_saddled && variable.random_choices >= 50"
+						},
+						{
+							"attack_3": "!q.property('coldsink:freeze') && v.attack_time && q.is_saddled"
+						}
+					]
+				},
+				"move": {
+					"animations": [ "witch_move.arm" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "query.modified_move_speed <= 0.1"
+						},
+						{
+							"attack_1": "v.attack_time && !q.is_saddled && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && !q.is_saddled && variable.random_choices >= 50"
+						},
+						{
+							"attack_3": "v.attack_time && q.is_saddled"
+						}
+					]
+				},
+				"cry": {
+					"animations": [ "witch_cry.arm" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				},
+				"attack_1": {
+					"animations": [ "witch_attack1" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					]
+				},
+				"attack_2": {
+					"animations": [ "witch_attack2" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					]
+				},
+				"attack_3": {
+					"animations": [ "witch_attack3" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.witch.1st": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "witch_idle.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"attack_1": "!q.property('coldsink:freeze') && v.attack_time && !q.is_saddled && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "!q.property('coldsink:freeze') && v.attack_time && !q.is_saddled && variable.random_choices >= 50"
+						},
+						{
+							"attack_3": "!q.property('coldsink:freeze') && v.attack_time && q.is_saddled"
+						}
+					]
+				},
+				"attack_1": {
+					"animations": [ "witch_attack1.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					]
+				},
+				"attack_2": {
+					"animations": [ "witch_attack2.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					]
+				},
+				"attack_3": {
+					"animations": [ "witch_attack3.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					]
+				}
+			}
+		},
+
+		"controller.animation.witch.walk": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "witch_idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"walk": "q.modified_move_speed > 0.1"
+						},
+						{
+							"cry": "q.property('coldsink:action_status') == 4"
+						}
+					]
+				},
+				"walk": {
+					"animations": [ "witch_move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.modified_move_speed <= 0.1"
+						}
+					]
+				},
+				"cry": {
+					"animations": [ "witch_cry.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') != 4"
+						}
+					]
+				}
+			}
+		},
+
+		"controller.animation.witch.skill": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"skill": "q.property('coldsink:time_skill')"
+						}
+					]
+				},
+				"skill": {
+					"animations": [ "witch.skill" ],
+					"transitions": [
+						{
+							"default": "!q.property('coldsink:time_skill')"
+						}
+					]
+				}
+			}
+		},
+
+		"controller.animation.witch.skill.1st": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"skill": "q.property('coldsink:time_skill')"
+						}
+					]
+				},
+				"skill": {
+					"animations": [ "witch.skill.1st" ],
+					"transitions": [
+						{
+							"default": "!q.property('coldsink:time_skill')"
+						}
+					]
+				}
+			}
+		}
+	}
+}

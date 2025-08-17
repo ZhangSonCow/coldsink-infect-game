@@ -1,0 +1,32 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:dead_fist_hero",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "animations": {
+        "dead": "animation.fist_hero.dead"
+      },
+      "scripts": {
+        "initialize": [
+          "variable.dead_random=math.random(0, 1);"
+        ],
+        "animate": [
+          "dead"
+        ]
+      },
+      "textures": {
+        "default": "textures/entity/fist_hero"
+      },
+      "geometry": {
+        "default": "geometry.fist_hero"
+      },
+      "render_controllers": [ "controller.render.com" ],
+      "spawn_egg": {
+        "texture": "spawn_fist_hero"
+      }
+    }
+  }
+}

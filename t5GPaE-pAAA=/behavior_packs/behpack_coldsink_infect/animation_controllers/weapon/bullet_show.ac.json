@@ -1,0 +1,149 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.bullet.show": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"show_1": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_1')"
+						},
+						{
+							"show_2": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_2')"
+						},
+						{
+							"show_3": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_3')"
+						},
+						{
+							"show_4": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4')"
+						},
+						{
+							"show_5": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_5')"
+						},
+						{
+							"show_6": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_6')"
+						},
+						{
+							"show_7": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_7')"
+						},
+						{
+							"show_savior_1": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1')"
+						},
+						{
+							"show_savior_2": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2')"
+						}
+					]
+				},
+				"show_1": {
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_1')"
+						}
+					],
+					"on_entry": [
+						"/titleraw @s[tag=maper] actionbar {\"rawtext\":[{\"text\":\"§f< §b\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_1\"}},{\"text\":\"§f / §b\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_back\"}},{\"text\":\"§f >\"}]}",
+						"/titleraw @s[tag=!maper] actionbar {\"rawtext\":[{\"text\":\"§f< §b\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_1\"}},{\"text\":\"§f / §b30\"},{\"text\":\"§f >\"}]}",
+						"/event entity @s[scores={bullet_1=1..}] action_clear"
+					]
+				},
+				"show_2": {
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_2')"
+						}
+					],
+					"on_entry": [
+						"/titleraw @s[tag=maper] actionbar {\"rawtext\":[{\"text\":\"§f< §e\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_2\"}},{\"text\":\"§f / §e\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_back\"}},{\"text\":\"§f >\"}]}",
+						"/titleraw @s[tag=!maper] actionbar {\"rawtext\":[{\"text\":\"§f< §e\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_2\"}},{\"text\":\"§f / §e50\"},{\"text\":\"§f >\"}]}",
+						"/event entity @s[scores={bullet_2=1..}] action_clear"
+					]
+				},
+				"show_3": {
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_3')"
+						}
+					],
+					"on_entry": [
+						"/titleraw @s[tag=maper] actionbar {\"rawtext\":[{\"text\":\"§f< §c\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_3\"}},{\"text\":\"§f / §c\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_back\"}},{\"text\":\"§f >\"}]}",
+						"/titleraw @s[tag=!maper] actionbar {\"rawtext\":[{\"text\":\"§f< §c\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_3\"}},{\"text\":\"§f / §c100\"},{\"text\":\"§f >\"}]}",
+						"/event entity @s[scores={bullet_3=1..}] action_clear"
+					]
+				},
+				"show_4": {
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4')"
+						}
+					],
+					"on_entry": [
+						"/titleraw @s[tag=maper] actionbar {\"rawtext\":[{\"text\":\"§f< §d\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_4\"}},{\"text\":\"§f / §d\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_back\"}},{\"text\":\"§f >\"}]}",
+						"/titleraw @s[tag=!maper] actionbar {\"rawtext\":[{\"text\":\"§f< §d\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_4\"}},{\"text\":\"§f / §d10\"},{\"text\":\"§f >\"}]}",
+						"/event entity @s[scores={bullet_4=1..}] action_clear"
+					]
+				},
+				"show_5": {
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_5')"
+						}
+					],
+					"on_entry": [
+						"/titleraw @s[tag=maper] actionbar {\"rawtext\":[{\"text\":\"§f< §a\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_5\"}},{\"text\":\"§f / §a\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_back\"}},{\"text\":\"§f >\"}]}",
+						"/titleraw @s[tag=!maper] actionbar {\"rawtext\":[{\"text\":\"§f< §a\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_5\"}},{\"text\":\"§f / §a15\"},{\"text\":\"§f >\"}]}",
+						"/event entity @s[scores={bullet_5=1..}] action_clear"
+					]
+				},
+				"show_6": {
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_6')"
+						}
+					],
+					"on_entry": [
+						"/titleraw @s[tag=maper] actionbar {\"rawtext\":[{\"text\":\"§f< §7\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_6\"}},{\"text\":\"§f / §7\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_back_sp\"}},{\"text\":\"§f >§7\"}]}",
+						"/titleraw @s[tag=!maper] actionbar {\"rawtext\":[{\"text\":\"§f< §7\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_6\"}},{\"text\":\"§f / §73\"},{\"text\":\"§f >§7\"}]}",
+						"/event entity @s[scores={bullet_6=1..}] action_clear"
+					]
+				},
+				"show_7": {
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_7')"
+						}
+					],
+					"on_entry": [
+						"/titleraw @s[tag=maper] actionbar {\"rawtext\":[{\"text\":\"§f< §6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_7\"}},{\"text\":\"§f / §6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_back\"}},{\"text\":\"§f >\"}]}",
+						"/titleraw @s[tag=!maper] actionbar {\"rawtext\":[{\"text\":\"§f< §6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_7\"}},{\"text\":\"§f / §635\"},{\"text\":\"§f >\"}]}",
+						"/event entity @s[scores={bullet_7=1..}] action_clear"
+					]
+				},
+				"show_savior_1": {
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1')"
+						}
+					],
+					"on_entry": [
+						"/titleraw @s[tag=maper] actionbar {\"rawtext\":[{\"text\":\"§f< §6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_hero\"}},{\"text\":\"§f / §6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_back\"}},{\"text\":\"§f >\"}]}",
+						"/titleraw @s[tag=!maper] actionbar {\"rawtext\":[{\"text\":\"§f< §6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_hero\"}},{\"text\":\"§f / §660\"},{\"text\":\"§f >\"}]}",
+						"/event entity @s[scores={bullet_hero=1..}] action_clear"
+					]
+				},
+				"show_savior_2": {
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2')"
+						}
+					],
+					"on_entry": [
+						"/titleraw @s[tag=maper] actionbar {\"rawtext\":[{\"text\":\"§f< §6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_hero_sp\"}},{\"text\":\"§f / §6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_back_sp\"}},{\"text\":\"§f >\"}]}",
+						"/titleraw @s[tag=!maper] actionbar {\"rawtext\":[{\"text\":\"§f< §6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_hero_sp\"}},{\"text\":\"§f / §63\"},{\"text\":\"§f >\"}]}",
+						"/event entity @s[scores={bullet_hero_sp=1..}] action_clear"
+					]
+				}
+			}
+		}
+	}
+}

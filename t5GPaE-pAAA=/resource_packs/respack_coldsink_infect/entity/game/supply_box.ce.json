@@ -1,0 +1,33 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:supply_box",
+      "materials": {
+        "default": "entity_alphatest",
+        "nacal_tac_detect": "nacal_tac_detect",
+        "nacal_customblend":"nacal_customblend"
+      },
+      "animations": {
+        "sign_facing": "animation.sign_facing"
+      },
+      "textures": {
+        "default": "textures/entity/supply_box",
+        "sign": "textures/entity/supply_box_sign"
+      },
+      "geometry": {
+        "default": "geometry.supply_box",
+        "box_sign": "geometry.box_sign"
+      },
+      "scripts": {
+        "animate": [
+          "sign_facing"
+        ]
+      },
+      "render_controllers": [ "controller.render.com", "controller.render.supply_box_sign" ],
+      "spawn_egg": {
+        "texture": "supply_box"
+      }
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.space_hero_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"begin": "q.property('coldsink:action_status') == 4"
+						},
+						{
+							"attack_0": "v.attack_time && !q.is_saddled && q.property('coldsink:action_status') == 0"
+						},
+						{
+							"attack_1": "v.attack_time && q.is_saddled && q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_clear"
+					]
+				},
+				"begin": {
+					"animations": [ "space_hero_begin" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				},
+				"attack_0": {
+					"animations": [ "space_hero_attack_light" ],
+					"transitions": [
+						{
+							"begin": "q.property('coldsink:action_status') == 4"
+						},
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_light"
+					]
+				},
+				"attack_1": {
+					"animations": [ "space_hero_attack_heavy" ],
+					"transitions": [
+						{
+							"begin": "q.property('coldsink:action_status') == 4"
+						},
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_heavy"
+					]
+				}
+			}
+		},
+		"controller.animation.space_skill_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"skill": "q.property('coldsink:time_skill')"
+						}
+					]
+				},
+				"skill": {
+					"animations": [ "space_hero_skill_timer" ],
+					"transitions": [
+						{
+							"default": "!q.property('coldsink:time_skill') || v.attack_time"
+						}
+					],
+					"on_entry": [
+						"/particle coldsink:space_hero_skill_1 ~~0.5~",
+						"/particle coldsink:space_hero_skill_2 ~~0.5~",
+						"/particle coldsink:space_hero_skill_3 ~~0.5~"
+					],
+					"on_exit": [
+						"/tag @s remove no_any_hurt",
+						"/event entity @s time_skill_false",
+						"/event entity @s coldsink:space_hero_normal"
+					]
+				}
+			}
+		}
+	}
+}

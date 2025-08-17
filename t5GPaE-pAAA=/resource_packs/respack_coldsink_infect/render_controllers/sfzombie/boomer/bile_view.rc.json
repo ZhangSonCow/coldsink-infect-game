@@ -1,0 +1,15 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.bile_view": {
+      "geometry": "geometry.sfzombie_view",
+      "materials": [
+        {
+          "*": "material.blend"
+        }
+      ],
+      "textures": [ "texture.bile_view" ],
+      "is_hurt_color": {}
+    }
+  }
+}

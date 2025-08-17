@@ -1,0 +1,48 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:boomer_ai",
+      "animations": {
+        "boomer_idle.arm": "animation.boomer.idle.arm",
+        "boomer_idle.leg": "animation.boomer.idle.leg",
+        "boomer_move.arm": "animation.boomer.move.arm",
+        "boomer_move.leg": "animation.boomer.move.leg",
+        "boomer_attack1": "animation.boomer.attack1",
+        "boomer_attack2": "animation.boomer.attack2",
+        "boomer_skill": "animation.boomer.skill",
+        "c.boomer_ai": "controller.animation.boomer_ai",
+        "c.boomer_walk": "controller.animation.boomer_walk"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.random_choices = math.random(0, 100);"
+        ],
+        "animate": [
+          "c.boomer_ai",
+          "c.boomer_walk"
+        ]
+      },
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "boomer": "textures/entity/boomer"
+      },
+      "geometry": {
+        "boomer": "geometry.boomer"
+      },
+      "render_controllers": [
+        {
+          "controller.render.boomer": "q.health > 10"
+        },
+        {
+          "controller.render.boomer.bling": "q.health < 11"
+        }
+      ],
+      "spawn_egg": {
+        "texture": "become_boomer"
+      }
+    }
+  }
+}

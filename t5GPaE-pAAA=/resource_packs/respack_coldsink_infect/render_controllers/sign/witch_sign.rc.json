@@ -1,0 +1,20 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.witch_sign": {
+      "geometry": "geometry.boss_sign",
+      "materials": [
+        {
+          "*": "material.nacal_customblend"
+        }
+      ],
+      "textures": [ "texture.witch_sign" ],
+      "is_hurt_color": {
+        "r": "1.0",
+        "g": "1.0",
+        "b": "1.0",
+        "a": "0.4"
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+﻿{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:space_hero_spurt_tool",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "die": {
+        "minecraft:instant_despawn": {}
+      },
+      "roar": {
+        "minecraft:behavior.knockback_roar": {
+          "priority": 1,
+          "duration": 0.1,
+          "attack_time": 0.1,
+          "knockback_damage": 0,
+          "knockback_horizontal_strength": 8,
+          "knockback_range": 5,
+          "knockback_vertical_strength": 0,
+          "knockback_filters": {
+            "all_of": [
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "=",
+                "value": "space_hero"
+              },
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "operator": "=",
+                "value": "space_hero_skill"
+              }
+            ]
+          },
+          "damage_filters": {
+            "test": "is_family",
+            "subject": "self",
+            "operator": "=",
+            "value": "none_have_this"
+          },
+          "on_roar_end": {
+            "event": "godie"
+          },
+          "cooldown_time": 0.1
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      }
+
+      //behavivors
+
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "roar"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "die"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tag @e[family=space_hero,tag=space_hero_skill,c=1] remove space_hero_skill"
+          ]
+        }
+      }
+    }
+  }
+}

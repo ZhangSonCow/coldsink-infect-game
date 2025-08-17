@@ -1,0 +1,22 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+	  "controller.animation.game_check.func": {
+		"states": {
+		  "default": {
+			"transitions": [
+			  {
+				"check_tag": "query.variant == 1"
+			  }
+			]
+		  },
+		  "check_tag": {
+			"on_entry": [
+			//   "/execute as @s[tag=!game_check_tag] at @s positioned ~~~ run execute as @p at @s positioned ~~~ run say §c请观看介绍视频，打开存档的实验玩法§b“假日创造者功能”§c，组件才能正常工作！ "
+			]
+		  } 
+		}
+	  }
+	}
+  }
+  

@@ -1,0 +1,60 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:machine_hero_ai",
+      "animations": {
+        "machine_hero.rotate": "animation.machine_hero.rotate",
+        "machine_hero.idle_weapon": "animation.machine_hero.idle_weapon",
+        "machine_hero.idle_melee": "animation.machine_hero.idle_melee",
+        "machine_hero_idle.leg": "animation.machine_hero.idle.leg",
+        "machine_hero_move.leg": "animation.machine_hero.move.leg",
+        "machine_hero_attack": "animation.machine_hero.attack",
+        "c.machine_hero_ai": "controller.animation.machine_hero_ai",
+        "c.machine_hero_walk": "controller.animation.machine_hero_walk",
+        "machine_hero.skill": "animation.machine_hero.skill",
+        "machine_hero.particle": "animation.machine_hero.particle",
+        "machine_hero.look": "animation.machine_hero.look",
+        "sign_facing": "animation.sign_facing"
+      },
+      "scripts": {
+        "initialize": [
+          "variable.player_x_rotation=0.0;"
+        ],
+        "pre_animation": [
+          "variable.random_choices = math.random(0, 100);"
+        ],
+        "animate": [
+          "machine_hero.rotate",
+          "c.machine_hero_ai",
+          "c.machine_hero_walk",
+          "machine_hero.particle",
+          "machine_hero.look",
+          "sign_facing"
+        ]
+      },
+      "materials": {
+        "default": "entity_alphatest",
+        "nacal_tac_detect": "nacal_tac_detect",
+        "nacal_customblend":"nacal_customblend"
+      },
+      "particle_effects": {
+        "machine_hero.particle": "coldsink:machine_hero",
+        "machine_hero_fire": "coldsink:machine_hero_fire",
+        "machine_hero_attack": "nacal_sdc:machine_hero_attack"
+      },
+      "textures": {
+        "default": "textures/entity/machine_hero",
+        "machine_hero_sign": "textures/entity/machine_hero_sign"
+      },
+      "geometry": {
+        "default": "geometry.machine_hero",
+        "human_sign": "geometry.human_sign"
+      },
+      "render_controllers": [ "controller.render.com", "controller.render.machine_hero_sign" ],
+      "spawn_egg": {
+        "texture": "become_machine_hero"
+      }
+    }
+  }
+}

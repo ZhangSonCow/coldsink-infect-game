@@ -1,0 +1,36 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.com_armor_down": {
+      "arrays": {
+        "textures": {
+          "Array.armor": [
+            "Texture.armor_1",
+            "Texture.armor_2",
+            "Texture.armor_3",
+            "Texture.armor_4",
+            "Texture.armor_5",
+            "Texture.armor_6",
+            "Texture.armor_7",
+            "Texture.armor_8",
+            "Texture.armor_9",
+            "Texture.armor_10"
+          ]
+        }
+      },
+      "geometry": "geometry.armor_down",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "textures": [ "Array.armor[ variable.armor_down ]" ],
+      "is_hurt_color": {
+        "r": "1.0",
+        "g": "1.0",
+        "b": "1.0",
+        "a": "0.4"
+      }
+    }
+  }
+}

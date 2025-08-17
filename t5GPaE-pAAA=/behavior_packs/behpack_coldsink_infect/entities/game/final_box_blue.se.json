@@ -1,0 +1,118 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:final_box_blue",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+
+    },
+    
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "final_box_blue", "tool" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:health": {
+        "value": 2,
+        "max": 2,
+        "min": 1
+      },
+      "minecraft:timer": {
+        "time": 0.1,
+        "time_down_event": {
+          "target": "self",
+          "event": "supply"
+        }
+      },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "maper"
+                  }
+                ]
+              },
+              "event": "supply_return_blue",
+              "target": "other"
+            },
+            "swing": true,
+            "interact_text": "空手收回"
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:collision_box": {
+        "width": 1.2,
+        "height": 0.8
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "tag @s add neutral",
+            "tag @s add box"
+          ]
+        }
+      },
+      "supply": {
+        "queue_command": {
+          "command": [
+            "event entity @p[family=player,family=normal_hero,r=1.8] get_final_box_blue",
+            
+            // "event entity @e[family=human_hero,family=ai,r=18] begin_find_box",
+            "execute @e[family=human_hero,family=ai,r=2.4,c=1] ~~~ tag @e[type=coldsink:final_box_blue,r=2.4,c=1] add supplied",
+            "event entity @e[family=human_hero,family=ai,r=2.4,c=1] become_random_hero",
+
+            // "event entity @e[family=savior_hero,family=ai,r=18] begin_find_box",
+            "execute @e[family=savior_hero,family=ai,r=2.4,c=1] ~~~ tag @e[type=coldsink:final_box_blue,r=2.4,c=1] add supplied",
+            "event entity @e[family=savior_hero,family=ai,r=2.4,c=1] become_random_hero",
+
+            "execute @s[tag=supplied] ~~~ particle nacal_sdc:final_wave_blue",
+            "event entity @s[tag=supplied] godie"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+        // ,
+        // "queue_command": {
+        //   "command": [
+        //     "event entity @e[family=human_hero,family=ai,r=18] stop_find_box",
+        //     "event entity @e[family=savior_hero,family=ai,r=18] stop_find_box"
+        //   ]
+        // }
+      }
+    }
+  }
+}

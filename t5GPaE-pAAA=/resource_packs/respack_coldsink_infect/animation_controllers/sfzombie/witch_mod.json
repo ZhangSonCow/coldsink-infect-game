@@ -1,0 +1,127 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.witch_mod": {
+			"states": {
+				"default": {
+					"animations": [
+						"witch_cry.arm"
+					],
+					"transitions": [
+						{
+							"idle": "!q.is_tamed && !q.is_Stunned"
+						}
+					]
+				},
+				"idle": {
+					"animations": [
+						"witch_idle.arm"
+					],
+					"transitions": [
+						{
+							"move": "query.modified_move_speed > 0.1 && !q.is_sheared"
+						},
+						{
+							"attack_1": "v.attack_time && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && variable.random_choices >= 50"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"move": {
+					"animations": [
+						"witch_move.arm"
+					],
+					"transitions": [
+						{
+							"idle": "query.modified_move_speed <= 0.1 && !q.is_sheared"
+						},
+						{
+							"attack_1": "v.attack_time && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && variable.random_choices >= 50"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"attack_1": {
+					"animations": [
+						"witch_attack1"
+					],
+					"transitions": [
+						{
+							"idle": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"attack_2": {
+					"animations": [
+						"witch_attack2"
+					],
+					"transitions": [
+						{
+							"idle": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		},
+		"controller.animation.witch_walk_mod": {
+			"states": {
+				"default": {
+					"animations": [
+						"witch_cry.leg"
+					],
+					"transitions": [
+						{
+							"idle": "q.is_stunned"
+						},
+						{
+							"idle": "!q.is_tamed && !q.is_stunned"
+						}
+					]
+				},
+				"stand_cry": {
+					"animations": [
+						"witch_cry_walk.leg"
+					],
+					"transitions": [
+						{
+							"idle": "q.modified_move_speed < 0.1"
+						}
+					]
+				},
+				"idle": {
+					"animations": [
+						"witch_idle.leg"
+					],
+					"transitions": [
+						{
+							"stand_cry": "query.modified_move_speed > 0.1 && q.is_stunned"
+						},
+						{
+							"move": "query.modified_move_speed > 0.1 && !q.is_stunned"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"move": {
+					"animations": [
+						"witch_move.leg"
+					],
+					"transitions": [
+						{
+							"idle": "query.modified_move_speed <= 0.1"
+						}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		}
+	}
+}

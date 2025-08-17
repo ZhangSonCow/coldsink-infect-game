@@ -1,0 +1,49 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:hunter_ai",
+      "animations": {
+        "hunter_idle.leg": "animation.hunter.idle.leg",
+        "hunter_idle.arm": "animation.hunter.idle.arm",
+        "hunter_move.leg": "animation.hunter.move.leg",
+        "hunter_move.arm": "animation.hunter.move.arm",
+        "hunter_attack1": "animation.hunter.attack1",
+        "hunter_attack2": "animation.hunter.attack2",
+        "hunter_jump.leg": "animation.hunter.jump.leg",
+        "hunter_jump.arm": "animation.hunter.jump.arm",
+        "c.hunter_ai": "controller.animation.hunter_ai",
+        "c.hunter_walk": "controller.animation.hunter_walk"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.random_choices = math.random(0, 100);"
+        ],
+        "animate": [
+          "c.hunter_ai",
+          "c.hunter_walk"
+        ]
+      },
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "hunter": "textures/entity/hunter"
+      },
+      "geometry": {
+        "hunter": "geometry.hunter"
+      },
+      "render_controllers": [
+        {
+          "controller.render.hunter": "q.health > 10"
+        },
+        {
+          "controller.render.hunter.bling": "q.health < 11"
+        }
+      ],
+      "spawn_egg": {
+        "texture": "become_hunter"
+      }
+    }
+  }
+}

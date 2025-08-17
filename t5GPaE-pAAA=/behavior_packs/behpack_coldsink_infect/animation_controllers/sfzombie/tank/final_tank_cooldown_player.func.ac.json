@@ -1,0 +1,26 @@
+{
+	"format_version": "1.18.0",
+	"animation_controllers": {
+		"controller.animation.final_tank_cooldown_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "final_tank_skill_cooldown" ],
+					"transitions": [
+						{
+							"death": "!q.is_alive"
+						}
+					]
+				},
+				"death": {
+					"animations": [ "final_tank_skill_cooldown" ],
+					"transitions": [
+						{
+							"default": "q.is_alive"
+						}
+					]
+				}
+			}
+		}
+	}
+}

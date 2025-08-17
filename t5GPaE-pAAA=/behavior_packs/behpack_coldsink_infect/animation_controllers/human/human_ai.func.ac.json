@@ -1,0 +1,56 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.human_ai.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"death": "!q.is_alive"
+						},
+						{
+							"jockey_control": "q.out_of_control"
+						}
+					]
+				},
+				"jockey_control": {
+					"animations": [ "jockey_control_timer" ],
+					"transitions": [
+						{
+							"default": "!q.out_of_control"
+						}
+					]
+				},
+				"death": {
+					"on_entry": [
+						"/execute @s[tag=!母体,tag=!大母体] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§4\"},{\"selector\":\"@s\"},{\"text\":\" 被感染\"}]}",
+						"/execute @s[type=coldsink:human_ai,tag=母体] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§4\"},{\"selector\":\"@s\"},{\"text\":\" 被选为母体\"}]}",
+						"/execute @s[type=coldsink:human_ai,tag=大母体] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§4\"},{\"selector\":\"@s\"},{\"text\":\" 被选为特殊母体\"}]}",
+						"/execute @s[type=coldsink:human_ai,tag=!母体,tag=!大母体] ~~~ playsound human_infect @a",
+						"/execute @s[type=coldsink:human_ai,name=忆知艾郎得晓愣沉] ~~~ summon coldsink:dead_human_ai ~~~ skin_1 忆知艾郎得晓愣沉",
+						"/execute @s[type=coldsink:human_ai,name=绿画娜] ~~~ summon coldsink:dead_human_ai ~~~ skin_2 绿画娜",
+						"/execute @s[type=coldsink:human_ai,name=飙啼菌] ~~~ summon coldsink:dead_human_ai ~~~ skin_3 飙啼菌",
+						"/execute @s[type=coldsink:human_ai,name=普罗陀] ~~~ summon coldsink:dead_human_ai ~~~ skin_4 普罗陀",
+						"/execute @s[type=coldsink:human_ai,name=狼掏谜纸] ~~~ summon coldsink:dead_human_ai ~~~ skin_5 狼掏谜纸",
+						"/execute @s[type=coldsink:human_ai,name=鸡姬] ~~~ summon coldsink:dead_human_ai ~~~ skin_6 鸡姬",
+						"/execute @s[type=coldsink:human_ai,name=禽疯] ~~~ summon coldsink:dead_human_ai ~~~ skin_7 禽疯",
+						"/execute @s[type=coldsink:human_ai,name=佬僵] ~~~ summon coldsink:dead_human_ai ~~~ skin_8 佬僵",
+						"/execute @s[type=coldsink:human_ai,name=集锋迫小] ~~~ summon coldsink:dead_human_ai ~~~ skin_9 集锋迫小",
+						"/execute @s[type=coldsink:human_ai,name=瘤皇蒜黄] ~~~ summon coldsink:dead_human_ai ~~~ skin_10 瘤皇蒜黄",
+						"/execute @s[type=coldsink:human_ai,name=水药] ~~~ summon coldsink:dead_human_ai ~~~ skin_11 水药",
+						"/execute @s[type=coldsink:human_ai,name=麟蔑] ~~~ summon coldsink:dead_human_ai ~~~ skin_12 麟蔑",
+						"/execute @s[type=coldsink:human_ai,name=碍登] ~~~ summon coldsink:dead_human_ai ~~~ skin_13 碍登",
+						"/execute @s[type=coldsink:human_ai,name=牛腩面面] ~~~ summon coldsink:dead_human_ai ~~~ skin_14 牛腩面面",
+						"/execute @s[type=coldsink:human_ai,name=蚕币] ~~~ summon coldsink:dead_human_ai ~~~ skin_15 蚕币",
+						"/execute @s[type=coldsink:human_ai] ~~~ scoreboard players operation @e[type=coldsink:dead_human_ai,c=1] game_score = @s game_score",
+						"/execute @s[type=coldsink:human_ai] ~~~ tag @e[type=coldsink:dead_human_ai,tag=!游戏中,c=1] add 游戏中",
+						"/execute @s[type=coldsink:human_ai,tag=大母体] ~~~ tag @e[type=coldsink:dead_human_ai,c=1] add 大母体",
+						
+						"/event entity @s[type=coldsink:human_ai] godie"
+					]
+				}
+			}
+		}
+	}
+}

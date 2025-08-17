@@ -1,0 +1,25 @@
+{
+	"format_version": "1.18.0",
+	"animation_controllers": {
+		"controller.animation.sfzombie_sound_interval.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"is_sfzombie": "q.variant > 0"
+						}
+					]
+				},
+				"is_sfzombie": {
+					"animations": [ "sfzombie_sound_interval" ],
+					"transitions": [
+						{
+							"default": "q.variant == 0"
+						}
+					]
+				}
+			}
+		}
+	}
+}

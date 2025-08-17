@@ -1,0 +1,612 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:name_tool",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:nameable": {
+      },
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:health": {
+        "value": 20,
+        "max": 20
+      },
+      "minecraft:collision_box": {
+          "width": 0.65,
+          "height": 1.6
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "on_damage": {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            }
+          },
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:movement": {
+        "value": 0.0
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+      "map_one_1": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human 2 -46 121 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human 2 -46 121 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human 2 -46 121 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human 2 -46 121 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human 2 -46 121 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human 2 -46 121 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human 2 -46 121 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human 2 -46 121 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human 2 -46 121 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human 2 -46 121 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human 2 -46 121 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human 2 -46 121 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human 2 -46 121 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human 2 -46 121 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human 2 -46 121 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_one_2": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human 40 -47 117 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human 40 -47 117 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human 40 -47 117 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human 40 -47 117 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human 40 -47 117 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human 40 -47 117 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human 40 -47 117 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human 40 -47 117 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human 40 -47 117 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human 40 -47 117 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human 40 -47 117 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human 40 -47 117 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human 40 -47 117 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human 40 -47 117 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human 40 -47 117 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_one_3": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human 12 -48 82 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human 12 -48 82 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human 12 -48 82 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human 12 -48 82 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human 12 -48 82 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human 12 -48 82 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human 12 -48 82 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human 12 -48 82 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human 12 -48 82 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human 12 -48 82 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human 12 -48 82 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human 12 -48 82 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human 12 -48 82 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human 12 -48 82 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human 12 -48 82 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_one_4": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human 60 -50 99 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human 60 -50 99 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human 60 -50 99 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human 60 -50 99 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human 60 -50 99 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human 60 -50 99 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human 60 -50 99 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human 60 -50 99 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human 60 -50 99 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human 60 -50 99 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human 60 -50 99 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human 60 -50 99 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human 60 -50 99 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human 60 -50 99 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human 60 -50 99 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_one_5": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human 40 -50 138 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human 40 -50 138 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human 40 -50 138 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human 40 -50 138 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human 40 -50 138 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human 40 -50 138 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human 40 -50 138 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human 40 -50 138 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human 40 -50 138 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human 40 -50 138 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human 40 -50 138 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human 40 -50 138 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human 40 -50 138 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human 40 -50 138 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human 40 -50 138 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_two_1": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human -149 -48 -95 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human -149 -48 -95 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human -149 -48 -95 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human -149 -48 -95 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human -149 -48 -95 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human -149 -48 -95 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human -149 -48 -95 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human -149 -48 -95 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human -149 -48 -95 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human -149 -48 -95 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human -149 -48 -95 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human -149 -48 -95 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human -149 -48 -95 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human -149 -48 -95 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human -149 -48 -95 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_two_2": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human -133 -47 -41.5 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human -133 -47 -41.5 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human -133 -47 -41.5 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human -133 -47 -41.5 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human -133 -47 -41.5 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human -133 -47 -41.5 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human -133 -47 -41.5 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human -133 -47 -41.5 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human -133 -47 -41.5 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human -133 -47 -41.5 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human -133 -47 -41.5 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human -133 -47 -41.5 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human -133 -47 -41.5 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human -133 -47 -41.5 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human -133 -47 -41.5 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_two_3": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human -128 -47 -72.5 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human -128 -47 -72.5 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human -128 -47 -72.5 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human -128 -47 -72.5 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human -128 -47 -72.5 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human -128 -47 -72.5 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human -128 -47 -72.5 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human -128 -47 -72.5 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human -128 -47 -72.5 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human -128 -47 -72.5 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human -128 -47 -72.5 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human -128 -47 -72.5 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human -128 -47 -72.5 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human -128 -47 -72.5 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human -128 -47 -72.5 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_two_4": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human -145 -45 -81 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human -145 -45 -81 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human -145 -45 -81 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human -145 -45 -81 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human -145 -45 -81 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human -145 -45 -81 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human -145 -45 -81 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human -145 -45 -81 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human -145 -45 -81 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human -145 -45 -81 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human -145 -45 -81 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human -145 -45 -81 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human -145 -45 -81 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human -145 -45 -81 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human -145 -45 -81 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_two_5": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human -162 -45 -54 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human -162 -45 -54 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human -162 -45 -54 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human -162 -45 -54 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human -162 -45 -54 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human -162 -45 -54 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human -162 -45 -54 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human -162 -45 -54 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human -162 -45 -54 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human -162 -45 -54 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human -162 -45 -54 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human -162 -45 -54 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human -162 -45 -54 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human -162 -45 -54 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human -162 -45 -54 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_three_1": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human 45 -51 -70 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human 45 -51 -70 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human 45 -51 -70 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human 45 -51 -70 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human 45 -51 -70 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human 45 -51 -70 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human 45 -51 -70 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human 45 -51 -70 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human 45 -51 -70 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human 45 -51 -70 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human 45 -51 -70 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human 45 -51 -70 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human 45 -51 -70 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human 45 -51 -70 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human 45 -51 -70 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_three_2": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human 79 -53 -137 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human 79 -53 -137 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human 79 -53 -137 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human 79 -53 -137 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human 79 -53 -137 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human 79 -53 -137 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human 79 -53 -137 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human 79 -53 -137 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human 79 -53 -137 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human 79 -53 -137 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human 79 -53 -137 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human 79 -53 -137 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human 79 -53 -137 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human 79 -53 -137 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human 79 -53 -137 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_three_3": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human 115 -53 -107 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human 115 -53 -107 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human 115 -53 -107 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human 115 -53 -107 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human 115 -53 -107 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human 115 -53 -107 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human 115 -53 -107 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human 115 -53 -107 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human 115 -53 -107 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human 115 -53 -107 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human 115 -53 -107 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human 115 -53 -107 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human 115 -53 -107 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human 115 -53 -107 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human 115 -53 -107 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_three_4": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human 124 -54 -112 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human 124 -54 -112 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human 124 -54 -112 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human 124 -54 -112 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human 124 -54 -112 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human 124 -54 -112 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human 124 -54 -112 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human 124 -54 -112 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human 124 -54 -112 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human 124 -54 -112 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human 124 -54 -112 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human 124 -54 -112 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human 124 -54 -112 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human 124 -54 -112 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human 124 -54 -112 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_three_5": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human 121 -50 -74 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human 121 -50 -74 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human 121 -50 -74 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human 121 -50 -74 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human 121 -50 -74 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human 121 -50 -74 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human 121 -50 -74 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human 121 -50 -74 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human 121 -50 -74 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human 121 -50 -74 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human 121 -50 -74 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human 121 -50 -74 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human 121 -50 -74 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human 121 -50 -74 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human 121 -50 -74 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_four_1": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human 223 -47 31 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human 223 -47 31 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human 223 -47 31 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human 223 -47 31 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human 223 -47 31 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human 223 -47 31 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human 223 -47 31 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human 223 -47 31 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human 223 -47 31 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human 223 -47 31 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human 223 -47 31 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human 223 -47 31 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human 223 -47 31 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human 223 -47 31 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human 223 -47 31 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_four_2": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human 208 -47 12 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human 208 -47 12 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human 208 -47 12 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human 208 -47 12 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human 208 -47 12 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human 208 -47 12 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human 208 -47 12 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human 208 -47 12 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human 208 -47 12 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human 208 -47 12 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human 208 -47 12 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human 208 -47 12 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human 208 -47 12 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human 208 -47 12 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human 208 -47 12 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_four_3": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human 203 -47 38 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human 203 -47 38 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human 203 -47 38 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human 203 -47 38 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human 203 -47 38 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human 203 -47 38 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human 203 -47 38 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human 203 -47 38 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human 203 -47 38 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human 203 -47 38 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human 203 -47 38 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human 203 -47 38 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human 203 -47 38 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human 203 -47 38 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human 203 -47 38 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_four_4": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human 182 -45 15 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human 182 -45 15 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human 182 -45 15 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human 182 -45 15 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human 182 -45 15 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human 182 -45 15 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human 182 -45 15 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human 182 -45 15 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human 182 -45 15 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human 182 -45 15 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human 182 -45 15 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human 182 -45 15 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human 182 -45 15 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human 182 -45 15 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human 182 -45 15 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_four_5": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human 167 -47 39 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human 167 -47 39 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human 167 -47 39 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human 167 -47 39 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human 167 -47 39 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human 167 -47 39 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human 167 -47 39 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human 167 -47 39 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human 167 -47 39 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human 167 -47 39 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human 167 -47 39 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human 167 -47 39 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human 167 -47 39 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human 167 -47 39 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human 167 -47 39 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_five_1": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human -179 -41 157 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human -179 -41 157 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human -179 -41 157 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human -179 -41 157 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human -179 -41 157 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human -179 -41 157 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human -179 -41 157 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human -179 -41 157 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human -179 -41 157 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human -179 -41 157 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human -179 -41 157 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human -179 -41 157 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human -179 -41 157 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human -179 -41 157 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human -179 -41 157 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_five_2": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human -168 -40 114 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human -168 -40 114 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human -168 -40 114 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human -168 -40 114 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human -168 -40 114 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human -168 -40 114 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human -168 -40 114 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human -168 -40 114 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human -168 -40 114 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human -168 -40 114 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human -168 -40 114 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human -168 -40 114 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human -168 -40 114 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human -168 -40 114 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human -168 -40 114 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_five_3": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human -142 -46 166 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human -142 -46 166 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human -142 -46 166 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human -142 -46 166 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human -142 -46 166 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human -142 -46 166 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human -142 -46 166 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human -142 -46 166 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human -142 -46 166 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human -142 -46 166 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human -142 -46 166 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human -142 -46 166 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human -142 -46 166 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human -142 -46 166 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human -142 -46 166 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_five_4": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human -146 -45 126 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human -146 -45 126 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human -146 -45 126 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human -146 -45 126 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human -146 -45 126 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human -146 -45 126 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human -146 -45 126 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human -146 -45 126 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human -146 -45 126 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human -146 -45 126 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human -146 -45 126 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human -146 -45 126 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human -146 -45 126 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human -146 -45 126 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human -146 -45 126 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "map_five_5": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={count=1}] ~~~ summon coldsink:spawner_human -120 -46 141 name_1",
+            "execute @s[scores={count=2}] ~~~ summon coldsink:spawner_human -120 -46 141 name_2",
+            "execute @s[scores={count=3}] ~~~ summon coldsink:spawner_human -120 -46 141 name_3",
+            "execute @s[scores={count=4}] ~~~ summon coldsink:spawner_human -120 -46 141 name_4",
+            "execute @s[scores={count=5}] ~~~ summon coldsink:spawner_human -120 -46 141 name_5",
+            "execute @s[scores={count=6}] ~~~ summon coldsink:spawner_human -120 -46 141 name_6",
+            "execute @s[scores={count=7}] ~~~ summon coldsink:spawner_human -120 -46 141 name_7",
+            "execute @s[scores={count=8}] ~~~ summon coldsink:spawner_human -120 -46 141 name_8",
+            "execute @s[scores={count=9}] ~~~ summon coldsink:spawner_human -120 -46 141 name_9",
+            "execute @s[scores={count=10}] ~~~ summon coldsink:spawner_human -120 -46 141 name_10",
+            "execute @s[scores={count=11}] ~~~ summon coldsink:spawner_human -120 -46 141 name_11",
+            "execute @s[scores={count=12}] ~~~ summon coldsink:spawner_human -120 -46 141 name_12",
+            "execute @s[scores={count=13}] ~~~ summon coldsink:spawner_human -120 -46 141 name_13",
+            "execute @s[scores={count=14}] ~~~ summon coldsink:spawner_human -120 -46 141 name_14",
+            "execute @s[scores={count=15}] ~~~ summon coldsink:spawner_human -120 -46 141 name_15",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

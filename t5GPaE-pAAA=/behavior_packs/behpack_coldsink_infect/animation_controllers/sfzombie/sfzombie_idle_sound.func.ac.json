@@ -1,0 +1,25 @@
+{
+	"format_version": "1.18.0",
+	"animation_controllers": {
+		"controller.animation.sfzombie_idle_sound.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "sfzombie_idle_sound" ],
+					"transitions": [
+						{
+							"no_idle": "q.property('coldsink:action_status') > 0 || (q.variant == 1 && q.property('coldsink:time_skill') && q.is_jumping)"
+						}
+					]
+				},
+				"no_idle": {
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				}
+			}
+		}
+	}
+}

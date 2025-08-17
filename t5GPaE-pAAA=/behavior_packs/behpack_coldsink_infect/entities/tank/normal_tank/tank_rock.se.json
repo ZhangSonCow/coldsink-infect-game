@@ -1,0 +1,148 @@
+﻿{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:tnnk_rock",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball",
+      "animations": {
+        "ctrl.entity_spawned": "controller.animation.entity_spawned.func",
+        "entity_spawned": "animation.entity_spawned.func"
+      },
+      "scripts": {
+        "animate": [
+          "ctrl.entity_spawned"
+        ]
+      }
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.5,
+        "height": 0.5
+      },
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      // "minecraft:timer": {
+      //   "time": 0.1,
+      //   "time_down_event": {
+      //     "target": "self",
+      //     "event": "check"
+      //   }
+      // },
+      "minecraft:ageable": {
+        "duration": 12,
+        "grow_up": {
+          "event": "godie"
+        }
+      },
+      "minecraft:projectile": {
+        "anchor": 1,
+        "on_hit": {
+          "impact_damage": {
+            "damage": 8,
+            "knockback": false,
+            "destroy_on_hit": true
+          },
+          "definition_event": {
+            "affect_projectile": true,
+            "affect_shooter": false,
+            "affect_target": false,
+            "affect_splash_area": false,
+            "event_trigger": {
+              "event": "rock",
+              "target": "self"
+            }
+          },
+          "stick_in_ground": {
+            "shake_time": 1
+          }
+        },
+        "power": 1.6,
+        "gravity": 0.012,
+        "liquid_inertia": 0.95
+      },
+      "minecraft:physics": {},
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "entity_spawned": {
+        "queue_command": {
+          "command": [
+            "scoreboard players operation @s tnnk_time = tnnk_count tnnk_time",
+            "tag @s add neutral"
+          ]
+        }
+      },
+      "rock": {
+        "queue_command": {
+          "command": [
+            "particle nacal_sdc:tnnk_dust ~~~",
+            "scoreboard players random @s wp_random 1 2",
+            "execute @s[scores={wp_random=1}] ~~~ playsound tank.stone_1 @a ~~~",
+            "execute @s[scores={wp_random=2}] ~~~ playsound tank.stone_2 @a ~~~",
+
+            "execute @a[tag=is_tnnk] ~~~ scoreboard players operation @s tnnk_check = @s tnnk_time",
+            "scoreboard players operation @a[tag=is_tnnk] tnnk_check -= @s tnnk_time",
+            "execute @p[tag=is_tnnk,scores={tnnk_check=0},tag=maper] ~~~ tag @e[type=coldsink:tnnk_rock,c=1] add maper",
+            
+            "execute @s[tag=maper] ~~~ summon coldsink:tank_roar_maper",
+            "execute @s[tag=!maper] ~~~ summon coldsink:tank_roar",
+            
+            // 地图
+            "execute @s[tag=maper] ~~~  execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=3.2,c=1] ~~~ tag @e[type=coldsink:tnnk_rock,c=1] add get",
+            "execute @s[tag=maper,tag=get] ~~~ particle nacal_sdc:tnnk_break ~~~",
+            "execute @s[tag=maper,tag=get] ~~~ title @a[tag=is_tnnk,scores={tnnk_check=0}] actionbar §c碎石成功命中目标！",
+            "execute @s[tag=maper,tag=get] ~~~ playsound reward @a[tag=is_tnnk,scores={tnnk_check=0}]",
+            "execute @s[tag=maper,tag=!done] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=3.2,c=1] 8 suicide",
+            
+            // 模组
+            "execute @s[tag=!maper] ~~~  execute @e[family=!tnnk,family=!tool,r=3.2,c=1] ~~~ tag @e[type=coldsink:tnnk_rock,c=1] add get",
+            "execute @s[tag=!maper,tag=get] ~~~ particle nacal_sdc:tnnk_break ~~~",
+            "execute @s[tag=!maper,tag=get] ~~~ title @a[tag=is_tnnk,scores={tnnk_check=0}] actionbar §c碎石成功命中目标！",
+            "execute @s[tag=!maper,tag=get] ~~~ playsound reward @a[tag=is_tnnk,scores={tnnk_check=0}]",
+            "execute @s[tag=!maper,tag=!done] ~~~ damage @e[family=!tnnk,family=!tool,r=3.2,c=1] 8 suicide",
+
+            "tag @s add done"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      },
+      // "check": {
+      //   "queue_command": {
+      //     "command": [
+      //       "scoreboard players operation @s[tag=!neutral] tnnk_time = tnnk_count tnnk_time",
+      //       "tag @s add neutral",
+      //       "execute @s[tag=maper] ~~~  execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=3.2,c=1] ~~~ tag @e[type=coldsink:tnnk_rock,c=1] add get",
+      //       "execute @s[tag=!maper] ~~~  execute @e[family=!tnnk,family=!tool,r=3.2,c=1] ~~~ tag @e[type=coldsink:tnnk_rock,c=1] add get",
+      //       "event entity @s[tag=get] rock"
+      //     ]
+      //   }
+      // },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

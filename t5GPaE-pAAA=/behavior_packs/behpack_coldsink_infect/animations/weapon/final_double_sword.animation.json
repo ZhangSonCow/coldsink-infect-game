@@ -1,0 +1,70 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.final_double_sword_attack_light.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.0": [
+						"/tag @s add self",
+						"/scoreboard players random @s wp_random 1 2",
+						"/execute @s[scores={wp_random=1}] ~~~ playsound final_hero_attack @a[tag=!self,r=16] ~~~",
+						"/playsound final_hero_attack.self @s[scores={wp_random=1}] ~~~",
+						"/execute @s[scores={wp_random=2}] ~~~ playsound final_hero_attack @a[tag=!self,r=16] ~~~ 3 0.8 3",
+						"/playsound final_hero_attack.self @s[scores={wp_random=2}] ~~~ 3 0.8 3",
+						"/execute @s[scores={wp_random=3}] ~~~ playsound final_hero_attack @a[tag=!self,r=16] ~~~ 3 1.2 3",
+						"/playsound final_hero_attack.self @s[scores={wp_random=3}] ~~~ 3 1.2 3",
+						"/tag @s remove self"
+        ],
+        "0.3": [
+          "/tag @s add final_double_sword_self",
+
+          "/execute @s[tag=maper] ^^2.5^ execute @e[family=monster,family=!fort,family=!tool,type=!item,tag=!neutral,r=5] ~~~ playsound get_target @p[tag=final_double_sword_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^2.5^ tag @e[family=monster,family=!fort,family=!tool,type=!item,tag=!neutral,r=5] add melee_damage",
+          "/execute @s[tag=maper] ^^2.5^ damage @e[family=monster,family=!fort,family=!tool,type=!item,tag=!neutral,r=5] 2 suicide",
+
+          "/execute @s[tag=!maper,tag=!no_friend_hurt] ^^2.5^ execute @e[tag=!final_double_sword_self,family=!tool,type=!item,r=5] ~~~ playsound get_target @p[tag=final_double_sword_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper,tag=!no_friend_hurt] ^^2.5^ damage @e[tag=!final_double_sword_self,family=!tool,type=!item,r=5] 12 suicide",
+
+          "/execute @s[tag=!maper,tag=no_friend_hurt] ^^2.5^ execute @e[family=!player,family=!tool,type=!item,r=5] ~~~ playsound get_target @p[tag=final_double_sword_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper,tag=no_friend_hurt] ^^2.5^ damage @e[family=!player,family=!tool,type=!item,r=5] 12 suicide",
+          
+          "/tag @s remove final_double_sword_self"
+        ],
+        "0.5": [
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.final_double_sword_attack_heavy.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.0": [
+          "/tag @s add self",
+          "/playsound final_hero_attack_big @a[tag=!self,r=16] ~~~",
+          "/playsound final_hero_attack_big.self @s ~~~",
+          "/tag @s remove self"
+        ],
+        "1.7": [
+          "/tag @s add final_double_sword_self",
+
+          "/execute @s[tag=maper] ^^3.5^ execute @e[family=monster,family=!fort,family=!tool,type=!item,tag=!neutral,r=6] ~~~ playsound get_target @p[tag=final_double_sword_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^3.5^ tag @e[family=monster,family=!fort,family=!tool,type=!item,tag=!neutral,r=6] add melee_damage",
+          "/execute @s[tag=maper] ^^3.5^ damage @e[family=monster,family=!fort,family=!tool,type=!item,tag=!neutral,r=6] 5 suicide",
+
+          "/execute @s[tag=!maper,tag=!no_friend_hurt] ^^3.5^ execute @e[tag=!final_double_sword_self,family=!tool,type=!item,r=6] ~~~ playsound get_target @p[tag=final_double_sword_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper,tag=!no_friend_hurt] ^^3.5^ damage @e[tag=!final_double_sword_self,family=!tool,type=!item,r=6] 32 suicide",
+
+          "/execute @s[tag=!maper,tag=no_friend_hurt] ^^3.5^ execute @e[family=!player,family=!tool,type=!item,r=6] ~~~ playsound get_target @p[tag=final_double_sword_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper,tag=no_friend_hurt] ^^3.5^ damage @e[family=!player,family=!tool,type=!item,r=6] 32 suicide",
+          
+          "/tag @s remove final_double_sword_self"
+        ],
+        "2.0": [
+          "/event entity @s action_clear"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+﻿{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "nacal_tac:mineset_throw",
+      "materials": {
+        "default": "arrow"
+      },
+      "textures": {
+        "default": "textures/entity/mineset"
+      },
+      "geometry": {
+        "default": "geometry.mineset"
+      },
+      "render_controllers": [ "controller.render.arrow" ],
+      "animations": {
+        "move": "animation.throwitems.move",
+        "round": "animation.throwitems.round3"
+      },
+      "scripts": {
+        "animate": [
+          "move",
+          "round"
+        ]
+      }
+    }
+  }
+} 

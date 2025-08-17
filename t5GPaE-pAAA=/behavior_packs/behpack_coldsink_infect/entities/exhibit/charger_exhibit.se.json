@@ -1,0 +1,68 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:charger_exhibit",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "monster", "charger", "exhibit" ]
+      },
+      "minecraft:nameable": {
+      },
+      "minecraft:health": {
+        "value": 72,
+        "max": 72
+      },
+      "minecraft:collision_box": {
+          "width": 0.65,
+          "height": 1.6
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.4
+      },
+      "minecraft:movement": {
+        "value": 0.0
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "tag @s add exhibit"
+          ]
+        }
+      },
+      "coldsink:default": {
+        "queue_command": {
+          "command": [
+            "summon coldsink:human",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

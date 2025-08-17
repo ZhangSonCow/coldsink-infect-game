@@ -1,0 +1,37 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.freeze_count.func": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "freeze": "q.property('coldsink:freeze')"
+            }
+          ]
+        },
+        "freeze": {
+          "animations": [ "freeze_count" ],
+          "transitions": [
+            {
+              "default": "!q.property('coldsink:freeze')"
+            }
+          ],
+          "on_entry": [
+            "/scoreboard objectives add freeze_time dummy freeze_time",
+            "/scoreboard players set @s freeze_time 0",
+            "/camera @s fade time 0 0 8 color 183 212 239",
+						"/inputpermission set @s camera disabled",
+						"/inputpermission set @s movement disabled"
+          ],
+          "on_exit": [
+            "/title @s actionbar §b冰冻效果结束",
+						"/inputpermission set @s camera enabled",
+						"/inputpermission set @s movement enabled",
+						"/effect @s blindness 0 1 true"
+          ]
+        }
+      }
+    }
+  }
+}

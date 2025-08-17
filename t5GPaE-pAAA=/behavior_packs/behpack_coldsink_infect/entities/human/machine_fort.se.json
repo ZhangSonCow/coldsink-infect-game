@@ -1,0 +1,279 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:machine_fort",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+
+    "component_groups": {
+
+      "godie": {
+        "minecraft:instant_despawn": {}
+      },
+
+      "half_damage": {
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "all",
+              "damage_multiplier": 0.5
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "any_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    }
+                  ]
+                }
+              },
+              "cause": "all",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+      "normal_damage": {
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "on_damage": {
+                "filters": {
+                  "any_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    }
+                  ]
+                }
+              },
+              "cause": "all",
+              "deals_damage": false
+            }
+          ]
+        }
+      }
+
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "player", "human_ai", "fort" ]
+      },
+      "minecraft:shooter": {
+        "def": "coldsink:machine_fort_bullet"
+      },
+      "minecraft:behavior.ranged_attack": {
+        "priority": 1,
+        "attack_interval_min": 0.1,
+        "attack_interval_max": 0.3,
+        "burst_shots": 1,
+        "attack_radius": 128,
+        "swing": true
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "reselect_targets": true,
+        "scan_interval": 50,
+        "must_see": true,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "player"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "monster"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "tool"
+                },
+                {
+                  "test": "has_tag",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "neutral"
+                }
+              ]
+            },
+            "max_dist": 64
+          }
+        ]
+      },
+      "minecraft:movement": {
+        "value": 0.0
+      },
+      "minecraft:nameable": {
+        "always_show": false,
+        "allow_name_tag_renaming": false
+      },
+      "minecraft:health": {
+        "value": 20,
+        "max": 20
+      },
+      "minecraft:timer": {
+        "time": 3,
+        "time_down_event": {
+          "event": "overHalfDamage"
+        }
+      },
+      "minecraft:ageable": {
+        "duration": 24,
+        "grow_up": {
+          "event": "godie"
+        }
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "fall",
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  }
+                ]
+              }
+            },
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "bullet"
+                  }
+                ]
+              }
+            },
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:attack": {
+        "damage": 2
+      },
+      "minecraft:collision_box": {
+        "width": 1.25,
+        "height": 1.0
+      },
+      "minecraft:follow_range": {
+        "value": 1024
+      },
+      "minecraft:jump.static": {},
+      "minecraft:physics": {},
+      "minecraft:movement.basic": {},
+      // "minecraft:pushable": {},
+      "minecraft:navigation.walk": {
+        "can_walk": true,
+        "can_pass_doors": true,
+        "can_open_doors": true,
+        "is_amphibious": true,
+        "can_float": true
+      },
+
+
+      //behavivors
+
+      "minecraft:behavior.trade_with_player": {},
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 1.2
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 7
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 5,
+        "look_distance": 8,
+        "probability": 0.02
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 2,
+        "max_dist": 64,
+        "entity_types": {
+          "filters": {
+            "all_of": [
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "player"
+              },
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "operator": "!=",
+                "value": "neutral"
+              }
+            ]
+          }
+        }
+      },
+      "minecraft:behavior.melee_attack": {
+        "priority": 10,
+        "track_target": true
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      }
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "half_damage"
+          ]
+        }
+      },
+      "overHalfDamage": {
+        "remove": {
+          "component_groups": [
+            "half_damage"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "normal_damage"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

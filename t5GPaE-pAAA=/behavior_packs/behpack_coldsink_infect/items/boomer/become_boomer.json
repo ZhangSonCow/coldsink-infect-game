@@ -1,0 +1,26 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "coldsink:become_boomer",
+      "menu_category": {  
+        "group": "itemGroup.name.become.sfzombie",  
+        "category": "equipment", 
+        "is_hidden_in_commands": false 
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": {
+        "texture": "become_boomer"
+      },
+      "minecraft:display_name": {
+        "value": "扮演 Boomer"
+      },
+      "minecraft:use_duration": 99999,
+      "minecraft:food": {
+        "can_always_eat": true
+      }
+    }
+  }
+}

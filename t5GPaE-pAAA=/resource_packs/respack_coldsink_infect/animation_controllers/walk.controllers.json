@@ -1,0 +1,1710 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.walk": {
+			"initial_state": "default",
+			"states": {
+				"default":{
+					"transitions": [
+						{
+							"jockey_control": "q.variant == 0 && q.out_of_control"
+						},
+						{
+							"hunter_standing": "q.variant == 1"
+						},
+						{
+							"spitter_standing": "q.variant == 2"
+						},
+						{
+							"charger_standing": "q.variant == 3"
+						},
+						{
+							"jockey_standing": "q.variant == 4"
+						},
+						{
+							"boomer_standing": "q.variant == 5"
+						},
+						{
+							"smoker_standing": "q.variant == 6"
+						},
+						{
+							"tank_standing": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_standing": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_standing": "q.variant == 9"
+						},
+						{
+							"final_hero_standing": "q.variant == 10"
+						},
+						{
+							"savior_hero_standing": "q.variant == 13"
+						},
+						{
+							"machine_hero_standing": "q.variant == 14"
+						},
+						{
+							"space_hero_standing": "q.variant == 15"
+						},
+						{
+							"redeem_hero_standing": "q.variant == 16"
+						}
+					]
+				},
+				"jockey_control": {
+					"transitions": [
+						{
+							"default": "!q.out_of_control"
+						}
+					]	
+				},
+				"hunter_standing": {
+					"animations": [ "hunter_idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"hunter_moving": "q.variant == 1 && q.modified_move_speed > 0.1 && q.is_on_ground"
+						},
+						{
+							"hunter_skill": "q.variant == 1 && !q.is_on_ground && q.property('coldsink:time_skill')"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"spitter_standing": "q.variant == 2"
+						},
+						{
+							"charger_standing": "q.variant == 3"
+						},
+						{
+							"jockey_standing": "q.variant == 4"
+						},
+						{
+							"boomer_standing": "q.variant == 5"
+						},
+						{
+							"smoker_standing": "q.variant == 6"
+						},
+						{
+							"tank_standing": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_standing": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_standing": "q.variant == 9"
+						},
+						{
+							"final_hero_standing": "q.variant == 10"
+						},
+						{
+							"savior_hero_standing": "q.variant == 13"
+						},
+						{
+							"machine_hero_standing": "q.variant == 14"
+						},
+						{
+							"space_hero_standing": "q.variant == 15"
+						},
+						{
+							"redeem_hero_standing": "q.variant == 16"
+						}
+					]
+				},
+				"hunter_moving": {
+					"animations": [ "hunter_move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"hunter_standing": "q.variant == 1 && q.modified_move_speed < 0.1 && q.is_on_ground"
+						},
+						{
+							"hunter_skill": "q.variant == 1 && !q.is_on_ground && q.property('coldsink:time_skill')"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"spitter_moving": "q.variant == 2"
+						},
+						{
+							"charger_moving": "q.variant == 3"
+						},
+						{
+							"jockey_moving": "q.variant == 4"
+						},
+						{
+							"boomer_moving": "q.variant == 5"
+						},
+						{
+							"smoker_moving": "q.variant == 6"
+						},
+						{
+							"tank_moving": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_moving": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_moving": "q.variant == 9"
+						},
+						{
+							"final_hero_moving": "q.variant == 10"
+						},
+						{
+							"savior_hero_moving": "q.variant == 13"
+						},
+						{
+							"machine_hero_moving": "q.variant == 14"
+						},
+						{
+							"space_hero_moving": "q.variant == 15"
+						},
+						{
+							"redeem_hero_moving": "q.variant == 16"
+						}
+					]
+				},
+				"hunter_skill": {
+					"animations": [ "hunter_jump.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"hunter_standing": "q.variant == 1 && q.is_on_ground"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"spitter_moving": "q.variant == 2"
+						},
+						{
+							"charger_moving": "q.variant == 3"
+						},
+						{
+							"jockey_moving": "q.variant == 4"
+						},
+						{
+							"boomer_moving": "q.variant == 5"
+						},
+						{
+							"smoker_moving": "q.variant == 6"
+						},
+						{
+							"tank_moving": "q.variant == 7"
+						},
+						{
+							"witch_moving": "q.variant == 8"
+						},
+						{
+							"hero_moving": "q.variant == 9"
+						},
+						{
+							"final_hero_moving": "q.variant == 10"
+						},
+						{
+							"savior_hero_moving": "q.variant == 13"
+						},
+						{
+							"machine_hero_moving": "q.variant == 14"
+						},
+						{
+							"space_hero_moving": "q.variant == 15"
+						},
+						{
+							"redeem_hero_moving": "q.variant == 16"
+						}
+					]
+				},
+				"spitter_standing": {
+					"animations": [ "spitter_idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"spitter_moving": "q.variant == 2 && q.modified_move_speed > 0.1"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_standing": "q.variant == 1"
+						},
+						{
+							"charger_standing": "q.variant == 3"
+						},
+						{
+							"jockey_standing": "q.variant == 4"
+						},
+						{
+							"boomer_standing": "q.variant == 5"
+						},
+						{
+							"smoker_standing": "q.variant == 6"
+						},
+						{
+							"tank_standing": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_standing": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_standing": "q.variant == 9"
+						},
+						{
+							"final_hero_standing": "q.variant == 10"
+						},
+						{
+							"savior_hero_standing": "q.variant == 13"
+						},
+						{
+							"machine_hero_standing": "q.variant == 14"
+						},
+						{
+							"space_hero_standing": "q.variant == 15"
+						},
+						{
+							"redeem_hero_standing": "q.variant == 16"
+						}
+					]
+				},
+				"spitter_moving": {
+					"animations": [ "spitter_move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"spitter_standing": "q.variant == 2 && q.modified_move_speed < 0.1"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_moving": "q.variant == 1"
+						},
+						{
+							"charger_moving": "q.variant == 3"
+						},
+						{
+							"jockey_moving": "q.variant == 4"
+						},
+						{
+							"boomer_moving": "q.variant == 5"
+						},
+						{
+							"smoker_moving": "q.variant == 6"
+						},
+						{
+							"tank_moving": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_moving": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_moving": "q.variant == 9"
+						},
+						{
+							"final_hero_moving": "q.variant == 10"
+						},
+						{
+							"savior_hero_moving": "q.variant == 13"
+						},
+						{
+							"machine_hero_moving": "q.variant == 14"
+						},
+						{
+							"space_hero_moving": "q.variant == 15"
+						},
+						{
+							"redeem_hero_moving": "q.variant == 16"
+						}
+					]
+				},
+				"charger_standing": {
+					"animations": [ "charger_idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"charger_moving": "q.variant == 3 && q.modified_move_speed > 0.1 && q.property('coldsink:action_status') == 0"
+						},
+						{
+							"charger_skill": "q.property('coldsink:action_status') == 3"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_standing": "q.variant == 1"
+						},
+						{
+							"spitter_standing": "q.variant == 2"
+						},
+						{
+							"jockey_standing": "q.variant == 4"
+						},
+						{
+							"boomer_standing": "q.variant == 5"
+						},
+						{
+							"smoker_standing": "q.variant == 6"
+						},
+						{
+							"tank_standing": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_standing": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_standing": "q.variant == 9"
+						},
+						{
+							"final_hero_standing": "q.variant == 10"
+						},
+						{
+							"savior_hero_standing": "q.variant == 13"
+						},
+						{
+							"machine_hero_standing": "q.variant == 14"
+						},
+						{
+							"space_hero_standing": "q.variant == 15"
+						},
+						{
+							"redeem_hero_standing": "q.variant == 16"
+						}
+					]
+				},
+				"charger_moving": {
+					"animations": [ "charger_move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"charger_standing": "q.variant == 3 && q.modified_move_speed < 0.1 && q.property('coldsink:action_status') == 0"
+						},
+						{
+							"charger_skill": "q.property('coldsink:action_status') == 3"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_moving": "q.variant == 1"
+						},
+						{
+							"spitter_moving": "q.variant == 2"
+						},
+						{
+							"jockey_moving": "q.variant == 4"
+						},
+						{
+							"boomer_moving": "q.variant == 5"
+						},
+						{
+							"smoker_moving": "q.variant == 6"
+						},
+						{
+							"tank_moving": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_moving": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_moving": "q.variant == 9"
+						},
+						{
+							"final_hero_moving": "q.variant == 10"
+						},
+						{
+							"savior_hero_moving": "q.variant == 13"
+						},
+						{
+							"machine_hero_moving": "q.variant == 14"
+						},
+						{
+							"space_hero_moving": "q.variant == 15"
+						},
+						{
+							"redeem_hero_moving": "q.variant == 16"
+						}
+					]
+				},
+				"charger_skill": {
+					"transitions": [
+						{
+							"charger_standing": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				},
+				"jockey_standing": {
+					"animations": [ "jockey_idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"jockey_moving": "q.variant == 4 && q.modified_move_speed > 0.1"
+						},
+						{
+							"jockey_skill": "q.property('coldsink:action_status') == 3"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_standing": "q.variant == 1"
+						},
+						{
+							"spitter_standing": "q.variant == 2"
+						},
+						{
+							"charger_standing": "q.variant == 3"
+						},
+						{
+							"boomer_standing": "q.variant == 5"
+						},
+						{
+							"smoker_standing": "q.variant == 6"
+						},
+						{
+							"tank_standing": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_standing": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_standing": "q.variant == 9"
+						},
+						{
+							"final_hero_standing": "q.variant == 10"
+						},
+						{
+							"savior_hero_standing": "q.variant == 13"
+						},
+						{
+							"machine_hero_standing": "q.variant == 14"
+						},
+						{
+							"space_hero_standing": "q.variant == 15"
+						},
+						{
+							"redeem_hero_standing": "q.variant == 16"
+						}
+					]
+				},
+				"jockey_moving": {
+					"animations": [ "jockey_move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"jockey_standing": "q.variant == 4 && q.modified_move_speed < 0.1"
+						},
+						{
+							"jockey_skill": "q.property('coldsink:action_status') == 3"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_moving": "q.variant == 1"
+						},
+						{
+							"spitter_moving": "q.variant == 2"
+						},
+						{
+							"charger_moving": "q.variant == 3"
+						},
+						{
+							"boomer_moving": "q.variant == 5"
+						},
+						{
+							"smoker_moving": "q.variant == 6"
+						},
+						{
+							"tank_moving": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_moving": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_moving": "q.variant == 9"
+						},
+						{
+							"final_hero_moving": "q.variant == 10"
+						},
+						{
+							"savior_hero_moving": "q.variant == 13"
+						},
+						{
+							"machine_hero_moving": "q.variant == 14"
+						},
+						{
+							"space_hero_moving": "q.variant == 15"
+						},
+						{
+							"redeem_hero_moving": "q.variant == 16"
+						}
+					]
+				},
+				"jockey_skill": {
+					"transitions": [
+						{
+							"jockey_standing": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				},
+				"boomer_standing": {
+					"animations": [ "boomer_idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"boomer_moving": "q.variant == 5 && q.modified_move_speed > 0.1"
+						},
+						{
+							"boomer_skill": "q.property('coldsink:action_status') == 3"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_standing": "q.variant == 1"
+						},
+						{
+							"spitter_standing": "q.variant == 2"
+						},
+						{
+							"charger_standing": "q.variant == 3"
+						},
+						{
+							"jockey_standing": "q.variant == 4"
+						},
+						{
+							"smoker_standing": "q.variant == 6"
+						},
+						{
+							"tank_standing": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_standing": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_standing": "q.variant == 9"
+						},
+						{
+							"final_hero_standing": "q.variant == 10"
+						},
+						{
+							"savior_hero_standing": "q.variant == 13"
+						},
+						{
+							"machine_hero_standing": "q.variant == 14"
+						},
+						{
+							"space_hero_standing": "q.variant == 15"
+						},
+						{
+							"redeem_hero_standing": "q.variant == 16"
+						}
+					]
+				},
+				"boomer_moving": {
+					"animations": [ "boomer_move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"boomer_standing": "q.variant == 5 && q.modified_move_speed < 0.1"
+						},
+						{
+							"boomer_skill": "q.property('coldsink:action_status') == 3"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_moving": "q.variant == 1"
+						},
+						{
+							"spitter_moving": "q.variant == 2"
+						},
+						{
+							"charger_moving": "q.variant == 3"
+						},
+						{
+							"jockey_moving": "q.variant == 4"
+						},
+						{
+							"smoker_moving": "q.variant == 6"
+						},
+						{
+							"tank_moving": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_moving": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_moving": "q.variant == 9"
+						},
+						{
+							"final_hero_moving": "q.variant == 10"
+						},
+						{
+							"savior_hero_moving": "q.variant == 13"
+						},
+						{
+							"machine_hero_moving": "q.variant == 14"
+						},
+						{
+							"space_hero_moving": "q.variant == 15"
+						},
+						{
+							"redeem_hero_moving": "q.variant == 16"
+						}
+					]
+				},
+				"boomer_skill": {
+					"animations": [ "boomer_skill" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				},
+				"smoker_standing": {
+					"animations": [ "smoker_idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"smoker_moving": "q.variant == 6 && q.modified_move_speed > 0.1"
+						},
+						{
+							"smoker_skill": "q.property('coldsink:action_status') == 3"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_standing": "q.variant == 1"
+						},
+						{
+							"spitter_standing": "q.variant == 2"
+						},
+						{
+							"charger_standing": "q.variant == 3"
+						},
+						{
+							"jockey_standing": "q.variant == 4"
+						},
+						{
+							"boomer_standing": "q.variant == 5"
+						},
+						{
+							"tank_standing": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_standing": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_standing": "q.variant == 9"
+						},
+						{
+							"final_hero_standing": "q.variant == 10"
+						},
+						{
+							"savior_hero_standing": "q.variant == 13"
+						},
+						{
+							"machine_hero_standing": "q.variant == 14"
+						},
+						{
+							"space_hero_standing": "q.variant == 15"
+						},
+						{
+							"redeem_hero_standing": "q.variant == 16"
+						}
+					]
+				},
+				"smoker_moving": {
+					"animations": [ "smoker_move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"smoker_standing": "q.variant == 6 && q.modified_move_speed < 0.1"
+						},
+						{
+							"smoker_skill": "q.property('coldsink:action_status') == 3"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_moving": "q.variant == 1"
+						},
+						{
+							"spitter_moving": "q.variant == 2"
+						},
+						{
+							"charger_moving": "q.variant == 3"
+						},
+						{
+							"jockey_moving": "q.variant == 4"
+						},
+						{
+							"boomer_moving": "q.variant == 5"
+						},
+						{
+							"tank_moving": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_moving": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_moving": "q.variant == 9"
+						},
+						{
+							"final_hero_moving": "q.variant == 10"
+						},
+						{
+							"savior_hero_moving": "q.variant == 13"
+						},
+						{
+							"machine_hero_moving": "q.variant == 14"
+						},
+						{
+							"space_hero_moving": "q.variant == 15"
+						},
+						{
+							"redeem_hero_moving": "q.variant == 16"
+						}
+					]
+				},
+				"smoker_skill": {
+					"animations": [ "smoker_skill" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"smoker_standing": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				},
+				"tank_standing": {
+					"animations": [ "tank_idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"tank_moving": "(q.variant == 7 || q.variant == 11) && q.modified_move_speed > 0.1"
+						},
+						{
+							"tank_skill": "q.property('coldsink:action_status') == 3 || q.is_stunned"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_standing": "q.variant == 1"
+						},
+						{
+							"spitter_standing": "q.variant == 2"
+						},
+						{
+							"charger_standing": "q.variant == 3"
+						},
+						{
+							"jockey_standing": "q.variant == 4"
+						},
+						{
+							"boomer_standing": "q.variant == 5"
+						},
+						{
+							"smoker_standing": "q.variant == 6"
+						},
+						{
+							"witch_standing": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_standing": "q.variant == 9"
+						},
+						{
+							"final_hero_standing": "q.variant == 10"
+						},
+						{
+							"savior_hero_standing": "q.variant == 13"
+						},
+						{
+							"machine_hero_standing": "q.variant == 14"
+						},
+						{
+							"space_hero_standing": "q.variant == 15"
+						},
+						{
+							"redeem_hero_standing": "q.variant == 16"
+						}
+					]
+				},
+				"tank_moving": {
+					"animations": [ "tank_move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"tank_standing": "(q.variant == 7 || q.variant == 11) && q.modified_move_speed < 0.1"
+						},
+						{
+							"tank_skill": "q.property('coldsink:action_status') == 3 || q.is_stunned"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_moving": "q.variant == 1"
+						},
+						{
+							"spitter_moving": "q.variant == 2"
+						},
+						{
+							"charger_moving": "q.variant == 3"
+						},
+						{
+							"jockey_moving": "q.variant == 4"
+						},
+						{
+							"boomer_moving": "q.variant == 5"
+						},
+						{
+							"smoker_moving": "q.variant == 6"
+						},
+						{
+							"witch_moving": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_moving": "q.variant == 9"
+						},
+						{
+							"final_hero_moving": "q.variant == 10"
+						},
+						{
+							"savior_hero_moving": "q.variant == 13"
+						},
+						{
+							"machine_hero_moving": "q.variant == 14"
+						},
+						{
+							"space_hero_moving": "q.variant == 15"
+						},
+						{
+							"redeem_hero_moving": "q.variant == 16"
+						}
+					]
+				},
+				"tank_skill": {
+					"transitions": [
+						{
+							"tank_standing": "q.property('coldsink:action_status') == 0 && !q.is_stunned"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_moving": "q.variant == 1"
+						},
+						{
+							"spitter_moving": "q.variant == 2"
+						},
+						{
+							"charger_moving": "q.variant == 3"
+						},
+						{
+							"jockey_moving": "q.variant == 4"
+						},
+						{
+							"boomer_moving": "q.variant == 5"
+						},
+						{
+							"smoker_moving": "q.variant == 6"
+						},
+						{
+							"witch_moving": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_moving": "q.variant == 9"
+						},
+						{
+							"final_hero_moving": "q.variant == 10"
+						},
+						{
+							"savior_hero_moving": "q.variant == 13"
+						},
+						{
+							"machine_hero_moving": "q.variant == 14"
+						},
+						{
+							"space_hero_moving": "q.variant == 15"
+						},
+						{
+							"redeem_hero_moving": "q.variant == 16"
+						}
+					]
+				},
+				"witch_standing": {
+					"animations": [ "witch_idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"witch_moving": "(q.variant == 8 || q.variant == 12) && q.modified_move_speed > 0.1"
+						},
+						{
+							"witch_cry": "q.variant == 8 && q.property('coldsink:action_status') == 4"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_standing": "q.variant == 1"
+						},
+						{
+							"spitter_standing": "q.variant == 2"
+						},
+						{
+							"charger_standing": "q.variant == 3"
+						},
+						{
+							"jockey_standing": "q.variant == 4"
+						},
+						{
+							"boomer_standing": "q.variant == 5"
+						},
+						{
+							"smoker_standing": "q.variant == 6"
+						},
+						{
+							"tank_standing": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"hero_standing": "q.variant == 9"
+						},
+						{
+							"final_hero_standing": "q.variant == 10"
+						},
+						{
+							"savior_hero_standing": "q.variant == 13"
+						},
+						{
+							"machine_hero_standing": "q.variant == 14"
+						},
+						{
+							"space_hero_standing": "q.variant == 15"
+						},
+						{
+							"redeem_hero_standing": "q.variant == 16"
+						}
+					]
+				},
+				"witch_moving": {
+					"animations": [ "witch_move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"witch_standing": "(q.variant == 8 || q.variant == 12) && q.modified_move_speed < 0.1"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_moving": "q.variant == 1"
+						},
+						{
+							"spitter_moving": "q.variant == 2"
+						},
+						{
+							"charger_moving": "q.variant == 3"
+						},
+						{
+							"jockey_moving": "q.variant == 4"
+						},
+						{
+							"boomer_moving": "q.variant == 5"
+						},
+						{
+							"smoker_moving": "q.variant == 6"
+						},
+						{
+							"tank_moving": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"hero_moving": "q.variant == 9"
+						},
+						{
+							"final_hero_moving": "q.variant == 10"
+						},
+						{
+							"savior_hero_moving": "q.variant == 13"
+						},
+						{
+							"machine_hero_moving": "q.variant == 14"
+						},
+						{
+							"space_hero_moving": "q.variant == 15"
+						},
+						{
+							"redeem_hero_moving": "q.variant == 16"
+						}
+					]
+				},
+				"witch_cry": {
+					"animations": [ "witch_cry.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"witch_standing": "(q.variant == 8 || q.variant == 12) && q.property('coldsink:action_status') != 4"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_moving": "q.variant == 1"
+						},
+						{
+							"spitter_moving": "q.variant == 2"
+						},
+						{
+							"charger_moving": "q.variant == 3"
+						},
+						{
+							"jockey_moving": "q.variant == 4"
+						},
+						{
+							"boomer_moving": "q.variant == 5"
+						},
+						{
+							"smoker_moving": "q.variant == 6"
+						},
+						{
+							"tank_moving": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"hero_moving": "q.variant == 9"
+						},
+						{
+							"final_hero_moving": "q.variant == 10"
+						},
+						{
+							"savior_hero_moving": "q.variant == 13"
+						},
+						{
+							"machine_hero_moving": "q.variant == 14"
+						},
+						{
+							"space_hero_moving": "q.variant == 15"
+						},
+						{
+							"redeem_hero_moving": "q.variant == 16"
+						}
+					]
+				},
+				"hero_standing": {
+					"animations": [ "human_hero.idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"hero_moving": "q.variant == 9 && q.modified_move_speed > 0.1"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_standing": "q.variant == 1"
+						},
+						{
+							"spitter_standing": "q.variant == 2"
+						},
+						{
+							"charger_standing": "q.variant == 3"
+						},
+						{
+							"jockey_standing": "q.variant == 4"
+						},
+						{
+							"boomer_standing": "q.variant == 5"
+						},
+						{
+							"smoker_standing": "q.variant == 6"
+						},
+						{
+							"tank_standing": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_standing": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"final_hero_standing": "q.variant == 10"
+						},
+						{
+							"savior_hero_standing": "q.variant == 13"
+						},
+						{
+							"machine_hero_standing": "q.variant == 14"
+						},
+						{
+							"space_hero_standing": "q.variant == 15"
+						},
+						{
+							"redeem_hero_standing": "q.variant == 16"
+						}
+					]
+				},
+				"hero_moving": {
+					"animations": [ "human_hero.move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"hero_standing": "q.variant == 9 && q.modified_move_speed < 0.1"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_moving": "q.variant == 1"
+						},
+						{
+							"spitter_moving": "q.variant == 2"
+						},
+						{
+							"charger_moving": "q.variant == 3"
+						},
+						{
+							"jockey_moving": "q.variant == 4"
+						},
+						{
+							"boomer_moving": "q.variant == 5"
+						},
+						{
+							"smoker_moving": "q.variant == 6"
+						},
+						{
+							"tank_moving": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_moving": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"final_hero_moving": "q.variant == 10"
+						},
+						{
+							"savior_hero_moving": "q.variant == 13"
+						},
+						{
+							"machine_hero_moving": "q.variant == 14"
+						},
+						{
+							"space_hero_moving": "q.variant == 15"
+						},
+						{
+							"redeem_hero_moving": "q.variant == 16"
+						}
+					]
+				},
+				"final_hero_standing": {
+					"animations": [ "final_hero.idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"final_hero_moving": "q.variant == 10 && q.modified_move_speed > 0.1"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_standing": "q.variant == 1"
+						},
+						{
+							"spitter_standing": "q.variant == 2"
+						},
+						{
+							"charger_standing": "q.variant == 3"
+						},
+						{
+							"jockey_standing": "q.variant == 4"
+						},
+						{
+							"boomer_standing": "q.variant == 5"
+						},
+						{
+							"smoker_standing": "q.variant == 6"
+						},
+						{
+							"tank_standing": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_standing": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_standing": "q.variant == 9"
+						},
+						{
+							"savior_hero_standing": "q.variant == 13"
+						},
+						{
+							"machine_hero_standing": "q.variant == 14"
+						},
+						{
+							"space_hero_standing": "q.variant == 15"
+						},
+						{
+							"redeem_hero_standing": "q.variant == 16"
+						}
+					]
+				},
+				"final_hero_moving": {
+					"animations": [ "final_hero.move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"final_hero_standing": "q.variant == 10 && q.modified_move_speed < 0.1"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_moving": "q.variant == 1"
+						},
+						{
+							"spitter_moving": "q.variant == 2"
+						},
+						{
+							"charger_moving": "q.variant == 3"
+						},
+						{
+							"jockey_moving": "q.variant == 4"
+						},
+						{
+							"boomer_moving": "q.variant == 5"
+						},
+						{
+							"smoker_moving": "q.variant == 6"
+						},
+						{
+							"tank_moving": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_moving": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_moving": "q.variant == 9"
+						},
+						{
+							"savior_hero_moving": "q.variant == 13"
+						},
+						{
+							"machine_hero_moving": "q.variant == 14"
+						},
+						{
+							"space_hero_moving": "q.variant == 15"
+						},
+						{
+							"redeem_hero_moving": "q.variant == 16"
+						}
+					]
+				},
+				"savior_hero_standing": {
+					"animations": [ "savior_hero.idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"savior_hero_moving": "q.variant == 13 && q.modified_move_speed > 0.1 && !q.is_using_item"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_standing": "q.variant == 1"
+						},
+						{
+							"spitter_standing": "q.variant == 2"
+						},
+						{
+							"charger_standing": "q.variant == 3"
+						},
+						{
+							"jockey_standing": "q.variant == 4"
+						},
+						{
+							"boomer_standing": "q.variant == 5"
+						},
+						{
+							"smoker_standing": "q.variant == 6"
+						},
+						{
+							"tank_standing": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_standing": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_standing": "q.variant == 9"
+						},
+						{
+							"final_hero_standing": "q.variant == 10"
+						},
+						{
+							"machine_hero_standing": "q.variant == 14"
+						},
+						{
+							"space_hero_standing": "q.variant == 15"
+						},
+						{
+							"redeem_hero_standing": "q.variant == 16"
+						}
+					]
+				},
+				"savior_hero_moving": {
+					"animations": [ "savior_hero.move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"savior_hero_standing": "q.variant == 13 && q.modified_move_speed < 0.1"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_moving": "q.variant == 1"
+						},
+						{
+							"spitter_moving": "q.variant == 2"
+						},
+						{
+							"charger_moving": "q.variant == 3"
+						},
+						{
+							"jockey_moving": "q.variant == 4"
+						},
+						{
+							"boomer_moving": "q.variant == 5"
+						},
+						{
+							"smoker_moving": "q.variant == 6"
+						},
+						{
+							"tank_moving": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_moving": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_moving": "q.variant == 9"
+						},
+						{
+							"final_hero_moving": "q.variant == 10"
+						},
+						{
+							"machine_hero_moving": "q.variant == 14"
+						},
+						{
+							"space_hero_moving": "q.variant == 15"
+						},
+						{
+							"redeem_hero_moving": "q.variant == 16"
+						}
+					]
+				},
+				"machine_hero_standing": {
+					"animations": [ "machine_hero.idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"machine_hero_moving": "q.variant == 14 && q.modified_move_speed > 0.1 && !q.is_using_item"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_standing": "q.variant == 1"
+						},
+						{
+							"spitter_standing": "q.variant == 2"
+						},
+						{
+							"charger_standing": "q.variant == 3"
+						},
+						{
+							"jockey_standing": "q.variant == 4"
+						},
+						{
+							"boomer_standing": "q.variant == 5"
+						},
+						{
+							"smoker_standing": "q.variant == 6"
+						},
+						{
+							"tank_standing": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_standing": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_standing": "q.variant == 9"
+						},
+						{
+							"final_hero_standing": "q.variant == 10"
+						},
+						{
+							"machine_hero_standing": "q.variant == 14"
+						},
+						{
+							"space_hero_standing": "q.variant == 15"
+						},
+						{
+							"redeem_hero_standing": "q.variant == 16"
+						}
+					]
+				},
+				"machine_hero_moving": {
+					"animations": [ "machine_hero.move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"machine_hero_standing": "q.variant == 14 && q.modified_move_speed < 0.1"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_moving": "q.variant == 1"
+						},
+						{
+							"spitter_moving": "q.variant == 2"
+						},
+						{
+							"charger_moving": "q.variant == 3"
+						},
+						{
+							"jockey_moving": "q.variant == 4"
+						},
+						{
+							"boomer_moving": "q.variant == 5"
+						},
+						{
+							"smoker_moving": "q.variant == 6"
+						},
+						{
+							"tank_moving": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_moving": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_moving": "q.variant == 9"
+						},
+						{
+							"final_hero_moving": "q.variant == 10"
+						},
+						{
+							"savior_hero_moving": "q.variant == 13"
+						},
+						{
+							"space_hero_moving": "q.variant == 15"
+						},
+						{
+							"redeem_hero_moving": "q.variant == 16"
+						}
+					]
+				},
+				"space_hero_standing": {
+					"animations": [ "space_hero.idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"space_hero_moving": "q.variant == 15 && q.modified_move_speed > 0.1"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_standing": "q.variant == 1"
+						},
+						{
+							"spitter_standing": "q.variant == 2"
+						},
+						{
+							"charger_standing": "q.variant == 3"
+						},
+						{
+							"jockey_standing": "q.variant == 4"
+						},
+						{
+							"boomer_standing": "q.variant == 5"
+						},
+						{
+							"smoker_standing": "q.variant == 6"
+						},
+						{
+							"tank_standing": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_standing": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_standing": "q.variant == 9"
+						},
+						{
+							"final_hero_standing": "q.variant == 10"
+						},
+						{
+							"savior_hero_standing": "q.variant == 13"
+						},
+						{
+							"machine_hero_standing": "q.variant == 14"
+						}
+					]
+				},
+				"space_hero_moving": {
+					"animations": [ "space_hero.move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"space_hero_standing": "q.variant == 15 && q.modified_move_speed < 0.1"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_moving": "q.variant == 1"
+						},
+						{
+							"spitter_moving": "q.variant == 2"
+						},
+						{
+							"charger_moving": "q.variant == 3"
+						},
+						{
+							"jockey_moving": "q.variant == 4"
+						},
+						{
+							"boomer_moving": "q.variant == 5"
+						},
+						{
+							"smoker_moving": "q.variant == 6"
+						},
+						{
+							"tank_moving": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_moving": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_moving": "q.variant == 9"
+						},
+						{
+							"final_hero_moving": "q.variant == 10"
+						},
+						{
+							"savior_hero_moving": "q.variant == 13"
+						},
+						{
+							"machine_hero_moving": "q.variant == 14"
+						}
+					]
+				},
+				"redeem_hero_standing": {
+					"animations": [ "redeem_hero.idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"redeem_hero_moving": "q.variant == 16 && q.modified_move_speed > 0.1"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_standing": "q.variant == 1"
+						},
+						{
+							"spitter_standing": "q.variant == 2"
+						},
+						{
+							"charger_standing": "q.variant == 3"
+						},
+						{
+							"jockey_standing": "q.variant == 4"
+						},
+						{
+							"boomer_standing": "q.variant == 5"
+						},
+						{
+							"smoker_standing": "q.variant == 6"
+						},
+						{
+							"tank_standing": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_standing": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_standing": "q.variant == 9"
+						},
+						{
+							"final_hero_standing": "q.variant == 10"
+						},
+						{
+							"savior_hero_standing": "q.variant == 13"
+						},
+						{
+							"machine_hero_standing": "q.variant == 14"
+						},
+						{
+							"space_hero_standing": "q.variant == 15"
+						}
+					]
+				},
+				"redeem_hero_moving": {
+					"animations": [ "redeem_hero.move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"redeem_hero_standing": "q.variant == 16 && q.modified_move_speed < 0.1"
+						},
+						{
+							"default": "q.variant == 0"
+						},
+						{
+							"hunter_moving": "q.variant == 1"
+						},
+						{
+							"spitter_moving": "q.variant == 2"
+						},
+						{
+							"charger_moving": "q.variant == 3"
+						},
+						{
+							"jockey_moving": "q.variant == 4"
+						},
+						{
+							"boomer_moving": "q.variant == 5"
+						},
+						{
+							"smoker_moving": "q.variant == 6"
+						},
+						{
+							"tank_moving": "q.variant == 7 || q.variant == 11"
+						},
+						{
+							"witch_moving": "q.variant == 8 || q.variant == 12"
+						},
+						{
+							"hero_moving": "q.variant == 9"
+						},
+						{
+							"final_hero_moving": "q.variant == 10"
+						},
+						{
+							"savior_hero_moving": "q.variant == 13"
+						},
+						{
+							"machine_hero_moving": "q.variant == 14"
+						},
+						{
+							"space_hero_moving": "q.variant == 15"
+						}
+					]
+				}
+			}
+		}
+	}
+}

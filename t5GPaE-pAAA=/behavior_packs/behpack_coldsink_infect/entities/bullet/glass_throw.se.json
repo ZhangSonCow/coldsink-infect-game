@@ -1,0 +1,111 @@
+﻿{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "nacal_sdc:glass_throw",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball"
+    },
+
+    "component_groups": {
+      "die": {
+        "minecraft:instant_despawn": {}
+      },
+      "timer_clear":{
+        "minecraft:timer": {
+          "time": 0.06,
+          "time_down_event": {
+            "event": "godie",
+            "target": "self"
+          }
+        },
+        "minecraft:skin_id": {
+          "value": 1
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.00,
+        "height": 0.00
+      },
+      "minecraft:ageable": {
+        "duration": 7,
+        "grow_up": {
+          "event": "godie",
+          "target": "self"
+        }
+      },
+      "minecraft:projectile": {
+        "anchor": 1,
+        "offset": [ 0, 0, 0 ],
+        "on_hit": {
+          "definition_event": {
+            "affect_projectile": true,
+            "event_trigger": {
+              "event": "shot"
+            }
+          }
+        },
+        "should_bounce": false,
+        "power": 1.5,
+        "gravity": 0.00,
+        "liquid_inertia": 1
+      },
+      "minecraft:physics": {},
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "shot": {
+        "sequence": [
+          {
+            "queue_command": {
+              "command": [
+                "execute @s ~~~ detect ^^^ glass 0 setblock ^^^ air 0 destroy",
+                "execute @s ~~~ detect ^^^ glass_pane 0 setblock ^^^ air 0 destroy",
+                "execute @s ~~~ detect ^^^-0.6 glass 0 setblock ^^^-0.6 air 0 destroy",
+                "execute @s ~~~ detect ^^^-0.6 glass_pane 0 setblock ^^^-0.6 air 0 destroy",
+                "execute @s ~~~ detect ^^^ stained_glass -1 setblock ^^^ air 0 destroy",
+                "execute @s ~~~ detect ^^^ stained_glass_pane -1 setblock ^^^ air 0 destroy",
+                "execute @s ~~~ detect ^^^-0.6 stained_glass -1 setblock ^^^-0.6 air 0 destroy",
+                "execute @s ~~~ detect ^^^-0.6 stained_glass_pane -1 setblock ^^^-0.6 air 0 destroy"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_skin_id",
+                  "value": 1,
+                  "operator": "!="
+                }
+              ]
+            },
+            "add": {
+              "component_groups": [
+                "timer_clear"
+              ]
+            }
+          }
+        ]  
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "die"
+          ]
+        }
+      }
+    }
+  }
+}

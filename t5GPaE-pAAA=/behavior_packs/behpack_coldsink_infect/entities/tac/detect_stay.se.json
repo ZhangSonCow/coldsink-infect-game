@@ -1,0 +1,102 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "nacal_tac:detect_stay",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "detect_die": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "tac", "bullet", "tool" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:timer": {
+        "time": 0.25,
+        "time_down_event": {
+          "event": "detect_circle"
+        }
+      },
+      "minecraft:is_baby": {},
+      "minecraft:ageable": {
+        "duration": 2,
+        "grow_up": {
+          "event": "detect_die"
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 0.01,
+        "height": 0.01
+      },
+      "minecraft:physics": {}
+
+      //behavivors
+
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "tp @s ~~1~",
+            "particle nacal_tac:detect_circle_2 ~ ~0.2 ~"
+          ]
+        }
+      },
+      "detect_die": {
+        "add": {
+          "component_groups": [
+            "detect_die"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tag @s add neutral",
+            "playsound tac.scan @a[r=32,tag=!detectdbsbibad] ~~~ 1 1 0.5",
+            "playsound tac.scan @a[tag=detectdbsbibad] ~~~ 1 1 0.5",
+            "execute @a[r=12,family=!player,tag=!neutral,family=!bullet] ~ ~ ~ summon nacal_tac:detect_player",
+            "execute @a[r=12,family=!player,tag=!neutral,family=!bullet] ~ ~ ~ summon nacal_tac:detect_entity",
+            "title @a[r=12,family=!player,tag=!neutral,family=!bullet] actionbar §l§6被侦测",
+            "execute @e[r=12,family=!player,tag=!neutral,family=!bullet] ~ ~ ~ summon nacal_tac:detect_entity",
+
+            "scoreboard objectives add detectfootstep dummy detect456", //给玩家脚印用的计分板
+
+            "tag @s add detectstart",
+            "scoreboard objectives add detectsaubafuabd dummy detect123", //设定计分板
+            "scoreboard players add @e[type=nacal_tac:detect_stay] detectsaubafuabd 0",
+            "execute @e[r=12,family=!player,tag=!neutral,family=!bullet] ~~~ scoreboard players add @e[type=nacal_tac:detect_stay,tag=detectstart] detectsaubafuabd 1", //计分
+            "execute @a[r=12,family=!player,tag=!neutral,family=!bullet] ~~~ scoreboard players add @e[type=nacal_tac:detect_stay,tag=detectstart] detectsaubafuabd 1", //计分
+            "titleraw @a[tag=detectdbsbibad] actionbar {\"rawtext\":[{\"text\":\"§l§6侦测到 §f\"},{\"score\":{\"name\":\"@s\" ,\"objective\":\"detectsaubafuabd\"}},{\"text\":\"§6 个目标\"} ] }",
+            "scoreboard objectives remove detectsaubafuabd", //移除计分板
+            "tag @a[tag=detectdbsbibad] remove detectdbsbibad",
+
+            "event entity @e[family=!player,tag=!neutral,family=!bullet,r=12] coldsink:hurting",
+            "damage @e[family=!player,tag=!neutral,family=!bullet,r=12] 24 suicide",
+            "effect @e[family=!player,tag=!neutral,family=!bullet,r=12] slowness 5 2 true",
+            "particle nacal_tac:detect_boom ~~~"
+          ]
+        }
+      },
+      "detect_circle": {
+        "queue_command": {
+          "command": [
+            "particle nacal_tac:detect_circle_2 ~ ~0.2 ~",
+            "particle nacal_sdc:detect_bigcircle"
+          ]
+        }
+      }
+    }
+  }
+}

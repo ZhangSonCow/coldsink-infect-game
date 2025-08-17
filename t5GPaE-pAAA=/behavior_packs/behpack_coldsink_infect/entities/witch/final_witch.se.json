@@ -1,0 +1,418 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:final_witch",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "animations": {
+        "c": "controller.animation.final_witch_ai.func",
+        "damage": "controller.animation.final_witch_ai_damage.func",
+        "sound_interval": "animation.sfzombie_sound_interval.func"
+      },
+      "scripts": {
+        "animate": [
+          "c",
+          "damage",
+          "sound_interval"
+        ]
+      }
+    },
+
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      },
+      "walk": {
+        "minecraft:navigation.walk": {
+          "can_walk": true,
+          "can_pass_doors": true,
+          "can_break_doors": true,
+          "is_amphibious": true,
+          "avoid_damage_blocks": false
+        }
+      },
+      "climb": {
+        "minecraft:navigation.climb": {
+          "can_path_over_water": true,
+          "blocks_to_avoid": [
+            "minecraft:barrier"
+          ]
+        },
+        "minecraft:behavior.leap_at_target": {
+          "priority": 3,
+          "must_be_on_ground": true,
+          "set_persistent": true,
+          "target_dist": 128,
+          "yd": 0.5
+        }
+      },
+
+      "skill": {
+        "minecraft:ageable": {
+          "duration": 8,
+          "transform_to_item": "skill_over"
+        }
+      },
+
+      "damage_1": {
+        "minecraft:attack": {
+          "damage": 10
+        }
+      },
+      "damage_2": {
+        "minecraft:attack": {
+          "damage": 11
+        }
+      },
+      "damage_3": {
+        "minecraft:attack": {
+          "damage": 13
+        }
+      },
+      "damage_4": {
+        "minecraft:attack": {
+          "damage": 16
+        }
+      },
+      "damage_5": {
+        "minecraft:attack": {
+          "damage": 20
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:nameable": {
+        "always_show": false,
+        "allow_name_tag_renaming": true
+      },
+      "minecraft:type_family": {
+        "family": [ "mob", "sdc", "monster", "special", "final_witch", "boss", "final_boss", "ai" ]
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/final_witch.loot.json"
+      },
+      "minecraft:health": {
+        "value": 120,
+        "max": 120
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.99
+      },
+      "minecraft:boss": {
+        "should_darken_sky": false,
+        "hud_range": 16,
+        "name": "§d恶灵女巫"
+      },
+      "minecraft:timer": {
+        "time": [15, 18],
+        "time_down_event": {
+          "event": "skill",
+          "target": "self"
+        }
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "reselect_targets": true,
+        "scan_interval": 50,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "tool"
+                },
+                {
+                  "test": "has_tag",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "neutral"
+                },
+                {
+                  "test": "has_tag",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "no_any_hurt"
+                }
+              ]
+            },
+            "max_dist": 48
+          }
+        ],
+        "must_see": true
+      },
+      "minecraft:behavior.delayed_attack": {
+        "priority": 0,
+        "attack_once": false,
+        "track_target": true,
+        "require_complete_path": false,
+        "random_stop_interval": 0,
+        "reach_multiplier": 5,
+        "speed_multiplier": 1,
+        "attack_duration": 0.8,
+        "hit_delay_pct": 0.4
+      },
+      
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 0.8
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 7
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 7,
+        "look_distance": 6,
+        "probability": 0.02
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": [
+                {
+                  "test":"has_damage",
+                  "value":"fatal",
+                  "operator": "!="
+                }
+              ],
+              "event": "hurting",
+              "target": "self"
+            }
+          },
+          {
+            "cause": "fall",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:movement": {
+        "value": 0.45
+      },
+      "minecraft:collision_box": {
+        "width": 0.55,
+        "height": 1.9
+      },
+      "minecraft:follow_range": {
+        "value": 1024
+      },
+      "minecraft:jump.static": {},
+      "minecraft:physics": {},
+      "minecraft:movement.basic": {},
+
+      "minecraft:on_target_acquired": {
+        "event": "has_target",
+        "target": "self"
+      },
+      "minecraft:on_target_escape": {
+        "event": "lost_target",
+        "target": "self"
+      },
+
+      //behavivors
+
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "max_dist": 64,
+        "entity_types": {
+          "filters": {
+            "all_of": [
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "monster"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "tool"
+              },
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "operator": "!=",
+                "value": "neutral"
+              }
+            ]
+          }
+        }
+      }
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "shoot_now",
+            "walk"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tag @s add is_witch"
+          ]
+        }
+      },
+      "has_target": {
+        "remove": {
+          "component_groups": [
+            "walk"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "climb"
+          ]
+        }
+      },
+      "lost_target": {
+        "remove": {
+          "component_groups": [
+            "climb"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "walk"
+          ]
+        }
+      },
+      "skill": {
+        "add": {
+          "component_groups": [
+            "skill"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "effect @s regeneration 8 2 true",
+            "effect @s speed 8 1 true",
+            "effect @s invisibility 8 0 true",
+            "playsound final_witch.skill @a ~~~",
+            "tag @s add final_witch_skill"
+          ]
+        }
+      },
+      "skill_over": {
+        "remove": {
+          "component_groups": [
+            "skill"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tag @s remove final_witch_skill"
+          ]
+        }
+      },
+      "hurting":{
+        "queue_command": {
+          "command": [
+            "scoreboard players random @s[tag=!sound_interval] wp_random 1 3",
+
+            "execute @s[tag=!sound_interval,scores={wp_random=1}] ~~~ playsound witch.hurt_1 @a ~~~",
+            "execute @s[tag=!sound_interval,scores={wp_random=2}] ~~~ playsound witch.hurt_2 @a ~~~",
+            "execute @s[tag=!sound_interval,scores={wp_random=3}] ~~~ playsound witch.hurt_3 @a ~~~",
+
+            "scoreboard players reset @s[tag=!sound_interval] idle_time",
+            "tag @s[tag=!sound_interval] add sound_interval"
+          ]
+        }
+      },
+      "damage_1": {
+        "add": {
+          "component_groups": [
+            "damage_1"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "damage_2",
+            "damage_3",
+            "damage_4",
+            "damage_5"
+          ]
+        }
+      },
+      "damage_2": {
+        "add": {
+          "component_groups": [
+            "damage_2"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "damage_1",
+            "damage_3",
+            "damage_4",
+            "damage_5"
+          ]
+        }
+      },
+      "damage_3": {
+        "add": {
+          "component_groups": [
+            "damage_3"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "damage_1",
+            "damage_2",
+            "damage_4",
+            "damage_5"
+          ]
+        }
+      },
+      "damage_4": {
+        "add": {
+          "component_groups": [
+            "damage_4"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "damage_1",
+            "damage_2",
+            "damage_3",
+            "damage_5"
+          ]
+        }
+      },
+      "damage_5": {
+        "add": {
+          "component_groups": [
+            "damage_5"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "damage_1",
+            "damage_2",
+            "damage_3",
+            "damage_4"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

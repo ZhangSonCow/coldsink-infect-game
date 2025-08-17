@@ -1,0 +1,25 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+	  "controller.animation.action_clear_patch.func": {
+		"states": {
+		  "default": {
+			"transitions": [
+			  {
+				"check_tag": "q.property('coldsink:action_status') != 0"
+			  }
+			]
+		  },
+		  "check_tag": {
+			"animations": [ "action_clear_patch" ],
+			"transitions": [
+			  {
+				"default": "q.property('coldsink:action_status') == 0"
+			  }
+			]
+		  } 
+		}
+	  }
+	}
+  }
+  

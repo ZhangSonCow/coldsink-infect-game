@@ -1,0 +1,129 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.final_tank_attack_light.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.0": [
+          "/scoreboard players random @s wp_random 1 3",
+          "/tag @s add self",
+          "/execute @s[scores={wp_random=1},tag=!sound_interval] ~~~ playsound tank.attack_1 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=2},tag=!sound_interval] ~~~ playsound tank.attack_2 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=3},tag=!sound_interval] ~~~ playsound tank.attack_3 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=1},tag=!sound_interval] ~~~ playsound tank.attack_1.self @s",
+          "/execute @s[scores={wp_random=2},tag=!sound_interval] ~~~ playsound tank.attack_2.self @s",
+          "/execute @s[scores={wp_random=3},tag=!sound_interval] ~~~ playsound tank.attack_3.self @s",
+          "/tag @s remove self",
+          "/tag @s add sound_interval"
+        ],
+        "0.75": [
+          "/tag @s add final_tank_self",
+
+          "/execute @s[tag=maper] ^^2.5^ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] ~~~ playsound get_target @p[tag=final_tank_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^2.5^ effect @e[family=player,family=!tool,type=!item,tag=!neutral,tag=!no_any_hurt,r=5] slowness 2 2 true",
+          "/execute @s[tag=maper] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] 6 suicide",
+          "/execute @s[tag=maper] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=5] 4 suicide",
+
+          "/execute @s[tag=!maper] ^^2.5^ execute @e[tag=!final_tank_self,family=!tool,type=!item,r=5] ~~~ playsound get_target @p[tag=final_tank_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^2.5^ effect @e[tag=!final_tank_self,family=!tool,type=!item,tag=!no_any_hurt,r=5] slowness 2 2 true",
+          "/execute @s[tag=!maper] ^^2.5^ damage @e[tag=!final_tank_self,family=!tool,type=!item,r=5] 14 suicide",
+          
+          "/tag @s remove final_tank_self"
+        ],
+        "1.3": [
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.final_tank_attack_heavy.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.0": [
+          "/scoreboard players random @s wp_random 1 3",
+          "/tag @s add self",
+          "/execute @s[scores={wp_random=1},tag=!sound_interval] ~~~ playsound tank.attack_big_1 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=2},tag=!sound_interval] ~~~ playsound tank.attack_big_2 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=3},tag=!sound_interval] ~~~ playsound tank.attack_big_3 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=1},tag=!sound_interval] ~~~ playsound tank.attack_big_1.self @s",
+          "/execute @s[scores={wp_random=2},tag=!sound_interval] ~~~ playsound tank.attack_big_2.self @s",
+          "/execute @s[scores={wp_random=3},tag=!sound_interval] ~~~ playsound tank.attack_big_3.self @s",
+          "/tag @s remove self",
+          "/tag @s add sound_interval"
+        ],
+        "1.15": [
+          "/tag @s add final_tank_self",
+
+          "/execute @s[tag=maper] ^^3^ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=6] ~~~ playsound get_target @p[tag=final_tank_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^3^ effect @e[family=player,family=!tool,type=!item,tag=!neutral,tag=!no_any_hurt,r=6] levitation 1 1 true",
+          "/execute @s[tag=maper] ^^3^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=6] 11 suicide",
+          "/execute @s[tag=maper] ^^3^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=6] 8 suicide",
+
+          "/execute @s[tag=!maper] ^^3^ execute @e[tag=!final_tank_self,family=!tool,type=!item,r=6] ~~~ playsound get_target @p[tag=final_tank_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^3^ effect @e[tag=!final_tank_self,family=!tool,type=!item,tag=!no_any_hurt,r=6] levitation 1 1 true",
+          "/execute @s[tag=!maper] ^^3^ damage @e[tag=!final_tank_self,family=!tool,type=!item,r=6] 30 suicide",
+          
+          "/tag @s remove final_tank_self"
+        ],
+        "1.8": [
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.final_tank_skill_fireball_timer.func": {
+      "loop": false,
+      "animation_length": 20.0,
+      "timeline": {
+        "0.0": [
+          "/scoreboard objectives add tnnk_time dummy tnnk_time",
+          "/scoreboard objectives add tnnk_check dummy tnnk_check",
+          "/scoreboard players add tnnk_count tnnk_time 1",
+          "/scoreboard players operation @s tnnk_time = tnnk_count tnnk_time",
+          "/execute @s[scores={tnnk_time=999..}] ~~~ scoreboard players set tnnk_count tnnk_time 0",
+
+          "/title @s actionbar §l§c火球蓄力等级  §e1/3",
+          "/scoreboard players set @s tnnk_fireball 1"
+        ],
+        "2.0": [
+          "/title @s actionbar §l§c火球蓄力等级  §e2/3",
+          "/scoreboard players set @s tnnk_fireball 2"
+        ],
+        "4.0": [
+          "/title @s actionbar §l§c火球蓄力等级  §63/3",
+          "/scoreboard players set @s tnnk_fireball 3"
+        ],
+        "12.0": [
+          "/replaceitem entity @s slot.hotbar 8 barrier 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}"
+        ]
+      }
+    },
+    "animation.final_tank_skill_cooldown.func": {
+      "loop": true,
+      "animation_length": 1.0,
+      "timeline": {
+        "0.0": [
+          "/clear @s coldsink:skill_cooldown 0 1",
+          "/replaceitem entity @s[hasitem={item=coldsink:skill_cooldown,quantity=0}] slot.hotbar 8 coldsink:final_tnnk_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}"
+        ]
+      }
+    },
+    "animation.final_tank_skill_howl_timer.func": {
+      "loop": false,
+      "animation_length": 2.0,
+      "timeline": {
+        "0.0": [
+          "/particle nacal_sdc:tnnk_blast ~~0.8~",
+          "/execute @s[tag=maper] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=8] 6 suicide",
+          "/execute @s[tag=!maper] ~~~ damage @e[tag=!tnnk_self,r=8] 6 suicide",
+          "/tag @s remove tnnk_self",
+          "/replaceitem entity @s[hasitem={item=coldsink:skill_cooldown,quantity=0}] slot.hotbar 8 barrier 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}"
+        ],
+        "1.0": [
+          "/replaceitem entity @s[hasitem={item=coldsink:skill_cooldown,quantity=0}] slot.hotbar 8 coldsink:final_tnnk_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+          "/event entity @s action_clear"
+        ]
+      }
+    }
+  }
+}

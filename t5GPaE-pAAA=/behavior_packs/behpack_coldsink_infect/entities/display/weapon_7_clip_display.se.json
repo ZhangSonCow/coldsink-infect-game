@@ -1,0 +1,117 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:weapon_7_clip_display",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "animations": {
+        "c": "controller.animation.game_check.func"
+      },
+      "scripts": {
+        "animate": [
+          "c"
+        ]
+      }
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      },
+      "check_tag": {
+        "minecraft:variant": {
+          "value": 1
+        }
+      }
+    },
+    
+    "components": {
+      "minecraft:ageable": {
+        "duration": 0.1,
+        "grow_up": {
+          "event": "check_tag",
+          "target": "self"
+        }
+      },
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:health": {
+        "value": 2,
+        "max": 2,
+        "min": 1
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:collision_box": {
+        "width": 0.0,
+        "height": 0.0
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "pivot": [ 0, 0, 0 ],
+            "width": 0.5,
+            "height": 0.5
+          }
+        ]
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "event": "give",
+              "target": "self"
+            },
+            "swing": true,
+            "interact_text": "拾取 [备用弹夹-先驱者]"
+          }
+        ]
+      }
+    },
+    "events": {
+      "give": {
+        "queue_command": {
+          "command": [
+            "give @p coldsink:weapon_7_clip",
+            "title @p actionbar 已拾取 §6[备用弹夹-狂战者]",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "check_tag": {
+        "add": {
+          "component_groups": [
+            "check_tag"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tag @s add game_check_tag"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:melee_4_display",
+      "materials": {
+        "default": "entity_alphatest",
+        "netease_entity_metallic": "entity_alphablend"
+      },
+      "textures": {
+        "default": "textures/entity/melee_4"
+      },
+      "geometry": {
+        "default": "geometry.melee_4_display"
+      },
+      "render_controllers": [ "controller.render.netease_entity_metallic" ],
+      "spawn_egg": {
+        "texture": "melee_4_give"
+      }
+    }
+  }
+}

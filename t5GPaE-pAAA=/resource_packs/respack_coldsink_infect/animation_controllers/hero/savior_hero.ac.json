@@ -1,0 +1,268 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.savior_hero": {
+			"initial_state": "weapon_1_idle",
+			"states": {
+				"weapon_1_idle": {
+					"animations": [ "savior_hero_weapon_1.idle" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"weapon_2_idle": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2_empty')"
+						},
+						{
+							"weapon_1_fire": "q.property('coldsink:action_status') == 1"
+						},
+						{
+							"weapon_1_loading": "q.property('coldsink:action_status') == 2"
+						},
+						{
+							"empty_idle": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1_empty')"
+						}
+					]
+				},
+				"weapon_1_fire": {
+					"animations": [ "savior_hero_weapon_1.fire" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"weapon_1_idle": "(q.property('coldsink:action_status') != 1 && !q.is_using_item) || q.property('coldsink:jockey_control') || q.property('coldsink:tnnk_howl_control')"
+						},
+						{
+							"weapon_1_loading": "q.property('coldsink:action_status') == 2"
+						},
+						{
+							"empty_idle": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1_empty')"
+						}
+					]
+				},
+				"weapon_1_loading": {
+					"animations": [ "savior_hero_weapon_1.loading" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"weapon_1_idle": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"empty_idle": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1_empty')"
+						}
+					]
+				},
+				"weapon_2_idle": {
+					"animations": [ "savior_hero_weapon_2.idle" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"weapon_1_idle": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1') || q.property('coldsink:action_status') == 2"
+						},
+						{
+							"weapon_2_fire": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2') && q.property('coldsink:action_status') == 1"
+						},
+						{
+							"weapon_2_loading": "q.property('coldsink:action_status') == 2"
+						},
+						{
+							"empty_idle": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2_empty')"
+						}
+					]
+				},
+				"weapon_2_fire": {
+					"animations": [ "savior_hero_weapon_2.fire" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"weapon_2_idle": "q.property('coldsink:action_status') != 1 || q.property('coldsink:jockey_control') || q.property('coldsink:tnnk_howl_control')"
+						},
+						{
+							"weapon_2_loading": "q.property('coldsink:action_status') == 2"
+						},
+						{
+							"empty_idle": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2_empty')"
+						}
+					]
+				},
+				"weapon_2_loading": {
+					"animations": [ "savior_hero_weapon_2.loading" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"weapon_2_idle": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"empty_idle": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2_empty')"
+						}
+					]
+				},
+				"empty_idle": {
+					"animations": [ "savior_hero_empty.idle.arm" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"weapon_1_idle": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1') || q.property('coldsink:action_status') == 2 || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2') || q.property('coldsink:action_status') == 2"
+						},
+						{
+							"empty_move": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2') && query.modified_move_speed > 0.1"
+						}
+					]
+				},
+				"empty_move": {
+					"animations": [ "savior_hero_empty.move.arm" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"weapon_1_idle": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1') || q.property('coldsink:action_status') == 2 || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2') || q.property('coldsink:action_status') == 2"
+						},
+						{
+							"empty_idle": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2') && query.modified_move_speed <= 0.1"
+						}
+					]
+				}
+			}
+		},
+
+		"controller.animation.savior_hero.1st": {
+			"initial_state": "weapon_1_idle",
+			"states": {
+				"weapon_1_idle": {
+					"animations": [ "savior_hero_weapon_1.idle.1st" ],
+					"blend_transition": 0.25,
+					"transitions": [
+						{
+							"weapon_1_fire": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1') && q.property('coldsink:action_status') == 1"
+						},
+						{
+							"weapon_1_loading": "q.property('coldsink:action_status') == 2"
+						},
+						{
+							"weapon_2_idle": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2') || q.property('coldsink:action_status') == 2"
+						}
+					]
+				},
+				"weapon_1_fire": {
+					"animations": [ "savior_hero_weapon_1.fire.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"weapon_1_idle": "(q.property('coldsink:action_status') != 1 && !q.is_using_item) || q.property('coldsink:jockey_control') || q.property('coldsink:tnnk_howl_control')"
+						},
+						{
+							"weapon_1_loading": "q.property('coldsink:action_status') == 2"
+						}
+					]
+				},
+				"weapon_1_loading": {
+					"animations": [ "savior_hero_weapon_1.loading.1st" ],
+                    "blend_transition": 0.1,
+					"transitions": [
+						{
+							"weapon_1_idle": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				},
+				"weapon_2_idle": {
+					"animations": [ "savior_hero_weapon_2.idle.1st" ],
+					"blend_transition": 0.15,
+					"transitions": [
+						{
+							"weapon_2_fire": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2') && q.property('coldsink:action_status') == 1"
+						},
+						{
+							"weapon_2_loading": "q.property('coldsink:action_status') == 2"
+						},
+						{
+							"weapon_1_idle": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1') || q.property('coldsink:action_status') == 2"
+						}
+					]
+				},
+				"weapon_2_fire": {
+					"animations": [ "savior_hero_weapon_2.fire.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"weapon_2_idle": "q.property('coldsink:action_status') != 1 || q.property('coldsink:jockey_control') || q.property('coldsink:tnnk_howl_control')"
+						},
+						{
+							"weapon_2_loading": "q.property('coldsink:action_status') == 2"
+						}
+					]
+				},
+				"weapon_2_loading": {
+					"animations": [ "savior_hero_weapon_2.loading.1st" ],
+                    "blend_transition": 0.1,
+					"transitions": [
+						{
+							"weapon_2_idle": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				}
+			}
+		},
+
+		"controller.animation.savior_hero_weapon_1.particle": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"fire": "q.property('coldsink:action_status') == 1"
+						}
+					]
+				},
+				"fire": {
+					"animations": [ "savior_hero_weapon_1.particle" ],
+					"transitions": [
+						{
+							"default": "(q.property('coldsink:action_status') != 1 && !q.is_using_item) || q.property('coldsink:jockey_control') || q.property('coldsink:tnnk_howl_control')"
+						}
+					]
+				}
+			}
+		},
+		
+		"controller.animation.savior_hero_weapon_1.particle.1st": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"fire": "q.property('coldsink:action_status') == 1"
+						}
+					]
+				},
+				"fire": {
+					"animations": [ "savior_hero_weapon_1.particle.1st" ],
+					"transitions": [
+						{
+							"default": "(q.property('coldsink:action_status') != 1 && !q.is_using_item) || q.property('coldsink:jockey_control') || q.property('coldsink:tnnk_howl_control')"
+						}
+					]
+				}
+			}
+		},
+
+		"controller.animation.savior_hero.walk": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "savior_hero.idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"walk": "q.modified_move_speed > 0.1"
+						}
+					]
+				},
+				"walk": {
+					"animations": [ "savior_hero.move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.modified_move_speed <= 0.1"
+						}
+					]
+				}
+			}
+		}
+	}
+}

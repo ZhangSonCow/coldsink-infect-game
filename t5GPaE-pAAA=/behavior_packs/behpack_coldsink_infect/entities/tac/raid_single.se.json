@@ -1,0 +1,73 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "nacal_tac:raid_single",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "tac", "bullet", "tool" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:is_baby": {},
+      "minecraft:ageable": {
+        "duration": 3,
+        "grow_up": {
+          "event": "godie"
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 0.001,
+        "height": 0.001
+      },
+      "minecraft:physics": {}
+
+      //behavivors
+
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "scoreboard players operation @s raid_time = raid_count raid_time",
+            "tag @s add neutral"
+          ]
+        }
+      },
+      "godie": {
+        "queue_command": {
+          "command": [
+            "scoreboard players operation @a raid_check = @s raid_time",
+            "execute @a ~~~ scoreboard players operation @s raid_check -= @s raid_time",
+            
+            "playsound tac.he @a ~~~ 1 1 0.1",
+            "effect @e[family=!player,tag=!neutral,family=!bullet,r=8] slowness 3 0 true",
+            "event entity @e[family=!player,tag=!neutral,family=!bullet,r=8] coldsink:hurting",
+            "damage @e[family=!player,tag=!neutral,family=!bullet,r=8] 16 suicide",
+            "particle nacal_tac:burn_2 ~ ~0.2 ~"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

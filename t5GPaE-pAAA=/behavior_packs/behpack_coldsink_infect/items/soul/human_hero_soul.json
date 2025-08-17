@@ -1,0 +1,22 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "coldsink:human_hero_soul",
+      "menu_category": {  
+        "group": "itemGroup.name.soul",  
+        "category": "nature", 
+        "is_hidden_in_commands": false 
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+        "value": "§6英雄之魂-斩恶§f"
+      },
+      "minecraft:max_stack_size": 64,
+      "minecraft:icon": {
+        "texture": "human_hero_soul"
+      }
+    }
+  }
+}

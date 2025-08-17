@@ -1,0 +1,55 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:human_hero_ai",
+      "animations": {
+        "human_hero_idle.arm": "animation.human_hero.idle.arm",
+        "human_hero_idle.leg": "animation.human_hero.idle.leg",
+        "human_hero_move.leg": "animation.human_hero.move.leg",
+        "human_hero_attack1": "animation.human_hero.attack1",
+        "human_hero_attack2": "animation.human_hero.attack2",
+        "c.human_hero_ai": "controller.animation.human_hero_ai",
+        "c.human_hero_walk": "controller.animation.human_hero_walk",
+        "human_hero.particle": "animation.human_hero.particle",
+        "human_hero.look": "animation.human_hero.look",
+        "sign_facing": "animation.sign_facing"
+      },
+      "scripts": {
+        "initialize": [
+          "variable.player_x_rotation=0.0;"
+        ],
+        "pre_animation": [
+          "variable.random_choices = math.random(0, 100);"
+        ],
+        "animate": [
+          "c.human_hero_ai",
+          "c.human_hero_walk",
+          "human_hero.particle",
+          "human_hero.look",
+          "sign_facing"
+        ]
+      },
+      "materials": {
+        "default": "entity_alphatest",
+        "nacal_tac_detect": "nacal_tac_detect",
+        "nacal_customblend":"nacal_customblend"
+      },
+      "particle_effects": {
+        "human_hero.particle": "coldsink:human_hero"
+      },
+      "textures": {
+        "default": "textures/entity/human_hero",
+        "human_hero_sign": "textures/entity/human_hero_sign"
+      },
+      "geometry": {
+        "default": "geometry.human_hero",
+        "human_sign": "geometry.human_sign"
+      },
+      "render_controllers": [ "controller.render.com", "controller.render.human_hero_sign" ],
+      "spawn_egg": {
+        "texture": "become_human_hero"
+      }
+    }
+  }
+}

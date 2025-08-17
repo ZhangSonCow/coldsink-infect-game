@@ -1,0 +1,159 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.fist_hero": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "fist_hero.idle.arm" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"attack_big": "v.attack_time && q.is_saddled"
+						},
+						{
+							"attack": "v.attack_time && !q.is_saddled"
+						}
+					]
+				},
+				"attack": {
+					"animations": [ "fist_hero.attack" ],
+					"blend_transition": 0.0,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					]
+				},
+				"attack_big": {
+					"animations": [ "fist_hero.attack_big" ],
+					"blend_transition": 0.0,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.fist_hero.1st": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "fist_hero.idle.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"begin": "q.property('coldsink:action_status') == 4"
+						},
+						{
+							"attack_big": "v.attack_time && q.is_saddled"
+						},
+						{
+							"attack": "v.attack_time && !q.is_saddled"
+						}
+					]
+				},
+				"begin": {
+					"animations": [ "fist_hero.begin.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				},
+				"attack": {
+					"animations": [ "fist_hero.attack.1st" ],
+					"blend_transition": 0.0,
+					"transitions": [
+						{
+							"begin": "q.property('coldsink:action_status') == 4"
+						},
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					]
+				},
+				"attack_big": {
+					"animations": [ "fist_hero.attack_big.1st" ],
+					"blend_transition": 0.0,
+					"transitions": [
+						{
+							"begin": "q.property('coldsink:action_status') == 4"
+						},
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					]
+				}
+			}
+		},
+
+		"controller.animation.fist_hero.walk": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "fist_hero.idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"walk": "q.modified_move_speed > 0.1"
+						}
+					]
+				},
+				"walk": {
+					"animations": [ "fist_hero.move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.modified_move_speed <= 0.1"
+						}
+					]
+				}
+			}
+		},
+
+		"controller.animation.fist_hero.skill": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"skill": "q.property('coldsink:time_skill')"
+						}
+					]
+				},
+				"skill": {
+					"animations": [ "fist_hero.skill" ],
+					"transitions": [
+						{
+							"default": "!q.property('coldsink:time_skill')"
+						}
+					]
+				}
+			}
+		},
+
+		"controller.animation.fist_hero.skill.1st": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"skill": "q.property('coldsink:time_skill')"
+						}
+					]
+				},
+				"skill": {
+					"animations": [ "fist_hero.skill.1st" ],
+					"transitions": [
+						{
+							"default": "!q.property('coldsink:time_skill')"
+						}
+					]
+				}
+			}
+		}
+	}
+}

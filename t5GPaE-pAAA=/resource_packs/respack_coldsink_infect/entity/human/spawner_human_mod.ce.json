@@ -1,0 +1,12 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:spawner_human_mod",
+      "spawn_egg": {
+        "base_color": "#302872",
+        "overlay_color": "#00AFAF"
+      }
+    }
+  }
+}

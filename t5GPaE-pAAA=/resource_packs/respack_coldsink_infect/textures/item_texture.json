@@ -1,0 +1,468 @@
+{
+  "resource_pack_name": "coldsink",
+  "texture_name": "atlas.items",
+  "texture_data": {
+
+    "barrier": {
+      "textures": "textures/items/barrier"
+    },
+
+    // 地图用游戏物品
+
+    "bag_1": {
+      "textures": "textures/items/map/bag_1"
+    },
+    "bag_2": {
+      "textures": "textures/items/map/bag_2"
+    },
+    "bag_3": {
+      "textures": "textures/items/map/bag_3"
+    },
+    "bag_4": {
+      "textures": "textures/items/map/bag_4"
+    },
+    "bag_5": {
+      "textures": "textures/items/map/bag_5"
+    },
+    "audience_change": {
+      "textures": "textures/items/map/audience_change"
+    },
+    "random_sfzombie": {
+      "textures": "textures/items/map/random_sfzombie"
+    },
+    "human_icon": {
+      "textures": "textures/items/map/human_icon"
+    },
+    "com_icon": {
+      "textures": "textures/items/map/com_icon"
+    },
+    "test_kill": {
+      "textures": "textures/items/map/test_kill"
+    },
+
+    // 特殊道具
+    "aid_pack": {
+      "textures": "textures/items/special/aid_pack"
+    },
+    "supply_box": {
+      "textures": "textures/items/special/supply_box"
+    },
+    "final_box_blue": {
+      "textures": "textures/items/special/final_box_blue"
+    },
+    "final_box_red": {
+      "textures": "textures/items/special/final_box_red"
+    },
+    "aid_pack_give": {
+      "textures": "textures/items/give/aid_pack_give"
+    },
+    "godie_tool": {
+      "textures": "textures/items/godie_tool"
+    },
+
+    // 人类武器
+    "weapon_1": {
+      "textures": "textures/items/weapon/weapon_1"
+    },
+    "weapon_2": {
+      "textures": "textures/items/weapon/weapon_2"
+    },
+    "weapon_3": {
+      "textures": "textures/items/weapon/weapon_3"
+    },
+    "weapon_4": {
+      "textures": "textures/items/weapon/weapon_4"
+    },
+    "weapon_5": {
+      "textures": "textures/items/weapon/weapon_5"
+    },
+    "weapon_6": {
+      "textures": "textures/items/weapon/weapon_6"
+    },
+    "weapon_7": {
+      "textures": "textures/items/weapon/weapon_7"
+    },
+    "weapon_8": {
+      "textures": "textures/items/weapon/weapon_8"
+    },
+    "weapon_9": {
+      "textures": "textures/items/weapon/weapon_9"
+    },
+    "weapon_10": {
+      "textures": "textures/items/weapon/weapon_10"
+    },
+    "weapon_11": {
+      "textures": "textures/items/weapon/weapon_11"
+    },
+    "weapon_1_clip": {
+      "textures": "textures/items/weapon/weapon_1_clip"
+    },
+    "weapon_2_clip": {
+      "textures": "textures/items/weapon/weapon_2_clip"
+    },
+    "weapon_3_clip": {
+      "textures": "textures/items/weapon/weapon_3_clip"
+    },
+    "weapon_4_clip": {
+      "textures": "textures/items/weapon/weapon_4_clip"
+    },
+    "weapon_5_clip": {
+      "textures": "textures/items/weapon/weapon_5_clip"
+    },
+    "weapon_6_clip": {
+      "textures": "textures/items/weapon/weapon_6_clip"
+    },
+    "weapon_7_clip": {
+      "textures": "textures/items/weapon/weapon_7_clip"
+    },
+    "weapon_8_clip": {
+      "textures": "textures/items/weapon/weapon_8_clip"
+    },
+    "weapon_9_clip": {
+      "textures": "textures/items/weapon/weapon_9_clip"
+    },
+    "weapon_10_clip": {
+      "textures": "textures/items/weapon/weapon_10_clip"
+    },
+    "weapon_11_clip": {
+      "textures": "textures/items/weapon/weapon_11_clip"
+    },
+    "melee_1": {
+      "textures": "textures/items/weapon/melee_1"
+    },
+    "melee_2": {
+      "textures": "textures/items/weapon/melee_2"
+    },
+    "melee_3": {
+      "textures": "textures/items/weapon/melee_3"
+    },
+    "melee_4": {
+      "textures": "textures/items/weapon/melee_4"
+    },
+    "melee_5": {
+      "textures": "textures/items/weapon/melee_5"
+    },
+    "weapon_1_give": {
+      "textures": "textures/items/give/weapon_1_give"
+    },
+    "weapon_2_give": {
+      "textures": "textures/items/give/weapon_2_give"
+    },
+    "weapon_3_give": {
+      "textures": "textures/items/give/weapon_3_give"
+    },
+    "weapon_4_give": {
+      "textures": "textures/items/give/weapon_4_give"
+    },
+    "weapon_5_give": {
+      "textures": "textures/items/give/weapon_5_give"
+    },
+    "weapon_6_give": {
+      "textures": "textures/items/give/weapon_6_give"
+    },
+    "weapon_7_give": {
+      "textures": "textures/items/give/weapon_7_give"
+    },
+    "weapon_8_give": {
+      "textures": "textures/items/give/weapon_8_give"
+    },
+    "weapon_9_give": {
+      "textures": "textures/items/give/weapon_9_give"
+    },
+    "weapon_10_give": {
+      "textures": "textures/items/give/weapon_10_give"
+    },
+    "weapon_11_give": {
+      "textures": "textures/items/give/weapon_11_give"
+    },
+    "weapon_1_clip_give": {
+      "textures": "textures/items/give/weapon_1_clip_give"
+    },
+    "weapon_2_clip_give": {
+      "textures": "textures/items/give/weapon_2_clip_give"
+    },
+    "weapon_3_clip_give": {
+      "textures": "textures/items/give/weapon_3_clip_give"
+    },
+    "weapon_4_clip_give": {
+      "textures": "textures/items/give/weapon_4_clip_give"
+    },
+    "weapon_5_clip_give": {
+      "textures": "textures/items/give/weapon_5_clip_give"
+    },
+    "weapon_6_clip_give": {
+      "textures": "textures/items/give/weapon_6_clip_give"
+    },
+    "weapon_7_clip_give": {
+      "textures": "textures/items/give/weapon_7_clip_give"
+    },
+    "weapon_8_clip_give": {
+      "textures": "textures/items/give/weapon_8_clip_give"
+    },
+    "weapon_9_clip_give": {
+      "textures": "textures/items/give/weapon_9_clip_give"
+    },
+    "weapon_10_clip_give": {
+      "textures": "textures/items/give/weapon_10_clip_give"
+    },
+    "weapon_11_clip_give": {
+      "textures": "textures/items/give/weapon_11_clip_give"
+    },
+    "melee_1_give": {
+      "textures": "textures/items/give/melee_1_give"
+    },"melee_2_give": {
+      "textures": "textures/items/give/melee_2_give"
+    },
+    "melee_3_give": {
+      "textures": "textures/items/give/melee_3_give"
+    },
+    "melee_4_give": {
+      "textures": "textures/items/give/melee_4_give"
+    },
+    "melee_5_give": {
+      "textures": "textures/items/give/melee_5_give"
+    },
+    "final_double_sword_give": {
+      "textures": "textures/items/give/final_double_sword_give"
+    },
+
+    // 英雄
+    "become_human_hero": {
+      "textures": "textures/items/become/human_hero_icon"
+    },
+    "human_hero_weapon": {
+      "textures": "textures/items/become/human_hero_weapon"
+    },
+    "become_final_hero": {
+      "textures": "textures/items/become/final_hero_icon"
+    },
+    "final_hero_weapon": {
+      "textures": "textures/items/become/final_hero_weapon"
+    },
+    "final_hero_skill": {
+      "textures": "textures/items/become/final_hero_skill"
+    },
+    "become_savior_hero": {
+      "textures": "textures/items/become/savior_hero_icon"
+    },
+    "savior_hero_weapon": {
+      "textures": "textures/items/become/savior_hero_weapon"
+    },
+    "become_machine_hero": {
+      "textures": "textures/items/become/machine_hero_icon"
+    },
+    "machine_hero_weapon": {
+      "textures": "textures/items/become/machine_hero_weapon"
+    },
+    "machine_hero_melee": {
+      "textures": "textures/items/become/machine_hero_melee"
+    },
+    "machine_hero_skill_1": {
+      "textures": "textures/items/become/machine_hero_skill_1"
+    },
+    "machine_hero_skill_2": {
+      "textures": "textures/items/become/machine_hero_skill_2"
+    },
+    "become_space_hero": {
+      "textures": "textures/items/become/space_hero_icon"
+    },
+    "space_hero_weapon": {
+      "textures": "textures/items/become/space_hero_weapon"
+    },
+    "space_hero_skill": {
+      "textures": "textures/items/become/space_hero_skill"
+    },
+    "become_redeem_hero": {
+      "textures": "textures/items/become/redeem_hero_icon"
+    },
+    "redeem_hero_weapon": {
+      "textures": "textures/items/become/redeem_hero_weapon"
+    },
+    "redeem_hero_skill_1": {
+      "textures": "textures/items/become/redeem_hero_skill_1"
+    },
+    "redeem_hero_skill_2": {
+      "textures": "textures/items/become/redeem_hero_skill_2"
+    },
+    "become_fist_hero": {
+      "textures": "textures/items/become/fist_hero_icon"
+    },
+    "fist_hero_weapon": {
+      "textures": "textures/items/become/fist_hero_weapon"
+    },
+    "fist_hero_skill": {
+      "textures": "textures/items/become/fist_hero_skill"
+    },
+    "become_human_hero_give": {
+      "textures": "textures/items/give/become_human_hero_give"
+    },
+    "become_savior_hero_give": {
+      "textures": "textures/items/give/become_savior_hero_give"
+    },
+    "become_final_hero_give": {
+      "textures": "textures/items/give/become_final_hero_give"
+    },
+    "become_machine_hero_give": {
+      "textures": "textures/items/give/become_machine_hero_give"
+    },
+    "become_space_hero_give": {
+      "textures": "textures/items/give/become_space_hero_give"
+    },
+    "become_redeem_hero_give": {
+      "textures": "textures/items/give/become_redeem_hero_give"
+    },
+    "become_fist_hero_give": {
+      "textures": "textures/items/give/become_fist_hero_give"
+    },
+
+    // 特感
+    "big_attack": {
+      "textures": "textures/items/become/big_attack"
+    },
+    "become_hunter": {
+      "textures": "textures/items/become/hunter_icon"
+    },
+    "become_spitter": {
+      "textures": "textures/items/become/spitter_icon"
+    },
+    "become_charger": {
+      "textures": "textures/items/become/charger_icon"
+    },
+    "become_jockey": {
+      "textures": "textures/items/become/jockey_icon"
+    },
+    "become_boomer": {
+      "textures": "textures/items/become/boomer_icon"
+    },
+    "become_smoker": {
+      "textures": "textures/items/become/smoker_icon"
+    },
+    "become_tnnk": {
+      "textures": "textures/items/become/tank_icon"
+    },
+    "become_witch": {
+      "textures": "textures/items/become/witch_icon"
+    },
+    "become_final_tnnk": {
+      "textures": "textures/items/become/final_tank_icon"
+    },
+    "become_final_witch": {
+      "textures": "textures/items/become/final_witch_icon"
+    },
+    "hunter_skill": {
+      "textures": "textures/items/become/hunter_skill"
+    },
+    "spitter_skill": {
+      "textures": "textures/items/become/spitter_skill"
+    },
+    "charger_skill": {
+      "textures": "textures/items/become/charger_skill"
+    },
+    "jockey_skill": {
+      "textures": "textures/items/become/jockey_skill"
+    },
+    "boomer_skill": {
+      "textures": "textures/items/become/boomer_skill"
+    },
+    "smoker_skill": {
+      "textures": "textures/items/become/smoker_skill"
+    },
+    "smoker_smoke_skill": {
+      "textures": "textures/items/become/smoker_smoke_skill"
+    },
+    "tnnk_skill": {
+      "textures": "textures/items/become/tank_skill"
+    },
+    "tnnk_howl_skill": {
+      "textures": "textures/items/become/tank_howl_skill"
+    },
+    "witch_skill": {
+      "textures": "textures/items/become/witch_skill"
+    },
+    "become_hunter_give": {
+      "textures": "textures/items/give/hunter_give"
+    },
+    "become_spitter_give": {
+      "textures": "textures/items/give/spitter_give"
+    },
+    "become_charger_give": {
+      "textures": "textures/items/give/charger_give"
+    },
+    "become_jockey_give": {
+      "textures": "textures/items/give/jockey_give"
+    },
+    "become_boomer_give": {
+      "textures": "textures/items/give/boomer_give"
+    },
+    "become_smoker_give": {
+      "textures": "textures/items/give/smoker_give"
+    },
+    "become_tnnk_give": {
+      "textures": "textures/items/give/tank_give"
+    },
+    "become_witch_give": {
+      "textures": "textures/items/give/witch_give"
+    },
+    "become_final_tnnk_give": {
+      "textures": "textures/items/give/final_tank_give"
+    },
+    "become_final_witch_give": {
+      "textures": "textures/items/give/final_witch_give"
+    },
+    
+    // 投掷道具
+    "healarea": {
+      "textures": "textures/items/tac/healarea"
+    },
+    "detect": {
+      "textures": "textures/items/tac/detect"
+    },
+    "raid": {
+      "textures": "textures/items/tac/raid"
+    },
+    "force": {
+      "textures": "textures/items/tac/force"
+    },
+    "mineset": {
+      "textures": "textures/items/tac/mineset"
+    },
+    "mineset_single": {
+      "textures": "textures/items/tac/mineset_single"
+    },
+    "mineset_clear": {
+      "textures": "textures/items/tac/mineset_clear"
+    },
+
+    // soul
+    "hunter_soul": {
+      "textures": "textures/items/soul/hunter_soul"
+    },
+    "spitter_soul": {
+      "textures": "textures/items/soul/spitter_soul"
+    },
+    "charger_soul": {
+      "textures": "textures/items/soul/charger_soul"
+    },
+    "jockey_soul": {
+      "textures": "textures/items/soul/jockey_soul"
+    },
+    "boomer_soul": {
+      "textures": "textures/items/soul/boomer_soul"
+    },
+    "smoker_soul": {
+      "textures": "textures/items/soul/smoker_soul"
+    },
+    "tnnk_soul": {
+      "textures": "textures/items/soul/tnnk_soul"
+    },
+    "witch_soul": {
+      "textures": "textures/items/soul/witch_soul"
+    },
+    "human_hero_soul": {
+      "textures": "textures/items/soul/human_hero_soul"
+    },
+    "savior_hero_soul": {
+      "textures": "textures/items/soul/savior_hero_soul"
+    }
+  }
+}

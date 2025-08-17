@@ -1,0 +1,61 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:final_witch_ai",
+      "animations": {
+        "witch_idle.arm": "animation.witch_0.idle.arm",
+        "witch_idle.leg": "animation.witch_0.idle.leg",
+        "witch_move.arm": "animation.witch_0.move.arm",
+        "witch_move.leg": "animation.witch_0.move.leg",
+        "witch_attack1": "animation.witch_0.attack1",
+        "witch_attack2": "animation.witch_0.attack2",
+        "c.witch_ai": "controller.animation.witch_ai",
+        "c.witch_walk": "controller.animation.witch_walk",
+        "witch_fire": "animation.witch.fire",
+        "sign_facing": "animation.sign_facing"
+      },
+      "particle_effects": {
+        "witch_fire": "nacal_sdc:witch_fire"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.random_choices = math.random(0, 100);"
+        ],
+        "animate": [
+          "c.witch_ai",
+          "c.witch_walk",
+          "sign_facing",
+          {
+            "witch_fire": "!q.is_sheared"
+          }
+        ]
+      },
+      "materials": {
+        "default": "entity_alphatest",
+        "nacal_tac_detect": "nacal_tac_detect",
+        "nacal_customblend":"nacal_customblend"
+      },
+      "textures": {
+        "final_witch": "textures/entity/final_witch",
+        "final_witch_sign": "textures/entity/final_witch_sign"
+      },
+      "geometry": {
+        "witch_0": "geometry.witch_0",
+        "boss_sign": "geometry.boss_sign"
+      },
+      "render_controllers": [
+        "controller.render.final_witch_sign",
+        {
+          "controller.render.final_witch": "q.health > 10"
+        },
+        {
+          "controller.render.final_witch.bling": "q.health < 11"
+        }
+      ],
+      "spawn_egg": {
+        "texture": "become_final_witch"
+      }
+    }
+  }
+}

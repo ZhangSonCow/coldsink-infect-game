@@ -1,0 +1,14 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.supply_box_sign": {
+      "geometry": "geometry.box_sign",
+      "materials": [
+        {
+          "*": "material.nacal_customblend"
+        }
+      ],
+      "textures": [ "texture.sign" ]
+    }
+  }
+}

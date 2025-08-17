@@ -1,0 +1,49 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:spitter",
+      "animations": {
+        "spitter_idle.arm": "animation.spitter.idle.arm",
+        "spitter_idle.leg": "animation.spitter.idle.leg",
+        "spitter_move.arm": "animation.spitter.move.arm",
+        "spitter_move.leg": "animation.spitter.move.leg",
+        "spitter_attack1": "animation.spitter.attack1",
+        "spitter_attack2": "animation.spitter.attack2",
+        "spitter_skill": "animation.spitter.skill",
+        "dip": "animation.spitter.dip",
+        "c.spitter_ai": "controller.animation.spitter_ai",
+        "c.spitter_walk": "controller.animation.spitter_walk"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.random_choices = math.random(0, 100);"
+        ],
+        "animate": [
+          "c.spitter_ai",
+          "c.spitter_walk",
+          "dip"
+        ]
+      },
+      "particle_effects": {
+        "dip": "nacal_sdc:spit_dip"
+      },
+      "materials": {
+        "default": "entity_emissive"
+      },
+      "textures": {
+        "default": "textures/entity/spitter_glow"
+      },
+      "geometry": {
+        "default": "geometry.spitter"
+      },
+      "render_controllers": [
+        "controller.render.com"
+      ],
+      "spawn_egg": {
+        "base_color": "#71756e",
+        "overlay_color": "#19d84f"
+      }
+    }
+  }
+}

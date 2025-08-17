@@ -1,0 +1,122 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.redeem_hero_grenade",
+				"texture_width": 256,
+				"texture_height": 256,
+				"visible_bounds_width": 7,
+				"visible_bounds_height": 5,
+				"visible_bounds_offset": [0, 1.5, 0]
+			},
+			"bones": [
+				{
+					"name": "grenade",
+					"pivot": [0.54, 1.465, 0],
+					"rotation": [-90, 0, 0],
+					"cubes": [
+						{
+							"origin": [0.178, -0.137, -1.257],
+							"size": [1.604, 3.204, 4.804],
+							"inflate": -0.01,
+							"uv": {
+								"north": {"uv": [110, 138], "uv_size": [4, 6]},
+								"east": {"uv": [118, 74], "uv_size": [10, 6]},
+								"south": {"uv": [138, 112], "uv_size": [4, 6]},
+								"west": {"uv": [120, 12], "uv_size": [10, 6]},
+								"up": {"uv": [102, 126], "uv_size": [4, 10]},
+								"down": {"uv": [106, 136], "uv_size": [4, -10]}
+							}
+						},
+						{
+							"origin": [-0.624, 0.661, -1.259],
+							"size": [3.208, 1.608, 4.808],
+							"inflate": -0.02,
+							"uv": {
+								"north": {"uv": [138, 118], "uv_size": [6, 4]},
+								"east": {"uv": [126, 70], "uv_size": [10, 4]},
+								"south": {"uv": [120, 138], "uv_size": [6, 4]},
+								"west": {"uv": [120, 126], "uv_size": [10, 4]},
+								"up": {"uv": [84, 118], "uv_size": [6, 10]},
+								"down": {"uv": [16, 130], "uv_size": [6, -10]}
+							}
+						},
+						{
+							"origin": [0.58, 1.065, -2.055],
+							"size": [0.8, 0.8, 1.6],
+							"uv": {
+								"north": {"uv": [102, 124], "uv_size": [2, 2]},
+								"east": {"uv": [148, 118], "uv_size": [4, 2]},
+								"south": {"uv": [6, 126], "uv_size": [2, 2]},
+								"west": {"uv": [148, 120], "uv_size": [4, 2]},
+								"up": {"uv": [112, 148], "uv_size": [2, 4]},
+								"down": {"uv": [118, 152], "uv_size": [2, -4]}
+							}
+						},
+						{
+							"origin": [0.18, 0.665, -2.855],
+							"size": [1.6, 1.6, 0.8],
+							"uv": {
+								"north": {"uv": [144, 88], "uv_size": [4, 4]},
+								"east": {"uv": [148, 132], "uv_size": [2, 4]},
+								"south": {"uv": [92, 144], "uv_size": [4, 4]},
+								"west": {"uv": [134, 148], "uv_size": [2, 4]},
+								"up": {"uv": [136, 148], "uv_size": [4, 2]},
+								"down": {"uv": [148, 138], "uv_size": [4, -2]}
+							}
+						},
+						{
+							"origin": [-1.34, 0.905, -2.615],
+							"size": [1.52, 1.12, 0.32],
+							"uv": {
+								"north": {"uv": [148, 138], "uv_size": [4, 2]},
+								"east": {"uv": [14, 146], "uv_size": [2, 2]},
+								"south": {"uv": [148, 140], "uv_size": [4, 2]},
+								"west": {"uv": [146, 64], "uv_size": [2, 2]},
+								"up": {"uv": [148, 142], "uv_size": [4, 2]},
+								"down": {"uv": [148, 146], "uv_size": [4, -2]}
+							}
+						},
+						{
+							"origin": [-1.18, 1.065, -2.455],
+							"size": [0.4, 0.8, 3.6],
+							"uv": {
+								"north": {"uv": [110, 126], "uv_size": [2, 2]},
+								"east": {"uv": [142, 116], "uv_size": [8, 2]},
+								"south": {"uv": [144, 52], "uv_size": [2, 2]},
+								"west": {"uv": [144, 30], "uv_size": [8, 2]},
+								"up": {"uv": [96, 144], "uv_size": [2, 8]},
+								"down": {"uv": [98, 152], "uv_size": [2, -8]}
+							}
+						},
+						{
+							"origin": [0.18, 0.665, 2.985],
+							"size": [1.6, 1.6, 0.8],
+							"uv": {
+								"north": {"uv": [144, 74], "uv_size": [4, 4]},
+								"east": {"uv": [126, 148], "uv_size": [2, 4]},
+								"south": {"uv": [76, 144], "uv_size": [4, 4]},
+								"west": {"uv": [148, 126], "uv_size": [2, 4]},
+								"up": {"uv": [130, 148], "uv_size": [4, 2]},
+								"down": {"uv": [148, 132], "uv_size": [4, -2]}
+							}
+						},
+						{
+							"origin": [-0.22, 0.265, -1.255],
+							"size": [2.4, 2.4, 4.8],
+							"uv": {
+								"north": {"uv": [144, 80], "uv_size": [4, 4]},
+								"east": {"uv": [6, 128], "uv_size": [10, 4]},
+								"south": {"uv": [84, 144], "uv_size": [4, 4]},
+								"west": {"uv": [128, 74], "uv_size": [10, 4]},
+								"up": {"uv": [84, 128], "uv_size": [4, 10]},
+								"down": {"uv": [110, 138], "uv_size": [4, -10]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

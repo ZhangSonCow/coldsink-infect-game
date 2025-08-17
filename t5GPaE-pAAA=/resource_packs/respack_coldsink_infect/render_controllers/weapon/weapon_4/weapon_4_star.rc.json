@@ -1,0 +1,15 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.weapon_4_star": {
+      "geometry": "geometry.weapon_4_star",
+      "materials": [
+        {
+          "*": "material.blend"
+        }
+      ],
+      "textures": [ "texture.weapon_4_star" ],
+      "is_hurt_color": {}
+    }
+  }
+}

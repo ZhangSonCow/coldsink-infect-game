@@ -1,0 +1,134 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.fist_hero_attack_light.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.0": [
+          "/tag @s add fist_hero_self",
+          
+          "/scoreboard players random @s wp_random 1 5",
+          "/execute @s[scores={wp_random=1}] ~~~ playsound fist_hero_attack @a[tag=!fist_hero_self] ~~~ 3 1 3",
+          "/execute @s[scores={wp_random=2}] ~~~ playsound fist_hero_attack @a[tag=!fist_hero_self] ~~~ 3 0.8 3",
+          "/execute @s[scores={wp_random=3}] ~~~ playsound fist_hero_attack @a[tag=!fist_hero_self] ~~~ 3 1.2 3",
+          "/execute @s[scores={wp_random=4}] ~~~ playsound fist_hero_attack @a[tag=!fist_hero_self] ~~~ 3 0.9 3",
+          "/execute @s[scores={wp_random=5}] ~~~ playsound fist_hero_attack @a[tag=!fist_hero_self] ~~~ 3 1.1 3",
+          "/execute @s[scores={wp_random=1}] ~~~ playsound fist_hero_attack.self @s ~~~ 3 1 3",
+          "/execute @s[scores={wp_random=2}] ~~~ playsound fist_hero_attack.self @s ~~~ 3 0.8 3",
+          "/execute @s[scores={wp_random=3}] ~~~ playsound fist_hero_attack.self @s ~~~ 3 1.2 3",
+          "/execute @s[scores={wp_random=4}] ~~~ playsound fist_hero_attack.self @s ~~~ 3 0.9 3",
+          "/execute @s[scores={wp_random=5}] ~~~ playsound fist_hero_attack.self @s ~~~ 3 1.1 3",
+          
+          "/tag @s remove fist_hero_self"
+        ],
+        "0.2": [
+          "/tag @s add fist_hero_self",
+
+          "/execute @s[tag=maper] ^^1.5^ execute @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^1.5^ tag @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] add melee_damage",
+          "/execute @s[tag=maper] ^^1.5^ damage @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,tag=!no_any_hurt,r=4] 4 suicide",
+
+          "/execute @s[tag=!maper] ^^1.5^ execute @e[tag=!fist_hero_self,family=!fist_shield,family=!tool,family=!tools,type=!item,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^1.5^ damage @e[tag=!fist_hero_self,family=!fist_shield,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=4] 4 suicide",
+          
+          "/tag @s remove fist_hero_self"
+        ],
+        "0.3": [
+          "/tag @s add fist_hero_self",
+
+          "/execute @s[tag=maper] ^^1.5^ execute @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^1.5^ tag @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] add melee_damage",
+          "/execute @s[tag=maper] ^^1.5^ damage @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,tag=!no_any_hurt,r=4] 4 suicide",
+
+          "/execute @s[tag=!maper] ^^1.5^ execute @e[tag=!fist_hero_self,family=!fist_shield,family=!tool,family=!tools,type=!item,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^1.5^ damage @e[tag=!fist_hero_self,family=!fist_shield,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=4] 4 suicide",
+          
+          "/tag @s remove fist_hero_self"
+        ],
+        "0.4": [
+          "/tag @s add fist_hero_self",
+
+          "/execute @s[tag=maper] ^^1.5^ execute @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^1.5^ tag @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] add melee_damage",
+          "/execute @s[tag=maper] ^^1.5^ damage @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,tag=!no_any_hurt,r=4] 4 suicide",
+
+          "/execute @s[tag=!maper] ^^1.5^ execute @e[tag=!fist_hero_self,family=!fist_shield,family=!tool,family=!tools,type=!item,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^1.5^ damage @e[tag=!fist_hero_self,family=!fist_shield,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=4] 4 suicide",
+          
+          "/tag @s remove fist_hero_self"
+        ],
+        "0.5": [
+          "/tag @s add fist_hero_self",
+
+          "/execute @s[tag=maper] ^^1.5^ execute @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^1.5^ tag @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] add melee_damage",
+          "/execute @s[tag=maper] ^^1.5^ damage @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,tag=!no_any_hurt,r=4] 4 suicide",
+
+          "/execute @s[tag=!maper] ^^1.5^ execute @e[tag=!fist_hero_self,family=!fist_shield,family=!tool,family=!tools,type=!item,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^1.5^ damage @e[tag=!fist_hero_self,family=!fist_shield,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=4] 4 suicide",
+          
+          "/tag @s remove fist_hero_self"
+        ],
+        "0.8": [
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.fist_hero_attack_heavy.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.0": [
+          "/tag @s add self",
+          "/playsound fist_hero_attack_big @a[tag=!self] ~~~",
+          "/playsound fist_hero_attack_big.self @s",
+          "/tag @s remove self"
+        ],
+        "1.0": [
+          "/tag @s add fist_hero_self",
+
+          "/execute @s[tag=maper] ^^2.5^ execute @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=5] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^2.5^ tag @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=5] add melee_damage",
+          "/execute @s[tag=maper] ^^2.5^ damage @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,tag=!no_any_hurt,r=5] 38 suicide",
+
+          "/execute @s[tag=!maper] ^^2.5^ execute @e[tag=!fist_hero_self,family=!fist_shield,family=!tool,family=!tools,type=!item,r=5] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^2.5^ damage @e[tag=!fist_hero_self,family=!fist_shield,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=5] 38 suicide",
+          
+          "/tag @s remove fist_hero_self"
+        ],
+        "1.5": [
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.fist_hero_begin.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.5": [
+          "/replaceitem entity @s slot.hotbar 8 coldsink:fist_hero_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.fist_hero_skill_timer.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "5.0": [
+          "/event entity @s time_skill_false"
+        ]
+      }
+    },
+    "animation.fist_hero_skill_timer_ai.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "5.0": [
+          "/event entity @s skill_over"
+        ]
+      }
+    }
+  }
+}

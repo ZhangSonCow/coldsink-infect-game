@@ -1,0 +1,36 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.sfzombie_stay_heal.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "sfzombie_stay_heal", "sfzombie_heal_effect" ],
+					"transitions": [
+						{
+							"move": "q.is_moving || v.attack_time || (q.property('coldsink:action_status') > 0 && q.variant != 8 && q.variant != 12) || (q.property('coldsink:action_status') > 0 && (q.variant == 8 || q.variant == 12) && q.property('coldsink:action_status') != 4)"
+						}
+					],
+					"on_entry": [
+						"/scoreboard players set @s sfzombie_stay 0"
+					],
+					"on_exit": [
+						"/execute @s[family=witch,scores={sfzombie_stay=7..}] ~~~ function sfzombie/witch_alarm",
+						"/execute @s[family=final_witch,scores={sfzombie_stay=7..}] ~~~ function sfzombie/final_witch_alarm",
+						
+						"/title @s[tag=stay_heal] actionbar §f",
+						"/tag @s remove stay_heal",
+						"/scoreboard players reset @s sfzombie_stay"
+					]
+				},
+				"move": {
+					"transitions": [
+						{
+							"default": "!q.is_moving && !v.attack_time && q.property('coldsink:action_status') == 0"
+						}
+					]
+				}
+			}
+		}
+	}
+}

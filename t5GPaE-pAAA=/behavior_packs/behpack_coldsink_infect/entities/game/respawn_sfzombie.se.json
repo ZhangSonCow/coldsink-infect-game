@@ -1,0 +1,243 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:respawn_sfzombie",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+	  "minecraft:nameable": {
+		"always_show": true,
+		"allow_name_tag_renaming": false
+	  },
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:collision_box": {
+          "width": 0.6,
+          "height": 1.9
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:health": {
+        "value": 20,
+        "max": 20
+      },
+	  "minecraft:ageable": {
+        "duration": 0.05,
+        "grow_up": {
+          "event": "respawn"
+        }
+      },
+	  "minecraft:timer": {
+		"time": 0.06,
+		"time_down_event": {
+		  "target": "self",
+		  "event": "tp"
+		}
+	  },
+      "minecraft:movement": {
+        "value": 0.0
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+	  "minecraft:entity_spawned": {
+		"queue_command": {
+		  "command": [
+			"tag @s add respawn_tool"
+		  ]
+		}
+	  },
+	  "respawn": {
+		"queue_command": {
+		  "command": [
+			"scoreboard players random @s wp_random 1 6",
+
+            "execute @s[scores={wp_random=1},name=忆知艾郎得晓愣沉] ~~~ summon coldsink:hunter_ai 忆知艾郎得晓愣沉",
+			"execute @s[scores={wp_random=1},name=绿画娜] ~~~ summon coldsink:hunter_ai 绿画娜",
+			"execute @s[scores={wp_random=1},name=飙啼菌] ~~~ summon coldsink:hunter_ai 飙啼菌",
+			"execute @s[scores={wp_random=1},name=普罗陀] ~~~ summon coldsink:hunter_ai 普罗陀",
+			"execute @s[scores={wp_random=1},name=狼掏谜纸] ~~~ summon coldsink:hunter_ai 狼掏谜纸",
+			"execute @s[scores={wp_random=1},name=鸡姬] ~~~ summon coldsink:hunter_ai 鸡姬",
+			"execute @s[scores={wp_random=1},name=禽疯] ~~~ summon coldsink:hunter_ai 禽疯",
+			"execute @s[scores={wp_random=1},name=佬僵] ~~~ summon coldsink:hunter_ai 佬僵",
+			"execute @s[scores={wp_random=1},name=集锋迫小] ~~~ summon coldsink:hunter_ai 集锋迫小",
+			"execute @s[scores={wp_random=1},name=瘤皇蒜黄] ~~~ summon coldsink:hunter_ai 瘤皇蒜黄",
+			"execute @s[scores={wp_random=1},name=水药] ~~~ summon coldsink:hunter_ai 水药",
+			"execute @s[scores={wp_random=1},name=麟蔑] ~~~ summon coldsink:hunter_ai 麟蔑",
+			"execute @s[scores={wp_random=1},name=碍登] ~~~ summon coldsink:hunter_ai 碍登",
+			"execute @s[scores={wp_random=1},name=牛腩面面] ~~~ summon coldsink:hunter_ai 牛腩面面",
+			"execute @s[scores={wp_random=1},name=蚕币] ~~~ summon coldsink:hunter_ai 蚕币",
+
+            "execute @s[scores={wp_random=2},name=忆知艾郎得晓愣沉] ~~~ summon coldsink:spitter_ai 忆知艾郎得晓愣沉",
+			"execute @s[scores={wp_random=2},name=绿画娜] ~~~ summon coldsink:spitter_ai 绿画娜",
+			"execute @s[scores={wp_random=2},name=飙啼菌] ~~~ summon coldsink:spitter_ai 飙啼菌",
+			"execute @s[scores={wp_random=2},name=普罗陀] ~~~ summon coldsink:spitter_ai 普罗陀",
+			"execute @s[scores={wp_random=2},name=狼掏谜纸] ~~~ summon coldsink:spitter_ai 狼掏谜纸",
+			"execute @s[scores={wp_random=2},name=鸡姬] ~~~ summon coldsink:spitter_ai 鸡姬",
+			"execute @s[scores={wp_random=2},name=禽疯] ~~~ summon coldsink:spitter_ai 禽疯",
+			"execute @s[scores={wp_random=2},name=佬僵] ~~~ summon coldsink:spitter_ai 佬僵",
+			"execute @s[scores={wp_random=2},name=集锋迫小] ~~~ summon coldsink:spitter_ai 集锋迫小",
+			"execute @s[scores={wp_random=2},name=瘤皇蒜黄] ~~~ summon coldsink:spitter_ai 瘤皇蒜黄",
+			"execute @s[scores={wp_random=2},name=水药] ~~~ summon coldsink:spitter_ai 水药",
+			"execute @s[scores={wp_random=2},name=麟蔑] ~~~ summon coldsink:spitter_ai 麟蔑",
+			"execute @s[scores={wp_random=2},name=碍登] ~~~ summon coldsink:spitter_ai 碍登",
+			"execute @s[scores={wp_random=2},name=牛腩面面] ~~~ summon coldsink:spitter_ai 牛腩面面",
+			"execute @s[scores={wp_random=2},name=蚕币] ~~~ summon coldsink:spitter_ai 蚕币",
+			"execute @s[scores={wp_random=2}] ~~~ scoreboard players operation @e[type=coldsink:spitter_acid,c=1] spitter_time = @s spitter_time",
+
+            "execute @s[scores={wp_random=3},name=忆知艾郎得晓愣沉] ~~~ summon coldsink:charger_ai 忆知艾郎得晓愣沉",
+			"execute @s[scores={wp_random=3},name=绿画娜] ~~~ summon coldsink:charger_ai 绿画娜",
+			"execute @s[scores={wp_random=3},name=飙啼菌] ~~~ summon coldsink:charger_ai 飙啼菌",
+			"execute @s[scores={wp_random=3},name=普罗陀] ~~~ summon coldsink:charger_ai 普罗陀",
+			"execute @s[scores={wp_random=3},name=狼掏谜纸] ~~~ summon coldsink:charger_ai 狼掏谜纸",
+			"execute @s[scores={wp_random=3},name=鸡姬] ~~~ summon coldsink:charger_ai 鸡姬",
+			"execute @s[scores={wp_random=3},name=禽疯] ~~~ summon coldsink:charger_ai 禽疯",
+			"execute @s[scores={wp_random=3},name=佬僵] ~~~ summon coldsink:charger_ai 佬僵",
+			"execute @s[scores={wp_random=3},name=集锋迫小] ~~~ summon coldsink:charger_ai 集锋迫小",
+			"execute @s[scores={wp_random=3},name=瘤皇蒜黄] ~~~ summon coldsink:charger_ai 瘤皇蒜黄",
+			"execute @s[scores={wp_random=3},name=水药] ~~~ summon coldsink:charger_ai 水药",
+			"execute @s[scores={wp_random=3},name=麟蔑] ~~~ summon coldsink:charger_ai 麟蔑",
+			"execute @s[scores={wp_random=3},name=碍登] ~~~ summon coldsink:charger_ai 碍登",
+			"execute @s[scores={wp_random=3},name=牛腩面面] ~~~ summon coldsink:charger_ai 牛腩面面",
+			"execute @s[scores={wp_random=3},name=蚕币] ~~~ summon coldsink:charger_ai 蚕币",
+
+            "execute @s[scores={wp_random=4},name=忆知艾郎得晓愣沉] ~~~ summon coldsink:jockey_ai 忆知艾郎得晓愣沉",
+			"execute @s[scores={wp_random=4},name=绿画娜] ~~~ summon coldsink:jockey_ai 绿画娜",
+			"execute @s[scores={wp_random=4},name=飙啼菌] ~~~ summon coldsink:jockey_ai 飙啼菌",
+			"execute @s[scores={wp_random=4},name=普罗陀] ~~~ summon coldsink:jockey_ai 普罗陀",
+			"execute @s[scores={wp_random=4},name=狼掏谜纸] ~~~ summon coldsink:jockey_ai 狼掏谜纸",
+			"execute @s[scores={wp_random=4},name=鸡姬] ~~~ summon coldsink:jockey_ai 鸡姬",
+			"execute @s[scores={wp_random=4},name=禽疯] ~~~ summon coldsink:jockey_ai 禽疯",
+			"execute @s[scores={wp_random=4},name=佬僵] ~~~ summon coldsink:jockey_ai 佬僵",
+			"execute @s[scores={wp_random=4},name=集锋迫小] ~~~ summon coldsink:jockey_ai 集锋迫小",
+			"execute @s[scores={wp_random=4},name=瘤皇蒜黄] ~~~ summon coldsink:jockey_ai 瘤皇蒜黄",
+			"execute @s[scores={wp_random=4},name=水药] ~~~ summon coldsink:jockey_ai 水药",
+			"execute @s[scores={wp_random=4},name=麟蔑] ~~~ summon coldsink:jockey_ai 麟蔑",
+			"execute @s[scores={wp_random=4},name=碍登] ~~~ summon coldsink:jockey_ai 碍登",
+			"execute @s[scores={wp_random=4},name=牛腩面面] ~~~ summon coldsink:jockey_ai 牛腩面面",
+			"execute @s[scores={wp_random=4},name=蚕币] ~~~ summon coldsink:jockey_ai 蚕币",
+
+            "execute @s[scores={wp_random=5},name=忆知艾郎得晓愣沉] ~~~ summon coldsink:boomer_ai 忆知艾郎得晓愣沉",
+			"execute @s[scores={wp_random=5},name=绿画娜] ~~~ summon coldsink:boomer_ai 绿画娜",
+			"execute @s[scores={wp_random=5},name=飙啼菌] ~~~ summon coldsink:boomer_ai 飙啼菌",
+			"execute @s[scores={wp_random=5},name=普罗陀] ~~~ summon coldsink:boomer_ai 普罗陀",
+			"execute @s[scores={wp_random=5},name=狼掏谜纸] ~~~ summon coldsink:boomer_ai 狼掏谜纸",
+			"execute @s[scores={wp_random=5},name=鸡姬] ~~~ summon coldsink:boomer_ai 鸡姬",
+			"execute @s[scores={wp_random=5},name=禽疯] ~~~ summon coldsink:boomer_ai 禽疯",
+			"execute @s[scores={wp_random=5},name=佬僵] ~~~ summon coldsink:boomer_ai 佬僵",
+			"execute @s[scores={wp_random=5},name=集锋迫小] ~~~ summon coldsink:boomer_ai 集锋迫小",
+			"execute @s[scores={wp_random=5},name=瘤皇蒜黄] ~~~ summon coldsink:boomer_ai 瘤皇蒜黄",
+			"execute @s[scores={wp_random=5},name=水药] ~~~ summon coldsink:boomer_ai 水药",
+			"execute @s[scores={wp_random=5},name=麟蔑] ~~~ summon coldsink:boomer_ai 麟蔑",
+			"execute @s[scores={wp_random=5},name=碍登] ~~~ summon coldsink:boomer_ai 碍登",
+			"execute @s[scores={wp_random=5},name=牛腩面面] ~~~ summon coldsink:boomer_ai 牛腩面面",
+			"execute @s[scores={wp_random=5},name=蚕币] ~~~ summon coldsink:boomer_ai 蚕币",
+
+            "execute @s[scores={wp_random=6},name=忆知艾郎得晓愣沉] ~~~ summon coldsink:smoker_ai 忆知艾郎得晓愣沉",
+			"execute @s[scores={wp_random=6},name=绿画娜] ~~~ summon coldsink:smoker_ai 绿画娜",
+			"execute @s[scores={wp_random=6},name=飙啼菌] ~~~ summon coldsink:smoker_ai 飙啼菌",
+			"execute @s[scores={wp_random=6},name=普罗陀] ~~~ summon coldsink:smoker_ai 普罗陀",
+			"execute @s[scores={wp_random=6},name=狼掏谜纸] ~~~ summon coldsink:smoker_ai 狼掏谜纸",
+			"execute @s[scores={wp_random=6},name=鸡姬] ~~~ summon coldsink:smoker_ai 鸡姬",
+			"execute @s[scores={wp_random=6},name=禽疯] ~~~ summon coldsink:smoker_ai 禽疯",
+			"execute @s[scores={wp_random=6},name=佬僵] ~~~ summon coldsink:smoker_ai 佬僵",
+			"execute @s[scores={wp_random=6},name=集锋迫小] ~~~ summon coldsink:smoker_ai 集锋迫小",
+			"execute @s[scores={wp_random=6},name=瘤皇蒜黄] ~~~ summon coldsink:smoker_ai 瘤皇蒜黄",
+			"execute @s[scores={wp_random=6},name=水药] ~~~ summon coldsink:smoker_ai 水药",
+			"execute @s[scores={wp_random=6},name=麟蔑] ~~~ summon coldsink:smoker_ai 麟蔑",
+			"execute @s[scores={wp_random=6},name=碍登] ~~~ summon coldsink:smoker_ai 碍登",
+			"execute @s[scores={wp_random=6},name=牛腩面面] ~~~ summon coldsink:smoker_ai 牛腩面面",
+			"execute @s[scores={wp_random=6},name=蚕币] ~~~ summon coldsink:smoker_ai 蚕币",
+
+			// 分数同步
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie,name=忆知艾郎得晓愣沉,c=1] game_score = @s[name=忆知艾郎得晓愣沉] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie,name=绿画娜,c=1] game_score = @s[name=绿画娜] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie,name=飙啼菌,c=1] game_score = @s[name=飙啼菌] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie,name=普罗陀,c=1] game_score = @s[name=普罗陀] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie,name=狼掏谜纸,c=1] game_score = @s[name=狼掏谜纸] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie,name=鸡姬,c=1] game_score = @s[name=鸡姬] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie,name=禽疯,c=1] game_score = @s[name=禽疯] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie,name=佬僵,c=1] game_score = @s[name=佬僵] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie,name=集锋迫小,c=1] game_score = @s[name=集锋迫小] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie,name=瘤皇蒜黄,c=1] game_score = @s[name=瘤皇蒜黄] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie,name=水药,c=1] game_score = @s[name=水药] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie,name=麟蔑,c=1] game_score = @s[name=麟蔑] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie,name=碍登,c=1] game_score = @s[name=碍登] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie,name=牛腩面面,c=1] game_score = @s[name=牛腩面面] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie,name=蚕币,c=1] game_score = @s[name=蚕币] game_score"
+		  ]
+		}
+	  },
+	  "tp": {
+		"queue_command": {
+		  "command": [
+			"effect @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] invisibility 1 0 true",
+			"effect @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] slowness 1 10 true",
+			"effect @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] weakness 1 10 true",
+			"scoreboard players random @s wp_random 1 5",
+
+			"execute @s[scores={count=1,wp_random=1}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] 10 -59 83",
+			"execute @s[scores={count=1,wp_random=2}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] 43 -59 84",
+			"execute @s[scores={count=1,wp_random=3}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] 76 -59 120",
+			"execute @s[scores={count=1,wp_random=4}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] 54 -59 138",
+			"execute @s[scores={count=1,wp_random=5}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] -2 -59 119",
+
+			"execute @s[scores={count=2,wp_random=1}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] -168.5 -52 -32",
+			"execute @s[scores={count=2,wp_random=2}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] -165 -52 -79",
+			"execute @s[scores={count=2,wp_random=3}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] -167 -45 -66",
+			"execute @s[scores={count=2,wp_random=4}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] -148 -48 -25.5",
+			"execute @s[scores={count=2,wp_random=5}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] -118 -52 -85",
+
+			"execute @s[scores={count=3,wp_random=1}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] 87 -51 -37",
+			"execute @s[scores={count=3,wp_random=2}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] 106 -59 -65",
+			"execute @s[scores={count=3,wp_random=3}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] 84 -59 -134",
+			"execute @s[scores={count=3,wp_random=4}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] 106 -59 -80",
+			"execute @s[scores={count=3,wp_random=5}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] 129 -59 -131",
+
+			"execute @s[scores={count=4,wp_random=1}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] 138 -54 76",
+			"execute @s[scores={count=4,wp_random=2}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] 155 -54 13",
+			"execute @s[scores={count=4,wp_random=3}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] 203 -55 6",
+			"execute @s[scores={count=4,wp_random=4}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] 173 -54 69",
+			"execute @s[scores={count=4,wp_random=5}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] 197 -55 36",
+
+			"execute @s[scores={count=5,wp_random=1}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] -118 -54 117",
+			"execute @s[scores={count=5,wp_random=2}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] -143 -54 153",
+			"execute @s[scores={count=5,wp_random=3}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] -172 -54 129",
+			"execute @s[scores={count=5,wp_random=4}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] -165 -54 173",
+			"execute @s[scores={count=5,wp_random=5}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] -119 -54 171"
+		  ]
+		},
+		"add": {
+			"component_groups": [
+			  "godie"
+		  ]
+		}
+	  },
+      "godie": {
+		"add": {
+		  "component_groups": [
+			"godie"
+		  ]
+	    }
+	  }
+    }
+  }
+}

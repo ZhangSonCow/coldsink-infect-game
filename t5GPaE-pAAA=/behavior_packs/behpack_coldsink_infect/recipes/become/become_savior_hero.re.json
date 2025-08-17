@@ -1,0 +1,32 @@
+{
+    "format_version": "1.18",
+    "minecraft:recipe_shaped": {
+      "description": {
+        "identifier": "coldsink:become_savior_hero"
+      },
+      "tags": [ "crafting_table" ],
+      "pattern": [
+        "ASA",
+        "SBS",
+        "ASA"
+      ],
+      "key": {
+        "S": {
+          "item": "coldsink:savior_hero_soul"
+        },
+        "A": {
+          "item": "copper_ingot"
+        },
+        "B": {
+          "item": "crossbow"
+        }
+      },
+      "result": [
+        {
+          "item": "coldsink:become_savior_hero_give_spawn_egg",
+          "count": 1
+        }
+      ]
+    }
+  }
+  

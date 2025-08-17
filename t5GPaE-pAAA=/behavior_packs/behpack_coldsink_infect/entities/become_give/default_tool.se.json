@@ -1,0 +1,111 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:default_tool",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "animations": {
+        "c": "controller.animation.game_check.func"
+      },
+      "scripts": {
+        "animate": [
+          "c"
+        ]
+      }
+    },
+    "component_groups": {
+      "die": {
+        "minecraft:instant_despawn": {}
+      },
+      "check_tag": {
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:ageable": {
+          "duration": 0.1,
+          "grow_up": {
+            "event": "godie",
+            "target": "self"
+          }
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.0,
+        "height": 0.0
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:ageable": {
+        "duration": 0.1,
+        "grow_up": {
+          "event": "check_tag",
+          "target": "self"
+        }
+      },
+      "minecraft:variant": {
+        "value": 0
+      }
+
+      //behavivors
+
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "replaceitem entity @p slot.hotbar 0 air",
+            "replaceitem entity @p slot.hotbar 8 air",
+            "clear @p coldsink:smoker_smoke_skill",
+            "clear @p coldsink:tnnk_howl_skill",
+            "clear @p coldsink:machine_hero_melee",
+            "clear @p coldsink:machine_hero_skill_2",
+            "clear @p coldsink:become_hunter",
+            "clear @p coldsink:become_spitter",
+            "clear @p coldsink:become_charger",
+            "clear @p coldsink:become_jockey",
+            "clear @p coldsink:become_boomer",
+            "clear @p coldsink:become_smoker",
+            "clear @p coldsink:become_tnnk",
+            "clear @p coldsink:become_witch",
+            "clear @p coldsink:become_final_tnnk",
+            "clear @p coldsink:become_final_witch",
+            "clear @p coldsink:become_human_hero",
+            "clear @p coldsink:become_final_hero",
+            "clear @p coldsink:become_savior_hero",
+            "clear @p coldsink:become_machine_hero",
+            "clear @p coldsink:become_space_hero",
+            "event entity @p coldsink:default",
+            "tag @s add game_check_tag"
+          ]
+        }
+      },
+      "check_tag": {
+        "add": {
+          "component_groups": [
+            "check_tag"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "die"
+          ]
+        }
+      }
+    }
+  }
+}

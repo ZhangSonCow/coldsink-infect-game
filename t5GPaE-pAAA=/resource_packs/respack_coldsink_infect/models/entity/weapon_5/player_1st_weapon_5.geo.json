@@ -1,0 +1,44 @@
+{
+	"format_version": "1.10.0",
+	"geometry.player_1st_weapon_5": {
+		"texturewidth": 64,
+		"textureheight": 64,
+		"visible_bounds_width": 5,
+		"visible_bounds_height": 4,
+		"visible_bounds_offset": [0, 2, 0],
+		"bones": [
+			{
+				"name": "rightArm",
+				"pivot": [16, 11, -3],
+				"rotation": [62.26879, 24.73906, 167.59252],
+				"cubes": [
+					{"origin": [13, 1, -5], "size": [4, 12, 4], "uv": [40, 16]}
+				]
+			},
+			{
+				"name": "rightSleeve",
+				"parent": "rightArm",
+				"pivot": [16, 11, -3],
+				"cubes": [
+					{"origin": [13, 1, -5], "size": [4, 12, 4], "uv": [40, 32], "inflate": 0.25}
+				]
+			},
+			{
+				"name": "leftArm",
+				"pivot": [-3, 15, 9],
+				"rotation": [52.77371, -46.60184, -146.59733],
+				"cubes": [
+					{"origin": [-4, 5, 7], "size": [4, 12, 4], "uv": [32, 48]}
+				]
+			},
+			{
+				"name": "leftSleeve",
+				"parent": "leftArm",
+				"pivot": [-3, 15, 9],
+				"cubes": [
+					{"origin": [-4, 5, 7], "size": [4, 12, 4], "uv": [48, 48], "inflate": 0.25}
+				]
+			}
+		]
+	}
+}

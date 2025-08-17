@@ -1,0 +1,66 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.spitter_attack_light.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.4": [
+          "/tag @s add spitter_self",
+
+          "/execute @s[tag=maper] ^^1.5^ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=3] ~~~ playsound get_target @p[tag=spitter_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=3] 3 suicide",
+
+          "/execute @s[tag=!maper] ^^1.5^ execute @e[tag=!spitter_self,family=!tool,type=!item,r=3] ~~~ playsound get_target @p[tag=spitter_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^1.5^ damage @e[tag=!spitter_self,family=!tool,type=!item,r=3] 8 suicide",
+          
+          "/tag @s remove spitter_self"
+        ],
+        "0.75": [
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.spitter_attack_heavy.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.0": [
+          "/scoreboard players random @s wp_random 1 3",
+          "/tag @s add self",
+          "/execute @s[scores={wp_random=1},tag=!sound_interval] ~~~ playsound spitter.attack_big_1 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=2},tag=!sound_interval] ~~~ playsound spitter.attack_big_2 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=3},tag=!sound_interval] ~~~ playsound spitter.attack_big_3 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=1},tag=!sound_interval] ~~~ playsound spitter.attack_big_1.self @s",
+          "/execute @s[scores={wp_random=2},tag=!sound_interval] ~~~ playsound spitter.attack_big_2.self @s",
+          "/execute @s[scores={wp_random=3},tag=!sound_interval] ~~~ playsound spitter.attack_big_3.self @s",
+          "/tag @s remove self",
+          "/tag @s add sound_interval"
+        ],
+        "0.6": [
+          "/tag @s add spitter_self",
+
+          "/execute @s[tag=maper] ^^2^ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=4] ~~~ playsound get_target @p[tag=spitter_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^2^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=4] 5 suicide",
+
+          "/execute @s[tag=!maper] ^^2^ execute @e[tag=!spitter_self,family=!tool,type=!item,r=4] ~~~ playsound get_target @p[tag=spitter_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^2^ damage @e[tag=!spitter_self,family=!tool,type=!item,r=4] 12 suicide",
+          
+          "/tag @s remove spitter_self"
+        ],
+        "1.0": [
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.spitter_skill_timer.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.5": [
+          "/event entity @s action_clear"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "materials": {
+    "version": "1.0.0",
+    "nacal_tac_detect:guardian_ghost": {
+      "depthFunc": "Always",
+      "+states": [ "Blending", "DisableCulling" ],
+      "blendDst": "One"
+    },
+    "nacal_customblend:entity_alphatest": {
+      /* "+defines": [
+          "USE_EMISSIVE",
+          "USE_ONLY_EMISSIVE"
+      ], */
+      /* "+states": [
+          "Blending",
+          "DisableCulling",
+          "DisableDepthWrite",
+          "DisableAlphaWrite"
+          
+      ], */
+      "depthFunc": "Always"/* ,
+      "blendDst": "One" */
+    },
+    "nacal_custom_2:entity_static": {
+      "+defines": [
+        "ALPHA_TEST"
+      ],
+      "+states": [
+          "Blending",
+          "DisableCulling"
+      ],
+      "depthFunc": "Always"
+    },
+    "emissivealphablend:entity_emissive": {
+        "+states": [
+            "Blending",
+            "DisableCulling",
+            "DisableDepthWrite"
+        ],
+        "+defines": [
+            "USE_UV_ANIM"
+        ],
+        "-defines": [
+            "FANCY"
+        ],
+        "blendSrc": "SourceAlpha",
+        "blendDst": "OneMinusSrcAlpha"
+    },
+    "emissiveadditive:entity_emissive": {
+        "+states": [
+            "Blending",
+            "DisableCulling",
+            "DisableDepthWrite"
+        ],
+        "+defines": [
+            "USE_UV_ANIM"
+        ],
+        "-defines": [
+            "FANCY"
+        ],
+        "blendSrc": "One",
+        "blendDst": "One"
+    },
+    "emissiveadditivealpha:emissiveadditive": {
+        "blendSrc": "SourceAlpha"
+    }
+  }
+}

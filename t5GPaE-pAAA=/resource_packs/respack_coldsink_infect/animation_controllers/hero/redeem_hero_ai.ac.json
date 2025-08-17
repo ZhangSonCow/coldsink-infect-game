@@ -1,0 +1,93 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.redeem_hero_ai": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"redeem_hero_idle_weapon.arm", "redeem_hero_handle_weapon"
+					],
+					"transitions": [
+						{
+							"skill_grenade": "q.variant == 2"
+						},
+						{
+							"skill_needle": "q.variant == 3"
+						},
+						{
+							"attack": "v.attack_time"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"skill_grenade": {
+					"animations": [
+						"redeem_hero_skill_1", "redeem_hero_handle_grenade"
+					],
+					"transitions": [
+						{
+							"default": "q.variant == 1"
+						},
+						{
+							"skill_needle": "q.variant == 3"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"skill_needle": {
+					"animations": [
+						"redeem_hero_skill_2", "redeem_hero_handle_needle"
+					],
+					"transitions": [
+						{
+							"default": "q.variant == 1"
+						},
+						{
+							"skill_grenade": "q.variant == 2"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"attack": {
+					"animations": [
+						"redeem_hero_attack"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		},
+		"controller.animation.redeem_hero_walk": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"redeem_hero_idle.leg"
+					],
+					"transitions": [
+						{
+							"move": "query.modified_move_speed > 0.1"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"move": {
+					"animations": [
+						"redeem_hero_move.leg"
+					],
+					"transitions": [
+						{
+							"default": "query.modified_move_speed <= 0.1"
+						}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		}
+	}
+}

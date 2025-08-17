@@ -1,0 +1,26 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.sfzombie_idle_sound.func": {
+      "loop": true,
+      "animation_length": 8.0,
+      "timeline": {
+        "5.0": [
+            "/scoreboard players random @s wp_random 1 3",
+            "/tag @s add self",
+
+            "/event entity @s[family=hunter] hunter_idle_sound",
+            "/event entity @s[family=spitter] spitter_idle_sound",
+            "/event entity @s[family=charger] charger_idle_sound",
+            "/event entity @s[family=jockey] jockey_idle_sound",
+            "/event entity @s[family=boomer] boomer_idle_sound",
+            "/event entity @s[family=smoker] smoker_idle_sound",
+            "/event entity @s[family=tnnk] tnnk_idle_sound",
+            "/event entity @s[family=witch] witch_idle_sound",
+            
+            "/scoreboard players reset @s idle_time"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+    "format_version": "1.18",
+    "minecraft:recipe_shaped": {
+      "description": {
+        "identifier": "coldsink:weapon_4_display"
+      },
+      "tags": [ "crafting_table" ],
+      "pattern": [
+        "A"
+      ],
+      "key": {
+        "A": {
+          "item": "coldsink:weapon_4"
+        }
+      },
+      "result": {
+        "item": "coldsink:weapon_4_display_spawn_egg",
+        "count": 1
+      }
+    }
+  }
+  

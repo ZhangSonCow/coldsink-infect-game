@@ -1,0 +1,62 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:witch_0",
+      "animations": {
+        "witch_cry.arm": "animation.witch_0.cry.arm",
+        "witch_cry.leg": "animation.witch_0.cry.leg",
+        "witch_cry_walk.leg": "animation.witch_0.cry_walk.leg",
+        "witch_idle.arm": "animation.witch_0.idle.arm",
+        "witch_idle.leg": "animation.witch_0.idle.leg",
+        "witch_move.arm": "animation.witch_0.move.arm",
+        "witch_move.leg": "animation.witch_0.move.leg",
+        "witch_attack1": "animation.witch_0.attack1",
+        "witch_attack2": "animation.witch_0.attack2",
+        "c.witch_mod": "controller.animation.witch_mod",
+        "c.witch_walk_mod": "controller.animation.witch_walk_mod",
+        "c.witch_skill": "controller.animation.witch.skill_ai",
+        "witch.skill": "animation.witch_0.skill",
+        "sign_facing": "animation.sign_facing"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.random_choices = math.random(0, 100);"
+        ],
+        "animate": [
+          "c.witch_mod",
+          "c.witch_walk_mod",
+          "c.witch_skill",
+          "sign_facing"
+        ]
+      },
+      "materials": {
+        "default": "entity_alphatest",
+        "nacal_tac_detect": "nacal_tac_detect",
+        "nacal_customblend":"nacal_customblend"
+      },
+      "particle_effects": {
+        "witch_shield_1": "coldsink:witch_shield_1",
+        "witch_shield_2": "coldsink:witch_shield_2"
+      },
+      "textures": {
+        "default": "textures/entity/witch_0",
+        "witch_sign": "textures/entity/witch_sign"
+      },
+      "geometry": {
+        "default": "geometry.witch_0",
+        "boss_sign": "geometry.boss_sign"
+      },
+      "render_controllers": [
+        "controller.render.com",
+        {
+          "controller.render.witch_sign": "q.is_ignited"
+        }
+      ],
+      "spawn_egg": {
+        "base_color": "#555555",
+        "overlay_color": "#1a8c3a"
+      }
+    }
+  }
+}

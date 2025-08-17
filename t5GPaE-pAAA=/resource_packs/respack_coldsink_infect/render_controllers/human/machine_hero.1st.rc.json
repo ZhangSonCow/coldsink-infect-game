@@ -1,0 +1,15 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.machine_hero.1st": {
+      "geometry": "geometry.machine_hero.1st",
+      "materials": [
+        {
+          "*": "material.netease_entity_metallic"
+        }
+      ],
+      "textures": [ "texture.machine_hero" ],
+      "is_hurt_color": {}
+    }
+  }
+}

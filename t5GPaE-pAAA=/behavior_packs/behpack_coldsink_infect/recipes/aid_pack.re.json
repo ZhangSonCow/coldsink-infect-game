@@ -1,0 +1,33 @@
+{
+    "format_version": "1.18",
+    "minecraft:recipe_shaped": {
+      "description": {
+        "identifier": "coldsink:aid_pack"
+      },
+      "tags": [ "crafting_table" ],
+      "pattern": [
+        "SLS",
+        "STS",
+        "PPP"
+      ],
+      "key": {
+        "S": {
+          "item": "string"
+        },
+        "L": {
+          "item": "leather"
+        },
+        "T": {
+          "item": "stick"
+        },
+        "P": {
+          "item": "paper"
+        }
+      },
+      "result": {
+        "item": "coldsink:aid_pack_display_spawn_egg",
+        "count": 1
+      }
+    }
+  }
+  

@@ -1,0 +1,175 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.machine_hero": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"skill": "q.property('coldsink:action_status') == 3"
+						},
+						{
+							"fire": "q.property('coldsink:action_status') == 4"
+						},
+						{
+							"attack": "q.property('coldsink:action_status') == 1"
+						},
+						{
+							"attack_big": "q.property('coldsink:action_status') == 2"
+						}
+					]
+				},
+				"fire": {
+					"animations": [ "machine_hero.fire" ],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "(q.property('coldsink:action_status') != 4 && !q.is_using_item) || q.property('coldsink:jockey_control') || q.property('coldsink:tnnk_howl_control')"
+						}
+					]
+				},
+				"attack": {
+					"animations": [ "machine_hero.attack" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"skill": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"attack_big": {
+					"animations": [ "machine_hero.attack_big" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"skill": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"skill": {
+					"animations": [ "machine_hero.skill" ],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.machine_hero.1st": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"begin": "q.property('coldsink:action_status') == 5"
+						},
+						{
+							"skill": "q.property('coldsink:action_status') == 3"
+						},
+						{
+							"fire": "q.property('coldsink:action_status') == 4"
+						},
+						{
+							"attack": "q.property('coldsink:action_status') == 1"
+						},
+						{
+							"attack_big": "q.property('coldsink:action_status') == 2"
+						}
+					]
+				},
+				"begin": {
+					"animations": [ "machine_hero.begin.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				},
+				"fire": {
+					"animations": [ "machine_hero.fire.1st" ],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "(q.property('coldsink:action_status') != 4 && !q.is_using_item) || q.property('coldsink:jockey_control') || q.property('coldsink:tnnk_howl_control')"
+						}
+					]
+				},
+				"attack": {
+					"animations": [ "machine_hero.attack.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"begin": "q.property('coldsink:action_status') == 5"
+						},
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"skill": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"attack_big": {
+					"animations": [ "machine_hero.attack_big.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"begin": "q.property('coldsink:action_status') == 5"
+						},
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"skill": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"skill": {
+					"animations": [ "machine_hero.skill.1st" ],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				}
+			}
+		},
+
+		"controller.animation.machine_hero.walk": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "machine_hero.idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"walk": "q.modified_move_speed > 0.1"
+						}
+					]
+				},
+				"walk": {
+					"animations": [ "machine_hero.move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.modified_move_speed <= 0.1"
+						}
+					]
+				}
+			}
+		}
+	}
+}

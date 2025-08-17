@@ -1,0 +1,127 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "nacal_tac:force_stay",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      },
+      "force_stage1": {
+        "minecraft:variant": {
+          "value": 0
+        },
+        "minecraft:is_baby": {},
+        "minecraft:ageable": {
+          "duration": 0.8,
+          "grow_up": {
+            "event": "force_turn_stage2"
+          }
+        }
+      },
+      "force_stage2": {
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:is_baby": {},
+        "minecraft:ageable": {
+          "duration": 3.0,
+          "grow_up": {
+            "event": "force_die"
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.15,
+          "time_down_event": {
+            "event": "force_in"
+          }
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "tac", "bullet", "tool" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 0.01,
+        "height": 0.01
+      },
+      "minecraft:physics": {}
+
+      //behavivors
+
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "force_stage1"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tp @s ~~1~",
+            "particle nacal_tac:force_circle ~ ~0.2 ~"
+          ]
+        }
+      },
+      "force_die": {
+        "queue_command": {
+          "command": [
+            "playsound tac.he @a ~~~ 1 1 0.5",
+            "camerashake add @a[tag=!noshake,r=16] 0.3 0.2 positional",
+            "particle nacal_tac:force_wave ~ ~ ~",
+            "event entity @e[family=!player,tag=!neutral,family=!bullet,r=1.8] coldsink:hurting",
+            "damage @e[family=!player,tag=!neutral,family=!bullet,r=1.8] 12 suicide"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      },
+      "force_turn_stage2": {
+        "add": {
+          "component_groups": [
+            "force_stage2"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "force_stage1"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tp @s ~ ~1 ~",
+            "particle nacal_tac:force_around ~ ~1 ~",
+            "particle nacal_tac:force_circle ~ ~0.2 ~",
+            "playsound tac.charge @a ~~~ 1 1 0.8"
+          ]
+        }
+      },
+      "force_in": {
+        "queue_command": {
+          "command": [
+            "tag @s add neutral",
+            "tp @s ~ ~ ~",
+            "execute @e[r=8,family=!player,tag=!neutral,family=!bullet] ~~~ tp @s ^ ^0.02 ^0.2 facing @e[type=nacal_tac:force_stay,c=1,rm=0.2]"
+          ]
+        }
+      }
+    }
+  }
+}

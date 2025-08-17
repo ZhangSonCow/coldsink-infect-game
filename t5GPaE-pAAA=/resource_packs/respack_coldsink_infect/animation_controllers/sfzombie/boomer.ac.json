@@ -1,0 +1,190 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.boomer": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "boomer_idle.arm" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"move": "query.modified_move_speed > 0.1"
+						},
+						{
+							"attack_1": "!q.property('coldsink:freeze') && v.attack_time && !q.is_saddled && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "!q.property('coldsink:freeze') && v.attack_time && !q.is_saddled && variable.random_choices >= 50"
+						},
+						{
+							"attack_3": "!q.property('coldsink:freeze') && v.attack_time && q.is_saddled"
+						},
+						{
+							"vomit": "!q.property('coldsink:freeze') && q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"move": {
+					"animations": [ "boomer_move.arm" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "query.modified_move_speed <= 0.1"
+						},
+						{
+							"attack_1": "v.attack_time && !q.is_saddled && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && !q.is_saddled && variable.random_choices >= 50"
+						},
+						{
+							"attack_3": "v.attack_time && q.is_saddled"
+						},
+						{
+							"vomit": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"attack_1": {
+					"animations": [ "boomer_attack1" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						},
+						{
+							"vomit": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"attack_2": {
+					"animations": [ "boomer_attack2" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						},
+						{
+							"vomit": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"attack_3": {
+					"animations": [ "boomer_attack3" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						},
+						{
+							"vomit": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"vomit": {
+					"animations": [ "boomer_skill" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				}
+			}
+		},
+
+		"controller.animation.boomer.1st": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "boomer_idle.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"attack_1": "!q.property('coldsink:freeze') && v.attack_time && !q.is_saddled && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "!q.property('coldsink:freeze') && v.attack_time && !q.is_saddled && variable.random_choices >= 50"
+						},
+						{
+							"attack_3": "!q.property('coldsink:freeze') && v.attack_time && q.is_saddled"
+						},
+						{
+							"vomit": "!q.property('coldsink:freeze') && q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"attack_1": {
+					"animations": [ "boomer_attack1.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						},
+						{
+							"vomit": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"attack_2": {
+					"animations": [ "boomer_attack2.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						},
+						{
+							"vomit": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"attack_3": {
+					"animations": [ "boomer_attack3.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						},
+						{
+							"vomit": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"vomit": {
+					"animations": [ "boomer_skill.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				}
+			}
+		},
+
+		"controller.animation.boomer.walk": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "boomer_idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"walk": "q.modified_move_speed > 0.1"
+						}
+					]
+				},
+				"walk": {
+					"animations": [ "boomer_move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.modified_move_speed <= 0.1"
+						}
+					]
+				}
+			}
+		}
+	}
+}

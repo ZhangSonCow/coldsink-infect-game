@@ -1,0 +1,63 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:final_hero",
+      "animations": {
+        "final_hero_idle.arm": "animation.final_hero.idle.arm",
+        "final_hero_idle.leg": "animation.final_hero.idle.leg",
+        "final_hero_move.leg": "animation.final_hero.move.leg",
+        "final_hero_attack": "animation.final_hero.attack",
+        "c.final_hero_ai": "controller.animation.final_hero_ai",
+        "c.final_hero_walk": "controller.animation.final_hero_walk",
+        "final_hero.skill": "animation.final_hero.skill",
+        "final_hero.particle": "animation.final_hero.particle",
+        "final_hero.look": "animation.final_hero.look",
+        "sign_facing": "animation.sign_facing"
+      },
+      "scripts": {
+        "initialize": [
+          "variable.player_x_rotation=0.0;"
+        ],
+        "pre_animation": [
+          "variable.random_choices = math.random(0, 100);"
+        ],
+        "animate": [
+          "c.final_hero_ai",
+          "c.final_hero_walk",
+          "final_hero.particle",
+          "final_hero.look",
+          "sign_facing"
+        ]
+      },
+      "materials": {
+        "default": "entity_alphatest",
+        "nacal_tac_detect": "nacal_tac_detect",
+        "nacal_customblend":"nacal_customblend"
+      },
+      "particle_effects": {
+        "final_hero.particle": "coldsink:final_hero",
+        "final_hero_attack": "nacal_sdc:final_hero_attack",
+        "final_hero_skill": "nacal_sdc:final_hero_skill"
+      },
+      "textures": {
+        "default": "textures/entity/final_hero",
+        "final_hero_sign": "textures/entity/final_hero_sign"
+      },
+      "geometry": {
+        "default": "geometry.final_hero",
+        "human_sign": "geometry.human_sign"
+      },
+      "render_controllers": [
+        "controller.render.com",
+        {
+          "controller.render.final_hero_sign": "q.is_ignited"
+        }
+      ],
+      "spawn_egg": {
+        "base_color": "#078D99",
+        "overlay_color": "#1e1e1e"
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.savior_hero_handle_weapon.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"weapon": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1_empty') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2_empty')"
+						}
+					]
+				},
+				"weapon": {
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1_empty') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2_empty')"
+						}
+					],
+					"on_entry": [
+						"/event entity @s handle_weapon_20"
+					]
+				}
+			}
+		}
+	}
+}

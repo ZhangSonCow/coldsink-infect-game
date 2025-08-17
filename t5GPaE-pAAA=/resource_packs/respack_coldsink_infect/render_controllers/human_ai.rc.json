@@ -1,0 +1,41 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.human_ai": {
+      "arrays": {
+        "textures": {
+          "Array.skin": [
+            "Texture.skin_1",
+            "Texture.skin_2",
+            "Texture.skin_3",
+            "Texture.skin_4",
+            "Texture.skin_5",
+            "Texture.skin_6",
+            "Texture.skin_7",
+            "Texture.skin_8",
+            "Texture.skin_9",
+            "Texture.skin_10",
+            "Texture.skin_11",
+            "Texture.skin_12",
+            "Texture.skin_13",
+            "Texture.skin_14",
+            "Texture.skin_15"
+          ]
+        }
+      },
+      "geometry": "geometry.default",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "is_hurt_color": {
+        "r": "1.0",
+        "g": "1.0",
+        "b": "1.0",
+        "a": "0.4"
+      },
+      "textures": [ "Array.skin[ query.skin_id ]" ]
+    }
+  }
+}

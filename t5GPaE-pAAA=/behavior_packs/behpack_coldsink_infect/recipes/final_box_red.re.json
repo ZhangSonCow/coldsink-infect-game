@@ -1,0 +1,48 @@
+{
+    "format_version": "1.18",
+    "minecraft:recipe_shaped": {
+      "description": {
+        "identifier": "coldsink:final_box_red"
+      },
+      "tags": [ "crafting_table" ],
+      "pattern": [
+        "ABC",
+        "DEF",
+        "GHI"
+      ],
+      "key": {
+        "A": {
+          "item": "coldsink:hunter_soul"
+        },
+        "B": {
+          "item": "coldsink:spitter_soul"
+        },
+        "C": {
+          "item": "coldsink:charger_soul"
+        },
+        "D": {
+          "item": "coldsink:jockey_soul"
+        },
+        "F": {
+          "item": "coldsink:boomer_soul"
+        },
+        "G": {
+          "item": "coldsink:tnnk_soul"
+        },
+        "H": {
+          "item": "coldsink:smoker_soul"
+        },
+        "I": {
+          "item": "coldsink:witch_soul"
+        },
+        "E": {
+          "item": "nether_star"
+        }
+      },
+      "result": {
+        "item": "coldsink:final_box_red_spawn_egg",
+        "count": 1
+      }
+    }
+  }
+  

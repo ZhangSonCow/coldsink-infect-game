@@ -1,0 +1,260 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.hunter": {
+			"states": {
+				"default": {
+					"animations": [
+						"hunter_idle.arm"
+					],
+					"transitions": [
+						{
+							"move": "query.modified_move_speed > 0.1 && q.is_on_ground"
+						},
+						{
+							"attack_1": "!q.property('coldsink:freeze') && v.attack_time && !q.is_saddled && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "!q.property('coldsink:freeze') && v.attack_time && !q.is_saddled && variable.random_choices >= 50"
+						},
+						{
+							"attack_3": "!q.property('coldsink:freeze') && v.attack_time && q.is_saddled"
+						},
+						{
+							"skill": "!q.property('coldsink:freeze') && !q.is_on_ground && q.property('coldsink:time_skill')"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"move": {
+					"animations": [
+						"hunter_move.arm"
+					],
+					"transitions": [
+						{
+							"default": "query.modified_move_speed <= 0.1 && q.is_on_ground"
+						},
+						{
+							"attack_1": "v.attack_time && !q.is_saddled && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && !q.is_saddled && variable.random_choices >= 50"
+						},
+						{
+							"attack_3": "v.attack_time && q.is_saddled"
+						},
+						{
+							"skill": "!q.is_on_ground && q.property('coldsink:time_skill')"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"attack_1": {
+					"animations": [
+						"hunter_attack1"
+					],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"attack_2": {
+					"animations": [
+						"hunter_attack2"
+					],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"attack_3": {
+					"animations": [
+						"hunter_attack3"
+					],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"skill": {
+					"animations": [
+						"hunter_jump.arm"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "q.is_on_ground"
+						},
+						{
+							"attack_1": "v.attack_time && !q.is_saddled && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && !q.is_saddled && variable.random_choices >= 50"
+						},
+						{
+							"attack_3": "v.attack_time && q.is_saddled"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.hunter.1st": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"hunter_idle.1st"
+					],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"move": "query.modified_move_speed > 0.1 && q.is_on_ground"
+						},
+						{
+							"attack_1": "!q.property('coldsink:freeze') && v.attack_time && !q.is_saddled && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "!q.property('coldsink:freeze') && v.attack_time && !q.is_saddled && variable.random_choices >= 50"
+						},
+						{
+							"attack_3": "!q.property('coldsink:freeze') && v.attack_time && q.is_saddled"
+						},
+						{
+							"skill": "!q.property('coldsink:freeze') && !q.is_on_ground && q.property('coldsink:time_skill')"
+						}
+					]
+				},
+				"move": {
+					"animations": [
+						"hunter_walk.1st"
+					],
+					"blend_transition": 0.25,
+					"transitions": [
+						{
+							"default": "query.modified_move_speed <= 0.1 && q.is_on_ground"
+						},
+						{
+							"attack_1": "v.attack_time && !q.is_saddled && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && !q.is_saddled && variable.random_choices >= 50"
+						},
+						{
+							"attack_3": "v.attack_time && q.is_saddled"
+						},
+						{
+							"skill": "!q.is_on_ground && q.property('coldsink:time_skill')"
+						}
+					]
+				},
+				"attack_1": {
+					"animations": [
+						"hunter_attack1.1st"
+					],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && query.modified_move_speed <= 0.1 && !v.attack_time"
+						},
+						{
+							"move": "q.property('coldsink:action_status') == 0 && query.modified_move_speed > 0.1 "
+						}
+					]
+				},
+				"attack_2": {
+					"animations": [
+						"hunter_attack2.1st"
+					],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && query.modified_move_speed <= 0.1 && !v.attack_time"
+						},
+						{
+							"move": "q.property('coldsink:action_status') == 0 && query.modified_move_speed > 0.1 "
+						}
+					]
+				},
+				"attack_3": {
+					"animations": [
+						"hunter_attack3.1st"
+					],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && query.modified_move_speed <= 0.1 && !v.attack_time"
+						},
+						{
+							"move": "q.property('coldsink:action_status') == 0 && query.modified_move_speed > 0.1 "
+						}
+					]
+				},
+				"skill": {
+					"animations": [
+						"hunter_jump.1st"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "q.is_on_ground"
+						},
+						{
+							"attack_1": "v.attack_time && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && variable.random_choices >= 50"
+						},
+						{
+							"attack_3": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:big_attack') && q.is_using_item"
+						}
+					]
+				}
+			}
+		},
+
+		"controller.animation.hunter.walk": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "hunter_idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"walk": "q.modified_move_speed > 0.1 && q.is_on_ground"
+						},
+						{
+							"jump": "!q.is_on_ground && q.property('coldsink:time_skill')"
+						}
+					]
+				},
+				"walk": {
+					"animations": [ "hunter_move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.modified_move_speed < 0.1 && q.is_on_ground"
+						},
+						{
+							"jump": "!q.is_on_ground && q.property('coldsink:time_skill')"
+						}
+					]
+				},
+				"jump": {
+					"animations": [ "hunter_jump.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.is_on_ground"
+						}
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,65 @@
+{
+	"format_version": "1.18.0",
+	"animation_controllers": {
+		"controller.animation.smoker_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"attack_light": "v.attack_time && !q.is_saddled"
+						},
+						{
+							"attack_heavy": "v.attack_time && q.is_saddled"
+						},
+						{
+							"skill": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"attack_light": {
+					"animations": [ "smoker_attack_light" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"skill": "q.property('coldsink:action_status') == 3"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_light"
+					]
+				},
+				"attack_heavy": {
+					"animations": [ "smoker_attack_heavy" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"skill": "q.property('coldsink:action_status') == 3"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_heavy"
+					]
+				},
+				"skill": {
+					"animations": [ "smoker_skill_timer" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/camera @s[tag=!no_skill_camera] set minecraft:third_person"
+					],
+					"on_exit": [
+						"/camera @s clear"
+					]
+				}
+			}
+		}
+	}
+}

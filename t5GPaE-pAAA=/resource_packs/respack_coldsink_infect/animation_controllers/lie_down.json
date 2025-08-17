@@ -1,0 +1,27 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.lie_down": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.25,
+					"transitions": [
+						{
+							"down": "q.is_tamed"
+						}
+					]
+				},
+				"down": {
+					"blend_transition": 0.25,
+					"animations": [ "lie_down" ],
+					"transitions": [
+						{
+							"default": "!q.is_tamed"
+						}
+					]
+				}
+			}
+		}
+	}
+}

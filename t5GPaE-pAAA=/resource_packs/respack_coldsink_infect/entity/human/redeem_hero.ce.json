@@ -1,0 +1,68 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:redeem_hero",
+      "animations": {
+        "redeem_hero_handle_weapon": "animation.redeem_hero.handle_weapon",
+        "redeem_hero_handle_grenade": "animation.redeem_hero.handle_grenade",
+        "redeem_hero_handle_needle": "animation.redeem_hero.handle_needle",
+        "redeem_hero_idle_weapon.arm": "animation.redeem_hero.idle_weapon.arm",
+        "redeem_hero_idle.leg": "animation.redeem_hero.idle.leg",
+        "redeem_hero_move.leg": "animation.redeem_hero.move.leg",
+        "redeem_hero_attack": "animation.redeem_hero.attack",
+        "c.redeem_hero_ai": "controller.animation.redeem_hero_ai",
+        "c.redeem_hero_walk": "controller.animation.redeem_hero_walk",
+        "redeem_hero_skill_1": "animation.redeem_hero.skill_1",
+        "redeem_hero_skill_2": "animation.redeem_hero.skill_2",
+        "redeem_hero.particle": "animation.redeem_hero.particle",
+        "redeem_hero.look": "animation.redeem_hero.look",
+        "sign_facing": "animation.sign_facing"
+      },
+      "scripts": {
+        "initialize": [
+          "variable.player_x_rotation=0.0;"
+        ],
+        "pre_animation": [
+          "variable.random_choices = math.random(0, 100);"
+        ],
+        "animate": [
+          "c.redeem_hero_ai",
+          "c.redeem_hero_walk",
+          {
+            "redeem_hero.particle": "!q.is_sheared"
+          },
+          "redeem_hero.look",
+          "sign_facing"
+        ]
+      },
+      "materials": {
+        "default": "entity_alphatest",
+        "nacal_tac_detect": "nacal_tac_detect",
+        "nacal_customblend":"nacal_customblend"
+      },
+      "particle_effects": {
+        "redeem_hero.particle": "coldsink:redeem_hero",
+        "redeem_hero_attack": "nacal_sdc:redeem_hero_attack"
+      },
+      "textures": {
+        "default": "textures/entity/redeem_hero",
+        "redeem_hero_sign": "textures/entity/redeem_hero_sign"
+      },
+      "geometry": {
+        "default": "geometry.redeem_hero",
+        "human_sign": "geometry.human_sign"
+      },
+      "render_controllers": [ 
+        "controller.render.com",
+        {
+          "controller.render.redeem_hero_sign": "q.is_ignited"
+        }
+      ],
+      "spawn_egg": {
+        "base_color": "#073e85",
+        "overlay_color": "#aecef3"
+      }
+    }
+  }
+}

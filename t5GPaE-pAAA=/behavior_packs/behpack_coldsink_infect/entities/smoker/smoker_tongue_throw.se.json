@@ -1,0 +1,189 @@
+﻿{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:smoker_tongue_throw",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball",
+      "animations": {
+        "ctrl.entity_spawned": "controller.animation.entity_spawned.func",
+        "entity_spawned": "animation.entity_spawned.func"
+      },
+      "scripts": {
+        "animate": [
+          "ctrl.entity_spawned"
+        ]
+      }
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.01,
+        "height": 0.01
+      },
+      "minecraft:type_family": {
+        "family": [
+          "tool"
+        ]
+      },
+      "minecraft:health": {
+        "value": 2,
+        "max": 2,
+        "min": 1
+      },
+      "minecraft:timer": {
+        "time": 0.1,
+        "time_down_event": {
+          "target": "self",
+          "event": "throw"
+        }
+      },
+      "minecraft:ageable": {
+        "duration": 8,
+        "grow_up": {
+          "event": "get"
+        }
+      },
+      "minecraft:projectile": {
+        "anchor": 1,
+        "on_hit": {
+          // "impact_damage": {
+          //   "damage": 0,
+          //   "knockback": false
+          // },
+          "definition_event": {
+            "affect_projectile": true,
+            "affect_shooter": false,
+            "affect_target": false,
+            "affect_splash_area": false,
+            "event_trigger": {
+              "event": "get"
+            }
+          }
+        },
+        "power": 1.8,
+        "gravity": 0.0,
+        "angle_offset": 0,
+        "liquid_inertia": 0.95
+      },
+      "minecraft:physics": {},
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "entity_spawned": {
+        "queue_command": {
+          "command": [
+            "scoreboard players operation @s smoker_time = tongue_count smoker_time",
+            "execute @s[scores={smoker_time=999..}] ~~~ scoreboard players set tongue_count smoker_time 0",
+            "tag @s add neutral",
+            "execute @p[family=smoker] ~~~ execute @s[tag=maper] ~~~ tag @e[type=coldsink:smoker_tongue_throw,c=1] add maper"
+          ]
+        }
+      },
+      "throw": {
+        "queue_command": {
+          "command": [
+            "particle nacal_sdc:smoker_tongue_throw ~~~",
+            "execute @s[tag=maper] ~~~ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=3.6] ~~~ event entity @e[type=coldsink:smoker_tongue_throw,r=3.6,c=1] get_map",
+            "execute @s[tag=!maper] ~~~ execute @e[family=!smoker,family=!tool,r=3.6] ~~~ event entity @e[type=coldsink:smoker_tongue_throw,r=3.6,c=1] get_mod"
+          ]
+        }
+      },
+      "get_map": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s bool 0",
+            "execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=3.6,c=1] ~~~ scoreboard players set @e[type=coldsink:smoker_tongue_throw,c=1] bool 1",
+            "scoreboard players operation @a[family=smoker] smoker_check = @s smoker_time",
+            "execute @a[family=smoker] ~~~ scoreboard players operation @s smoker_check -= @s smoker_time",
+
+            "execute @s[scores={bool=0}] ~~~ title @p[family=smoker,scores={smoker_check=0}] actionbar §6未命中目标",
+            "execute @s[scores={bool=0}] ~~~ event entity @a[family=smoker,scores={smoker_check=0}] action_clear",
+            "execute @s[scores={bool=0}] ~~~ effect @a[family=smoker,scores={smoker_check=0}] slowness 0 8 true",
+            "execute @s[scores={bool=0}] ~~~ scoreboard players operation @e[type=coldsink:smoker_ride_1] smoker_check = @s smoker_time",
+            "execute @s[scores={bool=0}] ~~~ execute @e[type=coldsink:smoker_ride_1] ~~~ scoreboard players operation @s smoker_check -= @s smoker_time",
+            "execute @s[scores={bool=0}] ~~~ event entity @e[type=coldsink:smoker_ride_1,scores={smoker_check=0}] godie",
+            "execute @s[scores={bool=0}] ~~~ scoreboard players operation @e[type=coldsink:smoker_ride_2] smoker_check = @s smoker_time",
+            "execute @s[scores={bool=0}] ~~~ execute @e[type=coldsink:smoker_ride_2] ~~~ scoreboard players operation @s smoker_check -= @s smoker_time",
+            "execute @s[scores={bool=0}] ~~~ event entity @e[type=coldsink:smoker_ride_2,scores={smoker_check=0}] godie",
+
+            "execute @s[scores={bool=1}] ~~~ title @p[family=smoker,scores={smoker_check=0}] actionbar §6正在尝试将目标拖拽！ §f+10",
+            "execute @s[scores={bool=1}] ~~~ scoreboard players add @p[family=smoker,scores={smoker_check=0}] game_score 10",
+            "execute @s[scores={bool=1}] ~~~ playsound reward @p[family=smoker,scores={smoker_check=0}]",
+            "execute @s[scores={bool=1}] ~~~ execute @p[family=smoker,scores={smoker_check=0}] ~~~ tag @e[type=coldsink:smoker_ride_2,c=1] add get_target",
+            "tag @e[family=player,family=!tool,type=!item,tag=!neutral,r=3.6,c=1] add smoker_caught",
+            "execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=3.6,c=1] ~~~ title @s actionbar §6Smoker拉住了你！",
+            "tag @a[family=smoker,scores={smoker_check=0}] add self",
+            "execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=3.6,c=1] ~~~ playsound smoker.get @a[tag=!self] ~~~",
+            "execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=3.6,c=1] ~~~ playsound smoker.get.self @a[tag=self]",
+            "tag @a[family=smoker,scores={smoker_check=0}] remove self",
+            "execute @p[family=smoker,scores={smoker_check=0}] ~~~ event entity @e[type=coldsink:smoker_ride_2,c=1] delay_clear",
+            "execute @p[family=smoker,scores={smoker_check=0}] ~~~ tp @e[type=coldsink:smoker_ride_2,c=1] @e[tag=smoker_caught,c=1]",
+            "tag @e[tag=smoker_caught] remove smoker_caught",
+            "event entity @s godie",
+            "effect @a[scores={smoker_check=0}] slowness 0 8 true"
+          ]
+        }
+      },
+      "get_mod": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s bool 0",
+            "execute @e[family=!smoker,family=!tool,r=3.6,c=1] ~~~ scoreboard players set @e[type=coldsink:smoker_tongue_throw,c=1] bool 1",
+            "scoreboard players operation @a[family=smoker] smoker_check = @s smoker_time",
+            "execute @a[family=smoker] ~~~ scoreboard players operation @s smoker_check -= @s smoker_time",
+
+            "execute @s[scores={bool=0}] ~~~ title @p[family=smoker,scores={smoker_check=0}] actionbar §6未命中目标",
+            "execute @s[scores={bool=0}] ~~~ event entity @a[family=smoker,scores={smoker_check=0}] action_clear",
+            "execute @s[scores={bool=0}] ~~~ effect @a[family=smoker,scores={smoker_check=0}] slowness 0 8 true",
+            "execute @s[scores={bool=0}] ~~~ scoreboard players operation @e[type=coldsink:smoker_ride_1] smoker_check = @s smoker_time",
+            "execute @s[scores={bool=0}] ~~~ execute @e[type=coldsink:smoker_ride_1] ~~~ scoreboard players operation @s smoker_check -= @s smoker_time",
+            "execute @s[scores={bool=0}] ~~~ event entity @e[type=coldsink:smoker_ride_1,scores={smoker_check=0}] godie",
+            "execute @s[scores={bool=0}] ~~~ scoreboard players operation @e[type=coldsink:smoker_ride_2] smoker_check = @s smoker_time",
+            "execute @s[scores={bool=0}] ~~~ execute @e[type=coldsink:smoker_ride_2] ~~~ scoreboard players operation @s smoker_check -= @s smoker_time",
+            "execute @s[scores={bool=0}] ~~~ event entity @e[type=coldsink:smoker_ride_2,scores={smoker_check=0}] godie",
+
+            "execute @s[scores={bool=1}] ~~~ title @p[family=smoker,scores={smoker_check=0}] actionbar §6正在尝试将目标拖拽！",
+            "execute @s[scores={bool=1}] ~~~ playsound reward @p[family=smoker,scores={smoker_check=0}]",
+            "execute @s[scores={bool=1}] ~~~ execute @p[family=smoker,scores={smoker_check=0}] ~~~ tag @e[type=coldsink:smoker_ride_2,c=1] add get_target",
+            "tag @e[family=!smoker,family=!tool,r=3.6,c=1] add smoker_caught",
+            "execute @e[family=!smoker,family=!tool,r=3.6,c=1] ~~~ title @s actionbar §6Smoker拉住了你！",
+            "tag @a[family=smoker,scores={smoker_check=0}] add self",
+            "execute @e[family=!smoker,family=!tool,r=3.6,c=1] ~~~ playsound smoker.get @a[tag=!self] ~~~",
+            "execute @e[family=!smoker,family=!tool,r=3.6,c=1] ~~~ playsound smoker.get.self @a[tag=self]",
+            "tag @a[family=smoker,scores={smoker_check=0}] remove self",
+            "execute @p[family=smoker,scores={smoker_check=0}] ~~~ event entity @e[type=coldsink:smoker_ride_2,c=1] delay_clear",
+            "execute @p[family=smoker,scores={smoker_check=0}] ~~~ tp @e[type=coldsink:smoker_ride_2,c=1] @e[tag=smoker_caught,c=1]",
+            "tag @e[tag=smoker_caught] remove smoker_caught",
+            "event entity @s godie",
+            "effect @a[scores={smoker_check=0}] slowness 0 8 true"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "execute @s[scores={bool=0}] ~~~ particle minecraft:cauldron_explosion_emitter ~~~"
+          ]
+        }
+      }
+    }
+  }
+}

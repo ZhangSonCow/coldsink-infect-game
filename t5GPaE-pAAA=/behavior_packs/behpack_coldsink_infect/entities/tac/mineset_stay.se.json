@@ -1,0 +1,170 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "nacal_tac:mineset_stay",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      },
+      "prepare_time": {
+        "minecraft:timer": {
+          "time": 5,
+          "time_down_event": {
+            "event": "get_ready"
+          }
+        },
+        "minecraft:variant": {
+          "value": 0
+        }
+      },
+      "ready_time": {
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:timer": {
+          "time": 0.05,
+          "time_down_event": {
+            "event": "search_player"
+          }
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "tac", "bullet", "tool" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 0.4,
+        "height": 0.5
+      },
+      "minecraft:health": {
+        "value": 2,
+        "max": 2,
+        "min": 1
+      },
+      "minecraft:physics": {},
+      "minecraft:fire_immune": {},
+
+      //behavivors
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "reselect_targets": true,
+        "scan_interval": 50,
+        "entity_types": [
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "operator": "!=",
+              "value": "tac"
+            },
+            "max_dist": 16
+          }
+        ]
+      }
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "prepare_time"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "particle nacal_tac:mineset_circle",
+            "tag @s add neutral"
+          ]
+        }
+      },
+      "special_spawn": {
+        "add": {
+          "component_groups": [
+            "prepare_time"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "particle nacal_tac:mineset_circle",
+            "tp @s ~~~ facing @p[tag=mineset_thrower]",
+            "tag @a remove mineset_thrower",
+            "summon nacal_tac:mineset_stay ^5^^",
+            "summon nacal_tac:mineset_stay ^-5^^",
+            "scoreboard players operation @e[type=nacal_tac:mineset_stay,c=2,rm=3] mineset_time = @s mineset_time",
+            "tag @s add neutral"
+          ]
+        }
+      },
+      "boom": {
+        "remove": {
+          "component_groups": [
+            "ready_time",
+            "godie"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "scoreboard players operation @a mineset_check = @s mineset_time",
+            "execute @a ~~~ scoreboard players operation @s mineset_check -= @s mineset_time",
+
+            "event entity @e[r=2.4,family=!player,tag=!neutral,family=!bullet] coldsink:hurting",
+            "effect @e[r=2.4,family=!player,tag=!neutral,family=!bullet,type=!coldsink:smoker_tongue_throw] slowness 4 1 true",
+            "damage @e[r=2.4,family=!player,tag=!neutral,family=!bullet,type=!coldsink:smoker_tongue_throw] 20 suicide",
+            "title @p[scores={mineset_check=0}] actionbar §b触发霜息地雷！",
+            "playsound tac.mineset_boom @a[r=32] ~~~ 1 1 0.5",
+            "particle nacal_tac:mineset_boom",
+            "particle nacal_tac:mineset_boom",
+            "particle nacal_tac:mineset_boom",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "get_ready": {
+        "add": {
+          "component_groups": [
+            "ready_time"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "prepare_time"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "particle nacal_tac:mineset_circle",
+            "playsound tac.mineset_prepare @a ~~~ 1 1"
+          ]
+        }
+      },
+      "search_player": {
+        "queue_command": {
+          "command": [
+            "tag @s add neutral",
+            "execute @e[type=!nacal_tac:mineset_stay,type=!coldsink:smoker_tongue_throw,family=!player,tag=!neutral,family=!bullet,r=2.4] ~~~ event entity @e[type=nacal_tac:mineset_stay,r=2.4] boom"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

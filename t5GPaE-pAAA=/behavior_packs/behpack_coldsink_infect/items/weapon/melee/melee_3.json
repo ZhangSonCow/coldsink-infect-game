@@ -1,0 +1,26 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "coldsink:melee_3",
+      "menu_category": {  
+        "group": "itemGroup.name.melee",  
+        "category": "equipment", 
+        "is_hidden_in_commands": false 
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": {
+        "texture": "melee_3"
+      },
+      "minecraft:display_name": {
+        "value": "军用铁锹"
+      },
+      "minecraft:use_duration": 99999,
+      "minecraft:food": {
+        "can_always_eat": true
+      }
+    }
+  }
+}

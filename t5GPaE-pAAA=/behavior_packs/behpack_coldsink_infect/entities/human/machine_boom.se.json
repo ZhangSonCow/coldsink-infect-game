@@ -1,0 +1,112 @@
+﻿{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:machine_boom",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball"
+    },
+
+    "component_groups": {
+      "die": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "bullet", "boom", "tool" ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.5,
+        "height": 0.5
+      },
+      "minecraft:ageable": {
+        "duration": 1.2,
+        "grow_up": {
+          "event": "godie",
+          "target": "self"
+        }
+      },
+      "minecraft:timer": {
+        "time": 0.05,
+        "time_down_event": {
+          "target": "self",
+          "event": "fly"
+        }
+      },
+      "minecraft:projectile": {
+        "anchor": 2,
+        "on_hit": {
+          "impact_damage": {
+            "damage": 0,
+            "knockback": false,
+            "destroy_on_hit": true
+          },
+          "definition_event": {
+            "affect_projectile": true,
+            "affect_shooter": false,
+            "affect_target": false,
+            "affect_splash_area": false,
+            "event_trigger": {
+              "event": "shot_tar",
+              "target": "self"
+            }
+          },
+          "stick_in_ground": {
+            "shake_time": 0.3
+          }
+        },
+        "power": 1.2,
+        "gravity": 0.12,
+        "angle_offset": 0,
+        "liquid_inertia": 1,
+        "stop_on_hurt": true
+      },
+      "minecraft:physics": {},
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "shot_tar": {
+        "add": {
+          "component_groups": [
+            "die"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "particle coldsink:machine_hero_boom ~~~",
+            "playsound machine_hero_boom @a ~~~",
+            "event entity @e[c=1,family=!tool,family=!player,tag=!neutral,r=12] coldsink:hurting",
+            "tag @e[family=!tool,family=!player,tag=!neutral,r=12] add machine_back",
+            "damage @e[family=!tool,family=!player,tag=!neutral,r=5] 48 suicide",
+            "damage @e[family=!tool,family=!player,tag=!neutral,r=8,rm=5] 28 suicide",
+            "damage @e[family=!tool,family=!player,tag=!neutral,r=12,rm=8] 12 suicide",
+            "effect @e[family=!tool,family=!player,tag=!neutral,r=12] slowness 4 1 true"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "die"
+          ]
+        }
+      },
+      "fly": {
+        "queue_command": {
+          "command": [
+            "particle coldsink:machine_bullet ~~~"
+          ]
+        }
+      }
+    }
+  }
+}

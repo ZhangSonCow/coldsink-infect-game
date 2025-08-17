@@ -1,0 +1,120 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "nacal_sdc:spawner_weapon",
+
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/cola_bottles",
+
+        "weapon00_danxia":"textures/entity/weapon/danxia",
+        "weapon01_eagle":"textures/entity/weapon/eagle",
+        "weapon02_havoc":"textures/entity/weapon/havoc",
+        "weapon03_kala":"textures/entity/weapon/kala",
+        "weapon04_machine":"textures/entity/weapon/machine",
+        "weapon05_micro":"textures/entity/weapon/micro",
+        "weapon06_rapid":"textures/entity/weapon/rapid",
+        "weapon07_remi":"textures/entity/weapon/remi",
+        "weapon08_scar":"textures/entity/weapon/scar",
+        "weapon09_scout":"textures/entity/weapon/scout",
+        "weapon10_tracer":"textures/entity/weapon/tracer",
+        "weapon11_wasp":"textures/entity/weapon/wasp",
+
+        "weapon13_adren":"textures/entity/weapon/adren",
+        "weapon14_aidpack":"textures/entity/weapon/aidpack",
+        "weapon15_bilebomb":"textures/entity/bilebomb",
+        "weapon19_molotov":"textures/entity/molotov",
+        "weapon20_painpills":"textures/entity/weapon/painpills",
+        "weapon21_pipebomb":"textures/entity/pipebomb",
+
+        "weapon22_axe":"textures/entity/weapon/axe",
+        "weapon23_bat":"textures/entity/weapon/bat",
+        "weapon24_crowbar":"textures/entity/weapon/crowbar",
+        "weapon25_golf":"textures/entity/weapon/golf",
+        "weapon26_katana":"textures/entity/weapon/katana",
+        "weapon27_knife":"textures/entity/weapon/knife",
+        "weapon28_crowbar_gold":"textures/entity/weapon/crowbar_gold",
+        
+        "weapon_1":"textures/entity/weapon_1",
+        "weapon_2":"textures/entity/weapon_2",
+        "weapon_3":"textures/entity/weapon_3",
+        "weapon_4":"textures/entity/weapon_4",
+        "weapon_5":"textures/entity/weapon_5",
+        "weapon_6":"textures/entity/weapon_6",
+        "weapon_7":"textures/entity/weapon_7",
+
+        "melee_1": "textures/entity/melee_1",
+        "melee_2": "textures/entity/melee_2",
+        "melee_3": "textures/entity/melee_3",
+        "melee_4": "textures/entity/melee_4",
+        "melee_5": "textures/entity/melee_5",
+        "final_double_sword": "textures/entity/final_hero",
+
+        "aid_pack":"textures/entity/aid_pack"
+      },
+      "geometry": {
+        "default": "geometry.cola_bottles",
+        "danxia":"geometry.weapon00_danxia",
+        "flat":"geometry.melee_32x",
+        "flat16":"geometry.melee_16x",
+        "bilebomb": "geometry.bilebomb_show",
+        "molotov": "geometry.molotov_show",
+        "pipebomb": "geometry.pipebomb_show",
+
+        "weapon_1":"geometry.weapon_1_display",
+        "weapon_2":"geometry.weapon_2_display",
+        "weapon_3":"geometry.weapon_3_display",
+        "weapon_4":"geometry.weapon_4_display",
+        "weapon_5":"geometry.weapon_5_display",
+        "weapon_6":"geometry.weapon_6_display",
+        "weapon_7":"geometry.weapon_7_display",
+
+        "melee_1": "geometry.melee_1_display",
+        "melee_2": "geometry.melee_2_display",
+        "melee_3": "geometry.melee_3_display",
+        "melee_4": "geometry.melee_4_display",
+        "melee_5": "geometry.melee_5_display",
+        "final_double_sword": "geometry.final_double_sword_display",
+
+        "aid_pack":"geometry.aid_pack_display"
+      },
+      "animations": {
+        "flat": "animation.spawner_weapon.flat",
+        //"flat2": "animation.spawner_weapon.flat2",
+        "body":"animation.spawner_weapon.body",
+        "small":"animation.spawner_weapon.small",
+        "danxiarotate":"animation.spawner_weapon.danxiarotate",
+        "skin_1":"animation.spawner_weapon.skin_1",
+        "skin_2":"animation.spawner_weapon.skin_2",
+        "skin_3":"animation.spawner_weapon.skin_3",
+        "skin_4":"animation.spawner_weapon.skin_4"
+      },
+      "scripts": {
+        "initialize": [
+          "variable.weapon_random=math.random(0, 1);"
+        ],
+        "should_update_bones_and_effects_offscreen": true,
+        "animate": [
+          { "flat":"(query.variant!=0)&&(query.skin_id==0)" },
+          { "small":"(query.variant==13)||(query.variant==14)||(query.variant==20)" },
+          { "danxiarotate":"query.variant==0" },
+
+          { "skin_1":"query.skin_id==1" },
+          { "skin_2":"query.skin_id==2" },
+          { "skin_3":"query.skin_id==3" },
+          { "skin_4":"query.skin_id==4" },
+          
+          "body"
+        ]
+      },
+      "render_controllers": [
+        //"controller.render.com",
+        "controller.render.spawner_weapon"
+        
+      ]
+    }
+  }
+}

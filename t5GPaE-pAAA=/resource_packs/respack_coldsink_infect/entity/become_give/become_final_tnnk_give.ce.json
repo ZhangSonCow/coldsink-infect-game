@@ -1,0 +1,21 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:become_final_tnnk_give",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/aid_pack"
+      },
+      "geometry": {
+        "default": "geometry.empty"
+      },
+      "render_controllers": [ "controller.render.com" ],
+      "spawn_egg": {
+        "texture": "become_final_tnnk_give"
+      }
+    }
+  }
+}

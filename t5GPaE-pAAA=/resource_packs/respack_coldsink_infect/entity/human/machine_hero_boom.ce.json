@@ -1,0 +1,26 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:machine_boom",
+      "materials": {
+        "default": "entity_emissive"
+      },
+      "animations": {
+        "fireball": "animation.tank_fireball"
+      },
+      "scripts": {
+        "animate": [
+          "fireball"
+        ]
+      },
+      "textures": {
+        "default": "textures/entity/machine_hero_boom"
+      },
+      "geometry": {
+        "default": "geometry.machine_hero_boom"
+      },
+      "render_controllers": [ "controller.render.com" ]
+    }
+  }
+}

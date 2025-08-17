@@ -1,0 +1,37 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.savior_hero_weapon_2_fire.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "1.2": [
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.savior_hero_weapon_2_loading.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.0": [
+          "/tag @s add self",
+
+          "/replaceitem entity @s[scores={bullet_hero_sp=..2}] slot.weapon.mainhand 1 coldsink:savior_hero_weapon_2_empty 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+          "/title @s[scores={bullet_hero_sp=..2}] actionbar §6Reloading...",
+          "/execute @s[scores={bullet_hero_sp=..2}] ~~~ playsound savior_hero_weapon_2.reload @a[tag=!self] ~~~",
+          "/playsound savior_hero_weapon_2.reload.self @s[scores={bullet_hero_sp=..2}]",
+          
+          "/tag @s remove self"
+        ],
+        "2.0": [
+          "/scoreboard players set @s bullet_hero_sp 3",
+          "/titleraw @s[tag=maper] actionbar {\"rawtext\":[{\"text\":\"§f< §6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_hero_sp\"}},{\"text\":\"§f / §6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_back_sp\"}},{\"text\":\"§f >\"}]}",
+          "/titleraw @s[tag=!maper] actionbar {\"rawtext\":[{\"text\":\"§f< §6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_hero_sp\"}},{\"text\":\"§f / §63\"},{\"text\":\"§f >\"}]}",
+
+          "/event entity @s action_clear"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,122 @@
+﻿{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:boomer_bile_throw",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball",
+      "animations": {
+        "ctrl.entity_spawned": "controller.animation.entity_spawned.func",
+        "entity_spawned": "animation.entity_spawned.func"
+      },
+      "scripts": {
+        "animate": [
+          "ctrl.entity_spawned"
+        ]
+      }
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.5,
+        "height": 0.5
+      },
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:timer": {
+        "time": 0.1,
+        "time_down_event": {
+          "target": "self",
+          "event": "throw"
+        }
+      },
+      "minecraft:ageable": {
+        "duration": 1.5,
+        "grow_up": {
+          "event": "godie"
+        }
+      },
+      "minecraft:projectile": {
+        "anchor": 2,
+        "power": 0.6,
+        "gravity": 0.012,
+        "angle_offset": 0,
+        "liquid_inertia": 0.95,
+        "uncertainty_base": 1.2,
+        "on_hit": {
+          "definition_event": {
+            "affect_projectile": true,
+            "affect_shooter": false,
+            "affect_target": false,
+            "affect_splash_area": false,
+            "event_trigger": {
+              "event": "godie",
+              "target": "self"
+            }
+          }
+        }
+      },
+      "minecraft:physics": {},
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "entity_spawned": {
+        "queue_command": {
+          "command": [
+            "execute @p[family=boomer] ~~~ execute @s[tag=maper] ~~~ tag @e[type=coldsink:boomer_bile_throw,c=1] add maper",
+            "tag @s add neutral"
+          ]
+        }
+      },
+      "throw": {
+        "queue_command": {
+          "command": [
+            "particle nacal_sdc:boomer_bile_throw ~~~",
+            "event entity @s[tag=maper] throw_map",
+            "event entity @s[tag=!maper] throw_mod"
+          ]
+        }
+      },
+      "throw_map": {
+        "queue_command": {
+          "command": [
+            "event entity @e[family=player,family=!tool,type=!item,tag=!neutral,r=1.8] coldsink:boomer_bile",
+            "execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=1.8,c=1] ~~~ title @p[family=boomer,tag=maper] actionbar §2成功吐中目标！ §f+1",
+            "execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=1.8] ~~~ scoreboard players add @p[family=boomer,tag=maper] game_score 1",
+            "execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=1.8,c=1] ~~~ playsound reward @p[family=boomer]"
+          ]
+        }
+      },
+      "throw_mod": {
+        "queue_command": {
+          "command": [
+            "event entity @e[family=!boomer,family=!tool,r=1.8] coldsink:boomer_bile",
+            "effect @e[family=!boomer,family=!tool,r=1.8] slowness 8 1",
+            "execute @e[family=!boomer,family=!tool,r=1.8,c=1] ~~~ title @p[family=boomer,tag=!maper] actionbar §2成功吐中目标！",
+            "execute @e[family=!boomer,family=!tool,r=1.8,c=1] ~~~ playsound reward @p[family=boomer,tag=!maper]"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

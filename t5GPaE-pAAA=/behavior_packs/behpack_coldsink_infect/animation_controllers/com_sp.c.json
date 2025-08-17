@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.sp_1": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "sp": "query.variant == 1 || query.variant == 2"
+            }
+          ]
+        },
+        "sp": {
+          "transitions": [
+            {
+              "dead": "!query.is_alive"
+            }
+          ]
+        },
+        "dead": {
+          "on_entry": [
+            "/playsound sdc.common.suit @a ~~~ 1 1"
+          ]
+        }
+      }
+    }
+  }
+}

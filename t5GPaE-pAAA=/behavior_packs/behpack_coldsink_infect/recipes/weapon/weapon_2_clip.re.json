@@ -1,0 +1,27 @@
+{
+    "format_version": "1.18",
+    "minecraft:recipe_shaped": {
+      "description": {
+        "identifier": "coldsink:weapon_2_clip"
+      },
+      "tags": [ "crafting_table" ],
+      "pattern": [
+        "  C",
+        " P ",
+        "C  "
+      ],
+      "key": {
+        "C": {
+          "item": "copper_ingot"
+        },
+        "P": {
+          "item": "gunpowder"
+        }
+      },
+      "result": {
+        "item": "coldsink:weapon_2_clip_display_spawn_egg",
+        "count": 8
+      }
+    }
+  }
+  

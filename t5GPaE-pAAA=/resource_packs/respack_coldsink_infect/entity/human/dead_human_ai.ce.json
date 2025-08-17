@@ -1,0 +1,46 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:dead_human_ai",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "animations": {
+        "dead": "animation.human_ai.death"
+      },
+      "scripts": {
+        "initialize": [
+          "variable.dead_random=math.random(0, 1);"
+        ],
+        "animate": [
+          "dead"
+        ]
+      },
+      "textures": {
+        "skin_1": "textures/entity/human/human_1",
+        "skin_2": "textures/entity/human/human_2",
+        "skin_3": "textures/entity/human/human_3",
+        "skin_4": "textures/entity/human/human_4",
+        "skin_5": "textures/entity/human/human_5",
+        "skin_6": "textures/entity/human/human_6",
+        "skin_7": "textures/entity/human/human_7",
+        "skin_8": "textures/entity/human/human_8",
+        "skin_9": "textures/entity/human/human_9",
+        "skin_10": "textures/entity/human/human_10",
+        "skin_11": "textures/entity/human/human_11",
+        "skin_12": "textures/entity/human/human_12",
+        "skin_13": "textures/entity/human/human_13",
+        "skin_14": "textures/entity/human/human_14",
+        "skin_15": "textures/entity/human/human_15"
+      },
+      "geometry": {
+        "default": "geometry.humanoid.custom"
+      },
+      "render_controllers": [ "controller.render.human_ai" ],
+      "spawn_egg": {
+        "texture": "spawn_human_ai"
+      }
+    }
+  }
+}

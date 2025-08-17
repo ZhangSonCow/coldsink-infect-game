@@ -1,0 +1,108 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.redeem_hero_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"begin": "q.property('coldsink:action_status') == 5"
+						},
+						{
+							"attack_0": "v.attack_time && !q.is_saddled && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:redeem_hero_skill_1') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:redeem_hero_skill_2')"
+						},
+						{
+							"attack_1": "v.attack_time && q.is_saddled && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:redeem_hero_skill_1') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:redeem_hero_skill_2')"
+						},
+						{
+							"skill_1": "q.property('coldsink:action_status') == 3"
+						},
+						{
+							"skill_2": "q.property('coldsink:action_status') == 4"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_clear"
+					]
+				},
+				"begin": {
+					"animations": [ "redeem_hero_begin" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				},
+				"attack_0": {
+					"animations": [ "redeem_hero_attack_light" ],
+					"transitions": [
+						{
+							"begin": "q.property('coldsink:action_status') == 5"
+						},
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"skill_1": "q.property('coldsink:action_status') == 3"
+						},
+						{
+							"skill_2": "q.property('coldsink:action_status') == 4"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_light"
+					]
+				},
+				"attack_1": {
+					"animations": [ "redeem_hero_attack_heavy" ],
+					"transitions": [
+						{
+							"begin": "q.property('coldsink:action_status') == 5"
+						},
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"skill_1": "q.property('coldsink:action_status') == 3"
+						},
+						{
+							"skill_2": "q.property('coldsink:action_status') == 4"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_heavy"
+					]
+				},
+				"skill_1": {
+					"animations": [ "redeem_hero_skill_1" ],
+					"transitions": [
+						{
+							"begin": "q.property('coldsink:action_status') == 5"
+						},
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"skill_2": "q.property('coldsink:action_status') == 4"
+						}
+					]
+				},
+				"skill_2": {
+					"animations": [ "redeem_hero_skill_2" ],
+					"transitions": [
+						{
+							"begin": "q.property('coldsink:action_status') == 5"
+						},
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"skill_1": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				}
+			}
+		}
+	}
+}

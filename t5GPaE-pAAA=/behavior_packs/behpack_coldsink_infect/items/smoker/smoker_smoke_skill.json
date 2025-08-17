@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "coldsink:smoker_smoke_skill",
+      "menu_category": {  
+        "group": "itemGroup.name.arrow",  
+        "category": "equipment", 
+        "is_hidden_in_commands": false 
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "§6手持 [长按/右键] 释放烟雾"
+      },
+      "minecraft:cooldown": {
+        "category": "smoker_smoke_skill",
+        "duration": 15
+      },
+      "minecraft:icon": {
+        "texture": "smoker_smoke_skill"
+      },
+      "minecraft:use_duration": 99999,
+      "minecraft:food": {
+        "can_always_eat": true
+      }
+    }
+  }
+}

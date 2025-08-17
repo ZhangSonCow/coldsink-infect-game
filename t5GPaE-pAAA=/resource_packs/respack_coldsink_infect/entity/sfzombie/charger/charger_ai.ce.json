@@ -1,0 +1,48 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:charger_ai",
+      "animations": {
+        "charger_idle.arm": "animation.charger.idle.arm",
+        "charger_idle.leg": "animation.charger.idle.leg",
+        "charger_move.arm": "animation.charger.move.arm",
+        "charger_move.leg": "animation.charger.move.leg",
+        "charger_attack1": "animation.charger.attack1",
+        "charger_attack2": "animation.charger.attack2",
+        "charger_skill": "animation.charger.skill",
+        "c.charger_ai": "controller.animation.charger_ai",
+        "c.charger_walk": "controller.animation.charger_walk"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.random_choices = math.random(0, 100);"
+        ],
+        "animate": [
+          "c.charger_ai",
+          "c.charger_walk"
+        ]
+      },
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "charger": "textures/entity/charger"
+      },
+      "geometry": {
+        "charger": "geometry.charger"
+      },
+      "render_controllers": [
+        {
+          "controller.render.charger": "q.health > 10"
+        },
+        {
+          "controller.render.charger.bling": "q.health < 11"
+        }
+      ],
+      "spawn_egg": {
+        "texture": "become_charger"
+      }
+    }
+  }
+}

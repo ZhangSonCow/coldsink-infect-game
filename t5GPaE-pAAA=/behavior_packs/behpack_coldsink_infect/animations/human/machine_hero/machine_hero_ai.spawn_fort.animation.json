@@ -1,0 +1,16 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.machine_hero_ai.spawn_fort.func": {
+      "loop": true,
+      "animation_length": 24,
+      "timeline": {
+        "5.0": [
+          "/summon coldsink:machine_fort ^^1.2^-0.8",
+          "/playsound machine_port_spawn @a ~~~",
+          "/scoreboard players set @s fort_time 0"
+        ]
+      }
+    }
+  }
+}

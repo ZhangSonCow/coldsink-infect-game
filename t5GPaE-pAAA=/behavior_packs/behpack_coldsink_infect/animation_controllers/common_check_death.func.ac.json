@@ -1,0 +1,22 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.common_check_death.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"death": "!q.is_alive"
+						}
+					]
+				},
+				"death": {
+					"on_entry": [
+						"/event entity @s check_death"
+					]
+				}
+			}
+		}
+	}
+}

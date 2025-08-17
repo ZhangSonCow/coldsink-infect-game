@@ -1,0 +1,27 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.sfzombie_stay_heal.func": {
+      "loop": true,
+      "animation_length": 0.5,
+      "timeline": {
+        "0.0": [
+          "/scoreboard players add @s[scores={sfzombie_stay=0..7}] sfzombie_stay 1",
+          "/title @s[scores={sfzombie_stay=8..}] actionbar §c回复生命中...",
+
+          "/event entity @s[family=witch,scores={sfzombie_stay=7}] action_skill_other",
+          "/event entity @s[family=final_witch,scores={sfzombie_stay=7}] action_skill_other"
+        ]
+      }
+    },
+    "animation.sfzombie_heal_effect.func": {
+      "loop": true,
+      "animation_length": 1.0,
+      "timeline": {
+        "0.0": [
+          "/effect @s[scores={sfzombie_stay=8..}] instant_health 1 0 true"
+        ]
+      }
+    }
+  }
+}

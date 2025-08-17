@@ -1,0 +1,26 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.freeze_struggle.func": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "struggle": "v.attack_time"
+            }
+          ]
+        },
+        "struggle": {
+          "transitions": [
+            {
+              "default": "!v.attack_time"
+            }
+          ],
+          "on_entry": [
+            "/scoreboard players add @s freeze_time 5"
+          ]
+        }
+      }
+    }
+  }
+}

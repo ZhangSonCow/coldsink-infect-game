@@ -1,0 +1,198 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.final_tank": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "tank_idle.arm" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"move": "query.modified_move_speed > 0.1"
+						},
+						{
+							"skill": "!q.property('coldsink:freeze') && q.is_using_item && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_tnnk_skill')"
+						},
+						{
+							"howl": "!q.property('coldsink:freeze') && q.property('coldsink:action_status') == 4"
+						},
+						{
+							"attack_1": "!q.property('coldsink:freeze') && v.attack_time && !q.is_saddled && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "!q.property('coldsink:freeze') && v.attack_time && !q.is_saddled && variable.random_choices >= 50"
+						},
+						{
+							"attack_3": "!q.property('coldsink:freeze') && v.attack_time && q.is_saddled"
+						}
+					]
+				},
+				"move": {
+					"animations": [ "tank_move.arm" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "query.modified_move_speed <= 0.1"
+						},
+						{
+							"skill": "q.is_using_item && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_tnnk_skill')"
+						},
+						{
+							"howl": "q.property('coldsink:action_status') == 4"
+						},
+						{
+							"attack_1": "v.attack_time && !q.is_saddled && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && !q.is_saddled && variable.random_choices >= 50"
+						},
+						{
+							"attack_3": "v.attack_time && q.is_saddled"
+						}
+					]
+				},
+				"attack_1": {
+					"animations": [ "tank_attack1" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					]
+				},
+				"attack_2": {
+					"animations": [ "tank_attack2" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					]
+				},
+				"attack_3": {
+					"animations": [ "tank_attack3" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					]
+				},
+				"skill": {
+					"animations": [ "final_tank_skill", "final_tank.powering.particle", "tank_fireball" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "!(q.is_using_item && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_tnnk_skill'))"
+						}
+					]
+				},
+				"howl": {
+					"animations": [ "tank_howl_skill" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.final_tank.1st": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "tank_idle.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"skill": "!q.property('coldsink:freeze') && q.is_using_item && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_tnnk_skill')"
+						},
+						{
+							"howl": "!q.property('coldsink:freeze') && q.property('coldsink:action_status') == 4"
+						},
+						{
+							"attack_1": "!q.property('coldsink:freeze') && v.attack_time && !q.is_saddled && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "!q.property('coldsink:freeze') && v.attack_time && !q.is_saddled && variable.random_choices >= 50"
+						},
+						{
+							"attack_3": "!q.property('coldsink:freeze') && v.attack_time && q.is_saddled"
+						}
+					]
+				},
+				"attack_1": {
+					"animations": [ "tank_attack1.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					]
+				},
+				"attack_2": {
+					"animations": [ "tank_attack2.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					]
+				},
+				"attack_3": {
+					"animations": [ "tank_attack3.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					]
+				},
+				"skill": {
+					"animations": [ "final_tank_skill.1st", "final_tank.powering.particle.1st", "tank_fireball" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "!(q.is_using_item && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_tnnk_skill'))"
+						}
+					]
+				},
+				"howl": {
+					"animations": [ "tank_howl_skill.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				}
+			}
+		},
+
+		"controller.animation.final_tank.walk": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "tank_idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"walk": "q.modified_move_speed > 0.1"
+						}
+					]
+				},
+				"walk": {
+					"animations": [ "tank_move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.modified_move_speed <= 0.1"
+						}
+					]
+				}
+			}
+		}
+	}
+}

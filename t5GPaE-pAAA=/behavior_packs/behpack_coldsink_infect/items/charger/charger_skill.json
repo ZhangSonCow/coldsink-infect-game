@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "coldsink:charger_skill",
+      "menu_category": {  
+        "group": "itemGroup.name.arrow",  
+        "category": "equipment", 
+        "is_hidden_in_commands": false 
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": {
+        "texture": "charger_skill"
+      },
+      "minecraft:display_name": {
+        "value": "§7手持 [长按/右键] 向前冲锋"
+      },
+      "minecraft:cooldown": {
+        "category": "charger_skill",
+        "duration": 32
+      },
+      "minecraft:use_duration": 99999,
+      "minecraft:food": {
+        "can_always_eat": true
+      }
+    }
+  }
+}

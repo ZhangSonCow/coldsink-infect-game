@@ -1,0 +1,73 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.weapon_4_clip",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 6,
+				"visible_bounds_height": 4,
+				"visible_bounds_offset": [0, 1, 0]
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "waist",
+					"parent": "root",
+					"pivot": [0, 17, -6.3]
+				},
+				{
+					"name": "body",
+					"parent": "waist",
+					"pivot": [0, 29, -6.3]
+				},
+				{
+					"name": "rightArm",
+					"parent": "body",
+					"pivot": [-5, 22, 0]
+				},
+				{
+					"name": "reload",
+					"parent": "rightArm",
+					"pivot": [-7.025, 11.56, -1.545],
+					"rotation": [-164.69424, -49.05533, 169.20078],
+					"cubes": [
+						{
+							"origin": [-8.58, 10.53055, -12.42148],
+							"size": [1.08, 3.24, 2.7],
+							"pivot": [-7, 6.21055, -7.02148],
+							"rotation": [-80, 0, 0],
+							"uv": {
+								"north": {"uv": [10, 43], "uv_size": [2, 6]},
+								"east": {"uv": [26, 4], "uv_size": [5, 6]},
+								"south": {"uv": [12, 43], "uv_size": [2, 6]},
+								"west": {"uv": [26, 21], "uv_size": [5, 6]},
+								"up": {"uv": [44, 43], "uv_size": [2, 5]},
+								"down": {"uv": [2, 50], "uv_size": [2, -5]}
+							}
+						},
+						{
+							"origin": [-8.488, 10.53055, -9.67548],
+							"size": [0.988, 3.148, 0.448],
+							"inflate": 0.1,
+							"pivot": [-7, 6.21055, -7.02148],
+							"rotation": [-80, 0, 0],
+							"uv": {
+								"north": {"uv": [14, 43], "uv_size": [2, 6]},
+								"east": {"uv": [17, 0], "uv_size": [1, 6]},
+								"south": {"uv": [39, 43], "uv_size": [2, 6]},
+								"west": {"uv": [17, 23], "uv_size": [1, 6]},
+								"up": {"uv": [27, 52], "uv_size": [2, 1]},
+								"down": {"uv": [52, 29], "uv_size": [2, -1]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

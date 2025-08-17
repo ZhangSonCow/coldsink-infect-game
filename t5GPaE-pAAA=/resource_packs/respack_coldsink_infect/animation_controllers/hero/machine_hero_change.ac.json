@@ -1,0 +1,51 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.machine_hero_change": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "machine_hero.idle_melee" ],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"weapon": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:machine_hero_weapon')"
+						}
+					]
+				},
+				"weapon": {
+					"animations": [ "machine_hero.idle_weapon" ],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:machine_hero_weapon')"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.machine_hero_change.1st": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "machine_hero.idle_melee.1st" ],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"weapon": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:machine_hero_weapon')"
+						}
+					]
+				},
+				"weapon": {
+					"animations": [ "machine_hero.idle_weapon.1st" ],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:machine_hero_weapon')"
+						}
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,30 @@
+{
+    "format_version": "1.18",
+    "minecraft:recipe_shaped": {
+      "description": {
+        "identifier": "coldsink:final_box_blue"
+      },
+      "tags": [ "crafting_table" ],
+      "pattern": [
+        "SAS",
+        "ABA",
+        "SAS"
+      ],
+      "key": {
+        "S": {
+          "item": "coldsink:savior_hero_soul"
+        },
+        "A": {
+          "item": "coldsink:human_hero_soul"
+        },
+        "B": {
+          "item": "nether_star"
+        }
+      },
+      "result": {
+        "item": "coldsink:final_box_blue_spawn_egg",
+        "count": 1
+      }
+    }
+  }
+  

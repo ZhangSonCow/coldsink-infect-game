@@ -1,0 +1,89 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.spawner_weapon": {
+      "arrays": {
+        "textures": {
+          "Array.tex": [
+            "Texture.weapon00_danxia",
+
+            "Texture.weapon_4",
+            "Texture.weapon_5",
+            "Texture.weapon_2",
+            "Texture.weapon_3",
+            "Texture.weapon_1",
+            "Texture.weapon_4",
+            "Texture.weapon_6",
+            "Texture.weapon_7",
+            "Texture.weapon_5",
+            "Texture.weapon_3",
+            "Texture.weapon_2",
+
+            "Texture.default",
+            "Texture.weapon13_adren",
+            "Texture.aid_pack",
+            "Texture.weapon15_bilebomb",
+            "Texture.default",
+            "Texture.default",
+            "Texture.default",
+            "Texture.weapon19_molotov",
+            "Texture.weapon20_painpills",
+            "Texture.weapon21_pipebomb",
+
+            "Texture.melee_2",
+            "Texture.melee_3",
+            "Texture.melee_1",
+            "Texture.melee_4",
+            "Texture.final_double_sword",
+            "Texture.melee_5",
+            "Texture.weapon28_crowbar_gold"
+            
+          ]
+        },
+        "geometries": {
+          "Array.geo":[
+            "geometry.danxia",//00
+
+            "geometry.weapon_4",
+            "geometry.weapon_5",
+            "geometry.weapon_2",
+            "geometry.weapon_3",
+            "geometry.weapon_1",
+            "geometry.weapon_4",
+            "geometry.weapon_6",
+            "geometry.weapon_7",
+            "geometry.weapon_5",
+            "geometry.weapon_3",
+            "geometry.weapon_2",
+
+            "geometry.default",
+            "geometry.flat16",
+            "geometry.aid_pack",
+            "geometry.bilebomb",
+            "geometry.default",//16
+            "geometry.default",
+            "geometry.default",
+            "geometry.molotov",
+            "geometry.flat16",
+            "geometry.pipebomb",//21
+
+            "geometry.melee_2",
+            "geometry.melee_3",
+            "geometry.melee_1",
+            "geometry.melee_4",
+            "geometry.final_double_sword",//26
+            "geometry.melee_5",
+            "geometry.flat"
+          ]
+        }
+      },
+      "geometry":"Array.geo[ query.variant ]",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "textures": [ "Array.tex[ query.variant ]" ]
+    }
+  }
+}

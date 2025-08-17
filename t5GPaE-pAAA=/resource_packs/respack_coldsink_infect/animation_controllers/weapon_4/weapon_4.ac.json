@@ -1,0 +1,151 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.weapon_4": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "weapon_4.idle" ],
+                    "blend_transition": 0.18,
+					"transitions": [
+						{
+							"fire": "q.property('coldsink:action_status') == 1"
+						},
+						{
+							"aim": "q.is_sneaking"
+						},
+						{
+							"loading": "q.property('coldsink:action_status') == 2"
+						},
+						{
+							"walk": "q.is_sprinting"
+						}
+					]
+				},
+				"fire": {
+					"animations": [ "weapon_4.fire" ],
+                    "blend_transition": 0.18,
+					"transitions": [
+						{
+							"default": "(q.property('coldsink:action_status') != 1 && !q.is_using_item) || q.property('coldsink:jockey_control') || q.property('coldsink:tnnk_howl_control')"
+						}
+					]
+				},
+				"aim": {
+					"animations": [ "weapon_4.aim" ],
+					"transitions": [
+						{
+							"loading": "q.property('coldsink:action_status') == 2"
+						},
+						{
+							"default": "!q.is_sneaking"
+						},
+						{
+							"fire": "q.property('coldsink:action_status') == 1"
+						}
+					]
+				},
+				"loading": {
+					"animations": [ "weapon_4.loading" ],
+                    "blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				},
+				"walk": {
+					"animations": [ "weapon_4.walk" ],
+                    "blend_transition": 0.185,
+					"transitions": [
+						{
+							"default": "!q.is_sprinting"
+						},
+						{
+							"fire": "q.property('coldsink:action_status') == 1"
+						},
+						{
+							"aim": "q.is_sneaking"
+						},
+						{
+							"loading": "q.property('coldsink:action_status') == 2"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.weapon_4.1st": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "weapon_4.idle.1st" ],
+                    "blend_transition": 0.18,
+					"transitions": [
+						{
+							"fire": "q.property('coldsink:action_status') == 1"
+						},
+						{
+							"aim": "q.is_sneaking"
+						},
+						{
+							"loading": "q.property('coldsink:action_status') == 2"
+						},
+						{
+							"walk": "q.is_sprinting"
+						}
+					]
+				},
+				"fire": {
+					"animations": [ "weapon_4.fire.1st" ],
+                    "blend_transition": 0.18,
+					"transitions": [
+						{
+							"default": "(q.property('coldsink:action_status') != 1 && !q.is_using_item) || q.property('coldsink:jockey_control') || q.property('coldsink:tnnk_howl_control')"
+						}
+					]
+				},
+				"aim": {
+					"animations": [ "weapon_4.aim.1st" ],
+					"transitions": [
+						{
+							"loading": "q.property('coldsink:action_status') == 2"
+						},
+						{
+							"default": "!q.is_sneaking"
+						},
+						{
+							"fire": "q.property('coldsink:action_status') == 1"
+						}
+					]
+				},
+				"loading": {
+					"animations": [ "weapon_4.loading.1st" ],
+                    "blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				},
+				"walk": {
+					"animations": [ "weapon_4.walk.1st" ],
+                    "blend_transition": 0.185,
+					"transitions": [
+						{
+							"default": "!q.is_sprinting"
+						},
+						{
+							"fire": "q.property('coldsink:action_status') == 1"
+						},
+						{
+							"aim": "q.is_sneaking"
+						},
+						{
+							"loading": "q.property('coldsink:action_status') == 2"
+						}
+					]
+				}
+			}
+		}
+	}
+}

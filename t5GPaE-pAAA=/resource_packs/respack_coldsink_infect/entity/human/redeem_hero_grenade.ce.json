@@ -1,0 +1,26 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:redeem_hero_grenade",
+      "materials": {
+        "default": "entity_emissive"
+      },
+      "animations": {
+        "rotate": "animation.redeem_hero.grenade"
+      },
+      "scripts": {
+        "animate": [
+          "rotate"
+        ]
+      },
+      "textures": {
+        "default": "textures/entity/redeem_hero"
+      },
+      "geometry": {
+        "default": "geometry.redeem_hero_grenade"
+      },
+      "render_controllers": [ "controller.render.com" ]
+    }
+  }
+}

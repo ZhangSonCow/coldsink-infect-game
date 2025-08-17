@@ -1,0 +1,15 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.smoker.1st": {
+      "geometry": "geometry.smoker.1st",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "textures": [ "texture.smoker" ],
+      "is_hurt_color": {}
+    }
+  }
+}

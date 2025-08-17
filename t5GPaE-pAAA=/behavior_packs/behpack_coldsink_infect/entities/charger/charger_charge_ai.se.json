@@ -1,0 +1,154 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:charger_charge_ai",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+
+    "components": {
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:ageable": {
+        "duration": 4.0,
+        "grow_up": {
+          "event": "godie"
+        }
+      },
+      "minecraft:timer": {
+        "time": 0.01,
+        "time_down_event": {
+          "target": "self",
+          "event": "carry"
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 1.0,
+        "height": 2.15
+      },
+      "minecraft:physics": {}
+
+      //behavivors
+
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "scoreboard players operation @s charger_time = charge_count charger_time",
+            "tp @s ~~~ facing @e[type=!player,family=charger,c=1]",
+            "tag @s add neutral"
+          ]
+        }
+      },
+      "carry": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s bool 0",
+            "execute @e[type=!player,family=charger,c=1,r=5] ~~~ scoreboard players set @e[type=coldsink:charger_charge_ai] bool 1",
+            "event entity @s[scores={bool=0}] godie",
+            "execute @s ~~~ detect ~~-1~ water -1 event entity @s godie",
+
+            "scoreboard players operation @e[type=!player,family=charger,c=1,tag=charger_charging] charger_check = @s charger_time",
+            "execute @e[type=!player,family=charger,tag=charger_charging] ~~~ scoreboard players operation @s charger_check -= @s charger_time",
+            "tp @e[type=!player,family=charger,c=1,tag=charger_charging,scores={charger_check=0}] ^^^1.5",
+
+            "scoreboard players operation @e[family=player,tag=!neutral,tag=!charger_get,r=2.4] charger_time = @s charger_time",
+            "tag @e[family=player,tag=!neutral,r=2.4] add charger_get",
+            "execute @e[tag=charger_get,r=8] ~~~ tp @s @e[type=coldsink:charger_charge_ai,c=1]",
+            "execute @s ~~~ detect ~~-0.5~ air -1 tp @s ~~-0.5~",
+            
+            "scoreboard players set @s bool 0",
+            "execute @s ~~~ detect ~~~ air -1 execute @s ~~~ detect ^^^-0.25 air -1 execute @s ~~~ detect ^^^-0.5 air -1 execute @s ~~~ detect ^^^-0.75 air -1 execute @s ~~~ detect ^^^-1 air -1 execute @s ~~~ detect ^^^0.25 air -1 execute @s ~~~ detect ^^^0.5 air -1 execute @s ~~~ detect ^^^0.75 air -1 execute @s ~~~ detect ^^^1 air -1 execute @s ~~~ detect ^0.25^^ air -1 execute @s ~~~ detect ^-0.25^^ air -1 scoreboard players set @s bool 1",
+            "execute @s[scores={bool=0}] ~~~ detect ^^1^-0.25 air -1 execute @s ~~~ detect ^^2^-0.25 air -1 scoreboard players set @s bool 2",
+            "tag @s[scores={bool=2}] add charger_up",
+            "event entity @s[scores={bool=0}] godie",
+            "execute @s ~~~ detect ^^^-0.25 concrete -1 event entity @s godie",
+            "execute @s ~~~ detect ^^^-0.25 barrier -1 event entity @s godie",
+            "execute @s ~~~ detect ^^1^-0.25 barrier -1 event entity @s godie",
+            "execute @s ~~~ detect ^^-1^-0.25 barrier -1 event entity @s godie",
+            "execute @s ~~~ detect ^^^-0.25 air -1 tp @s ^^^-0.25 ~ 0",
+
+            "scoreboard players set @s bool 0",
+            "execute @s ~~~ detect ~~~ air -1 execute @s ~~~ detect ^^^-0.25 air -1 execute @s ~~~ detect ^^^-0.5 air -1 execute @s ~~~ detect ^^^-0.75 air -1 execute @s ~~~ detect ^^^-1 air -1 execute @s ~~~ detect ^^^0.25 air -1 execute @s ~~~ detect ^^^0.5 air -1 execute @s ~~~ detect ^^^0.75 air -1 execute @s ~~~ detect ^^^1 air -1 execute @s ~~~ detect ^0.25^^ air -1 execute @s ~~~ detect ^-0.25^^ air -1 scoreboard players set @s bool 1",
+            "execute @s[scores={bool=0}] ~~~ detect ^^1^-0.25 air -1 execute @s ~~~ detect ^^2^-0.25 air -1 scoreboard players set @s bool 2",
+            "tag @s[scores={bool=2}] add charger_up",
+            "event entity @s[scores={bool=0}] godie",
+            "execute @s ~~~ detect ^^^-0.25 concrete -1 event entity @s godie",
+            "execute @s ~~~ detect ^^^-0.25 barrier -1 event entity @s godie",
+            "execute @s ~~~ detect ^^1^-0.25 barrier -1 event entity @s godie",
+            "execute @s ~~~ detect ^^-1^-0.25 barrier -1 event entity @s godie",
+            "execute @s ~~~ detect ^^^-0.25 air -1 tp @s ^^^-0.25 ~ 0",
+
+            "scoreboard players set @s bool 0",
+            "execute @s ~~~ detect ~~~ air -1 execute @s ~~~ detect ^^^-0.25 air -1 execute @s ~~~ detect ^^^-0.5 air -1 execute @s ~~~ detect ^^^-0.75 air -1 execute @s ~~~ detect ^^^-1 air -1 execute @s ~~~ detect ^^^0.25 air -1 execute @s ~~~ detect ^^^0.5 air -1 execute @s ~~~ detect ^^^0.75 air -1 execute @s ~~~ detect ^^^1 air -1 execute @s ~~~ detect ^0.25^^ air -1 execute @s ~~~ detect ^-0.25^^ air -1 scoreboard players set @s bool 1",
+            "execute @s[scores={bool=0}] ~~~ detect ^^1^-0.25 air -1 execute @s ~~~ detect ^^2^-0.25 air -1 scoreboard players set @s bool 2",
+            "tag @s[scores={bool=2}] add charger_up",
+            "event entity @s[scores={bool=0}] godie",
+            "execute @s ~~~ detect ^^^-0.25 concrete -1 event entity @s godie",
+            "execute @s ~~~ detect ^^^-0.25 barrier -1 event entity @s godie",
+            "execute @s ~~~ detect ^^1^-0.25 barrier -1 event entity @s godie",
+            "execute @s ~~~ detect ^^-1^-0.25 barrier -1 event entity @s godie",
+            "execute @s ~~~ detect ^^^-0.25 air -1 tp @s ^^^-0.25 ~ 0",
+
+            "scoreboard players set @s bool 0",
+            "execute @s ~~~ detect ~~~ air -1 execute @s ~~~ detect ^^^-0.25 air -1 execute @s ~~~ detect ^^^-0.5 air -1 execute @s ~~~ detect ^^^-0.75 air -1 execute @s ~~~ detect ^^^-1 air -1 execute @s ~~~ detect ^^^0.25 air -1 execute @s ~~~ detect ^^^0.5 air -1 execute @s ~~~ detect ^^^0.75 air -1 execute @s ~~~ detect ^^^1 air -1 execute @s ~~~ detect ^0.25^^ air -1 execute @s ~~~ detect ^-0.25^^ air -1 scoreboard players set @s bool 1",
+            "execute @s[scores={bool=0}] ~~~ detect ^^1^-0.25 air -1 execute @s ~~~ detect ^^2^-0.25 air -1 scoreboard players set @s bool 2",
+            "tag @s[scores={bool=2}] add charger_up",
+            "event entity @s[scores={bool=0}] godie",
+            "execute @s ~~~ detect ^^^-0.25 concrete -1 event entity @s godie",
+            "execute @s ~~~ detect ^^^-0.25 barrier -1 event entity @s godie",
+            "execute @s ~~~ detect ^^1^-0.25 barrier -1 event entity @s godie",
+            "execute @s ~~~ detect ^^-1^-0.25 barrier -1 event entity @s godie",
+            "execute @s ~~~ detect ^^^-0.25 air -1 tp @s ^^^-0.25 ~ 0",
+
+            "tp @s[tag=charger_up] ~~1~",
+            "tag @s remove charger_up"
+          ]
+        }
+      },
+      "godie": {
+        "queue_command": {
+          "command": [
+            "tp @e[type=!player,family=charger,r=3.2,c=1] ^^^1.5",
+            "tp @e[tag=charger_get,r=3.2] ^^^1.5",
+
+            "scoreboard players operation @e[family=player] charger_check = @s charger_time",
+            "execute @e[family=player] ~~~ scoreboard players operation @s charger_check -= @s charger_time",
+            "tag @e[family=player,scores={charger_check=0}] remove charger_get",
+            "scoreboard players reset @e[family=player,scores={charger_check=0}] charger_time",
+            "scoreboard players operation @e[type=!player,family=charger,c=1] charger_check = @s charger_time",
+            "execute @e[type=!player,family=charger,c=1] ~~~ scoreboard players operation @s charger_check -= @s charger_time",
+            "event entity @e[type=!player,family=charger,c=1,scores={charger_check=0}] skill_over",
+            "scoreboard players reset @e[type=!player,family=charger,c=1,scores={charger_check=0}] charger_time",
+
+            "execute @s[tag=!damaged] ~~~ damage @e[family=player,tag=!neutral,r=3.2] 5 suicide",
+            "tag @s add damaged",
+            "effect @e[family=player,tag=!neutral,r=3.2] slowness 4 2 true",
+            "playsound charger.over @a ~~~"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

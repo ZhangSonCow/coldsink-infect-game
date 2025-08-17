@@ -1,0 +1,122 @@
+﻿{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:machine_fort_bullet",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball"
+    },
+
+    "component_groups": {
+      "die": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+			"minecraft:tick_world": {
+				"distance_to_players": 128,
+				"never_despawn": false,
+				"radius": 2
+			},
+      "minecraft:type_family": {
+        "family": [ "bullet", "tool" ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.5,
+        "height": 0.5
+      },
+      "minecraft:ageable": {
+        "duration": 3,
+        "grow_up": {
+          "event": "godie",
+          "target": "self"
+        }
+      },
+      "minecraft:timer": {
+        "time": 0.1,
+        "time_down_event": {
+          "target": "self",
+          "event": "fly"
+        }
+      },
+      "minecraft:projectile": {
+        "anchor": 1,
+        "on_hit": {
+          "impact_damage": {
+            "damage": 0,
+            "knockback": false,
+            "destroy_on_hit": false
+          },
+          "definition_event": {
+            "affect_projectile": true,
+            "affect_shooter": false,
+            "affect_target": false,
+            "affect_splash_area": false,
+            "event_trigger": {
+              "event": "shot_tar",
+              "target": "self"
+            }
+          },
+          "stick_in_ground": {
+            "shake_time": 1
+          }
+        },
+        "power": 7,
+        "gravity": 0.00,
+        "angle_offset": 0,
+        "liquid_inertia": 1,
+        "stop_on_hurt": false,
+        "uncertainty_base": 3.0
+      },
+      "minecraft:physics": {},
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "scoreboard players operation @s machine_time = @e[type=coldsink:machine_fort,c=1] machine_time",
+            "playanimation @e[type=coldsink:machine_fort,c=1] animation.machine_hero.fire",
+            "playsound machine_hero_weapon.piu @a ~~~ 3 0.6 3"
+          ]
+        }
+      },
+      "shot_tar": {
+        "queue_command": {
+          "command": [
+            "scoreboard players operation @e[family=machine_hero] machine_check = @s machine_time",
+            "execute @e[family=machine_hero] ~~~ scoreboard players operation @s machine_check -= @s machine_time",
+
+            "event entity @e[c=1,family=!player,family=!tool,type=!item,tag=!neutral,r=3.6] coldsink:hurting",
+            "damage @e[c=1,family=!player,family=!tool,type=!item,tag=!neutral,tag=!no_any_hurt,r=3.6] 4 suicide",
+            "execute @e[c=1,family=!player,family=!tool,type=!item,tag=!neutral,r=3.6] ~~~ effect @s[tag=!is_tnnk] slowness 1 1 true",
+            "execute @e[c=1,family=!player,family=!tool,type=!item,tag=!neutral,r=3.6] ~~~ effect @s[tag=is_tnnk] slowness 1 0 true",
+            "execute @e[c=1,family=!player,family=!tool,type=!item,tag=!neutral,r=3.6] ~~~ kill @e[type=coldsink:machine_fort_bullet,r=3.6,c=1]"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "die"
+          ]
+        }
+      },
+      "fly": {
+        "queue_command": {
+          "command": [
+            "particle coldsink:machine_bullet ~~~"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.melee_5_attack_light.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.0": [
+						"/tag @s add self",
+						"/scoreboard players random @s wp_random 1 2",
+						"/execute @s[scores={wp_random=1}] ~~~ playsound melee_5.attack @a[tag=!self,r=16] ~~~",
+						"/playsound melee_5.attack.self @s[scores={wp_random=1}] ~~~",
+						"/execute @s[scores={wp_random=2}] ~~~ playsound melee_5.attack @a[tag=!self,r=16] ~~~ 3 0.8 3",
+						"/playsound melee_5.attack.self @s[scores={wp_random=2}] ~~~ 3 0.8 3",
+						"/execute @s[scores={wp_random=3}] ~~~ playsound melee_5.attack @a[tag=!self,r=16] ~~~ 3 1.2 3",
+						"/playsound melee_5.attack.self @s[scores={wp_random=3}] ~~~ 3 1.2 3",
+						"/tag @s remove self"
+        ],
+        "0.15": [
+          "/tag @s add melee_5_self",
+
+          "/execute @s[tag=maper] ^^1.25^ execute @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=2.5] ~~~ playsound get_target @p[tag=melee_5_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^1.25^ tag @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=2.5] add melee_damage",
+          "/execute @s[tag=maper] ^^1.25^ damage @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,tag=!no_any_hurt,r=2.5] 1 suicide",
+
+          "/execute @s[tag=!maper,tag=!no_friend_hurt] ^^1.25^ execute @e[tag=!melee_5_self,family=!tool,family=!tools,type=!item,r=2.5] ~~~ playsound get_target @p[tag=melee_5_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper,tag=!no_friend_hurt] ^^1.25^ damage @e[tag=!melee_5_self,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=2.5] 6 suicide",
+
+          "/execute @s[tag=!maper,tag=no_friend_hurt] ^^1.25^ execute @e[family=!player,family=!tool,family=!tools,type=!item,r=2.5] ~~~ playsound get_target @p[tag=melee_5_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper,tag=no_friend_hurt] ^^1.25^ damage @e[family=!player,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=2.5] 6 suicide",
+          
+          "/tag @s remove melee_5_self"
+        ],
+        "0.25": [
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.melee_5_attack_heavy.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.0": [
+          "/tag @s add self",
+          "/playsound melee_5.attack_big @a[tag=!self,r=16] ~~~",
+          "/playsound melee_5.attack_big.self @s ~~~",
+          "/tag @s remove self"
+        ],
+        "0.45": [
+          "/tag @s add melee_5_self",
+
+          "/execute @s[tag=maper] ^^2^ execute @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=2.5] ~~~ playsound get_target @p[tag=melee_5_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^2^ tag @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=2.5] add melee_damage",
+          "/execute @s[tag=maper] ^^2^ damage @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=2.5] 2 entity_attack",
+
+          "/execute @s[tag=!maper,tag=!no_friend_hurt] ^^2^ execute @e[tag=!melee_5_self,family=!tool,family=!tools,type=!item,r=2.5] ~~~ playsound get_target @p[tag=melee_5_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper,tag=!no_friend_hurt] ^^2^ damage @e[tag=!melee_5_self,family=!tool,family=!tools,type=!item,r=2.5] 20 entity_attack",
+
+          "/execute @s[tag=!maper,tag=no_friend_hurt] ^^2^ execute @e[family=!player,family=!tool,family=!tools,type=!item,r=2.5] ~~~ playsound get_target @p[tag=melee_5_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper,tag=no_friend_hurt] ^^2^ damage @e[family=!player,family=!tool,family=!tools,type=!item,r=2.5] 20 entity_attack",
+          
+          "/tag @s remove melee_5_self"
+        ],
+        "0.63": [
+          "/event entity @s action_clear"
+        ]
+      }
+    }
+  }
+}

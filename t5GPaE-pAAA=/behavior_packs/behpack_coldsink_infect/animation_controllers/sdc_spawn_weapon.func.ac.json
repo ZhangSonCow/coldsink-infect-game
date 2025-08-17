@@ -1,0 +1,24 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+	  "controller.animation.sdc_spawn_weapon.func": {
+		"states": {
+		  "default": {
+			"transitions": [
+			  {
+				"spawned": "(q.variant > 0 && q.variant < 12) || q.variant == 14 || (q.variant > 21 && q.variant < 28)"
+			  }
+			]
+		  },
+		  "spawned": {
+			"on_entry": [
+				"/tp @s ~~~ facing @p",
+				"/tag @a add bullet_infinite",
+				"/tag @a add break_glass"
+			]
+		  } 
+		}
+	  }
+	}
+  }
+  

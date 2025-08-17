@@ -1,0 +1,79 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:dead_machine_hero",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      },
+      "coldsink:despawn": {
+        "minecraft:ageable": {
+          "duration": 3,
+          "grow_up": {
+            "event": "godie",
+            "target": "self"
+          }
+        }
+      }
+    },
+    "components": {
+      "minecraft:nameable": {
+      },
+      "minecraft:collision_box": {
+          "width": 1.2,
+          "height": 0.5
+      },
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:health": {
+        "value": 2,
+        "max": 2,
+        "min": 1
+      },
+      "minecraft:movement": {
+        "value": 0.0
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "tag @s add neutral"
+          ]
+        }
+      },
+      "despawn": {
+        "add": {
+          "component_groups": [
+            "coldsink:despawn"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

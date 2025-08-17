@@ -1,0 +1,32 @@
+{
+    "format_version": "1.18",
+    "minecraft:recipe_shaped": {
+      "description": {
+        "identifier": "coldsink:become_witch"
+      },
+      "tags": [ "crafting_table" ],
+      "pattern": [
+        "SAS",
+        "ABA",
+        "SAS"
+      ],
+      "key": {
+        "S": {
+          "item": "coldsink:witch_soul"
+        },
+        "A": {
+          "item": "amethyst_shard"
+        },
+        "B": {
+          "item": "crying_obsidian"
+        }
+      },
+      "result": [
+        {
+          "item": "coldsink:become_witch_give_spawn_egg",
+          "count": 1
+        }
+      ]
+    }
+  }
+  

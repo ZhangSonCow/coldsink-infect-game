@@ -1,0 +1,44 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:smoker",
+      "animations": {
+        "smoker_idle.arm": "animation.smoker.idle.arm",
+        "smoker_idle.leg": "animation.smoker.idle.leg",
+        "smoker_move.arm": "animation.smoker.move.arm",
+        "smoker_move.leg": "animation.smoker.move.leg",
+        "smoker_attack1": "animation.smoker.attack1",
+        "smoker_attack2": "animation.smoker.attack2",
+        "smoker_skill": "animation.smoker.skill",
+        "c.smoker_ai": "controller.animation.smoker_ai",
+        "c.smoker_walk": "controller.animation.smoker_walk"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.random_choices = math.random(0, 100);"
+        ],
+        "animate": [
+          "c.smoker_ai",
+          "c.smoker_walk"
+        ]
+      },
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/smoker"
+      },
+      "geometry": {
+        "default": "geometry.smoker"
+      },
+      "render_controllers": [
+        "controller.render.com"
+      ],
+      "spawn_egg": {
+        "base_color": "#a56b1b",
+        "overlay_color": "#830f12"
+      }
+    }
+  }
+}

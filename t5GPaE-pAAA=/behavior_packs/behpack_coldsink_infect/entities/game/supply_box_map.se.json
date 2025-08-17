@@ -1,0 +1,113 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:supply_box_map",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    
+    "components": {
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:health": {
+        "value": 2,
+        "max": 2,
+        "min": 1
+      },
+      
+      "minecraft:timer": {
+        "time": 0.1,
+        "time_down_event": {
+          "target": "self",
+          "event": "supply"
+        }
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:collision_box": {
+        "width": 1.2,
+        "height": 0.8
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "tag @s add neutral",
+            "tag @s add box"
+          ]
+        }
+      },
+      "supply": {
+        "queue_command": {
+          "command": [
+            "execute @s[tag=!supplied] ~~~ tag @p[family=player,tag=!neutral,tag=!is_hero,r=1.8] add supply",
+            "execute @p[family=player,tag=!neutral,tag=!is_hero,r=1.8] ~~~ replaceitem entity @s[hasitem={item=coldsink:weapon_1_empty}] slot.hotbar 0 coldsink:weapon_1 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "execute @p[family=player,tag=!neutral,tag=!is_hero,r=1.8] ~~~ scoreboard players set @s[hasitem={item=coldsink:weapon_1}] bullet_1 30",
+            "execute @p[family=player,tag=!neutral,tag=!is_hero,r=1.8] ~~~ scoreboard players set @s[hasitem={item=coldsink:weapon_1}] bullet_back 150",
+            "execute @p[family=player,tag=!neutral,tag=!is_hero,r=1.8] ~~~ replaceitem entity @s[hasitem={item=coldsink:weapon_2_empty}] slot.hotbar 0 coldsink:weapon_2 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "execute @p[family=player,tag=!neutral,tag=!is_hero,r=1.8] ~~~ scoreboard players set @s[hasitem={item=coldsink:weapon_2}] bullet_2 50",
+            "execute @p[family=player,tag=!neutral,tag=!is_hero,r=1.8] ~~~ scoreboard players set @s[hasitem={item=coldsink:weapon_2}] bullet_back 200",
+            "execute @p[family=player,tag=!neutral,tag=!is_hero,r=1.8] ~~~ replaceitem entity @s[hasitem={item=coldsink:weapon_3_empty}] slot.hotbar 0 coldsink:weapon_3 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "execute @p[family=player,tag=!neutral,tag=!is_hero,r=1.8] ~~~ scoreboard players set @s[hasitem={item=coldsink:weapon_3}] bullet_3 100",
+            "execute @p[family=player,tag=!neutral,tag=!is_hero,r=1.8] ~~~ scoreboard players set @s[hasitem={item=coldsink:weapon_3}] bullet_back 300",
+            "execute @p[family=player,tag=!neutral,tag=!is_hero,r=1.8] ~~~ replaceitem entity @s[hasitem={item=coldsink:weapon_4_empty}] slot.hotbar 0 coldsink:weapon_4 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "execute @p[family=player,tag=!neutral,tag=!is_hero,r=1.8] ~~~ scoreboard players set @s[hasitem={item=coldsink:weapon_4}] bullet_4 10",
+            "execute @p[family=player,tag=!neutral,tag=!is_hero,r=1.8] ~~~ scoreboard players set @s[hasitem={item=coldsink:weapon_4}] bullet_back 60",
+            "execute @p[family=player,tag=!neutral,tag=!is_hero,r=1.8] ~~~ replaceitem entity @s[hasitem={item=coldsink:weapon_5_empty}] slot.hotbar 0 coldsink:weapon_5 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "execute @p[family=player,tag=!neutral,tag=!is_hero,r=1.8] ~~~ scoreboard players set @s[hasitem={item=coldsink:weapon_5}] bullet_5 15",
+            "execute @p[family=player,tag=!neutral,tag=!is_hero,r=1.8] ~~~ scoreboard players set @s[hasitem={item=coldsink:weapon_5}] bullet_back 90",
+            "title @p[family=player,tag=!neutral,tag=!is_hero,r=1.8] actionbar §6拾取补给，子弹全满！",
+            "execute @p[family=player,tag=!neutral,tag=!is_hero,r=1.8] ~~~ tag @e[type=coldsink:supply_box_map,r=1.8,c=1] add supplied",
+
+            "execute @s[tag=!supplied] ~~~ execute @p[family=player,tag=!neutral,family=savior_hero,r=1.8] ~~~ tag @s[hasitem={item=coldsink:savior_hero_weapon_1}] add supply_savior",
+            "execute @s[tag=!supplied] ~~~ execute @p[family=player,tag=!neutral,family=savior_hero,r=1.8] ~~~ scoreboard players set @s[tag=supply_savior] bullet_hero 60",
+            "execute @s[tag=!supplied] ~~~ execute @p[family=player,tag=!neutral,family=savior_hero,r=1.8] ~~~ scoreboard players set @s[tag=supply_savior] bullet_back 300",
+            "execute @s[tag=!supplied] ~~~ execute @p[family=player,tag=!neutral,family=savior_hero,r=1.8] ~~~ scoreboard players set @s[tag=supply_savior] bullet_hero_sp 3",
+            "execute @s[tag=!supplied] ~~~ execute @p[family=player,tag=!neutral,family=savior_hero,r=1.8] ~~~ scoreboard players set @s[tag=supply_savior] bullet_back_sp 24",
+            "execute @s[tag=!supplied] ~~~ execute @p[family=player,tag=!neutral,family=savior_hero,r=1.8] ~~~ title @s[tag=supply_savior] actionbar §6拾取补给，子弹全满！",
+            "execute @s[tag=!supplied] ~~~ execute @p[family=player,tag=!neutral,family=savior_hero,r=1.8] ~~~ tag @s[tag=supply_savior] add supply",
+            "execute @s[tag=!supplied] ~~~ execute @p[family=player,tag=!neutral,family=savior_hero,r=1.8] ~~~ playsound note.pling @s[tag=supply_savior]",
+            "execute @p[family=player,tag=!neutral,family=savior_hero,r=1.8] ~~~ tag @s[tag=supply_savior] remove supply_savior",
+            
+            "execute @s[tag=!supplied] ~~~ effect @p[family=player,tag=!neutral,tag=is_hero,family=!savior_hero,r=1.8] instant_health 1 1",
+            "execute @s[tag=!supplied] ~~~ title @p[family=player,tag=!neutral,tag=is_hero,family=!savior_hero,r=1.8] actionbar §c拾取补给，恢复生命！",
+            
+            "execute @s[tag=!supplied] ~~~ execute @p[family=player,tag=!neutral,tag=is_hero,r=1.8] ~~~ tag @e[type=coldsink:supply_box_map,c=1] add supplied",
+            
+            "execute @s[tag=supplied] ~~~ playsound note.pling @p[family=player,tag=!neutral,r=1.8]",
+            "event entity @s[tag=supplied] godie"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

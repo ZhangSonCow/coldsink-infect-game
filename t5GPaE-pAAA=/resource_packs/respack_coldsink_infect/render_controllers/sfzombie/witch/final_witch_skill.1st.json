@@ -1,0 +1,15 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.final_witch_skill.1st": {
+      "geometry": "geometry.witch_0.1st",
+      "materials": [
+        {
+          "*": "material.blend"
+        }
+      ],
+      "textures": [ "texture.final_witch_invis" ],
+      "is_hurt_color": {}
+    }
+  }
+}

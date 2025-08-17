@@ -1,0 +1,31 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:charger_exhibit",
+      "animations": {
+        "idle.arm": "animation.charger.idle.arm",
+        "idle.leg": "animation.charger.idle.leg"
+      },
+      "scripts": {
+        "animate": [
+          "idle.arm",
+          "idle.leg"
+        ]
+      },
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/charger"
+      },
+      "geometry": {
+        "default": "geometry.charger"
+      },
+      "render_controllers": [ "controller.render.com" ],
+      "spawn_egg": {
+        "texture": "become_charger"
+      }
+    }
+  }
+}

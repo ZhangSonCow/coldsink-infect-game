@@ -1,0 +1,28 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.savior_hero_ai.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"death": "!q.is_alive"
+						}
+					]
+				},
+				"death": {
+					"on_entry": [
+						"/execute @s[tag=游戏中] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§6【救世主】§f [\"},{\"selector\":\"@s\"},{\"text\":\"] §6已死亡\"}]}",
+						"/execute @s[tag=游戏中] ~~~ function game/dead_keep_score",
+						"/execute @s[tag=游戏中] ~~~ playsound hero_death @a",
+						"/execute @s[tag=!游戏中] ~~~ playsound hero_death @a[r=32]",
+						"/summon coldsink:dead_savior_hero",
+						"/execute @s[tag=!游戏中] ~~~ event entity @e[type=coldsink:dead_savior_hero,c=1] despawn",
+						"/event entity @s godie"
+					]
+				}
+			}
+		}
+	}
+}

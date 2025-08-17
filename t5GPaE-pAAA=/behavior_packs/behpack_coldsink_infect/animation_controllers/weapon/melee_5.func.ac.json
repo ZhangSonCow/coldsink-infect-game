@@ -1,0 +1,42 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.melee_5.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"attack_0": "v.attack_time && !q.is_saddled"
+						},
+						{
+							"attack_1": "v.attack_time && q.is_saddled"
+						}
+					]
+				},
+				"attack_0": {
+					"animations": [ "melee_5_acttack_light" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_light"
+					]
+				},
+				"attack_1": {
+					"animations": [ "melee_5_acttack_heavy" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_heavy"
+					]
+				}
+			}
+		}
+	}
+}

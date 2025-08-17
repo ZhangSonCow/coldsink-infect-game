@@ -1,0 +1,112 @@
+{
+	"format_version": "1.18.0",
+	"animation_controllers": {
+		"controller.animation.hunter_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"attack_light": "v.attack_time && !q.is_saddled"
+						},
+						{
+							"attack_heavy": "v.attack_time && q.is_saddled"
+						}
+					]
+				},
+				"attack_light": {
+					"animations": [ "hunter_attack_light" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_light"
+					]
+				},
+				"attack_heavy": {
+					"animations": [ "hunter_attack_heavy" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_heavy"
+					]
+				}
+			}
+		},
+
+		// 技能持续时间控制
+
+		"controller.animation.hunter_skill_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"skill": "q.property('coldsink:time_skill')"
+						}
+					]
+				},
+				"skill": {
+					"animations": [ "hunter_skill_timer", "hunter_interval_count" ],
+					"transitions": [
+						{
+							"default": "!q.property('coldsink:time_skill')"
+						}
+					]
+				}
+			}
+		},
+
+		// 技能落地伤害
+
+		"controller.animation.hunter_skill_load_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"skill_load": "q.is_jumping && q.property('coldsink:time_skill')"
+						}
+					]
+				},
+				"skill_load": {
+					"transitions": [
+						{
+							"default": "q.is_on_ground"
+						}
+					],
+					"on_entry": [
+						"/scoreboard players random @s wp_random 1 3",
+						"/tag @s add self",
+						"/execute @s[tag=!sound_interval,scores={wp_random=1}] ~~~ playsound hunter.skill_1 @a[tag=!self] ~~~",
+						"/execute @s[tag=!sound_interval,scores={wp_random=2}] ~~~ playsound hunter.skill_2 @a[tag=!self] ~~~",
+						"/execute @s[tag=!sound_interval,scores={wp_random=3}] ~~~ playsound hunter.skill_3 @a[tag=!self] ~~~",
+						"/execute @s[tag=!sound_interval,scores={wp_random=1}] ~~~ playsound hunter.skill_1.self @s",
+						"/execute @s[tag=!sound_interval,scores={wp_random=2}] ~~~ playsound hunter.skill_2.self @s",
+						"/execute @s[tag=!sound_interval,scores={wp_random=3}] ~~~ playsound hunter.skill_3.self @s",
+						"/tag @s remove self",
+						"/tag @s add sound_interval"
+					],
+					"on_exit": [
+						"/execute @s[tag=!hunter_interval,tag=maper] ~~~ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=2.8,c=1] ~~~ playsound reward @p[family=hunter,tag=!hunter_interval]",
+						"/execute @s[tag=!hunter_interval,tag=maper] ~~~ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=2.8,c=1] ~~~ title @p[family=hunter,tag=!hunter_interval] actionbar §l§9成功扑中目标造成伤害！",
+						"/execute @s[tag=!hunter_interval,tag=maper] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=2.8,c=1] 2 suicide",
+
+						"/tag @s[tag=!hunter_interval,tag=!maper] add hunter_self",
+						"/execute @s[tag=!hunter_interval,tag=!maper] ~~~ execute @e[tag=!hunter_self,r=2.8,c=1] ~~~ playsound reward @p[family=hunter,tag=!hunter_interval]",
+						"/execute @s[tag=!hunter_interval,tag=!maper] ~~~ execute @e[tag=!hunter_self,r=2.8,c=1] ~~~ title @p[family=hunter,tag=!hunter_interval] actionbar §l§9成功扑中目标造成伤害！",
+						"/execute @s[tag=!hunter_interval,tag=!maper] ~~~ damage @e[tag=!hunter_self,r=2.8,c=1] 2 suicide",
+						"/tag @s[tag=!hunter_interval,tag=!maper] remove hunter_self",
+
+						"/tag @s add hunter_interval"
+					]
+				}
+			}
+		}
+	}
+}

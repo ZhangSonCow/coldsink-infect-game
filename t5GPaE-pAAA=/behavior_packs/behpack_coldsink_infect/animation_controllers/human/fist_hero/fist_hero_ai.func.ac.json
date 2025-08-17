@@ -1,0 +1,78 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.fist_hero_ai.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"attack": "v.attack_time"
+						},
+						{
+							"death": "!q.is_alive"
+						}
+					]
+				},
+				"attack": {
+					"transitions": [
+						{
+							"default": "q.any_animation_finished"
+						},
+						{
+							"death": "!q.is_alive"
+						}
+					],
+					"on_entry": [
+						"/scoreboard players random @s wp_random 1 2",
+						"/execute @s[scores={wp_random=1}] ~~~ playsound fist_hero_attack @a ~~~",
+						"/execute @s[scores={wp_random=2}] ~~~ playsound fist_hero_attack @a ~~~ 3 1.2 3",
+						"/effect @s speed 0 2 true",
+						"/effect @s invisibility 0 1 true"
+					]
+				},
+				"death": {
+					"on_entry": [
+						"/execute @s[tag=游戏中] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§b【圣拳猎手】§f [\"},{\"selector\":\"@s\"},{\"text\":\"] §b已死亡\"}]}",
+						"/execute @s[tag=游戏中] ~~~ function game/dead_keep_score",
+						"/execute @s[tag=游戏中] ~~~ playsound hero_death @a",
+						"/execute @s[tag=!游戏中] ~~~ playsound hero_death @a[r=32]",
+						"/summon coldsink:dead_fist_hero",
+						"/execute @s[tag=!游戏中] ~~~ event entity @e[type=coldsink:dead_fist_hero,c=1] despawn",
+						"/event entity @s godie"
+					]
+				}
+			}
+		},
+		"controller.animation.fist_skill_ai.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"skill": "q.is_sheared"
+						}
+					]
+				},
+				"skill": {
+					"animations": [ "fist_hero_skill_timer_ai" ],
+					"transitions": [
+						{
+							"default": "!q.is_sheared"
+						}
+					],
+					"on_exit": [
+						"/tag @s remove no_any_hurt",
+						"/event entity @s skill_over",
+						"/execute @s[tag=fist_hero_shield] ~~~ event entity @e[family=fist_hero_shield,r=5,c=1] godie",
+
+						"/stopsound @a[r=16] fist_hero_skill",
+						"/playsound fist_hero_skill_boom @a[r=16]",
+						"/particle nacal_sdc:fist_hero_blast ~~~",
+						"/damage @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=8] 20 suicide"
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,109 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:smoker_ride_1",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      },
+      "coldsink:spawn_seat": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:smoker_ride_2",
+              "num_to_spawn": 1,
+              "should_leash": true
+            }
+          ]
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:health": {
+        "value": 2,
+        "max": 2,
+        "min": 1
+      },
+      "minecraft:leashable": {
+				"soft_distance": 0.1,
+				"hard_distance": 1,
+				"max_distance": 128,
+				"can_be_stolen": false,
+				"on_unleash": {
+					"event": "godie",
+          "target": "self"
+				}
+			},
+      "minecraft:ageable": {
+        "duration": 8,
+        "grow_up": {
+          "event": "godie"
+        }
+      },
+      "minecraft:timer": {
+        "time": 0.05,
+        "time_down_event": {
+          "target": "self",
+          "event": "stay"
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 0.01,
+        "height": 0.01
+      },
+      "minecraft:physics": {}
+
+      //behavivors
+
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "coldsink:spawn_seat"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "scoreboard players operation @s smoker_time = @e[type=!player,family=smoker,c=1] smoker_time",
+            "tag @s add neutral",
+            "execute @p[family=smoker] ~~~ execute @s[tag=maper] ~~~ tag @e[type=coldsink:smoker_ride_1,c=1] add maper"
+          ]
+        }
+      },
+      "stay": {
+        "queue_command": {
+          "command": [
+            "execute @p[family=smoker,r=5] ~~~ tp @e[type=coldsink:smoker_ride_1,r=5,c=1] ^^1.5^0.5"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

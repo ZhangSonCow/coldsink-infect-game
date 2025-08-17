@@ -1,0 +1,80 @@
+{
+	"format_version": "1.18.0",
+	"animation_controllers": {
+		"controller.animation.jockey_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "jockey_skill_testfor" ],
+					"transitions": [
+						{
+							"attack_light": "v.attack_time && !q.is_saddled"
+						},
+						{
+							"attack_heavy": "v.attack_time && q.is_saddled"
+						},
+						{
+							"skill": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"attack_light": {
+					"animations": [ "jockey_attack_light", "jockey_skill_testfor" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"skill": "q.property('coldsink:action_status') == 3"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_light"
+					]
+				},
+				"attack_heavy": {
+					"animations": [ "jockey_attack_heavy", "jockey_skill_testfor" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"skill": "q.property('coldsink:action_status') == 3"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_heavy"
+					]
+				},
+				"skill": {
+					"animations": [ "jockey_skill_timer", "jockey_skill_damage", "jockey_skill_random", "jockey_skill_control" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/camera @s[tag=!no_skill_camera] set minecraft:third_person"
+					],
+					"on_exit": [
+						"/camera @s clear",
+
+						"/execute @s[tag=maper] ~~~ event entity @e[family=player,family=!tool,type=!item,tag=!neutral,tag=jockey_riding,r=5,c=1] coldsink:jockey_control_over",
+						"/execute @s[tag=maper] ~~~ tag @e[family=player,family=!tool,type=!item,tag=!neutral,tag=jockey_riding,r=5,c=1] remove jockey_riding",
+						
+						"/execute @s[tag=!maper] ~~~ event entity @e[family=!jockey,family=!tool,tag=jockey_riding,r=5,c=1] coldsink:jockey_control_over",
+						"/execute @s[tag=!maper] ~~~ tag @e[family=!jockey,family=!tool,tag=jockey_riding,r=5,c=1] remove jockey_riding",
+
+						"/event entity @e[type=coldsink:jockey_ride,r=5,c=1] godie",
+						"/tag @s remove jockey_skill",
+						"/stopsound @a[r=32] jockey.skill",
+						"/stopsound @s jockey.skill.self",
+						"/title @s actionbar §3乘骑效果结束！",
+						"/clear @s coldsink:jockey_exit",
+						"/replaceitem entity @s slot.hotbar 8 coldsink:jockey_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}"
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,16 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.sfzombie_sound_interval.func": {
+      "loop": true,
+      "animation_length": 0.5,
+      "timeline": {
+        "0.0": [
+          "/tag @s[tag=sound_interval,scores={idle_time=3..}] remove sound_interval",
+          "/scoreboard players reset @s[scores={idle_time=3..}] idle_time",
+          "/scoreboard players add @s[tag=sound_interval] idle_time 1"
+        ]
+      }
+    }
+  }
+}

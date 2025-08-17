@@ -1,0 +1,35 @@
+{
+    "format_version": "1.18",
+    "minecraft:recipe_shaped": {
+      "description": {
+        "identifier": "coldsink:melee_5"
+      },
+      "tags": [ "crafting_table" ],
+      "pattern": [
+        "F  ",
+        "ISI",
+        "  F"
+      ],
+      "key": {
+        "I": {
+          "item": "iron_ingot"
+        },
+        "F": {
+          "item": "flint"
+        },
+        "S": {
+          "item": "cobblestone"
+        },
+        "P": {
+          "item": "planks"
+        }
+      },
+      "result": [
+        {
+          "item": "coldsink:melee_5_display_spawn_egg",
+          "count": 1
+        }
+      ]
+    }
+  }
+  

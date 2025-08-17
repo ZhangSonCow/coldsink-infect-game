@@ -1,0 +1,32 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:dead_final_witch",
+      "materials": {
+        "default": "entity_emissive"
+      },
+      "animations": {
+        "dead": "animation.witch.dead"
+      },
+      "scripts": {
+        "initialize": [
+          "variable.dead_random=math.random(0, 1);"
+        ],
+        "animate": [
+          "dead"
+        ]
+      },
+      "textures": {
+        "default": "textures/entity/final_witch_glow"
+      },
+      "geometry": {
+        "default": "geometry.final_witch"
+      },
+      "render_controllers": [ "controller.render.com" ],
+      "spawn_egg": {
+        "texture": "spawn_final_witch"
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "nacal_tac:healarea_stay",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "tac", "bullet", "tool" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 0.001,
+        "height": 0.001
+      },
+      "minecraft:physics": {},
+
+      "minecraft:variant": {
+        "value": 1
+      },
+      "minecraft:is_baby": {},
+      "minecraft:ageable": {
+        "duration": 7.5,
+        "grow_up": {
+          "event": "godie"
+        }
+      },
+      "minecraft:timer": {
+        "time": 0.8,
+        "time_down_event": {
+          "event": "heal"
+        }
+      }
+
+      //behavivors
+
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "tp @s ~ ~ ~",
+            "particle nacal_sdc:healarea_bigcircle_2 ~ ~ ~",
+            "particle nacal_sdc:healarea_bigcircle ~ ~ ~",
+            "particle nacal_tac:healarea_circle ~ ~ ~",
+            "playsound tac.healarea @a ~~~"
+          ]
+        }
+      },
+      "heal": {
+        "queue_command": {
+          "command": [
+            "tag @s add neutral",
+            "effect @e[r=8,family=player] regeneration 1 2",
+            "particle nacal_sdc:healarea_bigcircle ~ ~ ~"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "particle nacal_tac:healarea_circle ~ ~1 ~"
+          ]
+        }
+      }
+    }
+  }
+}

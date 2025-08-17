@@ -1,0 +1,26 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.weapon_star": {
+			"loop": true,
+			"bones": {
+				"star1": {
+					"position": ["-(query.modified_move_speed / 8) - ( query.is_on_ground ? 0 : 0.1 )+( query.is_sneaking ? 0.1 )", 0, 0]
+				},
+				"star2": {
+					"position": ["-( query.is_sneaking ? 0.1 )+( query.is_on_ground ? 0 : 0.1 ) + query.modified_move_speed / 8", 0, 0]
+				},
+				"star3": {
+					"position": [0, "-( query.is_sneaking ? 0.1 )+( query.is_on_ground ? 0 : 0.1 ) + query.modified_move_speed / 8", 0]
+				},
+				"star4": {
+					"position": [0, "( query.is_sneaking ? 0.1 )-( query.is_on_ground ? 0 : 0.1 ) - query.modified_move_speed / 8 ", 0]
+				},
+				"stars": {
+					"position": [0.16, 1.6, 30],
+					"scale": 5
+				}
+			}
+		}
+	}
+}

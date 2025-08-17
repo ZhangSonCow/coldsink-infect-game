@@ -1,0 +1,1173 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:player",
+      "materials": {
+        "default": "entity_alphatest",
+        "light_skin": "entity_emissive",
+        "blend": "entity_alphablend",
+        "cape": "entity_alphatest",
+        "animated": "player_animated",
+        "nacal_tac_detect": "nacal_tac_detect",
+        "nacal_customblend":"nacal_customblend",
+        "netease_entity_metallic": "entity_alphatest",
+        "netease_entity_metallic_blend": "entity_alphablend"
+      },
+      "particle_effects": {
+        // 特感
+        "dip": "nacal_sdc:spit_dip",
+        "tank_fire_big": "nacal_sdc:tank_fire_big",
+        "tank_fire_small": "nacal_sdc:tank_fire_small",
+        "tnnk_fireball_powering": "coldsink:tnnk_fireball_powering",
+        "witch_fire": "nacal_sdc:witch_fire",
+        "witch_shield_1": "coldsink:witch_shield_1",
+        "witch_shield_2": "coldsink:witch_shield_2",
+
+        // 英雄
+        "human_hero.particle": "coldsink:human_hero",
+        "final_hero.particle": "coldsink:final_hero",
+        "final_hero_attack": "nacal_sdc:final_hero_attack",
+        "final_hero_skill": "nacal_sdc:final_hero_skill",
+        "machine_hero.particle": "coldsink:machine_hero",
+        "machine_hero_fire": "coldsink:machine_hero_fire",
+        "machine_hero_attack": "nacal_sdc:machine_hero_attack",
+        "space_hero.particle": "coldsink:space_hero",
+        "space_hero_attack": "nacal_sdc:space_hero_attack",
+        "redeem_hero.particle": "coldsink:redeem_hero",
+        "redeem_hero_attack": "nacal_sdc:redeem_hero_attack",
+        "fist_hero.particle": "coldsink:fist_hero",
+        "fist_hero_attack": "nacal_sdc:fist_hero_attack",
+        "fist_hero_shield_1": "coldsink:fist_hero_shield_1",
+        "fist_hero_shield_2": "coldsink:fist_hero_shield_2",
+
+        // 人类枪械
+        "weapon_fire_1": "coldsink:weapon_fire_1",
+        "weapon_fire_2": "coldsink:weapon_fire_2",
+        "weapon_fire_3": "coldsink:weapon_fire_3",
+        "weapon_fire_4": "coldsink:weapon_fire_4",
+        "weapon_fire_5": "coldsink:weapon_fire_5",
+        "weapon_fire_7": "coldsink:weapon_fire_7",
+        "savior_fire_1": "coldsink:savior_fire_1"
+      },
+      "textures": {
+        "default": "textures/entity/steve",
+        "bloom": "textures/misc/missing_texture",
+
+        // 特感
+        "sfzombie_view": "textures/entity/sfzombie_view",
+        "bile_view": "textures/entity/bile_view",
+        "bile_sign": "textures/entity/bile_sign",
+        "hunter": "textures/entity/hunter",
+        "spitter": "textures/entity/spitter",
+        "charger": "textures/entity/charger",
+        "jockey": "textures/entity/jockey",
+        "boomer": "textures/entity/boomer",
+        "smoker": "textures/entity/smoker",
+        "tank": "textures/entity/tank",
+        "tank_rock": "textures/entity/tank_rock",
+        "witch_0": "textures/entity/witch_0",
+        "final_tank": "textures/entity/final_tank",
+        "final_witch": "textures/entity/final_witch",
+        "final_witch_invis": "textures/entity/final_witch_invis",
+
+        // 英雄
+        "human_hero": "textures/entity/human_hero",
+        "final_hero": "textures/entity/final_hero",
+        "savior_hero": "textures/entity/savior_hero",
+        "machine_hero": "textures/entity/machine_hero",
+        "space_hero": "textures/entity/space_hero",
+        "space_hero_invis": "textures/entity/space_hero_invis",
+        "redeem_hero": "textures/entity/redeem_hero",
+        "fist_hero": "textures/entity/fist_hero",
+
+        // 变身头衔标识
+        "human_sign": "textures/entity/human_sign",
+        "human_hero_sign": "textures/entity/human_hero_sign",
+        "final_hero_sign": "textures/entity/final_hero_sign",
+        "savior_hero_sign": "textures/entity/savior_hero_sign",
+        "machine_hero_sign": "textures/entity/machine_hero_sign",
+        "space_hero_sign": "textures/entity/space_hero_sign",
+        "redeem_hero_sign": "textures/entity/redeem_hero_sign",
+        "fist_hero_sign": "textures/entity/fist_hero_sign",
+        "tank_sign": "textures/entity/tank_sign",
+        "witch_sign": "textures/entity/witch_sign",
+        "final_tank_sign": "textures/entity/final_tank_sign",
+        "final_witch_sign": "textures/entity/final_witch_sign",
+        
+        // 人类枪械
+        "weapon_star": "textures/entity/weapon_star",
+        "weapon_1": "textures/entity/weapon_1",
+        "weapon_2": "textures/entity/weapon_2",
+        "weapon_3": "textures/entity/weapon_3",
+        "weapon_4": "textures/entity/weapon_4",
+        "weapon_4_star": "textures/entity/weapon_4_star",
+        "weapon_5": "textures/entity/weapon_5",
+        "weapon_6": "textures/entity/weapon_6",
+        "weapon_7": "textures/entity/weapon_7",
+
+        // 人类近战
+        "melee_1": "textures/entity/melee_1",
+        "melee_2": "textures/entity/melee_2",
+        "melee_3": "textures/entity/melee_3",
+        "melee_4": "textures/entity/melee_4",
+        "melee_5": "textures/entity/melee_5",
+
+        "cape": "textures/entity/cape_invisible"
+      },
+      "geometry": {
+        "default": "geometry.humanoid.custom",
+        "cape": "geometry.cape",
+        
+        // 特感
+        "sfzombie_view": "geometry.sfzombie_view",
+        "bile_sign": "geometry.bile_sign",
+        "hunter": "geometry.hunter",
+        "hunter.1st": "geometry.hunter.1st",
+        "spitter": "geometry.spitter",
+        "spitter.1st": "geometry.spitter.1st",
+        "charger": "geometry.charger",
+        "charger.1st": "geometry.charger.1st",
+        "jockey": "geometry.jockey",
+        "jockey.1st": "geometry.jockey.1st",
+        "boomer": "geometry.boomer",
+        "boomer.1st": "geometry.boomer.1st",
+        "smoker": "geometry.smoker",
+        "smoker.1st": "geometry.smoker.1st",
+        "tank": "geometry.tank",
+        "tank_player_rock": "geometry.tank_player_rock",
+        "tank_player_rock.1st": "geometry.tank_player_rock.1st",
+        "final_tank": "geometry.final_tank",
+        "tank.1st": "geometry.tank.1st",
+        "final_tank.1st": "geometry.final_tank.1st",
+        "witch_0": "geometry.witch_0",
+        "witch_0.1st": "geometry.witch_0.1st",
+
+        // 英雄
+        "human_hero": "geometry.human_hero",
+        "human_hero.1st": "geometry.human_hero.1st",
+        "final_hero": "geometry.final_hero",
+        "final_hero.1st": "geometry.final_hero.1st",
+        "savior_hero": "geometry.savior_hero",
+        "savior_hero_empty": "geometry.savior_hero_empty",
+        "savior_hero_weapon.1st": "geometry.savior_hero_weapon.1st",
+        "savior_hero_empty.1st": "geometry.savior_hero_empty.1st",
+        "machine_hero": "geometry.machine_hero",
+        "machine_hero.1st": "geometry.machine_hero.1st",
+        "space_hero": "geometry.space_hero",
+        "space_hero.1st": "geometry.space_hero.1st",
+        "redeem_hero": "geometry.redeem_hero",
+        "redeem_hero.1st": "geometry.redeem_hero.1st",
+        "fist_hero": "geometry.fist_hero",
+        "fist_hero.1st": "geometry.fist_hero.1st",
+
+        // 变身头衔标识
+        "human_sign": "geometry.human_sign",
+        "boss_sign": "geometry.boss_sign",
+
+        // 人类枪械
+        "weapon_star": "geometry.weapon_star",
+        "weapon_1": "geometry.weapon_1",
+        "weapon_1.1st": "geometry.weapon_1.1st",
+        "player_1st_weapon_1": "geometry.player_1st_weapon_1",
+        "weapon_2": "geometry.weapon_2",
+        "weapon_2.1st": "geometry.weapon_2.1st",
+        "player_1st_weapon_2": "geometry.player_1st_weapon_2",
+        "weapon_3": "geometry.weapon_3",
+        "weapon_3.1st": "geometry.weapon_3.1st",
+        "player_1st_weapon_3": "geometry.player_1st_weapon_3",
+        "weapon_4": "geometry.weapon_4",
+        "weapon_4.1st": "geometry.weapon_4.1st",
+        "weapon_4_star": "geometry.weapon_4_star",
+        "player_1st_weapon_4": "geometry.player_1st_weapon_4",
+        "weapon_5": "geometry.weapon_5",
+        "weapon_5.1st": "geometry.weapon_5.1st",
+        "player_1st_weapon_5": "geometry.player_1st_weapon_5",
+        "weapon_6": "geometry.weapon_6",
+        "weapon_6.1st": "geometry.weapon_6.1st",
+        "player_1st_weapon_6": "geometry.player_1st_weapon_6",
+        "weapon_7": "geometry.weapon_7",
+        "weapon_7.1st": "geometry.weapon_7.1st",
+        "player_1st_weapon_7": "geometry.player_1st_weapon_7",
+
+        // 人类近战
+        "player_1st_hand": "geometry.player_1st_hand",
+        "melee_1": "geometry.melee_1",
+        "melee_2": "geometry.melee_2",
+        "melee_3": "geometry.melee_3",
+        "melee_4": "geometry.melee_4",
+        "melee_5": "geometry.melee_5",
+
+        "final_double_sword": "geometry.final_double_sword",
+        "final_double_sword.1st": "geometry.final_double_sword.1st"
+      },
+      "scripts": {
+        "initialize": [
+          "variable.is_holding_right = 0.0;",
+          "variable.is_blinking = 0.0;",
+          "variable.last_blink_time = 0.0;",
+          "variable.hand_bob = 0.0;"
+        ],
+        "pre_animation": [
+          "variable.helmet_layer_visible = 1.0;",
+          "variable.leg_layer_visible = 1.0;",
+          "variable.boot_layer_visible = 1.0;",
+          "variable.chest_layer_visible = 1.0;",
+          "variable.attack_body_rot_y = Math.sin(360*Math.sqrt(variable.attack_time)) * 5.0;",
+          "variable.tcos0 = (math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+          "variable.first_person_rotation_factor = math.sin((1 - variable.attack_time) * 180.0);",
+          "variable.hand_bob = q.life_time < 0.01 ? 0.0 : variable.hand_bob + ((q.is_on_ground && q.is_alive ? math.clamp(math.sqrt(math.pow(q.position_delta(0), 2.0) + math.pow(q.position_delta(2), 2.0)), 0.0, 0.1) : 0.0) - variable.hand_bob) * 0.02;",
+          "variable.map_angle = math.clamp(1 - variable.player_x_rotation / 45.1, 0.0, 1.0);",
+          "variable.item_use_normalized = q.main_hand_item_use_duration / q.main_hand_item_max_duration;",
+
+          "variable.random_choices = math.random(0, 100);"
+        ],
+        "animate": [
+          "not_paperdoll"
+        ]
+      },
+      "animations": {
+        "root": "controller.animation.player.root",
+        "base_controller": "controller.animation.player.base",
+        "hudplayer": "controller.animation.player.hudplayer",
+        "humanoid_base_pose": "animation.humanoid.base_pose",
+        "look_at_target": "controller.animation.humanoid.look_at_target",
+        "look_at_target_ui": "animation.player.look_at_target.ui",
+        "look_at_target_default": "animation.humanoid.look_at_target.default",
+        "look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
+        "look_at_target_swimming": "animation.humanoid.look_at_target.swimming",
+        "look_at_target_inverted": "animation.player.look_at_target.inverted",
+        "cape": "animation.player.cape",
+        "move.arms": "animation.player.move.arms",
+        "move.legs": "animation.player.move.legs",
+        "swimming": "animation.player.swim",
+        "swimming.legs": "animation.player.swim.legs",
+        "riding.arms": "animation.player.riding.arms",
+        "riding.legs": "animation.player.riding.legs",
+        "holding": "animation.player.holding",
+        "brandish_spear": "animation.humanoid.brandish_spear",
+        "holding_spyglass": "animation.humanoid.holding_spyglass",
+        "charging": "animation.humanoid.charging",
+        "attack.positions": "animation.player.attack.positions",
+        "attack.rotations": "animation.player.attack.rotations",
+        "sneaking": "animation.player.sneaking",
+        "bob": "animation.player.bob",
+        "damage_nearby_mobs": "animation.humanoid.damage_nearby_mobs",
+        "bow_and_arrow": "animation.humanoid.bow_and_arrow",
+        "use_item_progress": "animation.humanoid.use_item_progress",
+        "skeleton_attack": "animation.skeleton.attack",
+        "sleeping": "animation.player.sleeping",
+        "first_person_base_pose": "animation.player.first_person.base_pose",
+        "first_person_empty_hand": "animation.player.first_person.empty_hand",
+        "first_person_swap_item": "animation.player.first_person.swap_item",
+        "first_person_shield_block": "animation.player.first_person.shield_block",
+        "first_person_attack_controller": "controller.animation.player.first_person_attack",
+        "first_person_attack_rotation": "animation.player.first_person.attack_rotation",
+        "first_person_vr_attack_rotation": "animation.player.first_person.vr_attack_rotation",
+        "first_person_walk": "animation.player.first_person.walk",
+        "first_person_map_controller": "controller.animation.player.first_person_map",
+        "first_person_map_hold": "animation.player.first_person.map_hold",
+        "first_person_map_hold_attack": "animation.player.first_person.map_hold_attack",
+        "first_person_map_hold_off_hand": "animation.player.first_person.map_hold_off_hand",
+        "first_person_map_hold_main_hand": "animation.player.first_person.map_hold_main_hand",
+        "first_person_crossbow_equipped": "animation.player.first_person.crossbow_equipped",
+        "third_person_crossbow_equipped": "animation.player.crossbow_equipped",
+        "third_person_bow_equipped": "animation.player.bow_equipped",
+        "crossbow_hold": "animation.player.crossbow_hold",
+        "crossbow_controller": "controller.animation.player.crossbow",
+        "shield_block_main_hand": "animation.player.shield_block_main_hand",
+        "shield_block_off_hand": "animation.player.shield_block_off_hand",
+        "blink": "controller.animation.persona.blink",
+
+        // 变身通用
+
+        "sign_facing": "animation.sign_facing",
+        "sfzombie_hurt": "animation.sfzombie_hurt",
+        
+        // Hunter
+        
+        "ctrl.hunter": "controller.animation.hunter",
+        "ctrl.hunter.walk": "controller.animation.hunter.walk",
+        "hunter_idle.leg": "animation.hunter.idle.leg",
+        "hunter_idle.arm": "animation.hunter.idle.arm",
+        "hunter_move.leg": "animation.hunter.move.leg",
+        "hunter_move.arm": "animation.hunter.move.arm",
+        "hunter_attack1": "animation.hunter.attack1",
+        "hunter_attack2": "animation.hunter.attack2",
+        "hunter_attack3": "animation.hunter.attack3",
+        "hunter_jump.leg": "animation.hunter.jump.leg",
+        "hunter_jump.arm": "animation.hunter.jump.arm",
+        
+        "ctrl.hunter.1st": "controller.animation.hunter.1st",
+        "hunter_idle.1st": "animation.hunter.idle.1st",
+        "hunter_walk.1st": "animation.hunter.walk.1st",
+        "hunter_attack1.1st": "animation.hunter.attack1.1st",
+        "hunter_attack2.1st": "animation.hunter.attack2.1st",
+        "hunter_attack3.1st": "animation.hunter.attack3.1st",
+        "hunter_jump.1st": "animation.hunter.jump.1st",
+
+        // Spitter
+
+        "ctrl.spitter": "controller.animation.spitter",
+        "ctrl.spitter.walk": "controller.animation.spitter.walk",
+        "spitter_dip": "animation.spitter.dip",
+        "spitter_idle.leg": "animation.spitter.idle.leg",
+        "spitter_idle.arm": "animation.spitter.idle.arm",
+        "spitter_move.leg": "animation.spitter.move.leg",
+        "spitter_move.arm": "animation.spitter.move.arm",
+        "spitter_attack1": "animation.spitter.attack1",
+        "spitter_attack2": "animation.spitter.attack2",
+        "spitter_attack3": "animation.spitter.attack3",
+        "spitter_skill": "animation.spitter.skill",
+
+        "ctrl.spitter.1st": "controller.animation.spitter.1st",
+        "spitter_idle.1st": "animation.spitter.idle.1st",
+        "spitter_attack1.1st": "animation.spitter.attack1.1st",
+        "spitter_attack2.1st": "animation.spitter.attack2.1st",
+        "spitter_attack3.1st": "animation.spitter.attack3.1st",
+        "spitter_skill.1st": "animation.spitter.skill.1st",
+
+        // Charger
+
+        "ctrl.charger": "controller.animation.charger",
+        "ctrl.charger.walk": "controller.animation.charger.walk",
+        "charger_idle.leg": "animation.charger.idle.leg",
+        "charger_idle.arm": "animation.charger.idle.arm",
+        "charger_move.leg": "animation.charger.move.leg",
+        "charger_move.arm": "animation.charger.move.arm",
+        "charger_attack1": "animation.charger.attack1",
+        "charger_attack2": "animation.charger.attack2",
+        "charger_attack3": "animation.charger.attack3",
+        "charger_skill": "animation.charger.skill",
+
+        "ctrl.charger.1st": "controller.animation.charger.1st",
+        "charger_idle.1st": "animation.charger.idle.1st",
+        "charger_attack1.1st": "animation.charger.attack1.1st",
+        "charger_attack2.1st": "animation.charger.attack2.1st",
+        "charger_attack3.1st": "animation.charger.attack3.1st",
+        "charger_skill.1st": "animation.charger.skill.1st",
+
+        // Jockey
+
+        "ctrl.jockey": "controller.animation.jockey",
+        "ctrl.jockey.walk": "controller.animation.jockey.walk",
+        "jockey_idle.leg": "animation.jockey.idle.leg",
+        "jockey_idle.arm": "animation.jockey.idle.arm",
+        "jockey_move.leg": "animation.jockey.move.leg",
+        "jockey_move.arm": "animation.jockey.move.arm",
+        "jockey_attack1": "animation.jockey.attack1",
+        "jockey_attack2": "animation.jockey.attack2",
+        "jockey_attack3": "animation.jockey.attack3",
+        "jockey_skill": "animation.jockey.skill",
+        "jockey_control": "animation.jockey.control",   // 实为人类被控制时的动画
+
+        "ctrl.jockey.1st": "controller.animation.jockey.1st",
+        "jockey_idle.1st": "animation.jockey.idle.1st",
+        "jockey_attack1.1st": "animation.jockey.attack1.1st",
+        "jockey_attack2.1st": "animation.jockey.attack2.1st",
+        "jockey_attack3.1st": "animation.jockey.attack3.1st",
+        "jockey_skill.1st": "animation.jockey.skill.1st",
+
+        // Boomer
+
+        "ctrl.boomer": "controller.animation.boomer",
+        "ctrl.boomer.walk": "controller.animation.boomer.walk",
+        "boomer_idle.leg": "animation.boomer.idle.leg",
+        "boomer_idle.arm": "animation.boomer.idle.arm",
+        "boomer_move.leg": "animation.boomer.move.leg",
+        "boomer_move.arm": "animation.boomer.move.arm",
+        "boomer_attack1": "animation.boomer.attack1",
+        "boomer_attack2": "animation.boomer.attack2",
+        "boomer_attack3": "animation.boomer.attack3",
+        "boomer_skill": "animation.boomer.skill",
+
+        "ctrl.boomer.1st": "controller.animation.boomer.1st",
+        "boomer_idle.1st": "animation.boomer.idle.1st",
+        "boomer_attack1.1st": "animation.boomer.attack1.1st",
+        "boomer_attack2.1st": "animation.boomer.attack2.1st",
+        "boomer_attack3.1st": "animation.boomer.attack3.1st",
+        "boomer_skill.1st": "animation.boomer.skill.1st",
+
+        // Smoker
+
+        "ctrl.smoker": "controller.animation.smoker",
+        "ctrl.smoker.walk": "controller.animation.smoker.walk",
+        "smoker_idle.leg": "animation.smoker.idle.leg",
+        "smoker_idle.arm": "animation.smoker.idle.arm",
+        "smoker_move.leg": "animation.smoker.move.leg",
+        "smoker_move.arm": "animation.smoker.move.arm",
+        "smoker_attack1": "animation.smoker.attack1",
+        "smoker_attack2": "animation.smoker.attack2",
+        "smoker_attack3": "animation.smoker.attack3",
+        "smoker_skill": "animation.smoker.skill",
+
+        "ctrl.smoker.1st": "controller.animation.smoker.1st",
+        "smoker_idle.1st": "animation.smoker.idle.1st",
+        "smoker_attack1.1st": "animation.smoker.attack1.1st",
+        "smoker_attack2.1st": "animation.smoker.attack2.1st",
+        "smoker_attack3.1st": "animation.smoker.attack3.1st",
+        "smoker_skill.1st": "animation.smoker.skill.1st",
+
+        // Tank
+
+        "ctrl.tank": "controller.animation.tank",
+        "ctrl.tank.walk": "controller.animation.tank.walk",
+        "tank_idle.leg": "animation.tank.idle.leg",
+        "tank_idle.arm": "animation.tank.idle.arm",
+        "tank_move.leg": "animation.tank.move.leg",
+        "tank_move.arm": "animation.tank.move.arm",
+        "tank_attack1": "animation.tank.attack1",
+        "tank_attack2": "animation.tank.attack2",
+        "tank_attack3": "animation.tank.attack3",
+        "tank_howl_skill": "animation.tank.howl.skill",
+        "tank_skill": "animation.tank.skill",
+
+        "ctrl.final_tank": "controller.animation.final_tank",
+        "ctrl.final_tank.walk": "controller.animation.final_tank.walk",
+        "final_tank_skill": "animation.final_tank.skill",
+        "final_tank.powering.particle": "animation.final_tank.powering.particle",
+        "tank_fireball": "animation.tank_fireball",   // 火球旋转动画
+        "tank_fire": "animation.tank.fire",   // Tank身上火焰粒子
+        
+        "ctrl.tank.1st": "controller.animation.tank.1st",
+        "tank_idle.1st": "animation.tank.idle.1st",
+        "tank_attack1.1st": "animation.tank.attack1.1st",
+        "tank_attack2.1st": "animation.tank.attack2.1st",
+        "tank_attack3.1st": "animation.tank.attack3.1st",
+        "tank_howl_skill.1st": "animation.tank.howl.skill.1st",
+        "tank_skill.1st": "animation.tank.skill.1st",
+
+        "ctrl.final_tank.1st": "controller.animation.final_tank.1st",
+        "final_tank_skill.1st": "animation.final_tank.skill.1st",
+        "final_tank.powering.particle.1st": "animation.final_tank.powering.particle.1st",
+
+        // Witch
+
+        "ctrl.witch": "controller.animation.witch",
+        "ctrl.witch.walk": "controller.animation.witch.walk",
+        "witch_idle.leg": "animation.witch_0.idle.leg",
+        "witch_idle.arm": "animation.witch_0.idle.arm",
+        "witch_move.leg": "animation.witch_0.move.leg",
+        "witch_move.arm": "animation.witch_0.move.arm",
+        "witch_cry.leg": "animation.witch_0.cry.leg",
+        "witch_cry.arm": "animation.witch_0.cry.arm",
+        "witch_attack1": "animation.witch_0.attack1",
+        "witch_attack2": "animation.witch_0.attack2",
+        "witch_attack3": "animation.witch_0.attack3",
+        "witch_fire": "animation.witch.fire",   // Witch身上紫点粒子
+        "ctrl.witch.skill": "controller.animation.witch.skill",
+        "witch.skill": "animation.witch_0.skill",
+
+        "ctrl.witch.1st": "controller.animation.witch.1st",
+        "witch_idle.1st": "animation.witch_0.idle.1st",
+        "witch_attack1.1st": "animation.witch_0.attack1.1st",
+        "witch_attack2.1st": "animation.witch_0.attack2.1st",
+        "witch_attack3.1st": "animation.witch_0.attack3.1st",
+        "ctrl.witch.skill.1st": "controller.animation.witch.skill.1st",
+        "witch.skill.1st": "animation.witch_0.skill.1st",
+
+        // 幽灵猎手
+
+        "ctrl.human_hero": "controller.animation.human_hero",
+        "ctrl.human_hero.walk": "controller.animation.human_hero.walk",
+        "human_hero.idle.leg": "animation.human_hero.idle.leg",
+        "human_hero.idle.arm": "animation.human_hero.idle.arm",
+        "human_hero.move.leg": "animation.human_hero.move.leg",
+        "human_hero.attack": "animation.human_hero.attack",
+        "human_hero.attack_big": "animation.human_hero.attack_big",
+        "human_hero.look": "animation.human_hero.look",
+        "human_hero.particle": "animation.human_hero.particle",
+        
+        "ctrl.human_hero.1st": "controller.animation.human_hero.1st",
+        "human_hero.begin.1st": "animation.human_hero.begin.1st",
+        "human_hero.idle.1st": "animation.human_hero.idle.1st",
+        "human_hero.attack.1st": "animation.human_hero.attack.1st",
+        "human_hero.attack_big.1st": "animation.human_hero.attack_big.1st",
+
+        // 终极猎手
+
+        "ctrl.final_hero": "controller.animation.final_hero",
+        "ctrl.final_hero.walk": "controller.animation.final_hero.walk",
+        "final_hero.idle.leg": "animation.final_hero.idle.leg",
+        "final_hero.idle.arm": "animation.final_hero.idle.arm",
+        "final_hero.move.leg": "animation.final_hero.move.leg",
+        "final_hero.attack": "animation.final_hero.attack",
+        "final_hero.attack_big": "animation.final_hero.attack_big",
+        "final_hero.skill": "animation.final_hero.skill",
+        "final_hero.look": "animation.final_hero.look",
+        "final_hero.particle": "animation.final_hero.particle",
+        
+        "ctrl.final_hero.1st": "controller.animation.final_hero.1st",
+        "final_hero.begin.1st": "animation.final_hero.begin.1st",
+        "final_hero.idle.1st": "animation.final_hero.idle.1st",
+        "final_hero.attack.1st": "animation.final_hero.attack.1st",
+        "final_hero.attack_big.1st": "animation.final_hero.attack_big.1st",
+        "final_hero.skill.1st": "animation.final_hero.skill.1st",
+
+        // 救世主
+
+        "ctrl.savior_hero": "controller.animation.savior_hero",
+        "ctrl.savior_hero.walk": "controller.animation.savior_hero.walk",
+        "savior_hero.idle.leg": "animation.savior_hero.idle.leg",
+        "savior_hero.move.leg": "animation.savior_hero.move.leg",
+        "savior_hero_weapon_1.idle": "animation.savior_hero_weapon_1.idle",
+        "savior_hero_weapon_1.fire": "animation.savior_hero_weapon_1.fire",
+        "savior_hero_weapon_1.loading": "animation.savior_hero_weapon_1.loading",
+        "savior_hero_weapon_2.idle": "animation.savior_hero_weapon_2.idle",
+        "savior_hero_weapon_2.fire": "animation.savior_hero_weapon_2.fire",
+        "savior_hero_weapon_2.loading": "animation.savior_hero_weapon_2.loading",
+        "ctrl.savior_hero_weapon_1.particle": "controller.animation.savior_hero_weapon_1.particle",
+        "savior_hero_weapon_1.particle": "animation.savior_hero_weapon_1.particle",
+        "savior_hero.look": "animation.savior_hero.look",
+        "savior_hero_empty.look": "animation.savior_hero_empty.look",
+        "savior_hero_empty.idle.arm": "animation.savior_hero_empty.idle.arm",
+        "savior_hero_empty.move.arm": "animation.savior_hero_empty.move.arm",
+        
+        "ctrl.savior_hero.1st": "controller.animation.savior_hero.1st",
+        "savior_hero_weapon_1.idle.1st": "animation.savior_hero_weapon_1.idle.1st",
+        "savior_hero_weapon_1.fire.1st": "animation.savior_hero_weapon_1.fire.1st",
+        "savior_hero_weapon_1.loading.1st": "animation.savior_hero_weapon_1.loading.1st",
+        "savior_hero_weapon_2.idle.1st": "animation.savior_hero_weapon_2.idle.1st",
+        "savior_hero_weapon_2.fire.1st": "animation.savior_hero_weapon_2.fire.1st",
+        "savior_hero_weapon_2.loading.1st": "animation.savior_hero_weapon_2.loading.1st",
+        "ctrl.savior_hero_weapon_1.particle.1st": "controller.animation.savior_hero_weapon_1.particle.1st",
+        "savior_hero_weapon_1.particle.1st": "animation.savior_hero_weapon_1.particle.1st",
+
+        // 机械猎手
+        
+        "ctrl.machine_hero_change": "controller.animation.machine_hero_change",
+        "ctrl.machine_hero": "controller.animation.machine_hero",
+        "ctrl.machine_hero.walk": "controller.animation.machine_hero.walk",
+        "machine_hero.idle.leg": "animation.machine_hero.idle.leg",
+        "machine_hero.move.leg": "animation.machine_hero.move.leg",
+        "machine_hero.idle_weapon": "animation.machine_hero.idle_weapon",
+        "machine_hero.idle_melee": "animation.machine_hero.idle_melee",
+        "machine_hero.fire": "animation.machine_hero.fire",
+        "machine_hero.attack": "animation.machine_hero.attack",
+        "machine_hero.attack_big": "animation.machine_hero.attack_big",
+        "machine_hero.skill": "animation.machine_hero.skill",
+        "machine_hero.look": "animation.machine_hero.look",
+        "machine_hero.rotate": "animation.machine_hero.rotate",
+        "machine_hero.particle": "animation.machine_hero.particle",
+        
+        "ctrl.machine_hero_change.1st": "controller.animation.machine_hero_change.1st",
+        "ctrl.machine_hero.1st": "controller.animation.machine_hero.1st",
+        "machine_hero.begin.1st": "animation.machine_hero.begin.1st",
+        "machine_hero.idle_weapon.1st": "animation.machine_hero.idle_weapon.1st",
+        "machine_hero.idle_melee.1st": "animation.machine_hero.idle_melee.1st",
+        "machine_hero.fire.1st": "animation.machine_hero.fire_1st",
+        "machine_hero.attack.1st": "animation.machine_hero.attack.1st",
+        "machine_hero.attack_big.1st": "animation.machine_hero.attack_big.1st",
+        "machine_hero.skill.1st": "animation.machine_hero.skill.1st",
+
+        // 时空猎手
+
+        "ctrl.space_hero": "controller.animation.space_hero",
+        "ctrl.space_hero.walk": "controller.animation.space_hero.walk",
+        "space_hero.idle.leg": "animation.space_hero.idle.leg",
+        "space_hero.idle.arm": "animation.space_hero.idle.arm",
+        "space_hero.move.leg": "animation.space_hero.move.leg",
+        "space_hero.attack": "animation.space_hero.attack",
+        "space_hero.attack_big": "animation.space_hero.attack_big",
+        "space_hero.skill": "animation.space_hero.skill",
+        "space_hero.look": "animation.space_hero.look",
+        "space_hero.particle": "animation.space_hero.particle",
+
+        "ctrl.space_hero.1st": "controller.animation.space_hero.1st",
+        "space_hero.begin.1st": "animation.space_hero.begin.1st",
+        "space_hero.idle.1st": "animation.space_hero.idle.1st",
+        "space_hero.attack.1st": "animation.space_hero.attack.1st",
+        "space_hero.attack_big.1st": "animation.space_hero.attack_big.1st",
+        "space_hero.skill.1st": "animation.space_hero.skill.1st",
+
+        // 救赎猎手
+        "ctrl.redeem_hero_change": "controller.animation.redeem_hero_change",
+        "redeem_hero.handle_weapon": "animation.redeem_hero.handle_weapon",
+        "redeem_hero.handle_grenade": "animation.redeem_hero.handle_grenade",
+        "redeem_hero.handle_needle": "animation.redeem_hero.handle_needle",
+
+        "ctrl.redeem_hero": "controller.animation.redeem_hero",
+        "ctrl.redeem_hero.walk": "controller.animation.redeem_hero.walk",
+        "redeem_hero.idle.leg": "animation.redeem_hero.idle.leg",
+        "redeem_hero.idle_weapon.arm": "animation.redeem_hero.idle_weapon.arm",
+        "redeem_hero.idle_grenade.arm": "animation.redeem_hero.idle_grenade.arm",
+        "redeem_hero.idle_needle.arm": "animation.redeem_hero.idle_needle.arm",
+        "redeem_hero.move.leg": "animation.redeem_hero.move.leg",
+        "redeem_hero.attack": "animation.redeem_hero.attack",
+        "redeem_hero.attack_big": "animation.redeem_hero.attack_big",
+        "redeem_hero.skill_1": "animation.redeem_hero.skill_1",
+        "redeem_hero.skill_2": "animation.redeem_hero.skill_2",
+        "redeem_hero.look": "animation.redeem_hero.look",
+        "redeem_hero.particle": "animation.redeem_hero.particle",
+
+        "ctrl.redeem_hero.1st": "controller.animation.redeem_hero.1st",
+        "redeem_hero.begin.1st": "animation.redeem_hero.begin.1st",
+        "redeem_hero.idle_weapon.1st": "animation.redeem_hero.idle_weapon.1st",
+        "redeem_hero.idle_grenade.1st": "animation.redeem_hero.idle_grenade.1st",
+        "redeem_hero.idle_needle.1st": "animation.redeem_hero.idle_needle.1st",
+        "redeem_hero.attack.1st": "animation.redeem_hero.attack.1st",
+        "redeem_hero.attack_big.1st": "animation.redeem_hero.attack_big.1st",
+        "redeem_hero.skill_1.1st": "animation.redeem_hero.skill_1.1st",
+        "redeem_hero.skill_2.1st": "animation.redeem_hero.skill_2.1st",
+
+        // 圣拳猎手
+
+        "ctrl.fist_hero": "controller.animation.fist_hero",
+        "ctrl.fist_hero.walk": "controller.animation.fist_hero.walk",
+        "fist_hero.idle.leg": "animation.fist_hero.idle.leg",
+        "fist_hero.idle.arm": "animation.fist_hero.idle.arm",
+        "fist_hero.move.leg": "animation.fist_hero.move.leg",
+        "fist_hero.attack": "animation.fist_hero.attack",
+        "fist_hero.attack_big": "animation.fist_hero.attack_big",
+        "ctrl.fist_hero.skill": "controller.animation.fist_hero.skill",
+        "fist_hero.skill": "animation.fist_hero.skill",
+        "fist_hero.look": "animation.fist_hero.look",
+        "fist_hero.particle": "animation.fist_hero.particle",
+
+        "ctrl.fist_hero.1st": "controller.animation.fist_hero.1st",
+        "fist_hero.begin.1st": "animation.fist_hero.begin.1st",
+        "fist_hero.idle.1st": "animation.fist_hero.idle.1st",
+        "fist_hero.attack.1st": "animation.fist_hero.attack.1st",
+        "fist_hero.attack_big.1st": "animation.fist_hero.attack_big.1st",
+        "ctrl.fist_hero.skill.1st": "controller.animation.fist_hero.skill.1st",
+        "fist_hero.skill.1st": "animation.fist_hero.skill.1st",
+
+        //weapon
+
+        "weapon_star": "animation.weapon_star",
+
+        // 步枪
+        
+        "ctrl.weapon_1": "controller.animation.weapon_1",
+        "weapon_1.idle": "animation.weapon_1.idle",
+        "weapon_1.walk": "animation.weapon_1.walk",
+        "weapon_1.fire": "animation.weapon_1.fire",
+        "weapon_1.aim": "animation.weapon_1.aim",
+        "weapon_1.aim.fire": "animation.weapon_1.aim.fire",
+        "weapon_1.loading": "animation.weapon_1.loading",
+        "ctrl.weapon_1_particle": "controller.animation.weapon_1_particle",
+        "weapon_1.particle": "animation.weapon_1.particle",
+        "weapon_1.rotation": "animation.weapon_1.rotation",
+        
+        "ctrl.weapon_1.1st": "controller.animation.weapon_1.1st",
+        "weapon_1.idle.1st": "animation.weapon_1.idle.1st",
+        "weapon_1.walk.1st": "animation.weapon_1.walk.1st",
+        "weapon_1.fire.1st": "animation.weapon_1.fire.1st",
+        "weapon_1.aim.1st": "animation.weapon_1.aim.1st",
+        "weapon_1.aim.fire.1st": "animation.weapon_1.aim.fire.1st",
+        "weapon_1.loading.1st": "animation.weapon_1.loading.1st",
+        "ctrl.weapon_1_particle.1st": "controller.animation.weapon_1_particle.1st",
+        "weapon_1.particle.1st": "animation.weapon_1.particle.1st",
+
+        // 冲锋枪
+
+        "ctrl.weapon_2": "controller.animation.weapon_2",
+        "weapon_2.idle": "animation.weapon_2.idle",
+        "weapon_2.walk": "animation.weapon_2.walk",
+        "weapon_2.fire": "animation.weapon_2.fire",
+        "weapon_2.aim": "animation.weapon_2.aim",
+        "weapon_2.aim.fire": "animation.weapon_2.aim.fire",
+        "weapon_2.loading": "animation.weapon_2.loading",
+        "ctrl.weapon_2_particle": "controller.animation.weapon_2_particle",
+        "weapon_2.particle": "animation.weapon_2.particle",
+        "weapon_2.rotation": "animation.weapon_2.rotation",
+        
+        "ctrl.weapon_2.1st": "controller.animation.weapon_2.1st",
+        "weapon_2.idle.1st": "animation.weapon_2.idle.1st",
+        "weapon_2.walk.1st": "animation.weapon_2.walk.1st",
+        "weapon_2.fire.1st": "animation.weapon_2.fire.1st",
+        "weapon_2.aim.1st": "animation.weapon_2.aim.1st",
+        "weapon_2.aim.fire.1st": "animation.weapon_2.aim.fire.1st",
+        "weapon_2.loading.1st": "animation.weapon_2.loading.1st",
+        "ctrl.weapon_2_particle.1st": "controller.animation.weapon_2_particle.1st",
+        "weapon_2.particle.1st": "animation.weapon_2.particle.1st",
+
+        // 机枪
+
+        "ctrl.weapon_3": "controller.animation.weapon_3",
+        "weapon_3.idle": "animation.weapon_3.idle",
+        "weapon_3.walk": "animation.weapon_3.walk",
+        "weapon_3.fire": "animation.weapon_3.fire",
+        "weapon_3.aim": "animation.weapon_3.aim",
+        "weapon_3.aim.fire": "animation.weapon_3.aim.fire",
+        "weapon_3.loading": "animation.weapon_3.loading",
+        "ctrl.weapon_3_particle": "controller.animation.weapon_3_particle",
+        "weapon_3.particle": "animation.weapon_3.particle",
+        "weapon_3.rotation": "animation.weapon_3.rotation",
+        
+        "ctrl.weapon_3.1st": "controller.animation.weapon_3.1st",
+        "weapon_3.idle.1st": "animation.weapon_3.idle.1st",
+        "weapon_3.walk.1st": "animation.weapon_3.walk.1st",
+        "weapon_3.fire.1st": "animation.weapon_3.fire.1st",
+        "weapon_3.aim.1st": "animation.weapon_3.aim.1st",
+        "weapon_3.aim.fire.1st": "animation.weapon_3.aim.fire.1st",
+        "weapon_3.loading.1st": "animation.weapon_3.loading.1st",
+        "ctrl.weapon_3_particle.1st": "controller.animation.weapon_3_particle.1st",
+        "weapon_3.particle.1st": "animation.weapon_3.particle.1st",
+
+        // 狙击枪
+
+        "ctrl.weapon_4": "controller.animation.weapon_4",
+        "weapon_4.idle": "animation.weapon_4.idle",
+        "weapon_4.walk": "animation.weapon_4.walk",
+        "weapon_4.fire": "animation.weapon_4.fire",
+        "weapon_4.aim": "animation.weapon_4.aim",
+        "weapon_4.aim.fire": "animation.weapon_4.aim.fire",
+        "weapon_4.loading": "animation.weapon_4.loading",
+        "ctrl.weapon_4_particle": "controller.animation.weapon_4_particle",
+        "weapon_4.particle": "animation.weapon_4.particle",
+        "weapon_4.rotation": "animation.weapon_4.rotation",
+        
+        "ctrl.weapon_4.1st": "controller.animation.weapon_4.1st",
+        "weapon_4.idle.1st": "animation.weapon_4.idle.1st",
+        "weapon_4.walk.1st": "animation.weapon_4.walk.1st",
+        "weapon_4.fire.1st": "animation.weapon_4.fire.1st",
+        "weapon_4.aim.1st": "animation.weapon_4.aim.1st",
+        // "weapon_4.aim.fire.1st": "animation.weapon_4.aim.fire.1st",
+        "weapon_4.loading.1st": "animation.weapon_4.loading.1st",
+        "ctrl.weapon_4_particle.1st": "controller.animation.weapon_4_particle.1st",
+        "weapon_4.particle.1st": "animation.weapon_4.particle.1st",
+
+        // 霰弹枪
+
+        "ctrl.weapon_5": "controller.animation.weapon_5",
+        "weapon_5.idle": "animation.weapon_5.idle",
+        "weapon_5.walk": "animation.weapon_5.walk",
+        "weapon_5.fire": "animation.weapon_5.fire",
+        "weapon_5.aim": "animation.weapon_5.aim",
+        "weapon_5.aim.fire": "animation.weapon_5.aim.fire",
+        "weapon_5.loading": "animation.weapon_5.loading",
+        "ctrl.weapon_5_particle": "controller.animation.weapon_5_particle",
+        "weapon_5.particle": "animation.weapon_5.particle",
+        "weapon_5.rotation": "animation.weapon_5.rotation",
+        
+        "ctrl.weapon_5.1st": "controller.animation.weapon_5.1st",
+        "weapon_5.idle.1st": "animation.weapon_5.idle.1st",
+        "weapon_5.walk.1st": "animation.weapon_5.walk.1st",
+        "weapon_5.fire.1st": "animation.weapon_5.fire.1st",
+        "weapon_5.aim.1st": "animation.weapon_5.aim.1st",
+        "weapon_5.aim.fire.1st": "animation.weapon_5.aim.fire.1st",
+        "weapon_5.loading.1st": "animation.weapon_5.loading.1st",
+        "ctrl.weapon_5_particle.1st": "controller.animation.weapon_5_particle.1st",
+        "weapon_5.particle.1st": "animation.weapon_5.particle.1st",
+
+        // 榴弹
+
+        "ctrl.weapon_6": "controller.animation.weapon_6",
+        "weapon_6.idle": "animation.weapon_6.idle",
+        "weapon_6.walk": "animation.weapon_6.walk",
+        "weapon_6.fire": "animation.weapon_6.fire",
+        "weapon_6.aim": "animation.weapon_6.aim",
+        "weapon_6.aim.fire": "animation.weapon_6.aim.fire",
+        "weapon_6.loading": "animation.weapon_6.loading",
+        "weapon_6.rotation": "animation.weapon_6.rotation",
+        
+        "ctrl.weapon_6.1st": "controller.animation.weapon_6.1st",
+        "weapon_6.idle.1st": "animation.weapon_6.idle.1st",
+        "weapon_6.walk.1st": "animation.weapon_6.walk.1st",
+        "weapon_6.fire.1st": "animation.weapon_6.fire.1st",
+        "weapon_6.aim.1st": "animation.weapon_6.aim.1st",
+        "weapon_6.aim.fire.1st": "animation.weapon_6.aim.fire.1st",
+        "weapon_6.loading.1st": "animation.weapon_6.loading.1st",
+
+        // 步枪
+
+        "ctrl.weapon_7": "controller.animation.weapon_7",
+        "weapon_7.idle": "animation.weapon_7.idle",
+        "weapon_7.walk": "animation.weapon_7.walk",
+        "weapon_7.fire": "animation.weapon_7.fire",
+        "weapon_7.aim": "animation.weapon_7.aim",
+        "weapon_7.aim.fire": "animation.weapon_7.aim.fire",
+        "weapon_7.loading": "animation.weapon_7.loading",
+        "ctrl.weapon_7_particle": "controller.animation.weapon_7_particle",
+        "weapon_7.particle": "animation.weapon_7.particle",
+        "weapon_7.rotation": "animation.weapon_7.rotation",
+        
+        "ctrl.weapon_7.1st": "controller.animation.weapon_7.1st",
+        "weapon_7.idle.1st": "animation.weapon_7.idle.1st",
+        "weapon_7.walk.1st": "animation.weapon_7.walk.1st",
+        "weapon_7.fire.1st": "animation.weapon_7.fire.1st",
+        "weapon_7.aim.1st": "animation.weapon_7.aim.1st",
+        "weapon_7.aim.fire.1st": "animation.weapon_7.aim.fire.1st",
+        "weapon_7.loading.1st": "animation.weapon_7.loading.1st",
+        "ctrl.weapon_7_particle.1st": "controller.animation.weapon_7_particle.1st",
+        "weapon_7.particle.1st": "animation.weapon_7.particle.1st",
+
+        // 尼泊尔
+
+        "ctrl.melee_1": "controller.animation.melee_1",
+        "melee_1.idle": "animation.melee_1.idle",
+        "melee_1.attack": "animation.melee_1.attack",
+        "melee_1.attack_big": "animation.melee_1.attack_big",
+        "ctrl.melee_1.1st": "controller.animation.melee_1.1st",
+        "melee_1.idle.1st": "animation.melee_1.idle.1st",
+        "melee_1.attack.1st": "animation.melee_1.attack.1st",
+        "melee_1.attack_big.1st": "animation.melee_1.attack_big.1st",
+
+        // 手斧
+
+        "ctrl.melee_2": "controller.animation.melee_2",
+        "melee_2.idle": "animation.melee_2.idle",
+        "melee_2.attack": "animation.melee_2.attack",
+        "melee_2.attack_big": "animation.melee_2.attack_big",
+        "ctrl.melee_2.1st": "controller.animation.melee_2.1st",
+        "melee_2.idle.1st": "animation.melee_2.idle.1st",
+        "melee_2.attack.1st": "animation.melee_2.attack.1st",
+        "melee_2.attack_big.1st": "animation.melee_2.attack_big.1st",
+
+        // 铁锹
+
+        "ctrl.melee_3": "controller.animation.melee_3",
+        "melee_3.idle": "animation.melee_3.idle",
+        "melee_3.attack": "animation.melee_3.attack",
+        "melee_3.attack_big": "animation.melee_3.attack_big",
+        "ctrl.melee_3.1st": "controller.animation.melee_3.1st",
+        "melee_3.idle.1st": "animation.melee_3.idle.1st",
+        "melee_3.attack.1st": "animation.melee_3.attack.1st",
+        "melee_3.attack_big.1st": "animation.melee_3.attack_big.1st",
+
+        // 马来剑
+
+        "ctrl.melee_4": "controller.animation.melee_4",
+        "melee_4.idle": "animation.melee_4.idle",
+        "melee_4.attack": "animation.melee_4.attack",
+        "melee_4.attack_big": "animation.melee_4.attack_big",
+        "ctrl.melee_4.1st": "controller.animation.melee_4.1st",
+        "melee_4.idle.1st": "animation.melee_4.idle.1st",
+        "melee_4.attack.1st": "animation.melee_4.attack.1st",
+        "melee_4.attack_big.1st": "animation.melee_4.attack_big.1st",
+
+        // 指虎
+
+        "ctrl.melee_5": "controller.animation.melee_5",
+        "melee_5.idle": "animation.melee_5.idle",
+        "melee_5.attack": "animation.melee_5.attack",
+        "melee_5.attack_big": "animation.melee_5.attack_big",
+        "ctrl.melee_5.1st": "controller.animation.melee_5.1st",
+        "melee_5.idle.1st": "animation.melee_5.idle.1st",
+        "melee_5.attack.1st": "animation.melee_5.attack.1st",
+        "melee_5.attack_big.1st": "animation.melee_5.attack_big.1st",
+        
+        // 人类通用
+
+        "ctrl.lie_down": "controller.animation.lie_down",
+        "lie_down": "animation.lie_down",
+        "player_1st.fixed": "animation.player_1st.fixed",
+        "player_attack_1st.fixed": "animation.player_attack_1st.fixed",
+        "player_sneaking.fix": "animation.player_sneaking.fix",
+        "not_paperdoll": "controller.animation.not_paperdoll"
+      },
+      "render_controllers": [
+        {
+          "controller.render.player.first_person": "q.variant == 0 && v.is_first_person && !v.is_paperdoll && q.property('coldsink:handle_weapon') == 0"
+        },
+        {
+          "controller.render.player.third_person": "q.variant == 0 && !v.is_first_person && !variable.map_face_icon"
+        },
+        {
+          "controller.render.player.first_person_bloom":"variable.is_first_person"
+        },
+        {
+          "controller.render.player.third_person_bloom":"!variable.is_first_person && !variable.map_face_icon"
+        },
+        {
+          "controller.render.player.map": "q.variant == 0 && !v.is_paperdoll && q.property('coldsink:handle_weapon') == 0 && variable.map_face_icon"
+        },
+        {
+          "controller.render.bile_view": "(q.variant == 0 || q.variant == 9 || q.variant == 10 || (q.variant > 12 && q.variant < 18) ) && q.is_stunned && v.is_first_person"
+        },
+        {
+          "controller.render.bile_sign": "q.variant == 0 && q.is_stunned && !v.is_first_person"
+        },
+        // 特感
+        {
+          "controller.render.sfzombie_view": "( (q.variant > 0 && q.variant <= 8) || (q.variant >= 11 && q.variant <= 12) ) && v.is_first_person && !(q.variant == 8 && q.property('coldsink:time_skill'))"
+        },
+        {
+          "controller.render.hunter": "q.variant == 1 && q.health > 10 && !v.is_first_person"
+        },
+        {
+          "controller.render.hunter.bling": "q.variant == 1 && q.health < 11 && !v.is_first_person"
+        },
+        {
+          "controller.render.hunter.1st": "q.variant == 1 && v.is_first_person"
+        },
+        {
+          "controller.render.spitter": "q.variant == 2 && q.health > 10 && !v.is_first_person"
+        },
+        {
+          "controller.render.spitter.bling": "q.variant == 2 && q.health < 11 && !v.is_first_person"
+        },
+        {
+          "controller.render.spitter.1st": "q.variant == 2 && v.is_first_person"
+        },
+        {
+          "controller.render.charger": "q.variant == 3 && q.health > 10 && !v.is_first_person"
+        },
+        {
+          "controller.render.charger.bling": "q.variant == 3 && q.health < 11 && !v.is_first_person"
+        },
+        {
+          "controller.render.charger.1st": "q.variant == 3 && v.is_first_person"
+        },
+        {
+          "controller.render.jockey": "q.variant == 4 && q.health > 10 && !v.is_first_person"
+        },
+        {
+          "controller.render.jockey.bling": "q.variant == 4 && q.health < 11 && !v.is_first_person"
+        },
+        {
+          "controller.render.jockey.1st": "q.variant == 4 && v.is_first_person"
+        },
+        {
+          "controller.render.boomer": "q.variant == 5 && q.health > 10 && !v.is_first_person"
+        },
+        {
+          "controller.render.boomer.bling": "q.variant == 5 && q.health < 11 && !v.is_first_person"
+        },
+        {
+          "controller.render.boomer.1st": "q.variant == 5 && v.is_first_person"
+        },
+        {
+          "controller.render.smoker": "q.variant == 6 && q.health > 10 && !v.is_first_person"
+        },
+        {
+          "controller.render.smoker.bling": "q.variant == 6 && q.health < 11 && !v.is_first_person"
+        },
+        {
+          "controller.render.smoker.1st": "q.variant == 6 && v.is_first_person"
+        },
+        {
+          "controller.render.tank": "q.variant == 7 && q.health > 10 && !v.is_first_person"
+        },
+        {
+          "controller.render.tank.bling": "q.variant == 7 && q.health < 11 && !v.is_first_person"
+        },
+        {
+          "controller.render.tank.1st": "q.variant == 7 && v.is_first_person"
+        },
+        {
+          "controller.render.tank_rock": "q.variant == 7 && !v.is_paperdoll && q.property('coldsink:action_status') == 3 && !v.is_first_person"
+        },
+        {
+          "controller.render.tank_rock.1st": "q.variant == 7 && !v.is_paperdoll && q.property('coldsink:action_status') == 3 && v.is_first_person"
+        },
+        {
+          "controller.render.witch_0": "q.variant == 8 && q.health > 10 && !v.is_first_person"
+        },
+        {
+          "controller.render.witch_0.bling": "q.variant == 8 && q.health < 11 && !v.is_first_person"
+        },
+        {
+          "controller.render.witch_0.1st": "q.variant == 8 && v.is_first_person"
+        },
+        {
+          "controller.render.final_tank": "q.variant == 11 && q.health > 10 && !v.is_first_person"
+        },
+        {
+          "controller.render.final_tank.bling": "q.variant == 11 && q.health < 11 && !v.is_first_person"
+        },
+        {
+          "controller.render.final_tank.1st": "q.variant == 11 && v.is_first_person"
+        },
+        {
+          "controller.render.final_witch": "q.variant == 12 && q.health > 10 && !v.is_first_person && !v.is_paperdoll && !q.property('coldsink:time_skill')"
+        },
+        {
+          "controller.render.final_witch.bling": "q.variant == 12 && q.health < 11 && !v.is_first_person"
+        },
+        {
+          "controller.render.final_witch.1st": "q.variant == 12 && v.is_first_person && !v.is_paperdoll && !v.is_paperdoll && !q.property('coldsink:time_skill')"
+        },
+        {
+          "controller.render.final_witch_skill.1st": "q.variant == 12 && v.is_first_person && !v.is_paperdoll && q.property('coldsink:time_skill')"
+        },
+        // 英雄
+        {
+          "controller.render.human_hero": "q.variant == 9 && !v.is_first_person"
+        },
+        {
+          "controller.render.human_hero.1st": "q.variant == 9 && v.is_first_person"
+        },
+        {
+          "controller.render.final_hero": "q.variant == 10 && !v.is_first_person"
+        },
+        {
+          "controller.render.final_hero.1st": "q.variant == 10 && v.is_first_person"
+        },
+        {
+          "controller.render.savior_hero_weapon": "q.variant == 13 && !v.is_first_person && !v.is_paperdoll && q.property('coldsink:handle_weapon') == 20"
+        },
+        {
+          "controller.render.savior_hero_empty": "q.variant == 13 && !v.is_first_person && !v.is_paperdoll && q.property('coldsink:handle_weapon') != 20"
+        },
+        {
+          "controller.render.savior_hero_weapon.1st": "q.variant == 13 && v.is_first_person && !v.is_paperdoll && q.property('coldsink:handle_weapon') == 20"
+        },
+        {
+          "controller.render.savior_hero_empty.1st": "q.variant == 13 && v.is_first_person && !v.is_paperdoll && q.property('coldsink:handle_weapon') != 20"
+        },
+        {
+          "controller.render.machine_hero": "q.variant == 14 && !v.is_first_person"
+        },
+        {
+          "controller.render.machine_hero.1st": "q.variant == 14 && v.is_first_person"
+        },
+        {
+          "controller.render.space_hero": "q.variant == 15 && !v.is_first_person && !v.is_paperdoll && !q.property('coldsink:time_skill')"
+        },
+        {
+          "controller.render.space_hero.1st": "q.variant == 15 && v.is_first_person && !v.is_paperdoll && !q.property('coldsink:time_skill')"
+        },
+        {
+          "controller.render.space_hero_skill.1st": "q.variant == 15 && v.is_first_person && !v.is_paperdoll && q.property('coldsink:time_skill')"
+        },
+        {
+          "controller.render.redeem_hero": "q.variant == 16 && !v.is_first_person && !v.is_paperdoll && !q.property('coldsink:time_skill')"
+        },
+        {
+          "controller.render.redeem_hero.1st": "q.variant == 16 && v.is_first_person && !v.is_paperdoll && !q.property('coldsink:time_skill')"
+        },
+        {
+          "controller.render.fist_hero": "q.variant == 17 && !v.is_first_person && !v.is_paperdoll"
+        },
+        {
+          "controller.render.fist_hero.1st": "q.variant == 17 && v.is_first_person && !v.is_paperdoll"
+        },
+        // 变身头衔标识
+        {
+          "controller.render.human_sign": "q.variant == 0 && !v.is_first_person && q.is_ignited"
+        },
+        {
+          "controller.render.human_hero_sign": "q.variant == 9 && !v.is_first_person && q.is_ignited"
+        },
+        {
+          "controller.render.final_hero_sign": "q.variant == 10 && !v.is_first_person && q.is_ignited"
+        },
+        {
+          "controller.render.savior_hero_sign": "q.variant == 13 && !v.is_first_person && q.is_ignited"
+        },
+        {
+          "controller.render.machine_hero_sign": "q.variant == 14 && !v.is_first_person && q.is_ignited"
+        },
+        {
+          "controller.render.space_hero_sign": "q.variant == 15 && !v.is_first_person && !v.is_paperdoll && !q.property('coldsink:time_skill') && q.is_ignited"
+        },
+        {
+          "controller.render.redeem_hero_sign": "q.variant == 16 && !v.is_first_person && !v.is_paperdoll && q.is_ignited"
+        },
+        {
+          "controller.render.fist_hero_sign": "q.variant == 17 && !v.is_first_person && !v.is_paperdoll && q.is_ignited"
+        },
+        {
+          "controller.render.tank_sign": "q.variant == 7 && !v.is_first_person && q.is_ignited"
+        },
+        {
+          "controller.render.witch_sign": "q.variant == 8 && !v.is_first_person && q.is_ignited"
+        },
+        {
+          "controller.render.final_tank_sign": "q.variant == 11 && !v.is_first_person && q.is_ignited"
+        },
+        {
+          "controller.render.final_witch_sign": "q.variant == 12 && !v.is_first_person && !v.is_paperdoll && !q.property('coldsink:time_skill') && q.is_ignited"
+        },
+        // 人类枪械
+        {
+          "controller.render.weapon_star": "v.is_first_person && ( q.variant == 13 || q.variant == 14 || (!v.is_paperdoll && q.property('coldsink:handle_weapon') > 0 && q.property('coldsink:handle_weapon') != 4) )"
+        },
+        {
+          "controller.render.weapon_1": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 1 && q.variant == 0 && !v.is_first_person"
+        },
+        {
+          "controller.render.weapon_1.1st": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 1 && q.variant == 0 && v.is_first_person"
+        },
+        {
+          "controller.render.player_1st_weapon_1": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 1 && q.variant == 0 && v.is_first_person"
+        },
+        {
+          "controller.render.weapon_2": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 2 && q.variant == 0 && !v.is_first_person"
+        },
+        {
+          "controller.render.weapon_2.1st": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 2 && q.variant == 0 && v.is_first_person"
+        },
+        {
+          "controller.render.player_1st_weapon_2": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 2 && q.variant == 0 && v.is_first_person"
+        },
+        {
+          "controller.render.weapon_3": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 3 && q.variant == 0 && !v.is_first_person"
+        },
+        {
+          "controller.render.weapon_3.1st": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 3 && q.variant == 0 && v.is_first_person"
+        },
+        {
+          "controller.render.player_1st_weapon_3": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 3 && q.variant == 0 && v.is_first_person"
+        },
+        {
+          "controller.render.weapon_4": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 4 && q.variant == 0 && !v.is_first_person"
+        },
+        {
+          "controller.render.weapon_4.1st": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 4 && q.variant == 0 && v.is_first_person && (!q.is_sneaking || q.property('coldsink:action_status') == 1)"
+        },
+        {
+          "controller.render.player_1st_weapon_4": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 4 && q.variant == 0 && v.is_first_person && (!q.is_sneaking || q.property('coldsink:action_status') == 1)"
+        },
+        {
+          "controller.render.weapon_4_star": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 4 && q.is_sneaking && q.variant == 0 && (q.property('coldsink:action_status') == 0 || q.property('coldsink:action_status') == 3) && v.is_first_person"
+        },
+        {
+          "controller.render.weapon_5": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 5 && q.variant == 0 && !v.is_first_person"
+        },
+        {
+          "controller.render.weapon_5.1st": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 5 && q.variant == 0 && v.is_first_person"
+        },
+        {
+          "controller.render.player_1st_weapon_5": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 5 && q.variant == 0 && v.is_first_person"
+        },
+        {
+          "controller.render.weapon_6": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 6 && q.variant == 0 && !v.is_first_person"
+        },
+        {
+          "controller.render.weapon_6.1st": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 6 && q.variant == 0 && v.is_first_person"
+        },
+        {
+          "controller.render.player_1st_weapon_6": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 6 && q.variant == 0 && v.is_first_person"
+        },
+        {
+          "controller.render.weapon_7": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 7 && q.variant == 0 && !v.is_first_person"
+        },
+        {
+          "controller.render.weapon_7.1st": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 7 && q.variant == 0 && v.is_first_person"
+        },
+        {
+          "controller.render.player_1st_weapon_7": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 7 && q.variant == 0 && v.is_first_person"
+        },
+        // 人类近战
+        {
+          "controller.render.player_1st_hand": "v.is_first_person && !v.is_paperdoll && q.property('coldsink:handle_weapon') > 20 && q.variant == 0"
+        },
+        {
+          "controller.render.melee_1": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 21 && (q.variant == 0 || q.variant == 13)"
+        },
+        {
+          "controller.render.melee_2": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 22 && (q.variant == 0 || q.variant == 13)"
+        },
+        {
+          "controller.render.melee_3": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 23 && (q.variant == 0 || q.variant == 13)"
+        },
+        {
+          "controller.render.melee_4": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 24 && (q.variant == 0 || q.variant == 13)"
+        },
+        {
+          "controller.render.melee_5": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 25 && (q.variant == 0 || q.variant == 13)"
+        },
+        {
+          "controller.render.final_double_sword": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 26 && (q.variant == 0 || q.variant == 13) && !v.is_first_person"
+        },
+        {
+          "controller.render.final_double_sword.1st": "!v.is_paperdoll && q.property('coldsink:handle_weapon') == 26 && (q.variant == 0 || q.variant == 13) && v.is_first_person"
+        }
+      ],
+      "enable_attachables": true
+    }
+  }
+}

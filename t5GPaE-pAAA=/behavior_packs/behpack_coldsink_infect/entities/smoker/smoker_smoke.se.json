@@ -1,0 +1,87 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:smoker_smoke",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+
+    "components": {
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:health": {
+        "value": 2,
+        "max": 2,
+        "min": 1
+      },
+      "minecraft:ageable": {
+        "duration": 10,
+        "grow_up": {
+          "event": "godie"
+        }
+      },
+      "minecraft:timer": {
+        "time": 0.5,
+        "time_down_event": {
+          "target": "self",
+          "event": "smoke"
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 0.01,
+        "height": 0.01
+      },
+      "minecraft:physics": {}
+
+      //behavivors
+
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "particle nacal_sdc:smoker_smoke ~~~",
+            "execute @p[family=smoker] ~~~ execute @s[tag=maper] ~~~ tag @e[type=coldsink:smoker_smoke,c=1] add maper",
+            "tag @s add neutral"
+          ]
+        }
+      },
+      "smoke": {
+        "queue_command": {
+          "command": [
+            "tp @s ~~~",
+
+            "execute @s[tag=maper] ~~~ effect @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] slowness 1 2 true",
+            "execute @s[tag=maper] ~~~ effect @e[family=monster,tag=!neutral,r=5] regeneration 1 2 true",
+
+            "execute @s[tag=!maper] ~~~ effect @e[family=!monster,r=5] slowness 1 2 true",
+            "execute @s[tag=!maper] ~~~ effect @e[family=monster,r=5] regeneration 1 2 true"
+
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

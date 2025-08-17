@@ -1,0 +1,613 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:charger_ai",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "animations": {
+        "c": "controller.animation.charger_ai.func",
+        "sound_interval": "animation.sfzombie_sound_interval.func"
+      },
+      "scripts": {
+        "animate": [
+          "c",
+          "sound_interval"
+        ]
+      }
+    },
+
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      },
+      "walk": {
+        "minecraft:navigation.walk": {
+          "can_walk": true,
+          "can_pass_doors": true,
+          "can_break_doors": true,
+          "is_amphibious": true,
+          "avoid_damage_blocks": false
+        }
+      },
+      "climb": {
+        "minecraft:navigation.climb": {
+          "can_path_over_water": true,
+          "blocks_to_avoid": [
+            "minecraft:barrier"
+          ]
+        },
+        "minecraft:behavior.leap_at_target": {
+          "priority": 3,
+          "must_be_on_ground": true,
+          "set_persistent": true,
+          "target_dist": 128,
+          "yd": 0.4
+        },
+        "minecraft:timer": {
+          "time": [10, 15],
+          "time_down_event": {
+            "event": "skill",
+            "target": "self"
+          }
+        }
+      },
+
+      "charging": {
+        "minecraft:is_sheared": {},
+        "minecraft:ageable": {
+          "duration": 5,
+          "grow_up": {
+            "event": "skill_over"
+          }
+        }
+      },
+
+      "melee": {
+        "minecraft:behavior.nearest_prioritized_attackable_target": {
+          "priority": 2,
+          "within_radius": 64,
+          "reselect_targets": true,
+          "scan_interval": 64,
+          "must_see": false,
+          "must_see_forget_duration": 8.0,
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "final_box_red"
+                  }
+                ]
+              },
+              "max_dist": 32,
+              "priority": 0,
+              "must_see": true
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "tool"
+                  },
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "neutral"
+                  },
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "no_any_hurt"
+                  }
+                ]
+              },
+              "max_dist": 64,
+              "priority": 1,
+              "must_see": false
+            }
+          ]
+        }
+      },
+      "get_box_mode": {
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 2,
+          "reselect_targets": true,
+          "scan_interval": 50,
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "=",
+                    "value": "final_box_red"
+                  }
+                ]
+              },
+              "max_dist": 48
+            }
+          ],
+          "must_see": true
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:nameable": {
+        "always_show": true,
+        "allow_name_tag_renaming": false
+      },
+      "minecraft:type_family": {
+        "family": [ "mob", "sdc", "monster", "special", "charger", "ai" ]
+      },
+      "minecraft:health": {
+        "value": 72,
+        "max": 72
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.8
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test":"has_damage",
+                    "value":"attack"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "is_hero"
+                  }
+                ]
+              },
+              "event": "knockback",
+              "target": "self"
+            }
+          },
+          {
+            "on_damage": {
+              "filters": [
+                {
+                  "test":"has_damage",
+                  "value":"fatal",
+                  "operator": "!="
+                }
+              ],
+              "event": "hurting",
+              "target": "self"
+            }
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test":"has_damage",
+                    "value":"fatal",
+                    "operator": "="
+                  },
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "value": "is_hero"
+                  },
+                  {
+                    "test": "has_damage",
+                    "operator": "!=",
+                    "value": "projectile"
+                  }
+                ]
+              },
+              "event": "melee_tag",
+              "target": "self"
+            }
+          },
+          {
+            "cause": "fall",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:attack": {
+        "damage": 4
+      },
+      "minecraft:movement": {
+        "value": 0.4
+      },
+      "minecraft:collision_box": {
+        "width": 0.65,
+        "height": 1.6
+      },
+      "minecraft:follow_range": {
+        "value": 1024
+      },
+      "minecraft:jump.static": {},
+      "minecraft:physics": {},
+      "minecraft:movement.basic": {},
+
+      "minecraft:on_target_acquired": {
+        "event": "has_target",
+        "target": "self"
+      },
+      "minecraft:on_target_escape": {
+        "event": "lost_target",
+        "target": "self"
+      },
+
+      //behavivors
+
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "max_dist": 64,
+        "entity_types": {
+          "filters": {
+            "all_of": [
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "monster"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "tool"
+              },
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "operator": "!=",
+                "value": "neutral"
+              }
+            ]
+          }
+        }
+      },
+      "minecraft:behavior.delayed_attack": {
+        "priority": 0,
+        "attack_once": false,
+        "track_target": true,
+        "require_complete_path": false,
+        "random_stop_interval": 0,
+        "reach_multiplier": 5,
+        "speed_multiplier": 1,
+        "attack_duration": 1.5,
+        "hit_delay_pct": 0.45
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 0.8
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 7
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 7,
+        "look_distance": 6,
+        "probability": 0.02
+      }
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "walk",
+            "melee"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tag @s add 游戏中",
+            "tag @s add 终结者备选",
+            "tag @s add normal_to_boss",
+            "scoreboard objectives add charger_time dummy charger_time",
+            "scoreboard objectives add charger_check dummy charger_check"
+          ]
+        }
+      },
+      "has_target": {
+        "remove": {
+          "component_groups": [
+            "walk"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "climb"
+          ]
+        }
+      },
+      "lost_target": {
+        "remove": {
+          "component_groups": [
+            "climb"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "walk"
+          ]
+        }
+      },
+      "skill": {
+        "add": {
+          "component_groups": [
+            "charging"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "melee"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tp @s ~~0.8~ ~ 0",
+            "summon coldsink:charger_charge_ai ^^^0.8",
+            "playsound charger.skill @a ~~~",
+            "scoreboard players add charge_count charger_time 1",
+            "scoreboard players operation @s charger_time = charge_count charger_time",
+            "scoreboard players operation @e[type=coldsink:charger_charge_ai,c=1] charger_time = charge_count charger_time",
+            "execute @s[scores={charger_time=999..}] ~~~ scoreboard players set charger_count charger_time 0"
+          ]
+        }
+      },
+      "skill_over": {
+        "add": {
+          "component_groups": [
+            "melee"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "charging"
+          ]
+        }
+      },
+      "knockback":{
+        "queue_command": {
+          "command": [
+            "effect @s slowness 1 1 true"
+          ]
+        }
+      },
+      "hurting":{
+        "queue_command": {
+          "command": [
+            "scoreboard players random @s[tag=!sound_interval] wp_random 1 3",
+
+            "execute @s[tag=!sound_interval,scores={wp_random=1}] ~~~ playsound charger.hurt_1 @a ~~~",
+            "execute @s[tag=!sound_interval,scores={wp_random=2}] ~~~ playsound charger.hurt_2 @a ~~~",
+            "execute @s[tag=!sound_interval,scores={wp_random=3}] ~~~ playsound charger.hurt_3 @a ~~~",
+
+            "scoreboard players reset @s[tag=!sound_interval] idle_time",
+            "tag @s[tag=!sound_interval] add sound_interval"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      },
+      "melee_tag": {
+        "queue_command": {
+          "command": [
+            "tag @s add melee_damage"
+          ]
+        }
+      },
+      "begin_find_box": {
+        "add": {
+          "component_groups": [
+            "get_box_mode"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "melee"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tag @s add normal_to_boss"
+          ]
+        }
+      },
+      "stop_find_box": {
+        "add": {
+          "component_groups": [
+            "melee"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "get_box_mode"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tag @s remove normal_to_boss"
+          ]
+        }
+      },
+      "become_boss": {
+        "queue_command": {
+          "command": [
+            "scoreboard players random @s wp_random 1 2",
+
+            "execute @s[scores={wp_random=1},name=忆知艾郎得晓愣沉] ~~~ summon coldsink:tnnk_ai 忆知艾郎得晓愣沉",
+            "execute @s[scores={wp_random=1},name=绿画娜] ~~~ summon coldsink:tnnk_ai 绿画娜",
+            "execute @s[scores={wp_random=1},name=飙啼菌] ~~~ summon coldsink:tnnk_ai 飙啼菌",
+            "execute @s[scores={wp_random=1},name=普罗陀] ~~~ summon coldsink:tnnk_ai 普罗陀",
+            "execute @s[scores={wp_random=1},name=狼掏谜纸] ~~~ summon coldsink:tnnk_ai 狼掏谜纸",
+            "execute @s[scores={wp_random=1},name=鸡姬] ~~~ summon coldsink:tnnk_ai 鸡姬",
+            "execute @s[scores={wp_random=1},name=禽疯] ~~~ summon coldsink:tnnk_ai 禽疯",
+            "execute @s[scores={wp_random=1},name=佬僵] ~~~ summon coldsink:tnnk_ai 佬僵",
+            "execute @s[scores={wp_random=1},name=集锋迫小] ~~~ summon coldsink:tnnk_ai 集锋迫小",
+            "execute @s[scores={wp_random=1},name=瘤皇蒜黄] ~~~ summon coldsink:tnnk_ai 瘤皇蒜黄",
+            "execute @s[scores={wp_random=1},name=蚕币] ~~~ summon coldsink:tnnk_ai 蚕币",
+            "execute @s[scores={wp_random=1},name=麟蔑] ~~~ summon coldsink:tnnk_ai 麟蔑",
+            "execute @s[scores={wp_random=1},name=碍登] ~~~ summon coldsink:tnnk_ai 碍登",
+            "execute @s[scores={wp_random=1},name=牛腩面面] ~~~ summon coldsink:tnnk_ai 牛腩面面",
+            "execute @s[scores={wp_random=1},name=水药] ~~~ summon coldsink:tnnk_ai 水药",
+
+            "execute @s[scores={wp_random=2},name=忆知艾郎得晓愣沉] ~~~ summon coldsink:witch_ai 忆知艾郎得晓愣沉",
+            "execute @s[scores={wp_random=2},name=绿画娜] ~~~ summon coldsink:witch_ai 绿画娜",
+            "execute @s[scores={wp_random=2},name=飙啼菌] ~~~ summon coldsink:witch_ai 飙啼菌",
+            "execute @s[scores={wp_random=2},name=普罗陀] ~~~ summon coldsink:witch_ai 普罗陀",
+            "execute @s[scores={wp_random=2},name=狼掏谜纸] ~~~ summon coldsink:witch_ai 狼掏谜纸",
+            "execute @s[scores={wp_random=2},name=鸡姬] ~~~ summon coldsink:witch_ai 鸡姬",
+            "execute @s[scores={wp_random=2},name=禽疯] ~~~ summon coldsink:witch_ai 禽疯",
+            "execute @s[scores={wp_random=2},name=佬僵] ~~~ summon coldsink:witch_ai 佬僵",
+            "execute @s[scores={wp_random=2},name=集锋迫小] ~~~ summon coldsink:witch_ai 集锋迫小",
+            "execute @s[scores={wp_random=2},name=瘤皇蒜黄] ~~~ summon coldsink:witch_ai 瘤皇蒜黄",
+            "execute @s[scores={wp_random=2},name=蚕币] ~~~ summon coldsink:witch_ai 蚕币",
+            "execute @s[scores={wp_random=2},name=麟蔑] ~~~ summon coldsink:witch_ai 麟蔑",
+            "execute @s[scores={wp_random=2},name=碍登] ~~~ summon coldsink:witch_ai 碍登",
+            "execute @s[scores={wp_random=2},name=牛腩面面] ~~~ summon coldsink:witch_ai 牛腩面面",
+            "execute @s[scores={wp_random=2},name=水药] ~~~ summon coldsink:witch_ai 水药",
+
+            "execute @s[scores={wp_random=1},name=忆知艾郎得晓愣沉] ~~~ scoreboard players operation @e[type=coldsink:tnnk_ai,name=忆知艾郎得晓愣沉,c=1] game_score = @s[name=忆知艾郎得晓愣沉] game_score",
+            "execute @s[scores={wp_random=1},name=绿画娜] ~~~ scoreboard players operation @e[type=coldsink:tnnk_ai,name=绿画娜,c=1] game_score = @s[name=绿画娜] game_score",
+            "execute @s[scores={wp_random=1},name=飙啼菌] ~~~ scoreboard players operation @e[type=coldsink:tnnk_ai,name=飙啼菌,c=1] game_score = @s[name=飙啼菌] game_score",
+            "execute @s[scores={wp_random=1},name=普罗陀] ~~~ scoreboard players operation @e[type=coldsink:tnnk_ai,name=普罗陀,c=1] game_score = @s[name=普罗陀] game_score",
+            "execute @s[scores={wp_random=1},name=狼掏谜纸] ~~~ scoreboard players operation @e[type=coldsink:tnnk_ai,name=狼掏谜纸,c=1] game_score = @s[name=狼掏谜纸] game_score",
+            "execute @s[scores={wp_random=1},name=鸡姬] ~~~ scoreboard players operation @e[type=coldsink:tnnk_ai,name=鸡姬,c=1] game_score = @s[name=鸡姬] game_score",
+            "execute @s[scores={wp_random=1},name=禽疯] ~~~ scoreboard players operation @e[type=coldsink:tnnk_ai,name=禽疯,c=1] game_score = @s[name=禽疯] game_score",
+            "execute @s[scores={wp_random=1},name=佬僵] ~~~ scoreboard players operation @e[type=coldsink:tnnk_ai,name=佬僵,c=1] game_score = @s[name=佬僵] game_score",
+            "execute @s[scores={wp_random=1},name=集锋迫小] ~~~ scoreboard players operation @e[type=coldsink:tnnk_ai,name=集锋迫小,c=1] game_score = @s[name=集锋迫小] game_score",
+            "execute @s[scores={wp_random=1},name=瘤皇蒜黄] ~~~ scoreboard players operation @e[type=coldsink:tnnk_ai,name=瘤皇蒜黄,c=1] game_score = @s[name=瘤皇蒜黄] game_score",
+            "execute @s[scores={wp_random=1},name=蚕币] ~~~ scoreboard players operation @e[type=coldsink:tnnk_ai,name=水药,c=1] game_score = @s[name=水药] game_score",
+            "execute @s[scores={wp_random=1},name=麟蔑] ~~~ scoreboard players operation @e[type=coldsink:tnnk_ai,name=麟蔑,c=1] game_score = @s[name=麟蔑] game_score",
+            "execute @s[scores={wp_random=1},name=碍登] ~~~ scoreboard players operation @e[type=coldsink:tnnk_ai,name=碍登,c=1] game_score = @s[name=碍登] game_score",
+            "execute @s[scores={wp_random=1},name=牛腩面面] ~~~ scoreboard players operation @e[type=coldsink:tnnk_ai,name=牛腩面面,c=1] game_score = @s[name=牛腩面面] game_score",
+            "execute @s[scores={wp_random=1},name=水药] ~~~ scoreboard players operation @e[type=coldsink:tnnk_ai,name=蚕币,c=1] game_score = @s[name=蚕币] game_score",
+
+            "execute @s[scores={wp_random=2},name=忆知艾郎得晓愣沉] ~~~ scoreboard players operation @e[type=coldsink:witch_ai,name=忆知艾郎得晓愣沉,c=1] game_score = @s[name=忆知艾郎得晓愣沉] game_score",
+            "execute @s[scores={wp_random=2},name=绿画娜] ~~~ scoreboard players operation @e[type=coldsink:witch_ai,name=绿画娜,c=1] game_score = @s[name=绿画娜] game_score",
+            "execute @s[scores={wp_random=2},name=飙啼菌] ~~~ scoreboard players operation @e[type=coldsink:witch_ai,name=飙啼菌,c=1] game_score = @s[name=飙啼菌] game_score",
+            "execute @s[scores={wp_random=2},name=普罗陀] ~~~ scoreboard players operation @e[type=coldsink:witch_ai,name=普罗陀,c=1] game_score = @s[name=普罗陀] game_score",
+            "execute @s[scores={wp_random=2},name=狼掏谜纸] ~~~ scoreboard players operation @e[type=coldsink:witch_ai,name=狼掏谜纸,c=1] game_score = @s[name=狼掏谜纸] game_score",
+            "execute @s[scores={wp_random=2},name=鸡姬] ~~~ scoreboard players operation @e[type=coldsink:witch_ai,name=鸡姬,c=1] game_score = @s[name=鸡姬] game_score",
+            "execute @s[scores={wp_random=2},name=禽疯] ~~~ scoreboard players operation @e[type=coldsink:witch_ai,name=禽疯,c=1] game_score = @s[name=禽疯] game_score",
+            "execute @s[scores={wp_random=2},name=佬僵] ~~~ scoreboard players operation @e[type=coldsink:witch_ai,name=佬僵,c=1] game_score = @s[name=佬僵] game_score",
+            "execute @s[scores={wp_random=2},name=集锋迫小] ~~~ scoreboard players operation @e[type=coldsink:witch_ai,name=集锋迫小,c=1] game_score = @s[name=集锋迫小] game_score",
+            "execute @s[scores={wp_random=2},name=瘤皇蒜黄] ~~~ scoreboard players operation @e[type=coldsink:witch_ai,name=瘤皇蒜黄,c=1] game_score = @s[name=瘤皇蒜黄] game_score",
+            "execute @s[scores={wp_random=2},name=蚕币] ~~~ scoreboard players operation @e[type=coldsink:witch_ai,name=水药,c=1] game_score = @s[name=水药] game_score",
+            "execute @s[scores={wp_random=2},name=麟蔑] ~~~ scoreboard players operation @e[type=coldsink:witch_ai,name=麟蔑,c=1] game_score = @s[name=麟蔑] game_score",
+            "execute @s[scores={wp_random=2},name=碍登] ~~~ scoreboard players operation @e[type=coldsink:witch_ai,name=碍登,c=1] game_score = @s[name=碍登] game_score",
+            "execute @s[scores={wp_random=2},name=牛腩面面] ~~~ scoreboard players operation @e[type=coldsink:witch_ai,name=牛腩面面,c=1] game_score = @s[name=牛腩面面] game_score",
+            "execute @s[scores={wp_random=2},name=水药] ~~~ scoreboard players operation @e[type=coldsink:witch_ai,name=蚕币,c=1] game_score = @s[name=蚕币] game_score",
+
+            "event entity @s godie"
+          ]
+        }
+      },
+      // 救赎治愈变回人类
+      "coldsink:default": {
+        "queue_command": {
+          "command": [
+            "execute @s[name=忆知艾郎得晓愣沉] ~~~ summon coldsink:human_ai ~~~ skin_1 忆知艾郎得晓愣沉",
+            "execute @s[name=绿画娜] ~~~ summon coldsink:human_ai ~~~ skin_2 绿画娜",
+            "execute @s[name=飙啼菌] ~~~ summon coldsink:human_ai ~~~ skin_3 飙啼菌",
+            "execute @s[name=普罗陀] ~~~ summon coldsink:human_ai ~~~ skin_4 普罗陀",
+            "execute @s[name=狼掏谜纸] ~~~ summon coldsink:human_ai ~~~ skin_5 狼掏谜纸",
+            "execute @s[name=鸡姬] ~~~ summon coldsink:human_ai ~~~ skin_6 鸡姬",
+            "execute @s[name=禽疯] ~~~ summon coldsink:human_ai ~~~ skin_7 禽疯",
+            "execute @s[name=佬僵] ~~~ summon coldsink:human_ai ~~~ skin_8 佬僵",
+            "execute @s[name=集锋迫小] ~~~ summon coldsink:human_ai ~~~ skin_9 集锋迫小",
+            "execute @s[name=瘤皇蒜黄] ~~~ summon coldsink:human_ai ~~~ skin_10 瘤皇蒜黄",
+            "execute @s[name=水药] ~~~ summon coldsink:human_ai ~~~ skin_11 水药",
+            "execute @s[name=麟蔑] ~~~ summon coldsink:human_ai ~~~ skin_12 麟蔑",
+            "execute @s[name=碍登] ~~~ summon coldsink:human_ai ~~~ skin_13 碍登",
+            "execute @s[name=牛腩面面] ~~~ summon coldsink:human_ai ~~~ skin_14 牛腩面面",
+            "execute @s[name=蚕币] ~~~ summon coldsink:human_ai ~~~ skin_15 蚕币",
+            "scoreboard players operation @e[type=coldsink:human_ai,c=1] game_score = @s game_score",
+            "event entity @e[type=coldsink:human_ai,c=1] random_weapon",
+            "tag @e[type=coldsink:human_ai,c=1] add random_weapon",
+            
+            "scoreboard players random @s wp_random 1 10",
+            "execute @s[scores={wp_random=1..3}] ~~~ event entity @e[type=coldsink:human_ai,c=1] become_human_hero",
+
+            "event entity @s godie"
+          ]
+        }
+      },
+
+      // modapi 触发的加分事件
+      
+      "addScore_4": {
+        "queue_command": {
+          "command": [
+            "scoreboard players add @s game_score 4"
+          ]
+        }
+      },
+      "addScore_5": {
+        "queue_command": {
+          "command": [
+            "scoreboard players add @s game_score 5"
+          ]
+        }
+      },
+      "addScore_3": {
+        "queue_command": {
+          "command": [
+            "scoreboard players add @s game_score 3"
+          ]
+        }
+      },
+      "addScore_30": {
+        "queue_command": {
+          "command": [
+            "scoreboard players add @s game_score 30"
+          ]
+        }
+      },
+      "addScore_50": {
+        "queue_command": {
+          "command": [
+            "scoreboard players add @s game_score 50"
+          ]
+        }
+      },
+      "addScore_80": {
+        "queue_command": {
+          "command": [
+            "scoreboard players add @s game_score 80"
+          ]
+        }
+      }
+    }
+  }
+}

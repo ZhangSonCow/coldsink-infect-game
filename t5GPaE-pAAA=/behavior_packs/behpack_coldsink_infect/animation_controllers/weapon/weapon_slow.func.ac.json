@@ -1,0 +1,405 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.weapon_slow.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"weapon_1": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_1') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_1_empty')"
+						},
+						{
+							"weapon_2": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_2') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_2_empty')"
+						},
+						{
+							"weapon_3": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_3') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_3_empty')"
+						},
+						{
+							"weapon_4": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4_empty')"
+						},
+						{
+							"weapon_5": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_5') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_5_empty')"
+						},
+						{
+							"weapon_6": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_6') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_6_empty')"
+						},
+						{
+							"weapon_7": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_7') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_7_empty')"
+						},
+						{
+							"melee_1": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_1')"
+						},
+						{
+							"melee_2": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_2')"
+						},
+						{
+							"melee_3": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_3')"
+						},
+						{
+							"melee_4": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_4')"
+						},
+						{
+							"melee_5": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_5')"
+						},
+						{
+							"melee_6": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_double_sword')"
+						}
+					],
+					"on_entry": [
+						"/event entity @s handle_weapon_0",
+						"/event entity @s[hasitem={item=coldsink:savior_hero_weapon_1,location=slot.weapon.mainhand}] handle_weapon_20"
+					],
+					"on_exit": [
+						"/execute @s[tag=!bullet_init] ~~~ function mod/bullet_init",
+						"/tag @s add bullet_init",
+
+						"/scoreboard objectives add bullet_back dummy bullet_back",
+						"/scoreboard objectives add bullet_back_sp dummy bullet_back_sp",
+						"/scoreboard objectives add bullet_need dummy bullet_need",
+						"/scoreboard objectives add bullet_query dummy bullet_query",
+						"/scoreboard objectives add wp_random dummy wp_random"
+					]
+				},
+				"weapon_1": {
+					"transitions": [
+						{
+							"aim_1": "q.is_sneaking && (q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_1') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_1_empty'))"
+						},
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_1') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_1_empty')"
+						}
+					],
+					"on_entry": [
+						"/event entity @s handle_weapon_1",
+						"/effect @s slowness 0 3 true"
+					]
+				},
+				"aim_1": {
+					"transitions": [
+						{
+							"weapon_1": "!q.is_sneaking"
+						},
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_1') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_1_empty')"
+						}
+					],
+					"on_entry": [
+						"/effect @s slowness 99999 2 true",
+						"/tag @s add sneaking_aim"
+					],
+					"on_exit": [
+						"/effect @s slowness 0 3 true",
+						"/tag @s remove sneaking_aim"
+					]
+				},
+				"weapon_2": {
+					"transitions": [
+						{
+							"aim_2": "q.is_sneaking && (q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_2') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_2_empty'))"
+						},
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_2') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_2_empty')"
+						}
+					],
+					"on_entry": [
+						"/event entity @s handle_weapon_2",
+						"/effect @s slowness 0 1 true",
+						"/effect @s speed 99999 0 true",
+						"/tag @s add wilder"
+					],
+					"on_exit": [
+						"/effect @s speed 0 1 true",
+						"/tag @s remove wilder"
+					]
+				},
+				"aim_2": {
+					"transitions": [
+						{
+							"weapon_2": "!q.is_sneaking"
+						},
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_2') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_2_empty')"
+						}
+					],
+					"on_entry": [
+						"/effect @s slowness 99999 0 true",
+						"/tag @s add sneaking_aim"
+					],
+					"on_exit": [
+						"/effect @s slowness 0 1 true",
+						"/tag @s remove sneaking_aim"
+					]
+				},
+				"weapon_3": {
+					"transitions": [
+						{
+							"aim_3": "q.is_sneaking && (q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_3') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_3_empty'))"
+						},
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_3') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_3_empty')"
+						}
+					],
+					"on_entry": [
+						"/event entity @s handle_weapon_3",
+						"/effect @s slowness 0 3 true",
+						"/effect @s slowness 99999 1 true"
+					],
+					"on_exit": [
+						"/effect @s slowness 0 2 true"
+					]
+				},
+				"aim_3": {
+					"transitions": [
+						{
+							"weapon_3": "!q.is_sneaking"
+						},
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_3') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_3_empty')"
+						}
+					],
+					"on_entry": [
+						"/effect @s slowness 99999 2 true",
+						"/tag @s add sneaking_aim"
+					],
+					"on_exit": [
+						"/effect @s slowness 0 3 true",
+						"/tag @s remove sneaking_aim"
+					]
+				},
+				"weapon_4": {
+					"transitions": [
+						{
+							"aim_4": "q.is_sneaking && q.mark_variant == 0 && (q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4_empty'))"
+						},
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4_empty')"
+						}
+					],
+					"on_entry": [
+						"/event entity @s handle_weapon_4",
+						"/effect @s slowness 0 6 true",
+						"/effect @s slowness 99999 0 true"
+					],
+					"on_exit": [
+						"/effect @s slowness 0 1 true"
+					]
+				},
+				"aim_4": {
+					"transitions": [
+						{
+							"weapon_4": "!q.is_sneaking || q.mark_variant == 1"
+						},
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4_empty')"
+						}
+					],
+					"on_entry": [
+						"/effect @s slowness 99999 5 true",
+						"/tag @s add sneaking_aim"
+					],
+					"on_exit": [
+						"/effect @s slowness 0 6 true",
+						"/tag @s remove sneaking_aim"
+					]
+				},
+				"weapon_5": {
+					"transitions": [
+						{
+							"aim_5": "q.is_sneaking && (q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_5') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_5_empty'))"
+						},
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_5') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_5_empty')"
+						}
+					],
+					"on_entry": [
+						"/event entity @s handle_weapon_5",
+						"/effect @s slowness 0 2 true",
+						"/effect @s slowness 99999 0 true",
+						"/effect @s speed 99999 0 true",
+						"/tag @s add wilder"
+					],
+					"on_exit": [
+						"/effect @s slowness 0 1 true",
+						"/effect @s speed 0 1 true",
+						"/tag @s remove wilder"
+					]
+				},
+				"aim_5": {
+					"transitions": [
+						{
+							"weapon_5": "!q.is_sneaking"
+						},
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_5') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_5_empty')"
+						}
+					],
+					"on_entry": [
+						"/effect @s slowness 99999 1 true",
+						"/tag @s add sneaking_aim"
+					],
+					"on_exit": [
+						"/effect @s slowness 0 2 true",
+						"/tag @s remove sneaking_aim"
+					]
+				},
+				"weapon_6": {
+					"transitions": [
+						{
+							"aim_6": "q.is_sneaking && (q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_6') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_6_empty'))"
+						},
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_6') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_6_empty')"
+						}
+					],
+					"on_entry": [
+						"/event entity @s handle_weapon_6",
+						"/effect @s slowness 0 1 true"
+					]
+				},
+				"aim_6": {
+					"transitions": [
+						{
+							"weapon_6": "!q.is_sneaking"
+						},
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_6') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_6_empty')"
+						}
+					],
+					"on_entry": [
+						"/effect @s slowness 99999 0 true",
+						"/tag @s add sneaking_aim"
+					],
+					"on_exit": [
+						"/effect @s slowness 0 1 true",
+						"/tag @s remove sneaking_aim"
+					]
+				},
+				"weapon_7": {
+					"transitions": [
+						{
+							"aim_7": "q.is_sneaking && (q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_7') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_7_empty'))"
+						},
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_7') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_7_empty')"
+						}
+					],
+					"on_entry": [
+						"/event entity @s handle_weapon_7",
+						"/effect @s slowness 0 2 true",
+						"/effect @s slowness 99999 0 true",
+						"/effect @s speed 99999 0 true",
+						"/tag @s add wilder"
+					],
+					"on_exit": [
+						"/effect @s slowness 0 1 true",
+						"/effect @s speed 0 1 true",
+						"/tag @s remove wilder"
+					]
+				},
+				"aim_7": {
+					"transitions": [
+						{
+							"weapon_7": "!q.is_sneaking"
+						},
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_7') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_7_empty')"
+						}
+					],
+					"on_entry": [
+						"/effect @s slowness 99999 1 true",
+						"/tag @s add sneaking_aim"
+					],
+					"on_exit": [
+						"/effect @s slowness 0 2 true",
+						"/tag @s remove sneaking_aim"
+					]
+				},
+				"melee_1": {
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_1')"
+						}
+					],
+					"on_entry": [
+						"/event entity @s handle_weapon_21",
+						"/effect @s weakness 99999 9 true"
+					],
+					"on_exit": [
+						"/effect @s weakness 0 10 true"
+					]
+				},
+				"melee_2": {
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_2')"
+						}
+					],
+					"on_entry": [
+						"/event entity @s handle_weapon_22",
+						"/effect @s weakness 99999 9 true"
+					],
+					"on_exit": [
+						"/effect @s weakness 0 10 true"
+					]
+				},
+				"melee_3": {
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_3')"
+						}
+					],
+					"on_entry": [
+						"/event entity @s handle_weapon_23",
+						"/effect @s weakness 99999 9 true"
+					],
+					"on_exit": [
+						"/effect @s weakness 0 10 true"
+					]
+				},
+				"melee_4": {
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_4')"
+						}
+					],
+					"on_entry": [
+						"/event entity @s handle_weapon_24",
+						"/effect @s weakness 99999 9 true"
+					],
+					"on_exit": [
+						"/effect @s weakness 0 10 true"
+					]
+				},
+				"melee_5": {
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_5')"
+						}
+					],
+					"on_entry": [
+						"/event entity @s handle_weapon_25",
+						"/effect @s weakness 99999 9 true"
+					],
+					"on_exit": [
+						"/effect @s weakness 0 10 true"
+					]
+				},
+				"melee_6": {
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_double_sword')"
+						}
+					],
+					"on_entry": [
+						"/event entity @s handle_weapon_26",
+						"/effect @s weakness 99999 9 true"
+					],
+					"on_exit": [
+						"/effect @s weakness 0 10 true"
+					]
+				}
+			}
+		}
+	}
+}

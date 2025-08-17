@@ -1,0 +1,337 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.on_using_item.func": {
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "using": "q.is_using_item"
+                        }
+                    ]
+                },
+                "using": {
+                    "transitions": [
+                        // 恢复变身
+                        {"become_default": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:default')"},
+                        // 特感变身
+                        {"become_hunter": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_hunter')"},
+                        {"become_spitter": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_spitter')"},
+                        {"become_charger": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_charger')"},
+                        {"become_jockey": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_jockey')"},
+                        {"become_boomer": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_boomer')"},
+                        {"become_smoker": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_smoker')"},
+                        {"become_tnnk": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_tnnk')"},
+                        {"become_witch": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_witch')"},
+                        {"become_final_tnnk": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_final_tnnk')"},
+                        {"become_final_witch": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_final_witch')"},
+                        // 特感技能
+                        {"hunter_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:hunter_skill')"},
+                        {"spitter_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:spitter_skill')"},
+                        {"charger_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:charger_skill')"},
+                        {"jockey_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:jockey_skill')"},
+                        {"jockey_skill_none": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:jockey_skill_none')"},
+                        {"jockey_exit": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:jockey_exit')"},
+                        {"boomer_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:boomer_skill')"},
+                        {"test_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:test_skill')"},
+                        {"smoker_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:smoker_skill')"},
+                        {"smoker_smoke_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:smoker_smoke_skill')"},
+                        {"tnnk_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:tnnk_skill')"},
+                        {"tnnk_howl_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:tnnk_howl_skill')"},
+                        {"final_witch_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_witch_skill')"},
+                        {"witch_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:witch_skill')"},
+                        // 英雄变身
+                        {"become_human_hero": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_human_hero')"},
+                        {"become_savior_hero": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_savior_hero')"},
+                        {"become_final_hero": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_final_hero')"},
+                        {"become_machine_hero": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_machine_hero')"},
+                        {"become_space_hero": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_space_hero')"},
+                        {"become_redeem_hero": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_redeem_hero')"},
+                        {"become_fist_hero": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_fist_hero')"},
+                        // 英雄技能
+                        {"final_hero_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_hero_skill')"},
+                        {"machine_hero_skill_1": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:machine_hero_skill_1')"},
+                        {"machine_hero_skill_2": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:machine_hero_skill_2')"},
+                        {"space_hero_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:space_hero_skill')"},
+                        {"redeem_hero_skill_1": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:redeem_hero_skill_1')"},
+                        {"redeem_hero_skill_2": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:redeem_hero_skill_2')"},
+                        {"fist_hero_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:fist_hero_skill')"},
+                        // 英雄进化选择
+                        {"middle_final_hero": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:middle_final_hero')"},
+                        {"middle_machine_hero": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:middle_machine_hero')"},
+                        {"middle_space_hero": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:middle_space_hero')"},
+                        {"middle_redeem_hero": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:middle_redeem_hero')"},
+                        {"middle_fist_hero": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:middle_fist_hero')"},
+						// 切换轻重击
+                        {"change_attack": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:big_attack') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:human_hero_weapon') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_hero_weapon') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:machine_hero_melee') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:space_hero_weapon') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:redeem_hero_weapon') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:fist_hero_weapon') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_double_sword') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_1') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_2') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_3') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_4') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_5')"},
+						// 道具
+                        {"aid_pack": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:aid_pack')"},
+                        {"detect": "q.is_item_name_any('slot.weapon.mainhand', 0, 'nacal_tac:detect')"},
+                        {"force": "q.is_item_name_any('slot.weapon.mainhand', 0, 'nacal_tac:force')"},
+                        {"healarea": "q.is_item_name_any('slot.weapon.mainhand', 0, 'nacal_tac:healarea')"},
+                        {"mineset": "q.is_item_name_any('slot.weapon.mainhand', 0, 'nacal_tac:mineset')"},
+                        {"raid": "q.is_item_name_any('slot.weapon.mainhand', 0, 'nacal_tac:raid')"},
+						// 观战
+                        {"audience_change": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:audience_change')"},
+						// 背包选择
+                        {"bag_1": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:bag_1')"},
+                        {"bag_2": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:bag_2')"},
+                        {"bag_3": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:bag_3')"},
+                        {"bag_4": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:bag_4')"},
+                        {"bag_5": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:bag_5')"},
+                        {"bag_random": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:bag_random')"},
+						// 随机特感
+                        {"random_sfzombie": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:random_sfzombie')"}
+                    ]
+                },
+                "become_default": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/common/default"]
+                },
+				// 特感变身
+                "become_hunter": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/sfzombie/become_hunter"]
+                },
+                "become_spitter": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/sfzombie/become_spitter"]
+                },
+                "become_charger": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/sfzombie/become_charger"]
+                },
+                "become_jockey": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/sfzombie/become_jockey"]
+                },
+                "become_boomer": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/sfzombie/become_boomer"]
+                },
+                "become_smoker": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/sfzombie/become_smoker"]
+                },
+                "become_tnnk": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/sfzombie/become_tnnk"]
+                },
+                "become_witch": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/sfzombie/become_witch"]
+                },
+                "become_final_tnnk": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/sfzombie/become_final_tnnk"]
+                },
+                "become_final_witch": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/sfzombie/become_final_witch"]
+                },
+				// 特感技能
+                "hunter_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=hunter] ~~~ function item/sfzombie/hunter_skill"]
+                },
+                "spitter_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=spitter] ~~~ function item/sfzombie/spitter_skill"]
+                },
+                "charger_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=charger] ~~~ function item/sfzombie/charger_skill"]
+                },
+                "jockey_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=jockey] ~~~ function item/sfzombie/jockey_skill"]
+                },
+                "jockey_skill_none": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=jockey] ~~~ function item/sfzombie/jockey_skill_none"]
+                },
+                "jockey_exit": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=jockey] ~~~ function item/sfzombie/jockey_exit"]
+                },
+                "boomer_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=boomer] ~~~ function item/sfzombie/boomer_skill"]
+                },
+                "test_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=boomer] ~~~ function item/sfzombie/test_kill"]
+                },
+                "smoker_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=smoker] ~~~ function item/sfzombie/smoker_skill"]
+                },
+                "smoker_smoke_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=smoker] ~~~ function item/sfzombie/smoker_smoke_skill"]
+                },
+                "tnnk_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=tnnk] ~~~ function item/sfzombie/tnnk_skill"]
+                },
+                "tnnk_howl_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=tnnk] ~~~ function item/sfzombie/tnnk_howl_skill"]
+                },
+                "witch_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=witch] ~~~ function item/sfzombie/witch_skill"]
+                },
+                "final_witch_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=final_tnnk] ~~~ function item/sfzombie/final_witch_skill"]
+                },
+				// 英雄变身
+                "become_human_hero": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/human/become_human_hero"]
+                },
+                "become_savior_hero": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/human/become_savior_hero"]
+                },
+                "become_final_hero": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/human/become_final_hero"]
+                },
+                "become_machine_hero": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/human/become_machine_hero"]
+                },
+                "become_space_hero": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/human/become_space_hero"]
+                },
+                "become_redeem_hero": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/human/become_redeem_hero"]
+                },
+                "become_fist_hero": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/human/become_fist_hero"]
+                },
+				// 英雄技能
+                "final_hero_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=final_hero] ~~~ function item/human/final_hero_skill"]
+                },
+                "machine_hero_skill_1": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=machine_hero] ~~~ function item/human/machine_hero_skill_1"]
+                },
+                "machine_hero_skill_2": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=machine_hero] ~~~ function item/human/machine_hero_skill_2"]
+                },
+                "space_hero_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=space_hero] ~~~ function item/human/space_hero_skill"]
+                },
+                "redeem_hero_skill_1": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=redeem_hero] ~~~ function item/human/redeem_hero_skill_1"]
+                },
+                "redeem_hero_skill_2": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=redeem_hero] ~~~ function item/human/redeem_hero_skill_2"]
+                },
+                "fist_hero_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=fist_hero] ~~~ function item/human/fist_hero_skill"]
+                },
+				// 英雄进化选择
+                "middle_final_hero": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/human/middle_final_hero"]
+                },
+                "middle_machine_hero": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/human/middle_machine_hero"]
+                },
+                "middle_space_hero": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/human/middle_space_hero"]
+                },
+                "middle_redeem_hero": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/human/middle_redeem_hero"]
+                },
+                "middle_fist_hero": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/human/middle_fist_hero"]
+                },
+				// 切换轻重击
+                "change_attack": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/common/change_attack"]
+                },
+				// 道具
+                "aid_pack": {
+                    "animations": [ "aid_pack" ],
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/tac/aid_pack"]
+                },
+                "detect": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/tac/detect"]
+                },
+                "force": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/tac/force"]
+                },
+                "healarea": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/tac/healarea"]
+                },
+                "mineset": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/tac/mineset"]
+                },
+                "raid": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/tac/raid"]
+                },
+				// 观战
+                "audience_change": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/common/audience_change"]
+                },
+				// 背包选择
+                "bag_1": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/common/bag_1"]
+                },
+                "bag_2": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/common/bag_2"]
+                },
+                "bag_3": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/common/bag_3"]
+                },
+                "bag_4": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/common/bag_4"]
+                },
+                "bag_5": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/common/bag_5"]
+                },
+                "bag_random": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/common/bag_random"]
+                },
+				// 随机特感
+                "random_sfzombie": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/common/random_sfzombie"]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:jockey_exhibit",
+      "animations": {
+        "idle.arm": "animation.jockey.idle.arm",
+        "idle.leg": "animation.jockey.idle.leg"
+      },
+      "scripts": {
+        "animate": [
+          "idle.arm",
+          "idle.leg"
+        ]
+      },
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/jockey"
+      },
+      "geometry": {
+        "default": "geometry.jockey"
+      },
+      "render_controllers": [ "controller.render.com" ],
+      "spawn_egg": {
+        "texture": "become_jockey"
+      }
+    }
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:spawner_human",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:nameable": {
+      },
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:collision_box": {
+          "width": 0.0,
+          "height": 0.0
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:ageable": {
+        "duration": 0.1,
+        "grow_up": {
+          "event": "godie",
+          "target": "self"
+        }
+      },
+      "minecraft:health": {
+        "value": 2,
+        "max": 2,
+        "min": 1
+      },
+      "minecraft:movement": {
+        "value": 0.0
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "tag @s add neutral",
+            "scoreboard players random @s wp_random 1 15"
+          ]
+        }
+      },
+      "name_1": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 1"
+          ]
+        }
+      },
+      "name_2": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 2"
+          ]
+        }
+      },
+      "name_3": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 3"
+          ]
+        }
+      },
+      "name_4": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 4"
+          ]
+        }
+      },
+      "name_5": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 5"
+          ]
+        }
+      },
+      "name_6": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 6"
+          ]
+        }
+      },
+      "name_7": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 7"
+          ]
+        }
+      },
+      "name_8": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 8"
+          ]
+        }
+      },
+      "name_9": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 9"
+          ]
+        }
+      },
+      "name_10": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 10"
+          ]
+        }
+      },
+      "name_11": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 11"
+          ]
+        }
+      },
+      "name_12": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 12"
+          ]
+        }
+      },
+      "name_13": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 13"
+          ]
+        }
+      },
+      "name_14": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 14"
+          ]
+        }
+      },
+      "name_15": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 15"
+          ]
+        }
+      },
+      "godie": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={wp_random=1}] ~~~ summon coldsink:human_ai ~~~ skin_1 忆知艾郎得晓愣沉",
+            "execute @s[scores={wp_random=2}] ~~~ summon coldsink:human_ai ~~~ skin_2 绿画娜",
+            "execute @s[scores={wp_random=3}] ~~~ summon coldsink:human_ai ~~~ skin_3 飙啼菌",
+            "execute @s[scores={wp_random=4}] ~~~ summon coldsink:human_ai ~~~ skin_4 普罗陀",
+            "execute @s[scores={wp_random=5}] ~~~ summon coldsink:human_ai ~~~ skin_5 狼掏谜纸",
+            "execute @s[scores={wp_random=6}] ~~~ summon coldsink:human_ai ~~~ skin_6 鸡姬",
+            "execute @s[scores={wp_random=7}] ~~~ summon coldsink:human_ai ~~~ skin_7 禽疯",
+            "execute @s[scores={wp_random=8}] ~~~ summon coldsink:human_ai ~~~ skin_8 佬僵",
+            "execute @s[scores={wp_random=9}] ~~~ summon coldsink:human_ai ~~~ skin_9 集锋迫小",
+            "execute @s[scores={wp_random=10}] ~~~ summon coldsink:human_ai ~~~ skin_10 瘤皇蒜黄",
+            "execute @s[scores={wp_random=11}] ~~~ summon coldsink:human_ai ~~~ skin_11 水药",
+            "execute @s[scores={wp_random=12}] ~~~ summon coldsink:human_ai ~~~ skin_12 麟蔑",
+            "execute @s[scores={wp_random=13}] ~~~ summon coldsink:human_ai ~~~ skin_13 碍登",
+            "execute @s[scores={wp_random=14}] ~~~ summon coldsink:human_ai ~~~ skin_14 牛腩面面",
+            "execute @s[scores={wp_random=15}] ~~~ summon coldsink:human_ai ~~~ skin_15 蚕币",
+            "event entity @e[type=coldsink:human_ai,tag=!random_weapon,c=1] random_weapon",
+            "tag @e[type=coldsink:human_ai,tag=!random_weapon,c=1] add random_weapon"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

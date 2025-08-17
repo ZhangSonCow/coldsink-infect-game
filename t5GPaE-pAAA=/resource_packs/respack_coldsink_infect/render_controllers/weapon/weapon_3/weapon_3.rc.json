@@ -1,0 +1,15 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.weapon_3": {
+      "geometry": "geometry.weapon_3",
+      "materials": [
+        {
+          "*": "material.netease_entity_metallic"
+        }
+      ],
+      "textures": [ "texture.weapon_3" ],
+      "is_hurt_color": {}
+    }
+  }
+}

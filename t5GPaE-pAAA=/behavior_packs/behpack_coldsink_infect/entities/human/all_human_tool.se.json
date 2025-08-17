@@ -1,0 +1,135 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:all_human_tool",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:nameable": {
+      },
+      "minecraft:collision_box": {
+          "width": 0.0,
+          "height": 0.0
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:ageable": {
+        "duration": 0.8,
+        "grow_up": {
+          "event": "godie",
+          "target": "self"
+        }
+      },
+      "minecraft:timer": {
+        "time": 0.15,
+        "time_down_event": {
+          "event": "count",
+          "target": "self"
+        }
+      },
+      "minecraft:health": {
+        "value": 2,
+        "max": 2,
+        "min": 1
+      },
+      "minecraft:movement": {
+        "value": 0.0
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "sequence": [
+          {
+            "randomize": [
+              {
+                "queue_command": {
+                  "command": [
+                    "summon coldsink:spawner_human_mod"
+                  ]
+                },
+                "weight": 300
+              },
+              {
+                "queue_command": {
+                  "command": [
+                    "summon coldsink:human_hero"
+                  ]
+                },
+                "weight": 50
+              },
+              {
+                "queue_command": {
+                  "command": [
+                    "summon coldsink:final_hero"
+                  ]
+                },
+                "weight": 30
+              },
+              {
+                "queue_command": {
+                  "command": [
+                    "summon coldsink:savior_hero"
+                  ]
+                },
+                "weight": 40
+              },
+              {
+                "queue_command": {
+                  "command": [
+                    "summon coldsink:machine_hero"
+                  ]
+                },
+                "weight": 20
+              },
+              {
+                "queue_command": {
+                  "command": [
+                    "summon coldsink:space_hero"
+                  ]
+                },
+                "weight": 30
+              },
+              {
+                "queue_command": {
+                  "command": [
+                    "summon coldsink:redeem_hero"
+                  ]
+                },
+                "weight": 30
+              },
+              {
+                "queue_command": {
+                  "command": [
+                    "summon coldsink:fist_hero"
+                  ]
+                },
+                "weight": 30
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

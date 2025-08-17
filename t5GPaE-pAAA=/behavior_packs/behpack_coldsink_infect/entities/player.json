@@ -1,0 +1,3629 @@
+{
+  "format_version": "1.18.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:player",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false,
+      "properties": {
+        "coldsink:action_status": {
+          // 【近战/变身】 0闲置，1轻击，2重击，3不共存技能...
+          // 【远程武器】 0闲置，1开火后摇，2换弹，3空载...
+          "type": "int",
+          "range": [ 0, 10 ],
+          "default": 0,
+          "client_sync": true
+        },
+        "coldsink:handle_weapon": {
+          // 【远程武器】 1~5五把经典远程，6毁灭者，7狂战者
+          // 【近战武器】 21~25五把普通近战，26终极绯刃
+          "type": "int",
+          "range": [ 0, 30 ],
+          "default": 0,
+          "client_sync": true
+        },
+        "coldsink:time_skill": {
+          // 共存持续性技能（hunter、witch）
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "coldsink:jockey_control": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "coldsink:tnnk_howl_control": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "coldsink:boss_bgm": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "coldsink:freeze": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        // 判断是否为地图玩家，用于为其使用第一人称手臂修复动画
+        "coldsink:is_maper": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        }
+      },
+      "animations":{
+        "ctrl.sfzombie_stay_heal.func": "controller.animation.sfzombie_stay_heal.func",
+        "sfzombie_stay_heal": "animation.sfzombie_stay_heal.func",
+        "sfzombie_heal_effect": "animation.sfzombie_heal_effect.func",
+        
+        "ctrl.boss_bgm": "controller.animation.boss_bgm.func",
+        "boss_bgm": "animation.boss_bgm.func",
+
+        "ctrl.action_clear_patch": "controller.animation.action_clear_patch.func",
+        "action_clear_patch": "animation.action_clear_patch.func",
+
+        "ctrl.on_using_item": "controller.animation.on_using_item.func",
+        "aid_pack": "animation.aid_pack.func",
+
+        // 特感
+
+        "ctrl.sfzombie_idle_sound.func": "controller.animation.sfzombie_idle_sound.func",
+        "sfzombie_idle_sound": "animation.sfzombie_idle_sound.func",
+        "ctrl.sfzombie_sound_interval": "controller.animation.sfzombie_sound_interval.func",
+        "sfzombie_sound_interval": "animation.sfzombie_sound_interval.func",
+
+        "ctrl.hunter_player.func": "controller.animation.hunter_player.func",
+        "hunter_attack_light": "animation.hunter_attack_light.func",
+        "hunter_attack_heavy": "animation.hunter_attack_heavy.func",
+        "ctrl.hunter_skill_player": "controller.animation.hunter_skill_player.func",
+        "hunter_skill_timer": "animation.hunter_skill_timer.func",
+        "ctrl.hunter_skill_load_player": "controller.animation.hunter_skill_load_player.func",
+        "hunter_interval_count": "animation.hunter_interval_count.func",
+        
+        "ctrl.spitter_player.func": "controller.animation.spitter_player.func",
+        "spitter_attack_light": "animation.spitter_attack_light.func",
+        "spitter_attack_heavy": "animation.spitter_attack_heavy.func",
+        "spitter_skill_timer": "animation.spitter_skill_timer.func",
+
+        "ctrl.charger_player.func": "controller.animation.charger_player.func",
+        "charger_attack_light": "animation.charger_attack_light.func",
+        "charger_attack_heavy": "animation.charger_attack_heavy.func",
+        "charger_skill_timer": "animation.charger_skill_timer.func",
+
+        "ctrl.jockey_player.func": "controller.animation.jockey_player.func",
+        "jockey_attack_light": "animation.jockey_attack_light.func",
+        "jockey_attack_heavy": "animation.jockey_attack_heavy.func",
+        "jockey_skill_testfor": "animation.jockey_skill_testfor.func",
+        "jockey_skill_timer": "animation.jockey_skill_timer.func",
+        "jockey_skill_damage": "animation.jockey_skill_damage.func",
+        "jockey_skill_random": "animation.jockey_skill_random.func",
+        "jockey_skill_control": "animation.jockey_skill_control.func",
+        "ctrl.jockey_control_timer": "controller.animation.jockey_control_timer.func",
+        "jockey_control_timer": "animation.jockey_control_timer.func",
+
+        "ctrl.boomer_player.func": "controller.animation.boomer_player.func",
+        "boomer_attack_light": "animation.boomer_attack_light.func",
+        "boomer_attack_heavy": "animation.boomer_attack_heavy.func",
+        "boomer_skill_timer": "animation.boomer_skill_timer.func",
+        "boomer_skill_vomit": "animation.boomer_skill_vomit.func",
+
+        "ctrl.smoker_player.func": "controller.animation.smoker_player.func",
+        "smoker_attack_light": "animation.smoker_attack_light.func",
+        "smoker_attack_heavy": "animation.smoker_attack_heavy.func",
+        "smoker_skill_timer": "animation.smoker_skill_timer.func",
+
+        "ctrl.tank_player.func": "controller.animation.tank_player.func",
+        "tank_attack_light": "animation.tank_attack_light.func",
+        "tank_attack_heavy": "animation.tank_attack_heavy.func",
+        "tank_skill_rock_timer": "animation.tank_skill_rock_timer.func",
+        "tank_skill_howl_timer": "animation.tank_skill_howl_timer.func",
+        "ctrl.tank_move_sound.func": "controller.animation.tank_move_sound.func",
+        "tank_move_sound": "animation.tank_move_sound.func",
+        "ctrl.tnnk_howl_control_timer": "controller.animation.tnnk_howl_control_timer.func",
+        "tnnk_howl_control_timer": "animation.tnnk_howl_control_timer.func",
+
+        "ctrl.final_tank_player.func": "controller.animation.final_tank_player.func",
+        "final_tank_attack_light": "animation.final_tank_attack_light.func",
+        "final_tank_attack_heavy": "animation.final_tank_attack_heavy.func",
+        "final_tank_skill_fireball_timer": "animation.final_tank_skill_fireball_timer.func",
+        "ctrl.final_tank_cooldown_player.func": "controller.animation.final_tank_cooldown_player.func",
+        "final_tank_skill_cooldown": "animation.final_tank_skill_cooldown.func",
+        "final_tank_skill_howl_timer": "animation.final_tank_skill_howl_timer.func",
+        
+        "ctrl.witch_player.func": "controller.animation.witch_player.func",
+        "witch_attack_light": "animation.witch_attack_light.func",
+        "witch_attack_heavy": "animation.witch_attack_heavy.func",
+        "ctrl.witch_skill_player": "controller.animation.witch_skill_player.func",
+        "witch_skill_timer": "animation.witch_skill_timer.func",
+        "ctrl.witch_damage_player": "controller.animation.witch_damage_player.func",
+        "witch_cry_sound": "animation.witch_cry_sound.func",
+
+        "ctrl.final_witch_player.func": "controller.animation.final_witch_player.func",
+        "final_witch_attack_light": "animation.final_witch_attack_light.func",
+        "final_witch_attack_heavy": "animation.final_witch_attack_heavy.func",
+        "ctrl.final_witch_skill_player": "controller.animation.final_witch_skill_player.func",
+        "final_witch_skill_timer": "animation.final_witch_skill_timer.func",
+        "final_witch_skill_smoke": "animation.final_witch_skill_smoke.func",
+        "ctrl.final_witch_damage_player": "controller.animation.final_witch_damage_player.func",
+
+        // 英雄
+
+        "ctrl.human_hero_player.func": "controller.animation.human_hero_player.func",
+        "human_hero_begin": "animation.human_hero_begin.func",
+        "human_hero_attack_light": "animation.human_hero_attack_light.func",
+        "human_hero_attack_heavy": "animation.human_hero_attack_heavy.func",
+
+        "ctrl.final_hero_player.func": "controller.animation.final_hero_player.func",
+        "final_hero_begin": "animation.final_hero_begin.func",
+        "final_hero_attack_light": "animation.final_hero_attack_light.func",
+        "final_hero_attack_heavy": "animation.final_hero_attack_heavy.func",
+        "final_hero_skill_timer": "animation.final_hero_skill_timer.func",
+
+        "ctrl.savior_hero_handle_weapon.func": "controller.animation.savior_hero_handle_weapon.func",
+        "ctrl.savior_hero_change.func": "controller.animation.savior_hero_change.func",
+        "ctrl.savior_hero_weapon_1.func": "controller.animation.savior_hero_weapon_1.func",
+        "savior_hero_weapon_1_fire": "animation.savior_hero_weapon_1_fire.func",
+        "savior_hero_weapon_1_loading": "animation.savior_hero_weapon_1_loading.func",
+        "ctrl.savior_hero_weapon_2.func": "controller.animation.savior_hero_weapon_2.func",
+        "savior_hero_weapon_2_fire": "animation.savior_hero_weapon_2_fire.func",
+        "savior_hero_weapon_2_loading": "animation.savior_hero_weapon_2_loading.func",
+
+        "ctrl.machine_hero_player.func": "controller.animation.machine_hero_player.func",
+        "machine_hero_begin": "animation.machine_hero_begin.func",
+        "machine_hero_weapon_fire": "animation.machine_hero_weapon_fire.func",
+        "machine_hero_attack_light": "animation.machine_hero_attack_light.func",
+        "machine_hero_attack_heavy": "animation.machine_hero_attack_heavy.func",
+        "machine_hero_skill_timer": "animation.machine_hero_skill_timer.func",
+        "ctrl.machine_hero_energy.func": "controller.animation.machine_hero_energy.func",
+        "machine_hero_energy": "animation.machine_hero_energy.func",
+
+        "ctrl.space_hero_player.func": "controller.animation.space_hero_player.func",
+        "space_hero_begin": "animation.space_hero_begin.func",
+        "space_hero_attack_light": "animation.space_hero_attack_light.func",
+        "space_hero_attack_heavy": "animation.space_hero_attack_heavy.func",
+        "ctrl.space_skill_player.func": "controller.animation.space_skill_player.func",
+        "space_hero_skill_timer": "animation.space_hero_skill_timer.func",
+
+        "ctrl.redeem_hero_player.func": "controller.animation.redeem_hero_player.func",
+        "redeem_hero_begin": "animation.redeem_hero_begin.func",
+        "redeem_hero_attack_light": "animation.redeem_hero_attack_light.func",
+        "redeem_hero_attack_heavy": "animation.redeem_hero_attack_heavy.func",
+        "redeem_hero_skill_1": "animation.redeem_hero_skill_1.func",
+        "redeem_hero_skill_2": "animation.redeem_hero_skill_2.func",
+        "ctrl.freeze_count": "controller.animation.freeze_count.func",
+        "freeze_count": "animation.freeze_count.func",
+        "ctrl.freeze_struggle": "controller.animation.freeze_struggle.func",
+
+        "ctrl.fist_hero_player.func": "controller.animation.fist_hero_player.func",
+        "fist_hero_begin": "animation.fist_hero_begin.func",
+        "fist_hero_attack_light": "animation.fist_hero_attack_light.func",
+        "fist_hero_attack_heavy": "animation.fist_hero_attack_heavy.func",
+        "ctrl.fist_skill_player.func": "controller.animation.fist_skill_player.func",
+        "fist_hero_skill_timer": "animation.fist_hero_skill_timer.func",
+
+        // 人类武器
+
+        "ctrl.bullet_show.func": "controller.animation.bullet.show",
+        "ctrl.weapon_slow.func": "controller.animation.weapon_slow.func",
+
+        "ctrl.weapon_1.func": "controller.animation.weapon_1.func",
+        "weapon_1_fire": "animation.weapon_1_fire.func",
+        "weapon_1_loading": "animation.weapon_1_loading.func",
+        
+        "ctrl.weapon_2.func": "controller.animation.weapon_2.func",
+        "weapon_2_fire": "animation.weapon_2_fire.func",
+        "weapon_2_loading": "animation.weapon_2_loading.func",
+        
+        "ctrl.weapon_3.func": "controller.animation.weapon_3.func",
+        "weapon_3_fire": "animation.weapon_3_fire.func",
+        "weapon_3_loading": "animation.weapon_3_loading.func",
+
+        "ctrl.weapon_4.func": "controller.animation.weapon_4.func",
+        "weapon_4_fire": "animation.weapon_4_fire.func",
+        "weapon_4_loading": "animation.weapon_4_loading.func",
+
+        "ctrl.weapon_5.func": "controller.animation.weapon_5.func",
+        "weapon_5_fire": "animation.weapon_5_fire.func",
+        "weapon_5_loading": "animation.weapon_5_loading.func",
+
+        "ctrl.weapon_6.func": "controller.animation.weapon_6.func",
+        "weapon_6_fire": "animation.weapon_6_fire.func",
+        "weapon_6_loading": "animation.weapon_6_loading.func",
+
+        "ctrl.weapon_7.func": "controller.animation.weapon_7.func",
+        "weapon_7_fire": "animation.weapon_7_fire.func",
+        "weapon_7_loading": "animation.weapon_7_loading.func",
+
+        "c.break_glass.func": "controller.animation.break_glass_bullet.func",
+
+        "ctrl.melee_1.func": "controller.animation.melee_1.func",
+        "melee_1_acttack_light": "animation.melee_1_attack_light.func",
+        "melee_1_acttack_heavy": "animation.melee_1_attack_heavy.func",
+        
+        "ctrl.melee_2.func": "controller.animation.melee_2.func",
+        "melee_2_acttack_light": "animation.melee_2_attack_light.func",
+        "melee_2_acttack_heavy": "animation.melee_2_attack_heavy.func",
+
+        "ctrl.melee_3.func": "controller.animation.melee_3.func",
+        "melee_3_acttack_light": "animation.melee_3_attack_light.func",
+        "melee_3_acttack_heavy": "animation.melee_3_attack_heavy.func",
+
+        "ctrl.melee_4.func": "controller.animation.melee_4.func",
+        "melee_4_acttack_light": "animation.melee_4_attack_light.func",
+        "melee_4_acttack_heavy": "animation.melee_4_attack_heavy.func",
+
+        "ctrl.melee_5.func": "controller.animation.melee_5.func",
+        "melee_5_acttack_light": "animation.melee_5_attack_light.func",
+        "melee_5_acttack_heavy": "animation.melee_5_attack_heavy.func",
+        
+        "ctrl.final_double_sword": "controller.animation.final_double_sword.func",
+        "final_double_sword_acttack_light": "animation.final_double_sword_attack_light.func",
+        "final_double_sword_acttack_heavy": "animation.final_double_sword_attack_heavy.func"
+      },
+      "scripts": {
+        "animate": [
+          "ctrl.boss_bgm",
+          "ctrl.action_clear_patch",
+          "ctrl.freeze_count",
+          "ctrl.on_using_item",
+          {
+            "ctrl.freeze_struggle": "q.property('coldsink:freeze')"
+          },
+          
+          // 人类
+          {
+            "ctrl.jockey_control_timer": "q.property('coldsink:jockey_control')"
+          },
+          {
+            "ctrl.tnnk_howl_control_timer": "q.property('coldsink:tnnk_howl_control')"
+          },
+
+          // 特感
+          "ctrl.sfzombie_sound_interval",
+          {
+            "ctrl.sfzombie_idle_sound.func": "(q.variant >= 1 && q.variant <= 8) || q.variant == 11 || q.variant == 12"
+          },
+          {
+            "ctrl.sfzombie_stay_heal.func": "(q.variant >= 1 && q.variant <= 8) || q.variant == 11 || q.variant == 12"
+          },
+          {
+            "ctrl.hunter_player.func": "q.variant == 1 && !q.property('coldsink:freeze')"
+          },
+          {
+            "ctrl.hunter_skill_player": "q.variant == 1"
+          },
+          {
+            "ctrl.hunter_skill_load_player": "q.variant == 1"
+          },
+          {
+            "ctrl.spitter_player.func": "q.variant == 2 && !q.property('coldsink:freeze')"
+          },
+          {
+            "ctrl.charger_player.func": "q.variant == 3 && !q.property('coldsink:freeze')"
+          },
+          {
+            "ctrl.jockey_player.func": "q.variant == 4 && !q.property('coldsink:freeze')"
+          },
+          {
+            "ctrl.boomer_player.func": "q.variant == 5 && !q.property('coldsink:freeze')"
+          },
+          {
+            "ctrl.smoker_player.func": "q.variant == 6 && !q.property('coldsink:freeze')"
+          },
+          {
+            "ctrl.tank_player.func": "q.variant == 7 && !q.property('coldsink:freeze')"
+          },
+          {
+            "ctrl.final_tank_player.func": "q.variant == 11 && !q.property('coldsink:freeze')"
+          },
+          {
+            "ctrl.final_tank_cooldown_player.func": "q.variant == 11"
+          },
+          {
+            "ctrl.tank_move_sound.func": "q.variant == 7 || q.variant == 11"
+          },
+          {
+            "ctrl.witch_player.func": "q.variant == 8 && !q.property('coldsink:freeze')"
+          },
+          {
+            "ctrl.witch_skill_player": "q.variant == 8"
+          },
+          {
+            "ctrl.witch_damage_player": "q.variant == 8"
+          },
+          {
+            "ctrl.final_witch_player.func": "q.variant == 12 && !q.property('coldsink:freeze')"
+          },
+          {
+            "ctrl.final_witch_skill_player": "q.variant == 12"
+          },
+          {
+            "ctrl.final_witch_damage_player": "q.variant == 12"
+          },
+
+          // 英雄
+          {
+            "ctrl.human_hero_player.func": "q.variant == 9"
+          },
+          {
+            "ctrl.final_hero_player.func": "q.variant == 10"
+          },
+          {
+            "ctrl.savior_hero_handle_weapon.func": "q.variant == 13"
+          },
+          {
+            "ctrl.savior_hero_change.func": "q.variant == 13 && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2')"
+          },
+          {
+            "ctrl.savior_hero_weapon_1.func": "q.variant == 13 && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1_empty')"
+          },
+          {
+            "ctrl.savior_hero_weapon_2.func": "q.variant == 13 && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_2_empty')"
+          },
+          {
+            "ctrl.machine_hero_player.func": "q.variant == 14"
+          },
+          {
+            "ctrl.machine_hero_energy.func": "q.variant == 14"
+          },
+          {
+            "ctrl.space_hero_player.func": "q.variant == 15"
+          },
+          {
+            "ctrl.space_skill_player.func": "q.variant == 15"
+          },
+          {
+            "ctrl.redeem_hero_player.func": "q.variant == 16"
+          },
+          {
+            "ctrl.fist_hero_player.func": "q.variant == 17"
+          },
+          {
+            "ctrl.fist_skill_player.func": "q.variant == 17"
+          },
+
+          // 人类武器
+          {
+            "ctrl.bullet_show.func": "q.variant == 0 || q.variant == 13"
+          },
+          {
+            "ctrl.weapon_slow.func": "q.variant == 0 || q.variant == 13"
+          },
+          {
+            "ctrl.weapon_1.func": "q.variant == 0 && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_1') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_1_empty')"
+          },
+          {
+            "ctrl.weapon_2.func": "q.variant == 0 && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_2') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_2_empty')"
+          },
+          {
+            "ctrl.weapon_3.func": "q.variant == 0 && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_3') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_3_empty')"
+          },
+          {
+            "ctrl.weapon_4.func": "q.variant == 0 && q.variant == 0 && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4_empty')"
+          },
+          {
+            "ctrl.weapon_5.func": "q.variant == 0 && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_5') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_5_empty')"
+          },
+          {
+            "ctrl.weapon_6.func": "q.variant == 0 && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_6') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_6_empty')"
+          },
+          {
+            "ctrl.weapon_7.func": "q.variant == 0 && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_7') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_7_empty')"
+          },
+          {
+            "c.break_glass.func": "q.variant == 0 || q.variant == 13 || q.variant == 14"
+          },
+
+          {
+            "ctrl.melee_1.func": "(q.variant == 0 || q.variant == 13) && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_1')"
+          },
+          {
+            "ctrl.melee_2.func": "(q.variant == 0 || q.variant == 13) && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_2')"
+          },
+          {
+            "ctrl.melee_3.func": "(q.variant == 0 || q.variant == 13) && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_3')"
+          },
+          {
+            "ctrl.melee_4.func": "(q.variant == 0 || q.variant == 13) && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_4')"
+          },
+          {
+            "ctrl.melee_5.func": "(q.variant == 0 || q.variant == 13) && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_5')"
+          },
+          {
+            "ctrl.final_double_sword": "(q.variant == 0 || q.variant == 13) && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_double_sword')"
+          }
+        ]
+      }
+    },
+    "component_groups": {
+      "minecraft:add_bad_omen": {
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "effect": "bad_omen",
+              "duration": 6000,
+              "visible": false,
+              "display_on_screen_animation": true
+            }
+          ]
+        },
+        "minecraft:timer": {
+          "time": [
+            0.0,
+            0.0
+          ],
+          "looping": false,
+          "time_down_event": {
+            "event": "minecraft:clear_add_bad_omen",
+            "target": "self"
+          }
+        }
+      },
+      "minecraft:clear_bad_omen_spell_effect": {
+        "minecraft:spell_effects": {}
+      },
+      "minecraft:raid_trigger": {
+        "minecraft:raid_trigger": {
+          "triggered_event": {
+            "event": "minecraft:remove_raid_trigger",
+            "target": "self"
+          }
+        },
+        "minecraft:spell_effects": {
+          "remove_effects": "bad_omen"
+        }
+      },
+
+      // 无变身
+
+      "coldsink:default": {
+        "minecraft:variant": {
+          "value": 0
+        },
+        "minecraft:type_family": {
+          "family": [
+            "player",
+            "normal_human"
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        },
+        "minecraft:collision_box": {
+          "width": 0.6,
+          "height": 1.8
+        },
+        "minecraft:nameable": {
+          "always_show": true
+        },
+        
+        // 无变身时，玩家鹦鹉rideable
+
+        "minecraft:rideable": {
+          "seat_count": 2,
+          "family_types": [
+            "parrot_tame"
+          ],
+          "pull_in_entities": true,
+          "seats": [
+            {
+              "position": [
+                0.4,
+                -0.2,
+                -0.1
+              ],
+              "min_rider_count": 0,
+              "max_rider_count": 0,
+              "lock_rider_rotation": 0
+            },
+            {
+              "position": [
+                -0.4,
+                -0.2,
+                -0.1
+              ],
+              "min_rider_count": 1,
+              "max_rider_count": 2,
+              "lock_rider_rotation": 0
+            }
+          ]
+        }
+      },
+
+      // hunter
+
+      "coldsink:is_hunter": {
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:type_family": {
+          "family": [
+            "monster",
+            "hunter"
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.4
+        },
+        "minecraft:collision_box": {
+          "width": 0.65,
+          "height": 1.6
+        }
+      },
+
+      //spitter
+
+      "coldsink:is_spitter": {
+        "minecraft:variant": {
+          "value": 2
+        },
+        "minecraft:type_family": {
+          "family": [
+            "monster",
+            "spitter"
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.1
+        },
+        "minecraft:collision_box": {
+          "width": 0.6,
+          "height": 2.0
+        }
+      },
+      "coldsink:spitter_acid": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:spitter_acid_throw",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+
+      //charger
+
+      "coldsink:is_charger": {
+        "minecraft:variant": {
+          "value": 3
+        },
+        "minecraft:type_family": {
+          "family": [
+            "monster",
+            "charger"
+          ]
+        },
+        "minecraft:collision_box": {
+          "width": 1.0,
+          "height": 2.15
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.8
+        }
+      },
+
+      //jockey
+
+      "coldsink:is_jockey": {
+        "minecraft:variant": {
+          "value": 4
+        },
+        "minecraft:type_family": {
+          "family": [
+            "monster",
+            "jockey"
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.3
+        },
+        "minecraft:collision_box": {
+          "width": 0.7,
+          "height": 1.2
+        }
+      },
+
+      //boomer
+
+      "coldsink:is_boomer": {
+        "minecraft:variant": {
+          "value": 5
+        },
+        "minecraft:type_family": {
+          "family": [
+            "monster",
+            "boomer"
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.0
+        },
+        "minecraft:collision_box": {
+          "width": 0.8,
+          "height": 1.8
+        }
+      },
+      "coldsink:boomer.bile": {
+        "minecraft:is_stunned": {},
+        "minecraft:timer": {
+          "time": 7,
+          "time_down_event": {
+            "target": "self",
+            "event": "coldsink:boomer_bile_over"
+          }
+        }
+      },
+      "coldsink:boomer.vomit": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:boomer_bile_throw",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+
+      //smoker
+
+      "coldsink:is_smoker": {
+        "minecraft:variant": {
+          "value": 6
+        },
+        "minecraft:type_family": {
+          "family": [
+            "monster",
+            "smoker"
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.2
+        },
+        "minecraft:collision_box": {
+          "width": 0.75,
+          "height": 2.2
+        }
+      },
+      "coldsink:smoker_tongue": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:smoker_tongue_throw",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+
+      //tank
+
+      "coldsink:is_tnnk": {
+        "minecraft:variant": {
+          "value": 7
+        },
+        "minecraft:type_family": {
+          "family": [
+            "monster",
+            "boss",
+            "normal_boss",
+            "tnnk",
+            "tnnk_hard"
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        },
+        "minecraft:collision_box": {
+          "width": 1.5,
+          "height": 2.3
+        }
+      },
+      "coldsink:tank.throw": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:tnnk_rock",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+
+      //witch
+
+      "coldsink:is_witch": {
+        "minecraft:variant": {
+          "value": 8
+        },
+        "minecraft:type_family": {
+          "family": [
+            "monster",
+            "boss",
+            "normal_boss",
+            "witch"
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        },
+        "minecraft:collision_box": {
+          "width": 0.55,
+          "height": 2.0
+        }
+      },
+
+      //final_tank
+
+      "coldsink:is_final_tnnk": {
+        "minecraft:variant": {
+          "value": 11
+        },
+        "minecraft:type_family": {
+          "family": [
+            "monster",
+            "boss",
+            "final_boss",
+            "final_tnnk",
+            "tnnk_hard"
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        },
+        "minecraft:collision_box": {
+          "width": 1.5,
+          "height": 2.3
+        }
+      },
+      "coldsink:final_tnnk_fireball": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:tnnk_fireball",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+
+      //final_witch
+
+      "coldsink:is_final_witch": {
+        "minecraft:variant": {
+          "value": 12
+        },
+        "minecraft:type_family": {
+          "family": [
+            "monster",
+            "boss",
+            "final_boss",
+            "final_witch"
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        },
+        "minecraft:collision_box": {
+          "width": 0.55,
+          "height": 2.0
+        }
+      },
+      "skill_hide_name": {
+        "minecraft:nameable": {
+          "always_show": false
+        }
+      },
+      "normal_show_name": {
+        "minecraft:nameable": {
+          "always_show": true
+        }
+      },
+      
+      // 幽灵猎手
+      
+      "coldsink:is_human_hero": {
+        "minecraft:variant": {
+          "value": 9
+        },
+        "minecraft:type_family": {
+          "family": [
+            "player",
+            "hero",
+            "human_hero",
+            "normal_hero"
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        },
+        "minecraft:collision_box": {
+          "width": 0.6,
+          "height": 1.8
+        }
+      },
+
+      // 终极猎手
+
+      "coldsink:is_final_hero": {
+        "minecraft:variant": {
+          "value": 10
+        },
+        "minecraft:type_family": {
+          "family": [
+            "player",
+            "hero",
+            "final_hero"
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        },
+        "minecraft:collision_box": {
+          "width": 0.6,
+          "height": 1.8
+        }
+      },
+
+      // 救世主
+      
+      "coldsink:is_savior_hero": {
+        "minecraft:variant": {
+          "value": 13
+        },
+        "minecraft:type_family": {
+          "family": [
+            "player",
+            "hero",
+            "savior_hero",
+            "normal_hero"
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        },
+        "minecraft:collision_box": {
+          "width": 0.6,
+          "height": 1.8
+        }
+      },
+      "coldsink:savior_hero_weapon_1_shot_sp": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:savior_bullet_1_sp",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+      "coldsink:savior_hero_weapon_1_shot": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:savior_bullet_1",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+      "coldsink:savior_hero_weapon_2_shot_sp": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:savior_bullet_2_sp",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+      "coldsink:savior_hero_weapon_2_shot": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:savior_bullet_2",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+
+      // 机械猎手
+
+      "coldsink:is_machine_hero": {
+        "minecraft:variant": {
+          "value": 14
+        },
+        "minecraft:type_family": {
+          "family": [
+            "player",
+            "hero",
+            "machine_hero"
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        },
+        "minecraft:collision_box": {
+          "width": 0.6,
+          "height": 1.8
+        }
+      },
+      "coldsink:machine_hero_weapon_shot_sp": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:machine_bullet_sp",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+      "coldsink:machine_hero_weapon_shot": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:machine_bullet",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+      "coldsink:machine_hero_skill": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:machine_boom",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+
+      // 时空猎手
+
+      "coldsink:is_space_hero": {
+        "minecraft:variant": {
+          "value": 15
+        },
+        "minecraft:type_family": {
+          "family": [
+            "player",
+            "hero",
+            "space_hero"
+          ]
+        },
+        "minecraft:collision_box": {
+          "width": 0.6,
+          "height": 1.8
+        }
+      },
+      "coldsink:space_hero_normal": {
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        }
+      },
+      "coldsink:space_hero_invis": {
+        "minecraft:knockback_resistance": {
+          "value": 0.0
+        }
+      },
+
+      // 救赎猎手
+
+      "coldsink:is_redeem_hero": {
+        "minecraft:variant": {
+          "value": 16
+        },
+        "minecraft:type_family": {
+          "family": [
+            "player",
+            "hero",
+            "redeem_hero"
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        },
+        "minecraft:collision_box": {
+          "width": 0.6,
+          "height": 1.8
+        }
+      },
+      "coldsink:redeem_hero_grenade": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:redeem_hero_grenade",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+
+      // 圣拳猎手
+
+      "coldsink:is_fist_hero": {
+        "minecraft:variant": {
+          "value": 17
+        },
+        "minecraft:type_family": {
+          "family": [
+            "player",
+            "hero",
+            "fist_hero"
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        },
+        "minecraft:collision_box": {
+          "width": 0.6,
+          "height": 1.8
+        },
+        
+        // 圣拳猎手，护盾rideable
+        
+        "minecraft:rideable": {
+          "seat_count": 1,
+          "family_types": [
+            "fist_shield"
+          ],
+          "pull_in_entities": true,
+          "seats": [
+            {
+              "position": [
+                0,
+                0,
+                0
+              ],
+              "min_rider_count": 0,
+              "max_rider_count": 0,
+              "lock_rider_rotation": 0
+            }
+          ]
+        }
+      },
+
+      // 人类通用组
+
+      "coldsink:human_sign": {
+        "minecraft:is_ignited": {}
+      },
+      "coldsink:lie_down": {
+        "minecraft:is_tamed": {}
+      },
+
+      // 人类枪械
+
+      "coldsink:weapon_1_shot_sp": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:bullet_1_sp",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+      "coldsink:weapon_1_shot": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:bullet_1",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+      "coldsink:weapon_2_shot_sp": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:bullet_2_sp",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+      "coldsink:weapon_2_shot": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:bullet_2",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+      "coldsink:weapon_3_shot_sp": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:bullet_3_sp",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+      "coldsink:weapon_3_shot": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:bullet_3",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+      "coldsink:weapon_4_shot_sp": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:bullet_4_sp",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+      "coldsink:weapon_4_shot": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:bullet_4",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+      "coldsink:weapon_5_shot_sp": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:bullet_5_sp",
+              "num_to_spawn": 7
+            }
+          ]
+        }
+      },
+      "coldsink:weapon_5_shot": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:bullet_5",
+              "num_to_spawn": 7
+            }
+          ]
+        }
+      },
+      "coldsink:weapon_6_shot_sp": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:bullet_6_sp",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+      "coldsink:weapon_6_shot": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:bullet_6",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+      "coldsink:weapon_7_shot_sp": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:bullet_7_sp",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+      "coldsink:weapon_7_shot": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:bullet_7",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+
+      // 子弹碎窗
+      "coldsink:glass_bullet": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "nacal_sdc:glass_throw",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+
+      // tac战术投掷道具
+
+      "coldsink:tac_detect": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "nacal_tac:detect_throw",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+      "coldsink:tac_force": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "nacal_tac:force_throw",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+      "coldsink:tac_healarea": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "nacal_tac:healarea_throw",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+      "coldsink:tac_mineset": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "nacal_tac:mineset_throw",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+      "coldsink:tac_raid": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "nacal_tac:raid_throw",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+
+      // 近战轻重击模式判断（变身通用）
+      "melee_big": {
+        "minecraft:is_saddled": {}
+      }
+
+    },
+    "components": {
+      // 默认variant为 0
+      "minecraft:variant": {
+        "value": 0
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          // 地图玩家：人类间取消队伤
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "subject": "self",
+                    "value": "maper"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "self",
+                    "value": "player"
+                  }
+                ]
+              }
+            },
+            "cause": "all",
+            "deals_damage": false
+          },
+          // 地图玩家：免疫摔伤
+          {
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_tag",
+                    "subject": "self",
+                    "value": "maper"
+                  }
+                ]
+              }
+            },
+            "cause": "fall",
+            "deals_damage": false
+          },
+          // 作为特感被人类玩家推开
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "self",
+                    "value": "monster"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test":"has_damage",
+                    "value":"attack"
+                  },
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "is_hero"
+                  }
+                ]
+              },
+              "event": "knockback",
+              "target": "self"
+            }
+          },
+          // 被人机猎手刀灭
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test":"has_damage",
+                    "value":"fatal",
+                    "operator": "="
+                  },
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "value": "is_hero"
+                  },
+                  {
+                    "test": "has_damage",
+                    "operator": "!=",
+                    "value": "projectile"
+                  }
+                ]
+              },
+              "event": "melee_tag_by_hero",
+              "target": "self"
+            }
+          },
+          // 作为英雄，受到Boss特感人机伤害*2
+          {
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test":"has_tag",
+                    "subject": "self",
+                    "value":"is_hero"
+                  },
+                  {
+                    "test":"is_family",
+                    "subject": "other",
+                    "value":"boss"
+                  }
+                ]
+              }
+            },
+            "damage_multiplier": 2.0
+          }
+        ]
+      },
+      "minecraft:experience_reward": {
+        "on_death": "Math.Min(query.player_level * 7, 100)"
+      },
+      "minecraft:type_family": {
+        "family": [
+          "player"
+        ]
+      },
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:loot": {
+        "table": "loot_tables/empty.json"
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.8
+      },
+      "minecraft:can_climb": {},
+      "minecraft:movement": {
+        "value": 0.1
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:attack": {
+        "damage": 1
+      },
+      "minecraft:exhaustion_values": {
+        "heal": 6,
+        "jump": 0.05,
+        "sprint_jump": 0.2,
+        "mine": 0.005,
+        "attack": 0.1,
+        "damage": 0.1,
+        "walk": 0.0,
+        "sprint": 0.01,
+        "swim": 0.01
+      },
+      "minecraft:player.saturation": {
+        "value": 5,
+        "max": 20
+      },
+      "minecraft:player.exhaustion": {
+        "value": 0,
+        "max": 20
+      },
+      "minecraft:player.level": {
+        "value": 0,
+        "max": 24791
+      },
+      "minecraft:player.experience": {
+        "value": 0,
+        "max": 1
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": -1,
+        "inhale_time": 3.75,
+        "generates_bubbles": false
+      },
+      "minecraft:nameable": {
+        "always_show": true,
+        "allow_name_tag_renaming": false
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:insomnia": {
+        "days_until_insomnia": 3
+      },
+      "minecraft:rideable": {
+        "seat_count": 2,
+        "family_types": [
+          "parrot_tame"
+        ],
+        "pull_in_entities": true,
+        "seats": [
+          {
+            "position": [
+              0.4,
+              -0.2,
+              -0.1
+            ],
+            "min_rider_count": 0,
+            "max_rider_count": 0,
+            "lock_rider_rotation": 0
+          },
+          {
+            "position": [
+              -0.4,
+              -0.2,
+              -0.1
+            ],
+            "min_rider_count": 1,
+            "max_rider_count": 2,
+            "lock_rider_rotation": 0
+          }
+        ]
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:block_climber": {},
+      "minecraft:environment_sensor": {
+        "triggers": {
+          "filters": {
+            "all_of": [
+              {
+                "test": "has_mob_effect",
+                "subject": "self",
+                "value": "bad_omen"
+              },
+              {
+                "test": "is_in_village",
+                "subject": "self",
+                "value": true
+              }
+            ]
+          },
+          "event": "minecraft:trigger_raid"
+        }
+      }
+    },
+    "events": {
+      "minecraft:gain_bad_omen": {
+        "add": {
+          "component_groups": [
+            "minecraft:add_bad_omen"
+          ]
+        }
+      },
+      "minecraft:clear_add_bad_omen": {
+        "remove": {
+          "component_groups": [
+            "minecraft:add_bad_omen"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:clear_bad_omen_spell_effect"
+          ]
+        }
+      },
+      "minecraft:trigger_raid": {
+        "add": {
+          "component_groups": [
+            "minecraft:raid_trigger"
+          ]
+        }
+      },
+      "minecraft:remove_raid_trigger": {
+        "remove": {
+          "component_groups": [
+            "minecraft:raid_trigger"
+          ]
+        }
+      },
+
+      // 控制是否为地图玩家
+
+      "is_maper_yes": {
+        "set_property":{
+          "coldsink:is_maper": true
+        }
+      },
+      "is_maper_no": {
+        "set_property":{
+          "coldsink:is_maper": false
+        }
+      },
+
+      // 玩家动作状态变化通用方法
+
+      "action_clear": {
+        "set_property":{
+          "coldsink:action_status": 0
+        }
+      },
+      "action_attack_light": {
+        "set_property":{
+          "coldsink:action_status": 1
+        }
+      },
+      "action_attack_heavy": {
+        "set_property":{
+          "coldsink:action_status": 2
+        }
+      },
+      "action_skill": {
+        "set_property":{
+          "coldsink:action_status": 3
+        }
+      },
+      "action_skill_other": {
+        "set_property":{
+          "coldsink:action_status": 4
+        }
+      },
+      "action_more_other": {
+        "set_property":{
+          "coldsink:action_status": 5
+        }
+      },
+      "action_fired": {
+        "set_property":{
+          "coldsink:action_status": 1
+        }
+      },
+      "action_reload": {
+        "set_property":{
+          "coldsink:action_status": 2
+        }
+      },
+      "action_empty": {
+        "set_property":{
+          "coldsink:action_status": 3
+        }
+      },
+
+      // 控制手持武器类型
+
+      "handle_weapon_0": {
+        "set_property":{
+          "coldsink:handle_weapon": 0
+        }
+      },
+      "handle_weapon_1": {
+        "set_property":{
+          "coldsink:handle_weapon": 1
+        }
+      },
+      "handle_weapon_2": {
+        "set_property":{
+          "coldsink:handle_weapon": 2
+        }
+      },
+      "handle_weapon_3": {
+        "set_property":{
+          "coldsink:handle_weapon": 3
+        }
+      },
+      "handle_weapon_4": {
+        "set_property":{
+          "coldsink:handle_weapon": 4
+        }
+      },
+      "handle_weapon_5": {
+        "set_property":{
+          "coldsink:handle_weapon": 5
+        }
+      },
+      "handle_weapon_6": {
+        "set_property":{
+          "coldsink:handle_weapon": 6
+        }
+      },
+      "handle_weapon_7": {
+        "set_property":{
+          "coldsink:handle_weapon": 7
+        }
+      },
+      "handle_weapon_20": {
+        "set_property":{
+          "coldsink:handle_weapon": 20
+        }
+      },
+      "handle_weapon_21": {
+        "set_property":{
+          "coldsink:handle_weapon": 21
+        }
+      },
+      "handle_weapon_22": {
+        "set_property":{
+          "coldsink:handle_weapon": 22
+        }
+      },
+      "handle_weapon_23": {
+        "set_property":{
+          "coldsink:handle_weapon": 23
+        }
+      },
+      "handle_weapon_24": {
+        "set_property":{
+          "coldsink:handle_weapon": 24
+        }
+      },
+      "handle_weapon_25": {
+        "set_property":{
+          "coldsink:handle_weapon": 25
+        }
+      },
+      "handle_weapon_26": {
+        "set_property":{
+          "coldsink:handle_weapon": 26
+        }
+      },
+
+      // 共存持续性技能
+
+      "time_skill_true": {
+        "set_property":{
+          "coldsink:time_skill": true
+        }
+      },
+      "time_skill_false": {
+        "set_property":{
+          "coldsink:time_skill": false
+        }
+      },
+
+      // 清除变身通用方法
+
+      "coldsink:clear_all_become": {
+        "remove": {
+          "component_groups": [
+            "coldsink:default",
+            "coldsink:is_hunter",
+            "coldsink:is_spitter",
+            "coldsink:is_charger",
+            "coldsink:is_jockey",
+            "coldsink:is_boomer",
+            "coldsink:is_smoker",
+            "coldsink:is_tnnk",
+            "coldsink:is_witch",
+            "coldsink:is_final_tnnk",
+            "coldsink:is_final_witch",
+            "coldsink:is_human_hero",
+            "coldsink:is_final_hero",
+            "coldsink:is_savior_hero",
+            "coldsink:is_machine_hero",
+            "coldsink:is_space_hero",
+            "coldsink:space_hero_normal",
+            "coldsink:space_hero_invis",
+            "coldsink:is_redeem_hero",
+            "coldsink:is_fist_hero"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tag @s remove no_any_hurt",
+            // 删除变身标签
+            "tag @s remove is_hunter",
+            "tag @s remove is_spitter",
+            "tag @s remove is_charger",
+            "tag @s remove is_jockey",
+            "tag @s remove is_boomer",
+            "tag @s remove is_smoker",
+            "tag @s remove is_tnnk",
+            "tag @s remove is_witch",
+            "tag @s remove is_final_tnnk",
+            "tag @s remove is_final_witch",
+            "tag @s remove is_boss",
+            "tag @s remove is_human_hero",
+            "tag @s remove is_final_hero",
+            "tag @s remove is_savior_hero",
+            "tag @s remove is_machine_hero",
+            "tag @s remove is_space_hero",
+            "tag @s remove is_redeem_hero",
+            "tag @s remove is_fist_hero",
+            "tag @s remove is_hero",
+
+            // 清除
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "effect @s clear",
+            "effect @s saturation 99999 0 true",
+            "effect @s instant_health 1 10 true",
+            "tag @s remove lie_down",
+            "tag @s remove no_any_hurt",
+            
+            "scoreboard players reset @s sfzombie_update",
+
+            // 清除第一格
+            "replaceitem entity @s slot.hotbar 0 air",
+            // 清除最后一格
+            "replaceitem entity @s[family=!human_hero,family=!savior_hero] slot.hotbar 8 air",
+            // 清除倒数第二格
+            "replaceitem entity @s[family=smoker] slot.hotbar 7 air",
+            "replaceitem entity @s[family=tnnk] slot.hotbar 7 air",
+            "replaceitem entity @s[family=final_tnnk] slot.hotbar 7 air",
+            "replaceitem entity @s[family=machine_hero] slot.hotbar 7 air",
+            "replaceitem entity @s[family=redeem_hero] slot.hotbar 7 air",
+            // 清除第二格
+            "replaceitem entity @s[family=machine_hero] slot.hotbar 1 air"
+          ]
+        }
+      },
+
+      "coldsink:default": {
+        "queue_command": {
+          "command": [
+            "event entity @s coldsink:clear_all_become",
+            "event entity @s coldsink:add_default",
+            "event entity @s action_clear",
+            "event entity @s time_skill_false",
+            "event entity @s coldsink:exit_lie_down",
+            "event entity @s coldsink:jockey_control_over",
+            "event entity @s coldsink:tnnk_howl_control_over",
+            "event entity @s freeze_no",
+						"inputpermission set @s camera enabled",
+						"inputpermission set @s movement enabled",
+
+            "scoreboard objectives add player_death dummy player_death",
+            "scoreboard objectives add player_respawn dummy player_respawn",
+            "scoreboard objectives add wp_random dummy wp_random",
+
+            "camera @s clear",
+
+            "event entity @s[tag=maper,tag=!game_audience] default_maper_item_give",
+
+            // 观战效果
+            "event entity @s[tag=maper,tag=game_audience] game_audience_effect",
+            "tag @s remove game_audience"
+          ]
+        }
+      },
+      "default_maper_item_give": {
+        "queue_command": {
+          "command": [
+            "replaceitem entity @s[tag=maper,tag=!neutral] slot.hotbar 0 coldsink:bag_1 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=maper,tag=!neutral] slot.hotbar 1 coldsink:bag_2 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=maper,tag=!neutral] slot.hotbar 2 coldsink:bag_3 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=maper,tag=!neutral] slot.hotbar 3 coldsink:bag_4 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=maper,tag=!neutral] slot.hotbar 4 coldsink:bag_5 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            
+            // 被救赎猎手治愈，额外获得幽灵猎手变身器
+            "title @s[tag=redeem_cure] actionbar §a被救赎猎手治愈",
+            "replaceitem entity @s[tag=maper,tag=redeem_cure] slot.hotbar 8 coldsink:become_human_hero 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "tag @s remove redeem_cure"
+          ]
+        }
+      },
+      "coldsink:add_default": {
+        "add": {
+          "component_groups" :[
+            "coldsink:default"
+          ]
+        }
+      },
+      
+      //hunter
+
+      "coldsink:become_hunter": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+
+            "event entity @s coldsink:add_hunter",
+            "tag @s add is_hunter",
+            "scoreboard objectives add idle_time dummy idle_time",
+            "scoreboard objectives add sfzombie_stay dummy sfzombie_stay",
+
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s speed 99999 1 true",
+            "effect @s jump_boost 99999 2 true",
+            "effect @s health_boost 99999 8 true",
+            "effect @s instant_health 1 10 true",
+
+						"tellraw @s {\"rawtext\":[{\"text\":\"§l§f【提示】§c 原地不动可自愈\"}]}",
+						"replaceitem entity @s slot.hotbar 0 coldsink:big_attack 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s slot.hotbar 8 coldsink:hunter_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "event entity @s coldsink:exit_lie_down",
+
+            "execute @s[tag=respawn_give] ~~~ function sfzombie/respawn/hunter_respawn_give"
+          ]
+        }
+      },
+      "coldsink:add_hunter": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_hunter"
+          ]
+        }
+      },
+
+      //spitter
+      
+      "coldsink:become_spitter": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+            
+            "event entity @s coldsink:add_spitter",
+            "tag @s add is_spitter",
+            "scoreboard objectives add idle_time dummy idle_time",
+            "scoreboard objectives add sfzombie_stay dummy sfzombie_stay",
+            "scoreboard objectives add spitter_time dummy spitter_time",
+            "scoreboard objectives add spitter_check dummy spitter_check",
+            "scoreboard objectives add spitter_count dummy spitter_count",
+            
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s speed 99999 0 true",
+            "effect @s jump_boost 99999 0 true",
+            "effect @s health_boost 99999 4 true",
+            "effect @s instant_health 1 10 true",
+            
+						"tellraw @s {\"rawtext\":[{\"text\":\"§l§f【提示】§c 原地不动可自愈 \"}]}",
+						"replaceitem entity @s slot.hotbar 0 coldsink:big_attack 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 8 coldsink:spitter_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "event entity @s coldsink:exit_lie_down",
+
+            "execute @s[tag=respawn_give] ~~~ function sfzombie/respawn/spitter_respawn_give"
+          ]
+        }
+      },
+      "coldsink:add_spitter": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_spitter"
+          ]
+        }
+      },
+      "spitter_acid": {
+        "add": {
+          "component_groups": [
+            "coldsink:spitter_acid"
+          ]
+        }
+      },
+
+      //charger
+
+      "coldsink:become_charger": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+            
+            "event entity @s coldsink:add_charger",
+            "tag @s add is_charger",
+            "scoreboard objectives add idle_time dummy idle_time",
+            "scoreboard objectives add sfzombie_stay dummy sfzombie_stay",
+            "scoreboard objectives add bool dummy bool",
+            "scoreboard objectives add charger_time dummy charger_time",
+            "scoreboard objectives add charger_check dummy charger_check",
+            
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s speed 99999 0 true",
+            "effect @s jump_boost 99999 0 true",
+            "effect @s health_boost 99999 12 true",
+            "effect @s instant_health 1 10 true",
+            
+						"tellraw @s {\"rawtext\":[{\"text\":\"§l§f【提示】§c 原地不动可自愈 \"}]}",
+						"replaceitem entity @s slot.hotbar 0 coldsink:big_attack 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s slot.hotbar 8 coldsink:charger_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "event entity @s coldsink:exit_lie_down",
+
+            "execute @s[tag=respawn_give] ~~~ function sfzombie/respawn/charger_respawn_give"
+          ]
+        }
+      },
+      "coldsink:add_charger": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_charger"
+          ]
+        }
+      },
+
+      //jockey
+
+      "coldsink:become_jockey": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+            
+            "event entity @s coldsink:add_jockey",
+            "tag @s add is_jockey",
+            "scoreboard objectives add idle_time dummy idle_time",
+            "scoreboard objectives add sfzombie_stay dummy sfzombie_stay",
+            "scoreboard objectives add bool dummy bool",
+            "scoreboard objectives add jockey_random dummy jockey_random",
+            "scoreboard objectives add jockey_testfor dummy jockey_testfor",
+            
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s speed 99999 1 true",
+            "effect @s jump_boost 99999 0 true",
+            "effect @s health_boost 99999 10 true",
+            "effect @s instant_health 1 10 true",
+            
+						"tellraw @s {\"rawtext\":[{\"text\":\"§l§f【提示】§c 原地不动可自愈 \"}]}",
+						"replaceitem entity @s slot.hotbar 0 coldsink:big_attack 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 8 coldsink:jockey_skill_none 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "event entity @s coldsink:exit_lie_down",
+
+            "execute @s[tag=respawn_give] ~~~ function sfzombie/respawn/jockey_respawn_give"
+          ]
+        }
+      },
+      "coldsink:add_jockey": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_jockey"
+          ]
+        }
+      },
+      "coldsink:jockey_control": {
+        "set_property":{
+          "coldsink:jockey_control": true
+        },
+        "queue_command": {
+          "command": [
+            "tellraw @s[tag=jockey_riding] {\"rawtext\":[{\"text\":\"§l§3【危险】§f 正在被Jockey乘骑！ \"}]}",
+            "tag @s add jockey_riding"
+          ]
+        }
+      },
+      "coldsink:jockey_control_over": {
+        "set_property":{
+          "coldsink:jockey_control": false
+        },
+        "queue_command": {
+          "command": [
+            "title @s[tag=jockey_riding,family=player] actionbar §3乘骑控制效果结束",
+            "tag @s remove jockey_riding"
+          ]
+        }
+      },
+
+      //boomer
+
+      "coldsink:become_boomer": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+            
+            "event entity @s coldsink:add_boomer",
+            "tag @s add is_boomer",
+            "scoreboard objectives add idle_time dummy idle_time",
+            "scoreboard objectives add sfzombie_stay dummy sfzombie_stay",
+            
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s speed 99999 0 true",
+            "effect @s jump_boost 99999 0 true",
+            "effect @s health_boost 99999 2 true",
+            "effect @s instant_health 1 10 true",
+            
+						"tellraw @s {\"rawtext\":[{\"text\":\"§l§f【提示】§c 原地不动可自愈 \"}]}",
+						"replaceitem entity @s slot.hotbar 0 coldsink:big_attack 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 8 coldsink:boomer_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "event entity @s coldsink:exit_lie_down",
+
+            "execute @s[tag=respawn_give] ~~~ function sfzombie/respawn/boomer_respawn_give"
+          ]
+        }
+      },
+      "coldsink:add_boomer": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_boomer"
+          ]
+        }
+      },
+      "coldsink:boomer_bile": {
+        "queue_command": {
+          "command": [
+            "title @s[tag=!boomer_bile] actionbar §eBoomer吐在了你的身上！",
+            "playsound boomer.bile.music @s[tag=!boomer_bile]",
+            "tag @s add boomer_bile",
+            "effect @s nausea 8 5",
+            "effect @s blindness 8 0 true"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "coldsink:boomer.bile"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "coldsink:boomer.bile"
+          ]
+        }
+      },
+      "coldsink:boomer_bile_over": {
+        "remove": {
+          "component_groups": [
+            "coldsink:boomer.bile"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tag @s remove boomer_bile"
+          ]
+        }
+      },
+      "coldsink:boomer_vomit": {
+        "add": {
+          "component_groups": [
+            "coldsink:boomer.vomit"
+          ]
+        }
+      },
+
+      //smoker
+
+      "coldsink:become_smoker": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+            
+            "event entity @s coldsink:add_smoker",
+            "tag @s add is_smoker",
+            "scoreboard objectives add idle_time dummy idle_time",
+            "scoreboard objectives add sfzombie_stay dummy sfzombie_stay",
+            "scoreboard objectives add bool dummy bool",
+            "scoreboard objectives add smoker_time dummy smoker_time",
+            "scoreboard objectives add smoker_check dummy smoker_check",
+            "scoreboard objectives add tongue_count dummy tongue_count",
+            
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s speed 99999 0 true",
+            "effect @s jump_boost 99999 0 true",
+            "effect @s health_boost 99999 6 true",
+            "effect @s instant_health 1 10 true",
+            
+						"tellraw @s {\"rawtext\":[{\"text\":\"§l§f【提示】§c 原地不动可自愈 \"}]}",
+						"replaceitem entity @s slot.hotbar 0 coldsink:big_attack 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 8 coldsink:smoker_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 7 coldsink:smoker_smoke_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "event entity @s coldsink:exit_lie_down",
+
+            "execute @s[tag=respawn_give] ~~~ function sfzombie/respawn/smoker_respawn_give"
+          ]
+        }
+      },
+      "coldsink:add_smoker": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_smoker"
+          ]
+        }
+      },
+      "smoker_tongue": {
+        "add": {
+          "component_groups": [
+            "coldsink:smoker_tongue"
+          ]
+        }
+      },
+
+      //tank
+
+      "coldsink:become_tnnk": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+            
+            "execute @s[tag=maper,tag=!游戏中] ~~~ event entity @a[tag=游戏中] tnnk_bgm",
+            "execute @s[tag=!maper] ~~~ event entity @a[r=128] tnnk_bgm",
+            
+            "tag @s[tag=maper] remove super_supply",
+            
+            "event entity @s coldsink:add_tnnk",
+            "tag @s add is_tnnk",
+            "tag @s add is_boss",
+            "scoreboard objectives add idle_time dummy idle_time",
+            "scoreboard objectives add sfzombie_stay dummy sfzombie_stay",
+            "scoreboard objectives add tnnk_move dummy tnnk_move",
+            "scoreboard objectives add tnnk_time dummy tnnk_time",
+            "scoreboard objectives add tnnk_check dummy tnnk_check",
+            
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s speed 99999 0 true",
+            "effect @s jump_boost 99999 0 true",
+            "effect @s health_boost 99999 19 true",
+            "effect @s instant_health 1 10 true",
+            
+						"tellraw @s {\"rawtext\":[{\"text\":\"§l§f【提示】§c 原地不动可自愈 \"}]}",
+						"replaceitem entity @s slot.hotbar 0 coldsink:big_attack 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 7 coldsink:tnnk_howl_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 8 coldsink:tnnk_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "event entity @s coldsink:exit_lie_down",
+
+            "execute @s[tag=respawn_give] ~~~ function sfzombie/respawn/tnnk_respawn_give"
+          ]
+        }
+      },
+      "coldsink:add_tnnk": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_tnnk"
+          ]
+        }
+      },
+      "coldsink:tank_skill_rock": {
+        "add": {
+          "component_groups": [
+            "coldsink:tank.throw"
+          ]
+        }
+      },
+      "coldsink:tnnk_howl_control": {
+        "set_property":{
+          "coldsink:tnnk_howl_control": true
+        },
+        "queue_command": {
+          "command": [
+            "tag @s add howl_control",
+            "tellraw @s {\"rawtext\":[{\"text\":\"§l§c【被震慑】§f 暂时无法开火！ \"}]}"
+          ]
+        }
+      },
+      "coldsink:tnnk_howl_control_over": {
+        "set_property":{
+          "coldsink:tnnk_howl_control": false
+        },
+        "queue_command": {
+          "command": [
+            "title @s[tag=howl_control,family=player] actionbar §c震慑控制效果结束",
+            "tag @s remove howl_control"
+          ]
+        }
+      },
+      "tnnk_bgm": {
+        "set_property":{
+          "coldsink:boss_bgm": true
+        },
+        "queue_command": {
+          "command": [
+            "playsound tnnk.bgm @s[tag=!tnnk_bgm,tag=!witch_bgm]",
+            "tag @s[tag=!witch_bgm] add tnnk_bgm"
+          ]
+        }
+      },
+      "boss_bgm_over": {
+        "set_property":{
+          "coldsink:boss_bgm": false
+        },
+        "queue_command": {
+          "command": [
+            "tag @s remove tnnk_bgm",
+            "tag @s remove witch_bgm"
+          ]
+        }
+      },
+
+      //witch
+
+      "coldsink:become_witch": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+            
+            "execute @s[tag=maper,tag=!游戏中] ~~~ event entity @a[tag=游戏中] witch_bgm",
+            "execute @s[tag=!maper] ~~~ event entity @a[r=128] witch_bgm",
+            
+            "tag @s[tag=maper] remove super_supply",
+            
+            "event entity @s coldsink:add_witch",
+            "tag @s add is_witch",
+            "tag @s add is_boss",
+            "scoreboard objectives add witch_damage dummy witch_damage",
+            "scoreboard objectives add idle_time dummy idle_time",
+            "scoreboard objectives add sfzombie_stay dummy sfzombie_stay",
+            
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s speed 99999 1 true",
+            "effect @s jump_boost 99999 0 true",
+            "effect @s health_boost 99999 14 true",
+            "effect @s instant_health 1 10 true",
+            
+						"tellraw @s {\"rawtext\":[{\"text\":\"§l§f【提示】§c 原地不动可自愈 \"}]}",
+						"replaceitem entity @s slot.hotbar 0 coldsink:big_attack 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 8 coldsink:witch_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "event entity @s coldsink:exit_lie_down",
+
+            "execute @s[tag=respawn_give] ~~~ function sfzombie/respawn/witch_respawn_give"
+          ]
+        }
+      },
+      "coldsink:add_witch": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_witch"
+          ]
+        }
+      },
+      "witch_bgm": {
+        "set_property":{
+          "coldsink:boss_bgm": true
+        },
+        "queue_command": {
+          "command": [
+            "playsound witch.bgm @s[tag=!tnnk_bgm,tag=!witch_bgm]",
+            "tag @s[tag=!tnnk_bgm] add witch_bgm"
+          ]
+        }
+      },
+
+      //final_tank
+
+      "coldsink:become_final_tnnk": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+            
+						"execute @s[tag=游戏中,tag=!is_final_tnnk] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§c炼狱泰坦§f \"},{\"selector\":\"@s\"},{\"text\":\" §c登场了！\"}]}",
+            "tag @s[tag=maper] remove super_supply",
+            
+            "event entity @s coldsink:add_final_tnnk",
+            "tag @s add is_final_tnnk",
+            "tag @s add is_boss",
+            "scoreboard objectives add idle_time dummy idle_time",
+            "scoreboard objectives add sfzombie_stay dummy sfzombie_stay",
+            "scoreboard objectives add tnnk_move dummy tnnk_move",
+            "scoreboard objectives add tnnk_fireball dummy tnnk_fireball",
+            
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s speed 99999 1 true",
+            "effect @s jump_boost 99999 0 true",
+            "effect @s health_boost 99999 24 true",
+            "effect @s instant_health 1 10 true",
+            
+						"replaceitem entity @s slot.hotbar 0 coldsink:big_attack 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 7 coldsink:tnnk_howl_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 8 coldsink:final_tnnk_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "title @s actionbar §f已扮演 §c炼狱泰坦",
+            "playsound become.final.tnnk @a[tag=游戏中]"
+          ]
+        }
+      },
+      "coldsink:add_final_tnnk": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_final_tnnk"
+          ]
+        }
+      },
+      "coldsink:final_tnnk_fireball": {
+        "add": {
+          "component_groups": [
+            "coldsink:final_tnnk_fireball"
+          ]
+        }
+      },
+
+      //final_witch
+
+      "coldsink:become_final_witch": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+
+            "tag @s remove no_any_hurt",
+            
+						"execute @s[tag=游戏中,tag=!is_final_witch] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§d恶灵女巫§f \"},{\"selector\":\"@s\"},{\"text\":\" §d登场了！\"}]}",
+            "tag @s[tag=maper] remove super_supply",
+            
+            "event entity @s coldsink:add_final_witch",
+            "tag @s add is_final_witch",
+            "tag @s add is_boss",
+            "scoreboard objectives add idle_time dummy idle_time",
+            "scoreboard objectives add sfzombie_stay dummy sfzombie_stay",
+            
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s speed 99999 1 true",
+            "effect @s jump_boost 99999 0 true",
+            "effect @s health_boost 99999 19 true",
+            "effect @s instant_health 1 10 true",
+            
+						"replaceitem entity @s slot.hotbar 0 coldsink:big_attack 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 8 coldsink:final_witch_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "title @s actionbar §f已扮演 §d恶灵女巫",
+            "playsound become.final.witch @a[tag=游戏中]"
+          ]
+        }
+      },
+      "coldsink:add_final_witch": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_final_witch"
+          ]
+        }
+      },
+      "coldsink:final_witch_skill": {
+        "remove": {
+          "component_groups": [
+            "normal_show_name"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "skill_hide_name"
+          ]
+        }
+      },
+      "coldsink:final_witch_skill_over": {
+        "remove": {
+          "component_groups": [
+            "skill_hide_name"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "normal_show_name"
+          ]
+        }
+      },
+
+      // 特感闲置音效
+
+      "hunter_idle_sound": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={wp_random=1}] ~~~ playsound hunter.idle_1 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=2}] ~~~ playsound hunter.idle_2 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=3}] ~~~ playsound hunter.idle_3 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=1}] ~~~ playsound hunter.idle_1.self @s ~~~",
+            "execute @s[scores={wp_random=2}] ~~~ playsound hunter.idle_2.self @s ~~~",
+            "execute @s[scores={wp_random=3}] ~~~ playsound hunter.idle_3.self @s ~~~",
+            "tag @s remove self"
+          ]
+        }
+      },
+      "spitter_idle_sound": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={wp_random=1}] ~~~ playsound spitter.idle_1 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=2}] ~~~ playsound spitter.idle_2 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=3}] ~~~ playsound spitter.idle_3 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=1}] ~~~ playsound spitter.idle_1.self @s ~~~",
+            "execute @s[scores={wp_random=2}] ~~~ playsound spitter.idle_2.self @s ~~~",
+            "execute @s[scores={wp_random=3}] ~~~ playsound spitter.idle_3.self @s ~~~",
+            "tag @s remove self"
+          ]
+        }
+      },
+      "charger_idle_sound": {
+        "queue_command": {
+          "command": [
+            "scoreboard players random @s wp_random 1 5",
+            "execute @s[scores={wp_random=1}] ~~~ playsound charger.idle_1 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=2}] ~~~ playsound charger.idle_2 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=3}] ~~~ playsound charger.idle_3 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=4}] ~~~ playsound charger.idle_4 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=5}] ~~~ playsound charger.idle_5 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=1}] ~~~ playsound charger.idle_1.self @s ~~~",
+            "execute @s[scores={wp_random=2}] ~~~ playsound charger.idle_2.self @s ~~~",
+            "execute @s[scores={wp_random=3}] ~~~ playsound charger.idle_3.self @s ~~~",
+            "execute @s[scores={wp_random=4}] ~~~ playsound charger.idle_4.self @s ~~~",
+            "execute @s[scores={wp_random=5}] ~~~ playsound charger.idle_5.self @s ~~~",
+            "tag @s remove self"
+          ]
+        }
+      },
+      "jockey_idle_sound": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={wp_random=1}] ~~~ playsound jockey.idle_1 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=2}] ~~~ playsound jockey.idle_2 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=3}] ~~~ playsound jockey.idle_3 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=1}] ~~~ playsound jockey.idle_1.self @s ~~~",
+            "execute @s[scores={wp_random=2}] ~~~ playsound jockey.idle_2.self @s ~~~",
+            "execute @s[scores={wp_random=3}] ~~~ playsound jockey.idle_3.self @s ~~~",
+            "tag @s remove self"
+          ]
+        }
+      },
+      "boomer_idle_sound": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={wp_random=1}] ~~~ playsound boomer.idle_1 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=2}] ~~~ playsound boomer.idle_2 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=3}] ~~~ playsound boomer.idle_3 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=1}] ~~~ playsound boomer.idle_1.self @s ~~~",
+            "execute @s[scores={wp_random=2}] ~~~ playsound boomer.idle_2.self @s ~~~",
+            "execute @s[scores={wp_random=3}] ~~~ playsound boomer.idle_3.self @s ~~~",
+            "tag @s remove self"
+          ]
+        }
+      },
+      "smoker_idle_sound": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={wp_random=1}] ~~~ playsound smoker.idle_1 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=2}] ~~~ playsound smoker.idle_2 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=3}] ~~~ playsound smoker.idle_3 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=1}] ~~~ playsound smoker.idle_1.self @s ~~~",
+            "execute @s[scores={wp_random=2}] ~~~ playsound smoker.idle_2.self @s ~~~",
+            "execute @s[scores={wp_random=3}] ~~~ playsound smoker.idle_3.self @s ~~~",
+            "tag @s remove self"
+          ]
+        }
+      },
+      "tnnk_idle_sound": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={wp_random=1}] ~~~ playsound tank.idle_1 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=2}] ~~~ playsound tank.idle_2 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=3}] ~~~ playsound tank.idle_3 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=1}] ~~~ playsound tank.idle_1.self @s ~~~",
+            "execute @s[scores={wp_random=2}] ~~~ playsound tank.idle_2.self @s ~~~",
+            "execute @s[scores={wp_random=3}] ~~~ playsound tank.idle_3.self @s ~~~",
+            "tag @s remove self"
+          ]
+        }
+      },
+      "witch_idle_sound": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={wp_random=1}] ~~~ playsound witch.idle_1 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=2}] ~~~ playsound witch.idle_2 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=3}] ~~~ playsound witch.idle_3 @a[tag=!self] ~~~",
+            "execute @s[scores={wp_random=1}] ~~~ playsound witch.idle_1.self @s ~~~",
+            "execute @s[scores={wp_random=2}] ~~~ playsound witch.idle_2.self @s ~~~",
+            "execute @s[scores={wp_random=3}] ~~~ playsound witch.idle_3.self @s ~~~",
+            "tag @s remove self"
+          ]
+        }
+      },
+
+      // 幽灵猎手
+
+      "coldsink:become_human_hero": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+            
+            "event entity @s action_clear",
+            "event entity @s action_skill_other",
+            "event entity @s coldsink:add_human_hero",
+            "tag @s add is_human_hero",
+            "tag @s add is_hero",
+            
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s health_boost 99999 4 true",
+            "effect @s instant_health 1 10 true",
+
+						"replaceitem entity @s slot.hotbar 0 coldsink:human_hero_weapon 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "playsound become_human_hero @a ~~~",
+            "event entity @s coldsink:boomer_bile_over"
+          ]
+        }
+      },
+      "coldsink:add_human_hero": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_human_hero"
+          ]
+        }
+      },
+
+      // 终极猎手
+
+      "coldsink:become_final_hero": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+            
+            "event entity @s action_clear",
+            "event entity @s action_skill_other",
+
+            "event entity @s coldsink:add_final_hero",
+            "tag @s add is_final_hero",
+            "tag @s add is_hero",
+            
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s health_boost 99999 9 true",
+            "effect @s instant_health 1 10 true",
+            
+						"replaceitem entity @s slot.hotbar 0 coldsink:final_hero_weapon 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 8 barrier 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"execute @s[tag=游戏中] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§b终极猎手§f \"},{\"selector\":\"@s\"},{\"text\":\" §b已现身！\"}]}",
+            "playsound become_final_hero @a ~~~",
+            "event entity @s coldsink:boomer_bile_over"
+          ]
+        }
+      },
+      "coldsink:add_final_hero": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_final_hero"
+          ]
+        }
+      },
+
+      // 救世主
+
+      "coldsink:become_savior_hero": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+            
+            "event entity @s coldsink:add_savior_hero",
+            "tag @s add is_savior_hero",
+            "tag @s add is_hero",
+            
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s health_boost 99999 4 true",
+            "effect @s instant_health 1 10 true",
+
+            "scoreboard objectives add bullet_hero dummy bullet_hero",
+            "scoreboard objectives add bullet_back dummy bullet_back",
+            "scoreboard objectives add bullet_hero_sp dummy bullet_hero_sp",
+            "scoreboard objectives add bullet_back_sp dummy bullet_back_sp",
+
+						"execute @s[tag=游戏中,tag=!random_hero] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§6\"},{\"selector\":\"@s\"},{\"text\":\" §6被选为 救世主\"}]}",
+						"execute @s[tag=游戏中,tag=random_hero] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§6救世主§f \"},{\"selector\":\"@s\"},{\"text\":\" §6已现身！\"}]}",
+						"tellraw @s {\"rawtext\":[{\"text\":\"§l§6可通过进入潜行 §f来切换武器形态 \"}]}",
+            "playsound become_human_hero @a ~~~",
+            "scoreboard players set @s bullet_hero 60",
+            "scoreboard players set @s[tag=maper] bullet_back 300",
+            "scoreboard players set @s bullet_hero_sp 3",
+            "scoreboard players set @s[tag=maper] bullet_back_sp 24",
+
+            "replaceitem entity @s slot.hotbar 0 coldsink:savior_hero_weapon_1 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=!maper] slot.hotbar 8 barrier 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=!maper] slot.hotbar 7 barrier 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+
+            // 地图玩家获得随机近战与道具
+            "event entity @s[tag=maper] savior_hero_maper_give",
+
+            "event entity @s coldsink:boomer_bile_over"
+          ]
+        }
+      },
+      "savior_hero_maper_give": {
+        "queue_command": {
+          "command": [
+            "scoreboard players random @s[tag=maper] wp_random 1 5",
+            "replaceitem entity @s[tag=maper,scores={wp_random=1}] slot.hotbar 1 coldsink:melee_1 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=maper,scores={wp_random=2}] slot.hotbar 1 coldsink:melee_2 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=maper,scores={wp_random=3}] slot.hotbar 1 coldsink:melee_3 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=maper,scores={wp_random=4}] slot.hotbar 1 coldsink:melee_4 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=maper,scores={wp_random=5}] slot.hotbar 1 coldsink:melee_5 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "scoreboard players random @s[tag=maper] wp_random 1 5",
+            "replaceitem entity @s[tag=maper,scores={wp_random=1},tag=!random_hero] slot.hotbar 2 nacal_tac:detect 3 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=maper,scores={wp_random=2},tag=!random_hero] slot.hotbar 2 nacal_tac:raid 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=maper,scores={wp_random=3},tag=!random_hero] slot.hotbar 2 nacal_tac:force 2 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=maper,scores={wp_random=4},tag=!random_hero] slot.hotbar 2 nacal_tac:mineset 3 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=maper,scores={wp_random=5},tag=!random_hero] slot.hotbar 2 nacal_tac:healarea 2 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "tag @s remove random_hero"
+          ]
+        }
+      },
+      "coldsink:add_savior_hero": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_savior_hero"
+          ]
+        }
+      },
+      "coldsink:savior_hero_weapon_1_fire_sp": {
+        "add": {
+          "component_groups": [
+            "coldsink:savior_hero_weapon_1_shot_sp"
+          ]
+        }
+      },
+      "coldsink:savior_hero_weapon_1_fire": {
+        "add": {
+          "component_groups": [
+            "coldsink:savior_hero_weapon_1_shot"
+          ]
+        }
+      },
+      "coldsink:savior_hero_weapon_2_fire_sp": {
+        "add": {
+          "component_groups": [
+            "coldsink:savior_hero_weapon_2_shot_sp"
+          ]
+        }
+      },
+      "coldsink:savior_hero_weapon_2_fire": {
+        "add": {
+          "component_groups": [
+            "coldsink:savior_hero_weapon_2_shot"
+          ]
+        }
+      },
+
+      // 机械猎手
+
+      "coldsink:become_machine_hero": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+            
+            "event entity @s action_clear",
+            "event entity @s action_more_other",
+            "event entity @s coldsink:add_machine_hero",
+            "tag @s add is_machine_hero",
+            "tag @s add is_hero",
+
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s health_boost 99999 5 true",
+            "effect @s instant_health 1 10 true",
+
+            "scoreboard objectives add machine_time dummy machine_time",
+            "scoreboard objectives add machine_check dummy machine_check",
+            "scoreboard objectives add bullet_hero dummy bullet_hero",
+            "scoreboard players set @s bullet_hero 120",
+
+						"replaceitem entity @s slot.hotbar 0 coldsink:machine_hero_weapon 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 1 coldsink:machine_hero_melee 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s slot.hotbar 8 barrier 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s slot.hotbar 7 barrier 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "tellraw @s {\"rawtext\":[{\"text\":\"§l§b机械无限备弹 §f但需时间充能 \"}]}",
+						"execute @s[tag=游戏中] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§b机械猎手§f \"},{\"selector\":\"@s\"},{\"text\":\" §b已现身！\"}]}",
+            "playsound become_final_hero @a ~~~",
+
+            "event entity @s coldsink:boomer_bile_over"
+          ]
+        }
+      },
+      "coldsink:add_machine_hero": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_machine_hero"
+          ]
+        }
+      },
+      "coldsink:machine_hero_weapon_fire_sp": {
+        "add": {
+          "component_groups": [
+            "coldsink:machine_hero_weapon_shot_sp"
+          ]
+        }
+      },
+      "coldsink:machine_hero_weapon_fire": {
+        "add": {
+          "component_groups": [
+            "coldsink:machine_hero_weapon_shot"
+          ]
+        }
+      },
+      "coldsink:machine_hero_skill": {
+        "add": {
+          "component_groups": [
+            "coldsink:machine_hero_skill"
+          ]
+        }
+      },
+
+      // 时空猎手
+
+      "coldsink:become_space_hero": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+            
+            "event entity @s action_clear",
+            "event entity @s action_skill_other",
+            "event entity @s time_skill_false",
+
+            "event entity @s coldsink:add_space_hero",
+            "tag @s add is_space_hero",
+            "tag @s add is_hero",
+            
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s health_boost 99999 7 true",
+            "effect @s instant_health 1 10 true",
+            
+						"replaceitem entity @s slot.hotbar 0 coldsink:space_hero_weapon 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 8 barrier 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"execute @s[tag=游戏中] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§b时空猎手§f \"},{\"selector\":\"@s\"},{\"text\":\" §b已现身！\"}]}",
+            "playsound become_space_hero @a ~~~",
+            "event entity @s coldsink:boomer_bile_over"
+          ]
+        }
+      },
+      "coldsink:add_space_hero": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_space_hero",
+            "coldsink:space_hero_normal"
+          ]
+        }
+      },
+      "coldsink:space_hero_normal": {
+        "remove": {
+          "component_groups" :[
+            "coldsink:space_hero_invis"
+          ]
+        },
+        "add": {
+          "component_groups" :[
+            "coldsink:space_hero_normal"
+          ]
+        }
+      },
+      "coldsink:space_hero_invis": {
+        "remove": {
+          "component_groups" :[
+            "coldsink:space_hero_normal"
+          ]
+        },
+        "add": {
+          "component_groups" :[
+            "coldsink:space_hero_invis"
+          ]
+        }
+      },
+
+      // 救赎猎手
+
+      "coldsink:become_redeem_hero": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+            
+            "event entity @s action_clear",
+            "event entity @s action_more_other",
+            "event entity @s coldsink:add_redeem_hero",
+            "tag @s add is_redeem_hero",
+            "tag @s add is_hero",
+
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s health_boost 99999 6 true",
+            "effect @s instant_health 1 10 true",
+
+						"replaceitem entity @s slot.hotbar 0 coldsink:redeem_hero_weapon 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s slot.hotbar 8 barrier 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s slot.hotbar 7 barrier 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"execute @s[tag=游戏中] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§b救赎猎手§f \"},{\"selector\":\"@s\"},{\"text\":\" §b已现身！\"}]}",
+            "playsound become_redeem_hero @a ~~~",
+
+            "event entity @s coldsink:boomer_bile_over"
+          ]
+        }
+      },
+      "coldsink:add_redeem_hero": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_redeem_hero"
+          ]
+        }
+      },
+      "redeem_hero_grenade": {
+        "add": {
+          "component_groups" :[
+            "coldsink:redeem_hero_grenade"
+          ]
+        }
+      },
+      "freeze_yes": {
+        "set_property":{
+          "coldsink:freeze": true
+        }
+      },
+      "freeze_no": {
+        "set_property":{
+          "coldsink:freeze": false
+        }
+      },
+
+      // 圣拳猎手
+
+      "coldsink:become_fist_hero": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+            
+            "event entity @s action_clear",
+            "event entity @s action_skill_other",
+
+            "event entity @s coldsink:add_fist_hero",
+            "tag @s add is_fist_hero",
+            "tag @s add is_hero",
+            
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s health_boost 99999 8 true",
+            "effect @s instant_health 1 10 true",
+            
+						"replaceitem entity @s slot.hotbar 0 coldsink:fist_hero_weapon 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 8 barrier 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"execute @s[tag=游戏中] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§b圣拳猎手§f \"},{\"selector\":\"@s\"},{\"text\":\" §b已现身！\"}]}",
+            "playsound become_final_hero @a ~~~",
+            "event entity @s coldsink:boomer_bile_over"
+          ]
+        }
+      },
+      "coldsink:add_fist_hero": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_fist_hero"
+          ]
+        }
+      },
+
+      // common
+
+      "knockback": {
+        "queue_command": {
+          "command": [
+            "effect @s[tag=is_hunter] slowness 2 1 true",
+            "effect @s[tag=is_spitter] slowness 2 3 true",
+            "effect @s[tag=is_charger] slowness 1 0 true",
+            "effect @s[tag=is_jockey] slowness 2 2 true",
+            "effect @s[tag=is_boomer] slowness 3 4 true",
+            "effect @s[tag=is_smoker] slowness 2 3 true",
+            "title @s[tag=!is_tnnk,tag=!is_witch] actionbar §l§b您被推开了！"
+          ]
+        }
+      },
+
+      "coldsink:hurting": {
+        "queue_command": {
+          "command": [
+            "scoreboard players random @s[tag=!hurt_delay] wp_random 1 3",
+
+            "execute @s[tag=is_hunter,tag=!hurt_delay,scores={wp_random=1}] ~~~ playsound hunter.hurt_1 @a ~~~",
+            "execute @s[tag=is_hunter,tag=!hurt_delay,scores={wp_random=2}] ~~~ playsound hunter.hurt_2 @a ~~~",
+            "execute @s[tag=is_hunter,tag=!hurt_delay,scores={wp_random=3}] ~~~ playsound hunter.hurt_3 @a ~~~",
+
+            "execute @s[tag=is_spitter,tag=!hurt_delay,scores={wp_random=1}] ~~~ playsound spitter.hurt_1 @a ~~~",
+            "execute @s[tag=is_spitter,tag=!hurt_delay,scores={wp_random=2}] ~~~ playsound spitter.hurt_2 @a ~~~",
+            "execute @s[tag=is_spitter,tag=!hurt_delay,scores={wp_random=3}] ~~~ playsound spitter.hurt_3 @a ~~~",
+
+            "execute @s[tag=is_charger,tag=!hurt_delay,scores={wp_random=1}] ~~~ playsound charger.hurt_1 @a ~~~",
+            "execute @s[tag=is_charger,tag=!hurt_delay,scores={wp_random=2}] ~~~ playsound charger.hurt_2 @a ~~~",
+            "execute @s[tag=is_charger,tag=!hurt_delay,scores={wp_random=3}] ~~~ playsound charger.hurt_3 @a ~~~",
+
+            "execute @s[tag=is_jockey,tag=!hurt_delay,scores={wp_random=1}] ~~~ playsound jockey.hurt_1 @a ~~~",
+            "execute @s[tag=is_jockey,tag=!hurt_delay,scores={wp_random=2}] ~~~ playsound jockey.hurt_2 @a ~~~",
+            "execute @s[tag=is_jockey,tag=!hurt_delay,scores={wp_random=3}] ~~~ playsound jockey.hurt_3 @a ~~~",
+
+            "execute @s[tag=is_boomer,tag=!hurt_delay,scores={wp_random=1}] ~~~ playsound boomer.hurt_1 @a ~~~",
+            "execute @s[tag=is_boomer,tag=!hurt_delay,scores={wp_random=2}] ~~~ playsound boomer.hurt_2 @a ~~~",
+            "execute @s[tag=is_boomer,tag=!hurt_delay,scores={wp_random=3}] ~~~ playsound boomer.hurt_3 @a ~~~",
+
+            "execute @s[tag=is_smoker,tag=!hurt_delay,scores={wp_random=1}] ~~~ playsound smoker.hurt_1 @a ~~~",
+            "execute @s[tag=is_smoker,tag=!hurt_delay,scores={wp_random=2}] ~~~ playsound smoker.hurt_2 @a ~~~",
+            "execute @s[tag=is_smoker,tag=!hurt_delay,scores={wp_random=3}] ~~~ playsound smoker.hurt_3 @a ~~~",
+
+            "execute @s[tag=is_tnnk,tag=!hurt_delay,scores={wp_random=1}] ~~~ playsound tank.hurt_1 @a ~~~",
+            "execute @s[tag=is_tnnk,tag=!hurt_delay,scores={wp_random=2}] ~~~ playsound tank.hurt_2 @a ~~~",
+            "execute @s[tag=is_tnnk,tag=!hurt_delay,scores={wp_random=3}] ~~~ playsound tank.hurt_3 @a ~~~",
+
+            "execute @s[tag=is_witch,tag=!hurt_delay,scores={wp_random=1}] ~~~ playsound witch.hurt_1 @a ~~~",
+            "execute @s[tag=is_witch,tag=!hurt_delay,scores={wp_random=2}] ~~~ playsound witch.hurt_2 @a ~~~",
+            "execute @s[tag=is_witch,tag=!hurt_delay,scores={wp_random=3}] ~~~ playsound witch.hurt_3 @a ~~~",
+
+            "scoreboard players reset @s[tag=!hurt_delay] idle_time",
+            "tag @s[tag=!hurt_delay] add hurt_delay"
+          ]
+        }
+      },
+
+      //————————————————human event————————————————
+
+      "coldsink:entry_lid_down": {
+        "add": {
+          "component_groups": [
+            "coldsink:lie_down"
+          ]
+        }
+      },
+      "coldsink:exit_lie_down": {
+        "remove": {
+          "component_groups": [
+            "coldsink:lie_down"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tag @s remove lie_down"
+          ]
+        }
+      },
+
+      // 人类枪械
+
+      "coldsink:weapon_1_fire_sp": {
+        "add": {
+          "component_groups": [
+            "coldsink:weapon_1_shot_sp"
+          ]
+        }
+      },
+      "coldsink:weapon_1_fire": {
+        "add": {
+          "component_groups": [
+            "coldsink:weapon_1_shot"
+          ]
+        }
+      },
+      "coldsink:weapon_2_fire_sp": {
+        "add": {
+          "component_groups": [
+            "coldsink:weapon_2_shot_sp"
+          ]
+        }
+      },
+      "coldsink:weapon_2_fire": {
+        "add": {
+          "component_groups": [
+            "coldsink:weapon_2_shot"
+          ]
+        }
+      },
+      "coldsink:weapon_3_fire_sp": {
+        "add": {
+          "component_groups": [
+            "coldsink:weapon_3_shot_sp"
+          ]
+        }
+      },
+      "coldsink:weapon_3_fire": {
+        "add": {
+          "component_groups": [
+            "coldsink:weapon_3_shot"
+          ]
+        }
+      },
+      "coldsink:weapon_4_fire_sp": {
+        "add": {
+          "component_groups": [
+            "coldsink:weapon_4_shot_sp"
+          ]
+        }
+      },
+      "coldsink:weapon_4_fire": {
+        "add": {
+          "component_groups": [
+            "coldsink:weapon_4_shot"
+          ]
+        }
+      },
+      "coldsink:weapon_5_fire_sp": {
+        "add": {
+          "component_groups": [
+            "coldsink:weapon_5_shot_sp"
+          ]
+        }
+      },
+      "coldsink:weapon_5_fire": {
+        "add": {
+          "component_groups": [
+            "coldsink:weapon_5_shot"
+          ]
+        }
+      },
+      "coldsink:weapon_6_fire_sp": {
+        "add": {
+          "component_groups": [
+            "coldsink:weapon_6_shot_sp"
+          ]
+        }
+      },
+      "coldsink:weapon_6_fire": {
+        "add": {
+          "component_groups": [
+            "coldsink:weapon_6_shot"
+          ]
+        }
+      },
+      "coldsink:weapon_7_fire_sp": {
+        "add": {
+          "component_groups": [
+            "coldsink:weapon_7_shot_sp"
+          ]
+        }
+      },
+      "coldsink:weapon_7_fire": {
+        "add": {
+          "component_groups": [
+            "coldsink:weapon_7_shot"
+          ]
+        }
+      },
+
+      // 【其它事件】
+      
+      // 近战轻重击切换
+      "melee_turn_1": {
+        "remove": {
+          "component_groups": [
+            "melee_big"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tag @s remove melee_big"
+          ]
+        }
+      },
+      "melee_turn_2": {
+        "add": {
+          "component_groups": [
+            "melee_big"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tag @s add melee_big"
+          ]
+        }
+      },
+
+      // 游戏观战
+      "game_audience": {
+        "queue_command": {
+          "command": [
+            "title @s actionbar §b阵亡观战",
+            "tag @s add game_audience",
+            "event entity @s coldsink:default"
+          ]
+        }
+      },
+      "game_audience_effect": {
+        "queue_command": {
+          "command": [
+            "execute @s[tag=maper,family=monster,tag=游戏中] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§b\"},{\"selector\":\"@s\"},{\"text\":\" 被近战武器杀死，本局无法复活\"}]}",
+            "execute @s[tag=maper,family=monster,tag=游戏中] ~~~ playsound sfzombie_killed @a",
+
+            "tag @s[tag=maper] add neutral",
+            "effect @s[tag=maper] invisibility 99999 0 true",
+            "effect @s[tag=maper] weakness 99999 10 true",
+            "effect @s[tag=maper] speed 99999 2 true",
+            "effect @s[tag=maper] regeneration 99999 100 true",
+            "effect @s[tag=maper] instant_health 99999 10 true",
+						"replaceitem entity @s[tag=maper] slot.hotbar 8 coldsink:audience_change 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+
+            "title @s[tag=!maper] actionbar §e仅限有maper标签时调用"
+          ]
+        }
+      },
+
+      // 头衔标识开关
+      "coldsink:game_open": {
+        "add": {
+          "component_groups": [
+            "coldsink:human_sign"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tag @s[tag=maper] add 游戏中"
+          ]
+        }
+      },
+      "coldsink:game_close": {
+        "remove": {
+          "component_groups": [
+            "coldsink:human_sign"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tag @s[tag=maper] remove 游戏中"
+          ]
+        }
+      },
+
+      // 被人机猎手刀伤tag
+      "melee_tag_by_hero": {
+        "queue_command": {
+          "command": [
+            "tag @s add melee_damage"
+          ]
+        }
+      },
+      
+      // 被感染长时间不选择则随机特感
+      "dead_random_sfzombie": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s bool 1",
+            "scoreboard players set @s[hasitem={item=coldsink:become_tnnk}] bool 0",
+            "scoreboard players set @s[hasitem={item=coldsink:become_witch}] bool 0",
+            "scoreboard players set @s[family=boss] bool 0",
+            "event entity @s[scores={bool=1},tag=lie_down] random_normal_sfzombie",
+            "event entity @s[scores={bool=0},tag=lie_down] random_big_sfzombie",
+            "scoreboard players reset @s sfzombie_update",
+
+            "clear @s coldsink:become_hunter",
+            "clear @s coldsink:become_spitter",
+            "clear @s coldsink:become_charger",
+            "clear @s coldsink:become_jockey",
+            "clear @s coldsink:become_boomer",
+            "clear @s coldsink:become_smoker",
+            "clear @s coldsink:become_tnnk",
+            "clear @s coldsink:become_witch",
+            "clear @s coldsink:random_sfzombie"
+          ]
+        }
+      },
+
+      // 随机小特感
+      "random_normal_sfzombie": {
+        "queue_command": {
+          "command": [
+            "scoreboard players random @s wp_random 1 6",
+            "event entity @s[scores={wp_random=1}] coldsink:become_hunter",
+            "title @s[scores={wp_random=1}] actionbar §f已扮演 §9【Hunter】",
+            "event entity @s[scores={wp_random=2}] coldsink:become_spitter",
+            "title @s[scores={wp_random=2}] actionbar §f已扮演 §a【Spitter】",
+            "event entity @s[scores={wp_random=3}] coldsink:become_charger",
+            "title @s[scores={wp_random=3}] actionbar §f已扮演 §7【Charger】",
+            "event entity @s[scores={wp_random=4}] coldsink:become_jockey",
+            "title @s[scores={wp_random=4}] actionbar §f已扮演 §3【Jockey】",
+            "event entity @s[scores={wp_random=5}] coldsink:become_boomer",
+            "title @s[scores={wp_random=5}] actionbar §f已扮演 §e【Boomer】",
+            "event entity @s[scores={wp_random=6}] coldsink:become_smoker",
+            "title @s[scores={wp_random=6}] actionbar §f已扮演 §6【Smoker】"
+          ]
+        }
+      },
+
+      // 随机Boss特感
+      "random_big_sfzombie": {
+        "queue_command": {
+          "command": [
+            "scoreboard players random @s wp_random 1 2",
+            "event entity @s[scores={wp_random=1}] coldsink:become_tnnk",
+            "title @s[scores={wp_random=1}] actionbar §f已扮演 §c【Tαnk】",
+            "event entity @s[scores={wp_random=2}] coldsink:become_witch",
+            "title @s[scores={wp_random=2}] actionbar §f已扮演 §d【Witch】"
+          ]
+        }
+      },
+      
+      // 英雄获取蓝箱
+      "get_final_box_blue": {
+        "queue_command": {
+          "command": [
+            "replaceitem entity @s[tag=maper] slot.hotbar 8 coldsink:become_final_hero 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=maper] slot.hotbar 7 coldsink:become_space_hero 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=maper] slot.hotbar 6 coldsink:become_fist_hero 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=maper] slot.hotbar 5 coldsink:become_redeem_hero 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=maper] slot.hotbar 4 coldsink:become_machine_hero 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "tellraw @s[tag=maper] {\"rawtext\":[{\"text\":\"§l§3请选择您的最终英雄\"}]}",
+
+            // 幽灵猎手进化
+            "replaceitem entity @s[tag=!maper,family=human_hero] slot.hotbar 8 coldsink:middle_final_hero 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=!maper,family=human_hero] slot.hotbar 7 coldsink:middle_space_hero 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=!maper,family=human_hero] slot.hotbar 6 coldsink:middle_fist_hero 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            
+            // 救世主进化
+            "replaceitem entity @s[tag=!maper,family=savior_hero] slot.hotbar 8 coldsink:middle_redeem_hero 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[tag=!maper,family=savior_hero] slot.hotbar 7 coldsink:middle_machine_hero 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+
+            "execute @s ~~~ particle nacal_sdc:final_wave_blue",
+            "event entity @e[type=coldsink:final_box_blue,r=2,c=1] godie"
+          ]
+        }
+      },
+      
+      // 特感获取红箱
+      "get_final_box_red": {
+        "queue_command": {
+          "command": [
+            "execute @s[family=tnnk] ~~~ execute @e[type=coldsink:final_box_red,c=1] ~~~ particle nacal_sdc:final_wave_red",
+            "event entity @s[family=tnnk] coldsink:become_final_tnnk",
+            "clear @s[family=tnnk] coldsink:become_tnnk 0 1",
+            "give @s[family=tnnk,tag=!maper] coldsink:become_final_tnnk 1 0 {\"item_lock\":{\"mode\":\"lock_in_inventory\"}}",
+            
+            "execute @s[family=witch] ~~~ execute @e[type=coldsink:final_box_red,c=1] ~~~ particle nacal_sdc:final_wave_purp",
+            "event entity @s[family=witch] coldsink:become_final_witch",
+            "clear @s[family=witch] coldsink:become_witch 0 1",
+            "give @s[family=witch,tag=!maper] coldsink:become_final_witch 1 0 {\"item_lock\":{\"mode\":\"lock_in_inventory\"}}",
+            
+            "execute @s[family=monster,family=!boss,tag=!neutral] ~~~ tag @e[type=coldsink:final_box_red,c=1] add supplied",
+            "tellraw @s[family=monster,family=!boss,tag=!neutral] {\"rawtext\":[{\"text\":\"§l§c已拾取红色补给箱 §6可进化为特殊幽灵\"}]}",
+            "scoreboard players set @s[family=monster,family=!boss,tag=!neutral] sfzombie_update 0",
+            "tag @s[family=monster,family=!boss,tag=!neutral] add super_supply",
+            
+            "event entity @e[type=coldsink:final_box_red,r=2,c=1] godie"
+          ]
+        }
+      },
+
+      // 子弹碎窗
+      "break_glass_bullet": {
+        "add": {
+          "component_groups": [
+            "coldsink:glass_bullet"
+          ]
+        }
+      },
+
+      // 补给箱交互事件
+      "supply_weapon_1": {
+        "queue_command": {
+          "command": [
+            "replaceitem entity @s slot.weapon.mainhand 1 coldsink:weapon_1",
+            "scoreboard players set @s bullet_1 30",
+            "title @s subtitle §l§b【先驱者】 §f武器已充填",
+            "title @s title §f",
+            "playsound note.pling @s"
+          ]
+        }
+      },
+      "supply_weapon_2": {
+        "queue_command": {
+          "command": [
+            "replaceitem entity @s slot.weapon.mainhand 1 coldsink:weapon_2",
+            "scoreboard players set @s bullet_2 50",
+            "title @s subtitle §l§e【拓荒者】 §f武器已充填",
+            "title @s title §f",
+            "playsound note.pling @s"
+          ]
+        }
+      },
+      "supply_weapon_3": {
+        "queue_command": {
+          "command": [
+            "replaceitem entity @s slot.weapon.mainhand 1 coldsink:weapon_3",
+            "scoreboard players set @s bullet_3 100",
+            "title @s subtitle §l§c【无畏者】 §f武器已充填",
+            "title @s title §f",
+            "playsound note.pling @s"
+          ]
+        }
+      },
+      "supply_weapon_4": {
+        "queue_command": {
+          "command": [
+            "replaceitem entity @s slot.weapon.mainhand 1 coldsink:weapon_4",
+            "scoreboard players set @s bullet_4 10",
+            "title @s subtitle §l§d【掠影者】 §f武器已充填",
+            "title @s title §f",
+            "playsound note.pling @s"
+          ]
+        }
+      },
+      "supply_weapon_5": {
+        "queue_command": {
+          "command": [
+            "replaceitem entity @s slot.weapon.mainhand 1 coldsink:weapon_5",
+            "scoreboard players set @s bullet_5 15",
+            "title @s subtitle §l§a【掣动者】 §f武器已充填",
+            "title @s title §f",
+            "playsound note.pling @s"
+          ]
+        }
+      },
+      "supply_weapon_6": {
+        "queue_command": {
+          "command": [
+            "replaceitem entity @s slot.weapon.mainhand 1 coldsink:weapon_6",
+            "scoreboard players set @s bullet_6 3",
+            "title @s subtitle §l§7【毁灭者】 §f武器已充填",
+            "title @s title §f",
+            "playsound note.pling @s"
+          ]
+        }
+      },
+      "supply_weapon_7": {
+        "queue_command": {
+          "command": [
+            "replaceitem entity @s slot.weapon.mainhand 1 coldsink:weapon_7",
+            "scoreboard players set @s bullet_7 3",
+            "title @s subtitle §l§6【狂战者】 §f武器已充填",
+            "title @s title §f",
+            "playsound note.pling @s"
+          ]
+        }
+      },
+      "supply_return": {
+        "queue_command": {
+          "command": [
+            "clear @s coldsink:empty_test",
+            "replaceitem entity @s slot.weapon.mainhand 1 keep coldsink:empty_test",
+            "execute @s[m=!a,hasitem={item=coldsink:empty_test}] ~~~ event entity @e[type=coldsink:supply_box,c=1] godie",
+            "title @s[m=!a,hasitem={item=coldsink:empty_test}] actionbar §6已收回补给箱",
+            "replaceitem entity @s[m=!a,hasitem={item=coldsink:empty_test}] slot.weapon.mainhand 1 coldsink:supply_box_spawn_egg",
+            "clear @s coldsink:empty_test"
+          ]
+        }
+      },
+      "supply_return_red": {
+        "queue_command": {
+          "command": [
+            "clear @s coldsink:empty_test",
+            "replaceitem entity @s slot.weapon.mainhand 1 keep coldsink:empty_test",
+            "execute @s[m=!a,hasitem={item=coldsink:empty_test}] ~~~ event entity @e[type=coldsink:final_box_red,c=1] godie",
+            "title @s[m=!a,hasitem={item=coldsink:empty_test}] actionbar §c已收回终极补给箱",
+            "replaceitem entity @s[m=!a,hasitem={item=coldsink:empty_test}] slot.weapon.mainhand 1 coldsink:final_box_red_spawn_egg",
+            "clear @s coldsink:empty_test"
+          ]
+        }
+      },
+      "supply_return_blue": {
+        "queue_command": {
+          "command": [
+            "clear @s coldsink:empty_test",
+            "replaceitem entity @s slot.weapon.mainhand 1 keep coldsink:empty_test",
+            "execute @s[m=!a,hasitem={item=coldsink:empty_test}] ~~~ event entity @e[type=coldsink:final_box_blue,c=1] godie",
+            "title @s[m=!a,hasitem={item=coldsink:empty_test}] actionbar §b已收回终极补给箱",
+            "replaceitem entity @s[m=!a,hasitem={item=coldsink:empty_test}] slot.weapon.mainhand 1 coldsink:final_box_blue_spawn_egg",
+            "clear @s coldsink:empty_test"
+          ]
+        }
+      },
+
+      // tac战术投掷道具
+
+      "tac_detect": {
+        "add": {
+          "component_groups": [
+            "coldsink:tac_detect"
+          ]
+        }
+      },
+      "tac_force": {
+        "add": {
+          "component_groups": [
+            "coldsink:tac_force"
+          ]
+        }
+      },
+      "tac_healarea": {
+        "add": {
+          "component_groups": [
+            "coldsink:tac_healarea"
+          ]
+        }
+      },
+      "tac_mineset": {
+        "add": {
+          "component_groups": [
+            "coldsink:tac_mineset"
+          ]
+        }
+      },
+      "tac_raid": {
+        "add": {
+          "component_groups": [
+            "coldsink:tac_raid"
+          ]
+        }
+      }
+    }
+  }
+}

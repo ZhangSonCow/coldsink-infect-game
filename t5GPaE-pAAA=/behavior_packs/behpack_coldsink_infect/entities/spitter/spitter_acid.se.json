@@ -1,0 +1,116 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:spitter_acid",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "acid", "tool" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:ageable": {
+        "duration": 5,
+        "grow_up": {
+          "event": "godie"
+        }
+      },
+      "minecraft:timer": {
+        "time": 0.5,
+        "time_down_event": {
+          "target": "self",
+          "event": "acid"
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 5.0,
+        "height": 0.5
+      },
+      "minecraft:physics": {}
+
+      //behavivors
+
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "tp @s @e[family=player,family=!tool,type=!item,tag=!neutral,r=3.2,c=1]",
+            "particle nacal_sdc:spitter_acid ~~-0.5~",
+            "playsound spitter.acid @a ~~~",
+            "tag @s add neutral",
+            "scoreboard players set @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] spitter_count 0"
+          ]
+        }
+      },
+      "acid": {
+        "queue_command": {
+          "command": [
+            "event entity @s[tag=maper] acid_maper",
+            "event entity @s[tag=!maper] acid_mod"
+          ]
+        }
+      },
+      "acid_maper": {
+        "queue_command": {
+          "command": [
+            "title @a[family=player,family=!tool,tag=!neutral,r=5] actionbar §a避免接触有毒的酸液！",
+            "execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=5,c=1] ~~~ tag @e[type=coldsink:spitter_acid,tag=maper,c=1] add get_target",
+            "execute @s[tag=get_target] ~~~ scoreboard players operation @a[family=spitter] spitter_check = @s spitter_time",
+            "execute @s[tag=get_target] ~~~ execute @a[family=spitter] ~~~ scoreboard players operation @s spitter_check -= @s spitter_time",
+            "execute @s[tag=get_target] ~~~ title @a[family=spitter,scores={spitter_check=0}] actionbar §a酸液命中目标！",
+            "execute @s[tag=get_target] ~~~ playsound reward @a[family=spitter,scores={spitter_check=0}]",
+            "tag @s remove get_target",
+
+            "scoreboard players add @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] spitter_count 1",
+            "damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=1..4},r=5] 2 suicide",
+            "damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=5..7},r=5] 3 suicide",
+            "damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=8..},r=5] 4 suicide",
+            "scoreboard players reset @e[family=player,family=!tool,type=!item,tag=!neutral,rm=5,r=10] spitter_count"
+          ]
+        }
+      },
+      "acid_mod": {
+        "queue_command": {
+          "command": [
+            "title @a[family=!spitter,family=!tool,r=5] actionbar §a避免接触有毒的酸液！",
+            "execute @e[family=!spitter,family=!tool,r=5,c=1] ~~~ tag @e[type=coldsink:spitter_acid,tag=!maper,c=1] add get_target",
+            "execute @s[tag=get_target] ~~~ scoreboard players operation @a[family=spitter] spitter_check = @s spitter_time",
+            "execute @s[tag=get_target] ~~~ execute @a[family=spitter] ~~~ scoreboard players operation @s spitter_check -= @s spitter_time",
+            "execute @s[tag=get_target] ~~~ title @a[family=spitter,scores={spitter_check=0}] actionbar §a酸液命中目标！",
+            "execute @s[tag=get_target] ~~~ playsound reward @a[family=spitter,scores={spitter_check=0}]",
+            "tag @s remove get_target",
+
+            "scoreboard players add @e[family=!spitter,family=!tool,r=5] spitter_count 1",
+            "damage @e[family=!spitter,family=!tool,scores={spitter_count=1..4},r=5] 2 suicide",
+            "damage @e[family=!spitter,family=!tool,scores={spitter_count=5..7},r=5] 3 suicide",
+            "damage @e[family=!spitter,family=!tool,scores={spitter_count=8..},r=5] 4 suicide",
+            "scoreboard players reset @e[family=!spitter,family=!tool,rm=5,r=10] spitter_count"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

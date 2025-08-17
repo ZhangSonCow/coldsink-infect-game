@@ -1,0 +1,27 @@
+{
+  "format_version": "1.18",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "coldsink:final_witch_solve"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "A"
+    ],
+    "key": {
+      "A": {
+        "item": "coldsink:become_final_witch"
+      }
+    },
+    "result": [
+      {
+        "item": "coldsink:final_box_red_spawn_egg",
+        "count": 1
+      },
+      {
+        "item": "coldsink:become_witch",
+        "count": 1
+      }
+    ]
+  }
+}

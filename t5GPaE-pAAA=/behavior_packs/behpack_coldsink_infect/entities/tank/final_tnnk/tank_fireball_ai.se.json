@@ -1,0 +1,106 @@
+﻿{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:tnnk_fireball_ai",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball"
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.5,
+        "height": 0.5
+      },
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:timer": {
+        "time": 0.05,
+        "time_down_event": {
+          "target": "self",
+          "event": "check"
+        }
+      },
+      "minecraft:ageable": {
+        "duration": 12,
+        "grow_up": {
+          "event": "godie"
+        }
+      },
+      "minecraft:projectile": {
+        "anchor": 1,
+        "on_hit": {
+          "impact_damage": {
+            "damage": 0,
+            "knockback": false,
+            "destroy_on_hit": true
+          },
+          "definition_event": {
+            "affect_projectile": true,
+            "affect_shooter": false,
+            "affect_target": false,
+            "affect_splash_area": false,
+            "event_trigger": {
+              "event": "fireball",
+              "target": "self"
+            }
+          },
+          "stick_in_ground": {
+            "shake_time": 1
+          }
+        },
+        "power": 1.2,
+        "gravity": 0.0,
+        "liquid_inertia": 0.95
+      },
+      "minecraft:physics": {},
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "fireball": {
+        "queue_command": {
+          "command": [
+            "damage @e[family=player,r=3.6] 10 suicide",
+            "particle coldsink:tnnk_fireball_blast_2",
+            "playsound tnnk.fireball.blast @a ~~~",
+            "camerashake add @a[r=24] 0.8 0.5 positional",
+            "kill @s"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      },
+      "check": {
+        "queue_command": {
+          "command": [
+            "tag @s add neutral",
+            "particle coldsink:tnnk_fireball_fly_2"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

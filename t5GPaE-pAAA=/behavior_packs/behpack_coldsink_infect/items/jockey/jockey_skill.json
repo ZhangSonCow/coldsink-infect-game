@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "coldsink:jockey_skill",
+      "menu_category": {  
+        "group": "itemGroup.name.arrow",  
+        "category": "equipment", 
+        "is_hidden_in_commands": false 
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": {
+        "texture": "jockey_skill"
+      },
+      "minecraft:display_name": {
+        "value": "§3手持 [长按/右键] 乘骑单体"
+      },
+      "minecraft:cooldown": {
+        "category": "jockey_skill",
+        "duration": 24
+      },
+      "minecraft:use_duration": 99999,
+      "minecraft:food": {
+        "can_always_eat": true
+      }
+    }
+  }
+}

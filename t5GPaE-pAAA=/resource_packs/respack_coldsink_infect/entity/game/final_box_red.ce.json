@@ -1,0 +1,38 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:final_box_red",
+      "materials": {
+        "default": "entity_alphatest",
+        "nacal_tac_detect": "nacal_tac_detect",
+        "nacal_customblend":"nacal_customblend"
+      },
+      "animations": {
+        "sign_facing": "animation.sign_facing"
+      },
+      "textures": {
+        "default": "textures/entity/final_box_red",
+        "sign": "textures/entity/final_box_red_sign"
+      },
+      "geometry": {
+        "default": "geometry.final_box",
+        "box_sign": "geometry.box_sign"
+      },
+      "scripts": {
+        "animate": [
+          "sign_facing"
+        ]
+      },
+      "render_controllers": [ 
+        "controller.render.com",
+        {
+          "controller.render.final_box_red_sign": "!q.is_sheared"
+        }
+     ],
+      "spawn_egg": {
+        "texture": "final_box_red"
+      }
+    }
+  }
+}

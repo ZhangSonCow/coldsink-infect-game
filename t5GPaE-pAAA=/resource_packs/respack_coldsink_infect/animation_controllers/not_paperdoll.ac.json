@@ -1,0 +1,413 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.not_paperdoll": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"not_paperdoll": "!v.is_paperdoll"
+						}
+					]
+				},
+				"not_paperdoll": {
+					"animations": [
+						{
+							"look_at_target": "q.variant == 0 && q.property('coldsink:handle_weapon') > 0 && !q.is_tamed"
+						},
+						{
+							"move.legs": "q.variant == 0 && q.property('coldsink:handle_weapon') > 0 && !q.is_tamed"
+						},
+						{
+							"root": "q.variant == 0 && q.property('coldsink:handle_weapon') == 0 && q.is_alive && !q.is_tamed"
+						},
+						// {
+						// 	"player_1st.fixed": "q.property('coldsink:is_maper') && q.variant == 0 && q.property('coldsink:handle_weapon') == 0 && v.is_first_person"
+						// },
+						// {
+						// 	"player_attack_1st.fixed": "q.variant == 0 && q.property('coldsink:handle_weapon') == 0 && v.is_first_person && v.attack_time"
+						// },
+						{
+							"player_sneaking.fix": "q.variant == 0 && q.is_sneaking && !v.is_first_person && ( q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_1') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_2') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_3') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_4') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_5') )"
+						},
+						{
+							"ctrl.lie_down": "q.variant == 0"
+						},
+						{
+							"jockey_control": "q.property('coldsink:jockey_control') && q.variant == 0"
+						},
+						{
+							"sign_facing": "q.is_ignited && !v.is_first_person"
+						},
+						// 特感
+						{
+							"ctrl.hunter": "q.variant == 1 && !v.is_first_person"
+						},
+						{
+							"ctrl.hunter.walk": "q.variant == 1 && !v.is_first_person"
+						},
+						{
+							"ctrl.hunter.1st": "q.variant == 1 && v.is_first_person"
+						},
+						{
+							"ctrl.spitter": "q.variant == 2 && !v.is_first_person"
+						},
+						{
+							"ctrl.spitter.walk": "q.variant == 2 && !v.is_first_person"
+						},
+						{
+							"ctrl.spitter.1st": "q.variant == 2 && v.is_first_person"
+						},
+						{
+							"spitter_dip": "q.variant == 2 && !v.is_first_person"
+						},
+						{
+							"ctrl.charger": "q.variant == 3 && !v.is_first_person"
+						},
+						{
+							"ctrl.charger.walk": "q.variant == 3 && !v.is_first_person"
+						},
+						{
+							"ctrl.charger.1st": "q.variant == 3 && v.is_first_person"
+						},
+						{
+							"ctrl.jockey": "q.variant == 4 && !v.is_first_person"
+						},
+						{
+							"ctrl.jockey.walk": "q.variant == 4 && !v.is_first_person"
+						},
+						{
+							"ctrl.jockey.1st": "q.variant == 4 && v.is_first_person"
+						},
+						{
+							"ctrl.boomer": "q.variant == 5 && !v.is_first_person"
+						},
+						{
+							"ctrl.boomer.walk": "q.variant == 5 && !v.is_first_person"
+						},
+						{
+							"ctrl.boomer.1st": "q.variant == 5 && v.is_first_person"
+						},
+						{
+							"ctrl.smoker": "q.variant == 6 && !v.is_first_person"
+						},
+						{
+							"ctrl.smoker.walk": "q.variant == 6 && !v.is_first_person"
+						},
+						{
+							"ctrl.smoker.1st": "q.variant == 6 && v.is_first_person"
+						},
+						{
+							"ctrl.tank": "q.variant == 7 && !v.is_first_person"
+						},
+						{
+							"ctrl.tank.walk": "q.variant == 7 && !v.is_first_person"
+						},
+						{
+							"ctrl.tank.1st": "q.variant == 7 && v.is_first_person"
+						},
+						{
+							"ctrl.final_tank": "q.variant == 11 && !v.is_first_person"
+						},
+						{
+							"ctrl.final_tank.walk": "q.variant == 11 && !v.is_first_person"
+						},
+						{
+							"ctrl.final_tank.1st": "q.variant == 11 && v.is_first_person"
+						},
+						{
+							"tank_fire": "q.variant == 11 && !v.is_first_person"
+						},
+						{
+							"ctrl.witch": "(q.variant == 8 || q.variant == 12) && !v.is_first_person"
+						},
+						{
+							"ctrl.witch.walk": "(q.variant == 8 || q.variant == 12) && !v.is_first_person"
+						},
+						{
+							"ctrl.witch.1st": "(q.variant == 8 || q.variant == 12) && v.is_first_person"
+						},
+						{
+							"witch_fire": "q.variant == 12 && !v.is_first_person && !q.property('coldsink:time_skill')"
+						},
+						{
+							"ctrl.witch.skill": "!v.is_first_person && q.variant == 8 && q.property('coldsink:time_skill')"
+						},
+						{
+							"ctrl.witch.skill.1st": "v.is_first_person && q.variant == 8 && q.property('coldsink:time_skill')"
+						},
+						// 英雄
+						{
+							"ctrl.human_hero": "q.variant == 9 && !v.is_first_person"
+						},
+						{
+							"ctrl.human_hero.walk": "q.variant == 9 && !v.is_first_person"
+						},
+						{
+							"ctrl.human_hero.1st": "q.variant == 9 && v.is_first_person"
+						},
+						{
+							"human_hero.look": "q.variant == 9 && !v.is_first_person"
+						},
+						{
+							"human_hero.particle": "!v.is_first_person && q.variant == 9"
+						},
+						{
+						  	"ctrl.final_hero": "(q.variant == 10 || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_double_sword')) && !v.is_first_person"
+						},
+						{
+						  	"ctrl.final_hero.walk": "(q.variant == 10 || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_double_sword')) && !v.is_first_person"
+						},
+						{
+						  	"ctrl.final_hero.1st": "(q.variant == 10 || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_double_sword')) && v.is_first_person"
+						},
+						{
+							"final_hero.look": "q.variant == 10 && !v.is_first_person"
+						},
+						{
+							"final_hero.particle": "!v.is_first_person && q.variant == 10"
+						},
+						{
+							"ctrl.savior_hero": "q.variant == 13 && !v.is_first_person && q.property('coldsink:handle_weapon') <= 20"
+						},
+						{
+							"ctrl.savior_hero.walk": "q.variant == 13 && !v.is_first_person"
+						},
+						{
+							"ctrl.savior_hero.1st": "q.variant == 13 && v.is_first_person && q.property('coldsink:handle_weapon') == 20"
+						},
+						{
+							"savior_hero.look": "q.variant == 13 && !v.is_first_person && q.property('coldsink:handle_weapon') == 20"
+						},
+						{
+							"savior_hero_empty.look": "q.variant == 13 && !v.is_first_person && q.property('coldsink:handle_weapon') < 20"
+						},
+						{
+							"ctrl.savior_hero_weapon_1.particle": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1') && !v.is_first_person"
+						},
+						{
+							"ctrl.savior_hero_weapon_1.particle.1st": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:savior_hero_weapon_1') && v.is_first_person"
+						},
+						{
+							"ctrl.machine_hero": "q.variant == 14 && !v.is_first_person"
+						},
+						{
+							"ctrl.machine_hero.walk": "q.variant == 14 && !v.is_first_person"
+						},
+						{
+							"ctrl.machine_hero.1st": "q.variant == 14 && v.is_first_person"
+						},
+						{
+							"ctrl.machine_hero_change": "q.variant == 14 && !v.is_first_person"
+						},
+						{
+							"ctrl.machine_hero_change.1st": "q.variant == 14 && v.is_first_person"
+						},
+						{
+							"machine_hero.look": "q.variant == 14 && !v.is_first_person"
+						},
+						{
+							"machine_hero.particle": "!v.is_first_person && q.variant == 14"
+						},
+						{
+							"machine_hero.rotate": "q.variant == 14"
+						},
+						{
+							"ctrl.space_hero": "q.variant == 15 && !v.is_first_person"
+						},
+						{
+							"ctrl.space_hero.walk": "q.variant == 15 && !v.is_first_person"
+						},
+						{
+							"ctrl.space_hero.1st": "q.variant == 15 && v.is_first_person"
+						},
+						{
+							"space_hero.look": "q.variant == 15 && !v.is_first_person"
+						},
+						{
+							"space_hero.particle": "!v.is_first_person && q.variant == 15 && !q.property('coldsink:time_skill')"
+						},
+						{
+							"ctrl.redeem_hero": "q.variant == 16 && !v.is_first_person"
+						},
+						{
+							"ctrl.redeem_hero.walk": "q.variant == 16 && !v.is_first_person"
+						},
+						{
+							"ctrl.redeem_hero_change": "q.variant == 16"
+						},
+						{
+							"ctrl.redeem_hero.1st": "q.variant == 16 && v.is_first_person"
+						},
+						{
+							"redeem_hero.look": "q.variant == 16 && !v.is_first_person"
+						},
+						{
+							"redeem_hero.particle": "!v.is_first_person && q.variant == 16"
+						},
+						{
+							"ctrl.fist_hero": "q.variant == 17 && !v.is_first_person"
+						},
+						{
+							"ctrl.fist_hero.walk": "q.variant == 17 && !v.is_first_person"
+						},
+						{
+							"ctrl.fist_hero.1st": "q.variant == 17 && v.is_first_person"
+						},
+						{
+							"fist_hero.look": "q.variant == 17 && !v.is_first_person"
+						},
+						{
+							"fist_hero.particle": "!v.is_first_person && q.variant == 17 && !q.property('coldsink:time_skill')"
+						},
+						{
+							"ctrl.fist_hero.skill": "!v.is_first_person && q.variant == 17 && q.property('coldsink:time_skill')"
+						},
+						{
+							"ctrl.fist_hero.skill.1st": "v.is_first_person && q.variant == 17 && q.property('coldsink:time_skill')"
+						},
+						// 人类枪械
+						{
+							"weapon_star": "v.is_first_person && (q.variant == 0 || q.variant == 13 || q.variant == 14 || (q.property('coldsink:handle_weapon') > 0 && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4') && !q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4_empty')))"
+						},
+						{
+							"weapon_1.rotation": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_1') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_1_empty')) && q.variant == 0"
+						},
+						{
+							"ctrl.weapon_1_particle": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_1') && !v.is_first_person"
+						},
+						{
+							"ctrl.weapon_1_particle.1st": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_1') && v.is_first_person"
+						},
+						{
+							"ctrl.weapon_1": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_1') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_1_empty')) && q.variant == 0 && !v.is_first_person"
+						},
+						{
+							"ctrl.weapon_1.1st": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_1') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_1_empty')) && q.variant == 0 && v.is_first_person"
+						},
+						{
+							"weapon_2.rotation": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_2') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_2_empty')) && q.variant == 0"
+						},
+						{
+							"ctrl.weapon_2_particle": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_2') && !v.is_first_person"
+						},
+						{
+							"ctrl.weapon_2_particle.1st": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_2') && v.is_first_person"
+						},
+						{
+							"ctrl.weapon_2": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_2') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_2_empty')) && q.variant == 0 && !v.is_first_person"
+						},
+						{
+							"ctrl.weapon_2.1st": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_2') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_2_empty')) && q.variant == 0 && v.is_first_person"
+						},
+						{
+							"weapon_3.rotation": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_3') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_3_empty')) && q.variant == 0"
+						},
+						{
+							"ctrl.weapon_3_particle": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_3') && !v.is_first_person"
+						},
+						{
+							"ctrl.weapon_3_particle.1st": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_3') && v.is_first_person"
+						},
+						{
+							"ctrl.weapon_3": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_3') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_3_empty')) && q.variant == 0 && !v.is_first_person"
+						},
+						{
+							"ctrl.weapon_3.1st": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_3') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_3_empty')) && q.variant == 0 && v.is_first_person"
+						},
+						{
+							"weapon_4.rotation": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4_empty')) && q.variant == 0"
+						},
+						{
+							"ctrl.weapon_4_particle": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4') && !v.is_first_person"
+						},
+						{
+							"ctrl.weapon_4_particle.1st": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4') && v.is_first_person"
+						},
+						{
+							"ctrl.weapon_4": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4_empty')) && q.variant == 0 && !v.is_first_person"
+						},
+						{
+							"ctrl.weapon_4.1st": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_4_empty')) && q.variant == 0 && v.is_first_person"
+						},
+						{
+							"weapon_5.rotation": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_5') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_5_empty')) && q.variant == 0"
+						},
+						{
+							"ctrl.weapon_5_particle": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_5') && !v.is_first_person"
+						},
+						{
+							"ctrl.weapon_5_particle.1st": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_5') && v.is_first_person"
+						},
+						{
+							"ctrl.weapon_5": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_5') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_5_empty')) && q.variant == 0 && !v.is_first_person"
+						},
+						{
+							"ctrl.weapon_5.1st": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_5') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_5_empty')) && q.variant == 0 && v.is_first_person"
+						},
+						{
+							"weapon_6.rotation": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_6') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_6_empty')) && q.variant == 0"
+						},
+						{
+							"ctrl.weapon_6": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_6') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_6_empty')) && q.variant == 0 && !v.is_first_person"
+						},
+						{
+							"ctrl.weapon_6.1st": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_6') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_6_empty')) && q.variant == 0 && v.is_first_person"
+						},
+						{
+							"weapon_7.rotation": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_7') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_7_empty')) && q.variant == 0"
+						},
+						{
+							"ctrl.weapon_7_particle": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_7') && !v.is_first_person"
+						},
+						{
+							"ctrl.weapon_7_particle.1st": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_7') && v.is_first_person"
+						},
+						{
+							"ctrl.weapon_7": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_7') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_7_empty')) && q.variant == 0 && !v.is_first_person"
+						},
+						{
+							"ctrl.weapon_7.1st": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_7') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:weapon_7_empty')) && q.variant == 0 && v.is_first_person"
+						},
+						// // 人类近战
+						{
+							"ctrl.melee_1": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_1') && (q.variant == 0 || q.variant == 13) && !v.is_first_person"
+						},
+						{
+							"ctrl.melee_1.1st": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_1') && (q.variant == 0 || q.variant == 13) && v.is_first_person"
+						},
+						{
+							"ctrl.melee_2": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_2') && (q.variant == 0 || q.variant == 13) && !v.is_first_person"
+						},
+						{
+							"ctrl.melee_2.1st": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_2') && (q.variant == 0 || q.variant == 13) && v.is_first_person"
+						},
+						{
+							"ctrl.melee_3": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_3') && (q.variant == 0 || q.variant == 13) && !v.is_first_person"
+						},
+						{
+							"ctrl.melee_3.1st": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_3') && (q.variant == 0 || q.variant == 13) && v.is_first_person"
+						},
+						{
+							"ctrl.melee_4": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_4') && (q.variant == 0 || q.variant == 13) && !v.is_first_person"
+						},
+						{
+							"ctrl.melee_4.1st": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_4') && (q.variant == 0 || q.variant == 13) && v.is_first_person"
+						},
+						{
+							"ctrl.melee_5": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_5') && (q.variant == 0 || q.variant == 13) && !v.is_first_person"
+						},
+						{
+							"ctrl.melee_5.1st": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_5') && (q.variant == 0 || q.variant == 13) && v.is_first_person"
+						}
+					],
+					"transitions": [
+						{
+							"default": "v.is_paperdoll"
+						}
+					]
+				}
+			}
+		}
+	}
+}

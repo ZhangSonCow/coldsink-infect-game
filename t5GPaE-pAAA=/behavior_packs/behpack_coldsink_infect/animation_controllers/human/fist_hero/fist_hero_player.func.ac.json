@@ -1,0 +1,104 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.fist_hero_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"begin": "q.property('coldsink:action_status') == 4"
+						},
+						{
+							"attack_0": "v.attack_time && !q.is_saddled && q.property('coldsink:action_status') == 0"
+						},
+						{
+							"attack_1": "v.attack_time && q.is_saddled && q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_clear"
+					]
+				},
+				"begin": {
+					"animations": [ "fist_hero_begin" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				},
+				"attack_0": {
+					"animations": [ "fist_hero_attack_light" ],
+					"transitions": [
+						{
+							"begin": "q.property('coldsink:action_status') == 4"
+						},
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_light"
+					]
+				},
+				"attack_1": {
+					"animations": [ "fist_hero_attack_heavy" ],
+					"transitions": [
+						{
+							"begin": "q.property('coldsink:action_status') == 4"
+						},
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_heavy"
+					]
+				}
+			}
+		},
+		"controller.animation.fist_skill_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"skill": "q.property('coldsink:time_skill')"
+						}
+					]
+				},
+				"skill": {
+					"animations": [ "fist_hero_skill_timer" ],
+					"transitions": [
+						{
+							"default": "!q.property('coldsink:time_skill')"
+						}
+					],
+					"on_entry": [
+						"/effect @s resistance 5 10 true"
+					],
+					"on_exit": [
+						"/effect @s resistance 0 11 true",
+
+						"/tag @s remove no_any_hurt",
+						"/event entity @s time_skill_false",
+						"/execute @s[tag=fist_hero_shield] ~~~ event entity @e[family=fist_hero_shield,r=5,c=1] godie",
+
+						"/stopsound @a[r=16] fist_hero_skill",
+						"/stopsound @s fist_hero_skill.self",
+						"/playsound fist_hero_skill_boom @a[r=16]",
+						"/particle nacal_sdc:fist_hero_blast ~~~",
+
+          				"/tag @s add fist_skill_self",
+						"/execute @s[tag=maper] ~~~ damage @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=8] 20 suicide",
+						"/execute @s[tag=maper] ~~~ execute @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=8] ~~~ playsound get_target @p[tag=fist_skill_self,tag=!no_hit_sound]",
+						"/execute @s[tag=!maper] ~~~ damage @e[tag=!fist_skill_self,family=!tool,family=!tools,type=!item,r=8] 20 suicide",
+						"/execute @s[tag=!maper] ~~~ execute @e[tag=!fist_skill_self,family=!tool,family=!tools,type=!item,r=8] ~~~ playsound get_target @p[tag=fist_skill_self,tag=!no_hit_sound]",
+						"/tag @s remove fist_skill_self"
+					]
+				}
+			}
+		}
+	}
+}

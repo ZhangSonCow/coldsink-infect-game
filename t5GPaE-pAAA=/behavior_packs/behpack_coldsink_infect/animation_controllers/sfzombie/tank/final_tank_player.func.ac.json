@@ -1,0 +1,69 @@
+{
+	"format_version": "1.18.0",
+	"animation_controllers": {
+		"controller.animation.final_tank_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"attack_light": "v.attack_time && !q.is_saddled"
+						},
+						{
+							"attack_heavy": "v.attack_time && q.is_saddled"
+						},
+						{
+							"skill_fireball": "q.is_using_item && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_tnnk_skill')"
+						},
+						{
+							"skill_howl": "q.property('coldsink:action_status') == 4"
+						}
+					]
+				},
+				"attack_light": {
+					"animations": [ "final_tank_attack_light" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_light"
+					]
+				},
+				"attack_heavy": {
+					"animations": [ "final_tank_attack_heavy" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_heavy"
+					]
+				},
+				"skill_fireball": {
+					"animations": [ "final_tank_skill_fireball_timer" ],
+					"transitions": [
+						{
+							"default": "!(q.is_using_item && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_tnnk_skill'))"
+						}
+					],
+					"on_exit": [
+						"/title @s actionbar §l§c火球已掷出！",
+						"/event entity @s coldsink:final_tnnk_fireball",
+						"/replaceitem entity @s slot.hotbar 8 coldsink:skill_cooldown 12 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}"
+					]
+				},
+				"skill_howl": {
+					"animations": [ "final_tank_skill_howl_timer" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				}
+			}
+		}
+	}
+}

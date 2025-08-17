@@ -1,0 +1,35 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.weapon_4_star",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "stars",
+					"parent": "root",
+					"pivot": [0.775, 26.85, 10],
+					"cubes": [
+						{
+							"origin": [-18.65, 15.4, 10],
+							"size": [39, 23, 0],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [38, 23]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

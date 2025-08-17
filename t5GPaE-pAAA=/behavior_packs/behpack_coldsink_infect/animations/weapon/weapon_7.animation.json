@@ -1,0 +1,77 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.weapon_7_fire.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.065": [
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.weapon_7_loading.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.0": [
+          "/tag @s add self",
+
+          "/replaceitem entity @s[m=!c,tag=!bullet_infinite,tag=maper,scores={bullet_7=..34,bullet_back=1..}] slot.weapon.mainhand 1 coldsink:weapon_7_empty 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+          "/title @s[m=!c,tag=!bullet_infinite,tag=maper,scores={bullet_7=..34,bullet_back=1..}] actionbar §6Reloading...",
+          "/execute @s[m=!c,tag=!bullet_infinite,tag=maper,scores={bullet_7=..34,bullet_back=1..}] ~~~ playsound weapon_7.reload @a[tag=!self] ~~~",
+          "/playsound weapon_7.reload.self @s[m=!c,tag=!bullet_infinite,tag=maper,scores={bullet_7=..34,bullet_back=1..}]",
+
+          "/replaceitem entity @s[m=!c,tag=!bullet_infinite,tag=!maper,scores={bullet_7=..34},hasitem={item=coldsink:weapon_7_clip}] slot.weapon.mainhand 1 coldsink:weapon_7_empty 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+          "/title @s[m=!c,tag=!bullet_infinite,tag=!maper,scores={bullet_7=..34},hasitem={item=coldsink:weapon_7_clip}] actionbar §6Reloading...",
+          "/execute @s[m=!c,tag=!bullet_infinite,tag=!maper,scores={bullet_7=..34},hasitem={item=coldsink:weapon_7_clip}] ~~~ playsound weapon_7.reload @a[tag=!self] ~~~",
+          "/playsound weapon_7.reload.self @s[m=!c,tag=!bullet_infinite,tag=!maper,scores={bullet_7=..34},hasitem={item=coldsink:weapon_7_clip}]",
+
+          "/replaceitem entity @s[m=c,scores={bullet_7=..34}] slot.weapon.mainhand 1 coldsink:weapon_7_empty 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+          "/title @s[m=c,scores={bullet_7=..34}] actionbar §6Reloading...",
+          "/execute @s[m=c,scores={bullet_7=..34}] ~~~ playsound weapon_7.reload @a[tag=!self] ~~~",
+          "/playsound weapon_7.reload.self @s[m=c,scores={bullet_7=..34}]",
+
+          "/replaceitem entity @s[tag=bullet_infinite,scores={bullet_7=..34}] slot.weapon.mainhand 1 coldsink:weapon_7_empty 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+          "/title @s[tag=bullet_infinite,scores={bullet_7=..34}] actionbar §6Reloading...",
+          "/execute @s[tag=bullet_infinite,scores={bullet_7=..34}] ~~~ playsound weapon_7.reload @a[tag=!self] ~~~",
+          "/playsound weapon_7.reload.self @s[tag=bullet_infinite,scores={bullet_7=..34}]",
+          
+          "/tag @s remove self"
+        ],
+        "2.0": [
+          // 【地图】
+
+          // 计算备弹是否能填满主弹夹
+          "/scoreboard players set @s[m=!c,tag=!bullet_infinite,tag=maper] bullet_need 35",
+          "/scoreboard players operation @s[m=!c,tag=!bullet_infinite,tag=maper] bullet_need -= @s bullet_7",
+          "/scoreboard players operation @s[m=!c,tag=!bullet_infinite,tag=maper] bullet_query = @s bullet_back",
+          "/scoreboard players operation @s[m=!c,tag=!bullet_infinite,tag=maper] bullet_query -= @s bullet_need",
+          // 备弹够填满主弹夹
+          "/scoreboard players set @s[m=!c,tag=!bullet_infinite,tag=maper,scores={bullet_query=0..}] bullet_7 35",
+          "/scoreboard players operation @s[m=!c,tag=!bullet_infinite,tag=maper,scores={bullet_query=0..}] bullet_back -= @s bullet_need",
+          // 备弹不够填满主弹夹
+          "/scoreboard players operation @s[m=!c,tag=!bullet_infinite,tag=maper,scores={bullet_query=..-1}] bullet_7 += @s bullet_back",
+          "/scoreboard players set @s[m=!c,tag=!bullet_infinite,tag=maper,scores={bullet_query=..-1}] bullet_back 0",
+          "/titleraw @s[m=!c,tag=!bullet_infinite,tag=maper] actionbar {\"rawtext\":[{\"text\":\"§f< §6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_7\"}},{\"text\":\"§f / §6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_back\"}},{\"text\":\"§f >\"}]}",
+
+          // 【模组】
+
+          "/scoreboard players set @s[m=!c,tag=!bullet_infinite,tag=!maper,hasitem={item=coldsink:weapon_7_clip}] bullet_7 35",
+          "/clear @s[m=!c,tag=!bullet_infinite,tag=!maper] coldsink:weapon_7_clip 0 1",
+          "/titleraw @s[m=!c,tag=!bullet_infinite,tag=!maper] actionbar {\"rawtext\":[{\"text\":\"§f< §6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_7\"}},{\"text\":\"§f / §635\"},{\"text\":\"§f >\"}]}",
+          
+          // 【创造】
+
+          "/scoreboard players set @s[m=c] bullet_7 35",
+          "/titleraw @s[m=c] actionbar {\"rawtext\":[{\"text\":\"§f< §6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_7\"}},{\"text\":\"§f / §635\"},{\"text\":\"§f >\"}]}",
+
+          "/scoreboard players set @s[tag=bullet_infinite] bullet_7 35",
+          "/titleraw @s[tag=bullet_infinite] actionbar {\"rawtext\":[{\"text\":\"§f< §6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bullet_7\"}},{\"text\":\"§f / §635\"},{\"text\":\"§f >\"}]}",
+          
+          "/event entity @s action_clear"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,103 @@
+﻿{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:spitter_acid_throw_ai",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball"
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "acid", "tool" ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.3,
+        "height": 0.3
+      },
+      "minecraft:timer": {
+        "time": 0.1,
+        "time_down_event": {
+          "target": "self",
+          "event": "throw"
+        }
+      },
+      "minecraft:ageable": {
+        "duration":5,
+        "grow_up": {
+          "event": "godie"
+        }
+      },
+      "minecraft:projectile": {
+        "anchor": 1,
+        "on_hit": {
+          "impact_damage": {
+            "damage": 2,
+            "knockback": false
+          },
+          "definition_event": {
+            "affect_projectile": true,
+            "affect_shooter": false,
+            "affect_target": false,
+            "affect_splash_area": false,
+            "event_trigger": {
+              "event": "summon"
+            }
+          }
+        },
+        "power": 0.6,
+        "gravity": 0.01,
+        "angle_offset": 0,
+        "liquid_inertia": 0.95
+      },
+      "minecraft:physics": {},
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "tag @s add neutral",
+            "event entity @e[type=!player,family=spitter,c=1] skill",
+            "scoreboard players operation @s spitter_time = @e[type=!player,family=spitter,c=1] spitter_time"
+          ]
+        }
+      },
+      "throw": {
+        "queue_command": {
+          "command": [
+            "particle nacal_sdc:spitter_throw ~~~"
+          ]
+        }
+      },
+      "summon": {
+        "queue_command": {
+          "command": [
+            "summon coldsink:spitter_acid_ai",
+            "scoreboard players operation @e[type=coldsink:spitter_acid_ai,c=1] spitter_time = @s spitter_time",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+	"format_version": "1.18.0",
+	"animation_controllers": {
+		"controller.animation.tank_move_sound.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"move": "q.is_moving"
+						}
+					]
+				},
+				"move": {
+					"animations": [ "tank_move_sound" ],
+					"transitions": [
+						{
+							"default": "!q.is_moving"
+						}
+					]
+				}
+			}
+		}
+	}
+}

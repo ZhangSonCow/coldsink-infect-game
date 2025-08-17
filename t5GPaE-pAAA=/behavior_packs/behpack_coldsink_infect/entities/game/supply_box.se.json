@@ -1,0 +1,235 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:supply_box",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:health": {
+        "value": 2,
+        "max": 2,
+        "min": 1
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:collision_box": {
+        "width": 1.2,
+        "height": 0.8
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_equipment",
+                    "domain": "hand",
+                    "subject": "other",
+                    "value": "coldsink:weapon_1"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "domain": "hand",
+                    "subject": "other",
+                    "value": "coldsink:weapon_1_empty"
+                  }
+                ]
+              },
+              "event": "supply_weapon_1",
+              "target": "other"
+            },
+            "swing": true,
+            "interact_text": "交互充填"
+          },
+          {
+            "on_interact": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_equipment",
+                    "domain": "hand",
+                    "subject": "other",
+                    "value": "coldsink:weapon_2"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "domain": "hand",
+                    "subject": "other",
+                    "value": "coldsink:weapon_2_empty"
+                  }
+                ]
+              },
+              "event": "supply_weapon_2",
+              "target": "other"
+            },
+            "swing": true,
+            "interact_text": "交互充填"
+          },
+          {
+            "on_interact": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_equipment",
+                    "domain": "hand",
+                    "subject": "other",
+                    "value": "coldsink:weapon_3"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "domain": "hand",
+                    "subject": "other",
+                    "value": "coldsink:weapon_3_empty"
+                  }
+                ]
+              },
+              "event": "supply_weapon_3",
+              "target": "other"
+            },
+            "swing": true,
+            "interact_text": "交互充填"
+          },
+          {
+            "on_interact": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_equipment",
+                    "domain": "hand",
+                    "subject": "other",
+                    "value": "coldsink:weapon_4"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "domain": "hand",
+                    "subject": "other",
+                    "value": "coldsink:weapon_4_empty"
+                  }
+                ]
+              },
+              "event": "supply_weapon_4",
+              "target": "other"
+            },
+            "swing": true,
+            "interact_text": "交互充填"
+          },
+          {
+            "on_interact": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_equipment",
+                    "domain": "hand",
+                    "subject": "other",
+                    "value": "coldsink:weapon_5"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "domain": "hand",
+                    "subject": "other",
+                    "value": "coldsink:weapon_5_empty"
+                  }
+                ]
+              },
+              "event": "supply_weapon_5",
+              "target": "other"
+            },
+            "swing": true,
+            "interact_text": "交互充填"
+          },
+          {
+            "on_interact": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_equipment",
+                    "domain": "hand",
+                    "subject": "other",
+                    "value": "coldsink:weapon_6"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "domain": "hand",
+                    "subject": "other",
+                    "value": "coldsink:weapon_6_empty"
+                  }
+                ]
+              },
+              "event": "supply_weapon_6",
+              "target": "other"
+            },
+            "swing": true,
+            "interact_text": "交互充填"
+          },
+          {
+            "on_interact": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_equipment",
+                    "domain": "hand",
+                    "subject": "other",
+                    "value": "coldsink:weapon_7"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "domain": "hand",
+                    "subject": "other",
+                    "value": "coldsink:weapon_7_empty"
+                  }
+                ]
+              },
+              "event": "supply_weapon_7",
+              "target": "other"
+            },
+            "swing": true,
+            "interact_text": "交互充填"
+          },
+          {
+            "on_interact": {
+              "event": "supply_return",
+              "target": "other"
+            },
+            "swing": true,
+            "interact_text": "空手收回"
+          }
+        ]
+      }
+    },
+    "events": {
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:spawn_witch_stand",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/witch_0"
+      },
+      "geometry": {
+        "default": "geometry.empty"
+      },
+      "render_controllers": [ "controller.render.com" ],
+      "spawn_egg": {
+        "base_color": "#555555",
+        "overlay_color": "#1a8c3a"
+      }
+    }
+  }
+}

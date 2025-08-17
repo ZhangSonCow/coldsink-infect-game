@@ -1,0 +1,61 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:tnnk_ai",
+      "animations": {
+        "tank_idle.arm": "animation.tank.idle.arm",
+        "tank_idle.leg": "animation.tank.idle.leg",
+        "tank_move.arm": "animation.tank.move.arm",
+        "tank_move.leg": "animation.tank.move.leg",
+        "tank_attack1": "animation.tank.attack1",
+        "tank_attack2": "animation.tank.attack2",
+        "tank_skill": "animation.tank.skill",
+        "tank_howl_skill": "animation.tank.howl.skill",
+        "c.tank_ai": "controller.animation.tank_ai",
+        "c.tank_walk": "controller.animation.tank_walk",
+        "sign_facing": "animation.sign_facing"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.random_choices = math.random(0, 100);"
+        ],
+        "animate": [
+          "c.tank_ai",
+          "c.tank_walk",
+          "sign_facing"
+        ]
+      },
+      "materials": {
+        "default": "entity_alphatest",
+        "nacal_tac_detect": "nacal_tac_detect",
+        "nacal_customblend":"nacal_customblend"
+      },
+      "textures": {
+        "tank": "textures/entity/tank",
+        "tank_rock": "textures/entity/tank_rock",
+        "tank_sign": "textures/entity/tank_sign"
+      },
+      "geometry": {
+        "tank": "geometry.tank",
+        "tank_player_rock": "geometry.tank_player_rock",
+        "boss_sign": "geometry.boss_sign"
+      },
+      "render_controllers": [
+        "controller.render.tank_sign",
+        {
+          "controller.render.tank": "q.health > 10"
+        },
+        {
+          "controller.render.tank.bling": "q.health < 11"
+        },
+        {
+          "controller.render.tank_rock": "q.is_sheared"
+        }
+      ],
+      "spawn_egg": {
+        "texture": "become_tnnk"
+      }
+    }
+  }
+}

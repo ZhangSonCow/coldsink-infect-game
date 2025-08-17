@@ -1,0 +1,35 @@
+{
+    "format_version": "1.18",
+    "minecraft:recipe_shaped": {
+      "description": {
+        "identifier": "coldsink:weapon_4"
+      },
+      "tags": [ "crafting_table" ],
+      "pattern": [
+        " SI",
+        "IAA",
+        " IP"
+      ],
+      "key": {
+        "S": {
+          "item": "spyglass"
+        },
+        "A": {
+          "item": "amethyst_shard"
+        },
+        "I": {
+          "item": "iron_ingot"
+        },
+        "P": {
+          "item": "coldsink:weapon_4_clip"
+        }
+      },
+      "result": [
+        {
+          "item": "coldsink:weapon_4_display_spawn_egg",
+          "count": 1
+        }
+      ]
+    }
+  }
+  

@@ -1,0 +1,75 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.melee_4": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "melee_4.idle" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"attack": "q.property('coldsink:action_status') == 1"
+						},
+						{
+							"attack_big": "q.property('coldsink:action_status') == 2"
+						}
+					]
+				},
+				"attack": {
+					"animations": [ "melee_4.attack" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					]
+				},
+				"attack_big": {
+					"animations": [ "melee_4.attack_big" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.melee_4.1st": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "melee_4.idle.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"attack": "q.property('coldsink:action_status') == 1"
+						},
+						{
+							"attack_big": "q.property('coldsink:action_status') == 2"
+						}
+					]
+				},
+				"attack": {
+					"animations": [ "melee_4.attack.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					]
+				},
+				"attack_big": {
+					"animations": [ "melee_4.attack_big.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						}
+					]
+				}
+			}
+		}
+	}
+}

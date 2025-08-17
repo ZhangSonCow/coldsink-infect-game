@@ -1,0 +1,143 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:human",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      },
+      "coldsink:boomer.bile": {
+        "minecraft:is_stunned": {},
+        "minecraft:timer": {
+          "time": 8,
+          "time_down_event": {
+            "target": "self",
+            "event": "coldsink:boomer_bile_over"
+          }
+        }
+      }
+    },
+    "components": {
+      "minecraft:nameable": {
+      },
+      "minecraft:health": {
+        "value": 20,
+        "max": 20
+      },
+      "minecraft:type_family": {
+        "family": [ "sdc", "player", "human_ai" ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:collision_box": {
+          "width": 0.65,
+          "height": 1.6
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "fall",
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  }
+                ]
+              }
+            },
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "bullet"
+                  }
+                ]
+              }
+            },
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:rideable": {
+        "family_types": [ "jockey_ai", "tool" ],
+        "controlling_seat": 1,
+        "seat_count": 10,
+        "seats": [
+          {
+            "position": [ 0, 1.6, 0 ]
+          }
+        ]
+      },
+      "minecraft:movement": {
+        "value": 0.0
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "tag @s add exhibit"
+          ]
+        }
+      },
+      "coldsink:jockey_control": {
+        "add": {
+          "component_groups": [
+            "coldsink:jockey.control"
+          ]
+        }
+      },
+      "coldsink:jockey_control_over": {
+        "remove": {
+          "component_groups": [
+            "coldsink:jockey.control"
+          ]
+        }
+      },
+      "coldsink:boomer_bile": {
+        "add": {
+          "component_groups": [
+            "coldsink:boomer.bile"
+          ]
+        }
+      },
+      "coldsink:boomer_bile_over": {
+        "remove": {
+          "component_groups": [
+            "coldsink:boomer.bile"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

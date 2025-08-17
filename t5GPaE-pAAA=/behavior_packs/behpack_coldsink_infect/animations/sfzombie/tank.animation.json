@@ -1,0 +1,124 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.tank_attack_light.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.0": [
+          "/scoreboard players random @s wp_random 1 3",
+          "/tag @s add self",
+          "/execute @s[scores={wp_random=1},tag=!sound_interval] ~~~ playsound tank.attack_1 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=2},tag=!sound_interval] ~~~ playsound tank.attack_2 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=3},tag=!sound_interval] ~~~ playsound tank.attack_3 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=1},tag=!sound_interval] ~~~ playsound tank.attack_1.self @s",
+          "/execute @s[scores={wp_random=2},tag=!sound_interval] ~~~ playsound tank.attack_2.self @s",
+          "/execute @s[scores={wp_random=3},tag=!sound_interval] ~~~ playsound tank.attack_3.self @s",
+          "/tag @s remove self",
+          "/tag @s add sound_interval"
+        ],
+        "0.75": [
+          "/tag @s add tank_self",
+
+          "/execute @s[tag=maper] ^^2.5^ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] ~~~ playsound get_target @p[tag=tank_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^2.5^ effect @e[family=player,family=!tool,type=!item,tag=!neutral,tag=!no_any_hurt,r=5] slowness 2 1 true",
+          "/execute @s[tag=maper] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] 5 suicide",
+          "/execute @s[tag=maper] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=5] 3 suicide",
+
+          "/execute @s[tag=!maper] ^^2.5^ execute @e[tag=!tank_self,family=!tool,type=!item,r=5] ~~~ playsound get_target @p[tag=tank_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^2.5^ effect @e[tag=!tank_self,family=!tool,type=!item,tag=!no_any_hurt,r=5] slowness 2 1 true",
+          "/execute @s[tag=!maper] ^^2.5^ damage @e[tag=!tank_self,family=!tool,type=!item,r=5] 11 suicide",
+          
+          "/tag @s remove tank_self"
+        ],
+        "1.3": [
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.tank_attack_heavy.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.0": [
+          "/scoreboard players random @s wp_random 1 3",
+          "/tag @s add self",
+          "/execute @s[scores={wp_random=1},tag=!sound_interval] ~~~ playsound tank.attack_big_1 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=2},tag=!sound_interval] ~~~ playsound tank.attack_big_2 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=3},tag=!sound_interval] ~~~ playsound tank.attack_big_3 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=1},tag=!sound_interval] ~~~ playsound tank.attack_big_1.self @s",
+          "/execute @s[scores={wp_random=2},tag=!sound_interval] ~~~ playsound tank.attack_big_2.self @s",
+          "/execute @s[scores={wp_random=3},tag=!sound_interval] ~~~ playsound tank.attack_big_3.self @s",
+          "/tag @s remove self",
+          "/tag @s add sound_interval"
+        ],
+        "1.15": [
+          "/tag @s add tank_self",
+
+          "/execute @s[tag=maper] ^^3^ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=6] ~~~ playsound get_target @p[tag=tank_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^3^ effect @e[family=player,family=!tool,type=!item,tag=!neutral,tag=!no_any_hurt,r=6] levitation 1 0 true",
+          "/execute @s[tag=maper] ^^3^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=6] 9 suicide",
+          "/execute @s[tag=maper] ^^3^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=6] 6 suicide",
+
+          "/execute @s[tag=!maper] ^^3^ execute @e[tag=!tank_self,family=!tool,type=!item,r=6] ~~~ playsound get_target @p[tag=tank_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^3^ effect @e[tag=!tank_self,family=!tool,type=!item,tag=!no_any_hurt,r=6] levitation 1 0 true",
+          "/execute @s[tag=!maper] ^^3^ damage @e[tag=!tank_self,family=!tool,type=!item,r=6] 24 suicide",
+          
+          "/tag @s remove tank_self"
+        ],
+        "1.8": [
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.tank_skill_rock_timer.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.0": [
+          "/replaceitem entity @s slot.hotbar 7 barrier 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}"
+        ],
+        "2.0": [
+          "/replaceitem entity @s slot.hotbar 7 coldsink:tnnk_howl_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+          "/event entity @s coldsink:tank_skill_rock",
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.tank_skill_howl_timer.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.0": [
+          "/tag @s remove tnnk_self",
+          "/replaceitem entity @s slot.hotbar 8 barrier 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}"
+        ],
+        "1.0": [
+          "/replaceitem entity @s slot.hotbar 8 coldsink:tnnk_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.tank_move_sound.func": {
+      "loop": true,
+      "animation_length": 0.5,
+      "timeline": {
+        "0.3": [
+          "/scoreboard players random @s tnnk_move 1 3",
+          "/execute @s[scores={tnnk_move=1}] ~~~ playsound tnnk.step_1 @a[r=16] ~~~",
+          "/execute @s[scores={tnnk_move=2}] ~~~ playsound tnnk.step_2 @a[r=16] ~~~",
+          "/execute @s[scores={tnnk_move=3}] ~~~ playsound tnnk.step_3 @a[r=16] ~~~"
+        ]
+      }
+    },
+    "animation.tnnk_howl_control_timer.func": {
+      "loop": true,
+      "animation_length": 5.0,
+      "timeline": {
+        "4.0": [
+          "/event entity @s coldsink:tnnk_howl_control_over"
+        ]
+      }
+    }
+  }
+}

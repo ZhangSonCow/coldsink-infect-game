@@ -1,0 +1,111 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.witch_ai": {
+			"states": {
+				"default": {
+					"animations": [
+						"witch_idle.arm"
+					],
+					"transitions": [
+						{
+							"move": "query.modified_move_speed > 0.1 && !q.is_sheared"
+						},
+						{
+							"attack_1": "v.attack_time && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && variable.random_choices >= 50"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"move": {
+					"animations": [
+						"witch_move.arm"
+					],
+					"transitions": [
+						{
+							"default": "query.modified_move_speed <= 0.1 && !q.is_sheared"
+						},
+						{
+							"attack_1": "v.attack_time && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && variable.random_choices >= 50"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"attack_1": {
+					"animations": [
+						"witch_attack1"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"attack_2": {
+					"animations": [
+						"witch_attack2"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		},
+		"controller.animation.witch_walk": {
+			"states": {
+				"default": {
+					"animations": [
+						"witch_idle.leg"
+					],
+					"transitions": [
+						{
+							"move": "query.modified_move_speed > 0.1"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"move": {
+					"animations": [
+						"witch_move.leg"
+					],
+					"transitions": [
+						{
+							"default": "query.modified_move_speed <= 0.1"
+						}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		},
+		"controller.animation.witch.skill_ai": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"skill": "q.is_sheared"
+						}
+					]
+				},
+				"skill": {
+					"animations": [ "witch.skill" ],
+					"transitions": [
+						{
+							"default": "!q.is_sheared"
+						}
+					]
+				}
+			}
+		}
+	}
+}

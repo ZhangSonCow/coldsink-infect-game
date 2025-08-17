@@ -1,0 +1,83 @@
+{
+	"format_version": "1.18.0",
+	"animation_controllers": {
+		"controller.animation.tank_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"attack_light": "v.attack_time && !q.is_saddled"
+						},
+						{
+							"attack_heavy": "v.attack_time && q.is_saddled"
+						},
+						{
+							"skill_rock": "q.property('coldsink:action_status') == 3"
+						},
+						{
+							"skill_howl": "q.property('coldsink:action_status') == 4"
+						}
+					]
+				},
+				"attack_light": {
+					"animations": [ "tank_attack_light" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"skill_rock": "q.property('coldsink:action_status') == 3"
+						},
+						{
+							"skill_howl": "q.property('coldsink:action_status') == 4"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_light"
+					]
+				},
+				"attack_heavy": {
+					"animations": [ "tank_attack_heavy" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"skill_rock": "q.property('coldsink:action_status') == 3"
+						},
+						{
+							"skill_howl": "q.property('coldsink:action_status') == 4"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_heavy"
+					]
+				},
+				"skill_rock": {
+					"animations": [ "tank_skill_rock_timer" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+					// ,
+					// "on_entry": [
+					// 	"/camera @s[tag=!no_skill_camera] set minecraft:third_person"
+					// ],
+					// "on_exit": [
+					// 	"/camera @s clear"
+					// ]
+				},
+				"skill_howl": {
+					"animations": [ "tank_skill_howl_timer" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				}
+			}
+		}
+	}
+}

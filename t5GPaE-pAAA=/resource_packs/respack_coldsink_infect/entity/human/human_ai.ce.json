@@ -1,0 +1,207 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:human_ai",
+      "materials": {
+        "default": "entity_alphatest",
+        "blend": "entity_alphablend",
+        "nacal_tac_detect": "nacal_tac_detect",
+        "nacal_customblend":"nacal_customblend",
+        "netease_entity_metallic": "entity_alphatest"
+      },
+      "particle_effects": {
+        "weapon_fire_1": "coldsink:weapon_fire_1",
+        "weapon_fire_2": "coldsink:weapon_fire_2",
+        "weapon_fire_3": "coldsink:weapon_fire_3",
+        "weapon_fire_4": "coldsink:weapon_fire_4",
+        "weapon_fire_5": "coldsink:weapon_fire_5"
+      },
+      "animations": {
+        "look_at_target": "animation.player.look_at_target.ui",
+        "move.legs": "animation.player.move.legs",
+        "jockey_control": "animation.jockey.control",
+        "bob": "animation.player.bob",
+        "sign_facing": "animation.sign_facing",
+        "weapon_1.idle": "animation.weapon_1.idle",
+        "weapon_2.idle": "animation.weapon_2.idle",
+        "weapon_3.idle": "animation.weapon_3.idle",
+        "weapon_4.idle": "animation.weapon_4.idle",
+        "weapon_5.idle": "animation.weapon_5.idle",
+        "melee_1.idle": "animation.melee_1.idle",
+        "melee_2.idle": "animation.melee_2.idle",
+        "melee_3.idle": "animation.melee_3.idle",
+        "melee_4.idle": "animation.melee_4.idle",
+        "melee_5.idle": "animation.melee_5.idle",
+        "weapon_1.rotation": "animation.weapon_1.rotation",
+        "weapon_2.rotation": "animation.weapon_2.rotation",
+        "weapon_3.rotation": "animation.weapon_3.rotation",
+        "weapon_4.rotation": "animation.weapon_4.rotation",
+        "weapon_5.rotation": "animation.weapon_5.rotation"
+      },
+      "scripts": {
+        "initialize": [
+          "variable.is_holding_right = 0.0;",
+          "variable.is_blinking = 0.0;",
+          "variable.last_blink_time = 0.0;",
+          "variable.hand_bob = 0.0;",
+          "variable.player_x_rotation=0.0;"
+        ],
+        "pre_animation": [
+          "variable.helmet_layer_visible = 1.0;",
+          "variable.leg_layer_visible = 1.0;",
+          "variable.boot_layer_visible = 1.0;",
+          "variable.chest_layer_visible = 1.0;",
+          "variable.attack_body_rot_y = Math.sin(360*Math.sqrt(variable.attack_time)) * 5.0;",
+          "variable.tcos0 = (math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+          "variable.first_person_rotation_factor = math.sin((1 - variable.attack_time) * 180.0);",
+          "variable.hand_bob = q.life_time < 0.01 ? 0.0 : variable.hand_bob + ((q.is_on_ground && q.is_alive ? math.clamp(math.sqrt(math.pow(q.position_delta(0), 2.0) + math.pow(q.position_delta(2), 2.0)), 0.0, 0.1) : 0.0) - variable.hand_bob) * 0.02;",
+          "variable.map_angle = math.clamp(1 - variable.player_x_rotation / 45.1, 0.0, 1.0);",
+          "variable.item_use_normalized = q.main_hand_item_use_duration / q.main_hand_item_max_duration;"
+        ],
+        "animate": [
+          "bob",
+          "look_at_target",
+          "sign_facing",
+          {
+            "move.legs": "q.modified_move_speed > 0.1"
+          },
+          {
+            "jockey_control": "q.out_of_control"
+          },
+          {
+            "weapon_1.idle": "q.variant == 1 && !q.is_ignited"
+          },
+          {
+            "weapon_1.rotation": "q.variant == 1 && !q.is_ignited"
+          },
+          {
+            "weapon_2.idle": "q.variant == 2 && !q.is_ignited"
+          },
+          {
+            "weapon_2.rotation": "q.variant == 2 && !q.is_ignited"
+          },
+          {
+            "weapon_3.idle": "q.variant == 3 && !q.is_ignited"
+          },
+          {
+            "weapon_3.rotation": "q.variant == 3 && !q.is_ignited"
+          },
+          {
+            "weapon_4.idle": "q.variant == 4 && !q.is_ignited"
+          },
+          {
+            "weapon_4.rotation": "q.variant == 4 && !q.is_ignited"
+          },
+          {
+            "weapon_5.idle": "q.variant == 5 && !q.is_ignited"
+          },
+          {
+            "weapon_5.rotation": "q.variant == 5 && !q.is_ignited"
+          },
+          {
+            "melee_1.idle": "q.mark_variant == 1 && q.is_ignited"
+          },
+          {
+            "melee_2.idle": "q.mark_variant == 2 && q.is_ignited"
+          },
+          {
+            "melee_3.idle": "q.mark_variant == 3 && q.is_ignited"
+          },
+          {
+            "melee_4.idle": "q.mark_variant == 4 && q.is_ignited"
+          },
+          {
+            "melee_5.idle": "q.mark_variant == 5 && q.is_ignited"
+          }
+        ]
+      },
+      "textures": {
+        "default": "textures/entity/steve",
+        "human_sign": "textures/entity/human_sign",
+        "bile_sign": "textures/entity/bile_sign",
+        "weapon_1": "textures/entity/weapon_1",
+        "weapon_2": "textures/entity/weapon_2",
+        "weapon_3": "textures/entity/weapon_3",
+        "weapon_4": "textures/entity/weapon_4",
+        "weapon_5": "textures/entity/weapon_5",
+        "melee_1": "textures/entity/melee_1",
+        "melee_2": "textures/entity/melee_2",
+        "melee_3": "textures/entity/melee_3",
+        "melee_4": "textures/entity/melee_4",
+        "melee_5": "textures/entity/melee_5",
+
+        "skin_1": "textures/entity/human/human_1",
+        "skin_2": "textures/entity/human/human_2",
+        "skin_3": "textures/entity/human/human_3",
+        "skin_4": "textures/entity/human/human_4",
+        "skin_5": "textures/entity/human/human_5",
+        "skin_6": "textures/entity/human/human_6",
+        "skin_7": "textures/entity/human/human_7",
+        "skin_8": "textures/entity/human/human_8",
+        "skin_9": "textures/entity/human/human_9",
+        "skin_10": "textures/entity/human/human_10",
+        "skin_11": "textures/entity/human/human_11",
+        "skin_12": "textures/entity/human/human_12",
+        "skin_13": "textures/entity/human/human_13",
+        "skin_14": "textures/entity/human/human_14",
+        "skin_15": "textures/entity/human/human_15"
+      },
+      "geometry": {
+        "default": "geometry.humanoid.custom",
+        "human_sign": "geometry.human_sign",
+        "bile_sign": "geometry.bile_sign",
+        "weapon_1": "geometry.weapon_1",
+        "weapon_2": "geometry.weapon_2",
+        "weapon_3": "geometry.weapon_3",
+        "weapon_4": "geometry.weapon_4",
+        "weapon_5": "geometry.weapon_5",
+        "melee_1": "geometry.melee_1",
+        "melee_2": "geometry.melee_2",
+        "melee_3": "geometry.melee_3",
+        "melee_4": "geometry.melee_4",
+        "melee_5": "geometry.melee_5"
+      },
+      "render_controllers": [
+        "controller.render.human_ai",
+        "controller.render.human_sign",
+        {
+          "controller.render.bile_sign": "q.is_stunned"
+        },
+        {
+          "controller.render.weapon_1": "q.variant == 1 && !q.is_ignited"
+        },
+        {
+          "controller.render.weapon_2": "q.variant == 2 && !q.is_ignited"
+        },
+        {
+          "controller.render.weapon_3": "q.variant == 3 && !q.is_ignited"
+        },
+        {
+          "controller.render.weapon_4": "q.variant == 4 && !q.is_ignited"
+        },
+        {
+          "controller.render.weapon_5": "q.variant == 5 && !q.is_ignited"
+        },
+        {
+          "controller.render.melee_1_default": "q.mark_variant == 1 && q.is_ignited"
+        },
+        {
+          "controller.render.melee_2_default": "q.mark_variant == 2 && q.is_ignited"
+        },
+        {
+          "controller.render.melee_3_default": "q.mark_variant == 3 && q.is_ignited"
+        },
+        {
+          "controller.render.melee_4_default": "q.mark_variant == 4 && q.is_ignited"
+        },
+        {
+          "controller.render.melee_5_default": "q.mark_variant == 5 && q.is_ignited"
+        }
+      ],
+      "spawn_egg": {
+        "texture": "human_icon"
+      }
+    }
+  }
+}

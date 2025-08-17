@@ -1,0 +1,25 @@
+{
+	"format_version": "1.18.0",
+	"animation_controllers": {
+		"controller.animation.tnnk_howl_control_timer.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"control": "q.property('coldsink:tnnk_howl_control')"
+						}
+					]
+				},
+				"control": {
+					"animations": [ "tnnk_howl_control_timer" ],
+					"transitions": [
+						{
+							"default": "!q.property('coldsink:tnnk_howl_control')"
+						}
+					]
+				}
+			}
+		}
+	}
+}

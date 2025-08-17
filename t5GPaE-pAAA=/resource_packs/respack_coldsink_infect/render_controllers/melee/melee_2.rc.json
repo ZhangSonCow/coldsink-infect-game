@@ -1,0 +1,25 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.melee_2": {
+      "geometry": "geometry.melee_2",
+      "materials": [
+        {
+          "*": "material.netease_entity_metallic"
+        }
+      ],
+      "textures": [ "texture.melee_2" ],
+      "is_hurt_color": {}
+    },
+    "controller.render.melee_2_default": {
+      "geometry": "geometry.melee_2",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "textures": [ "texture.melee_3" ],
+      "is_hurt_color": {}
+    }
+  }
+}

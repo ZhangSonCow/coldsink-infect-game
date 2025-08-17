@@ -1,0 +1,23 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+	  "controller.animation.godie.func": {
+		"states": {
+		  "default": {
+			"transitions": [
+			  {
+				"check_tag": "q.is_sheared"
+			  }
+			]
+		  },
+		  "check_tag": {
+			"on_entry": [
+				"/event entity @e[type=!player] godie",
+				"/execute @p ~~~ say 已清除属于 “特感生化” 组件的所有实体！"
+			]
+		  } 
+		}
+	  }
+	}
+  }
+  

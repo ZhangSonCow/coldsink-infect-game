@@ -1,0 +1,35 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.boss_sign",
+				"texture_width": 400,
+				"texture_height": 200,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 5.5,
+				"visible_bounds_offset": [0, 2.25, 0]
+			},
+			"bones": [
+				{
+					"name": "human_sign",
+					"pivot": [0, 45, 0]
+				},
+				{
+					"name": "inside_sign",
+					"parent": "human_sign",
+					"pivot": [0, 50, 0],
+					"cubes": [
+						{
+							"origin": [-8, 45, 0],
+							"size": [16, 8, 0],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [400, 200]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,69 @@
+{
+	"format_version": "1.18.0",
+	"animation_controllers": {
+		"controller.animation.charger_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"attack_light": "v.attack_time && !q.is_saddled"
+						},
+						{
+							"attack_heavy": "v.attack_time && q.is_saddled"
+						},
+						{
+							"skill": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"attack_light": {
+					"animations": [ "charger_attack_light" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"skill": "q.property('coldsink:action_status') == 3"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_light"
+					]
+				},
+				"attack_heavy": {
+					"animations": [ "charger_attack_heavy" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"skill": "q.property('coldsink:action_status') == 3"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_heavy"
+					]
+				},
+				"skill": {
+					"animations": [ "charger_skill_timer" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/camera @s[tag=!no_skill_camera] set minecraft:third_person"
+					],
+					"on_exit": [
+						"/camera @s clear",
+						"/execute @s[tag=maper] ~~~ tag @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] remove charger_get",
+						"/execute @s[tag=!maper] ~~~ tag @e[family=!charger,family=!tool,r=5] remove charger_get",
+						"/tag @s remove charger_charging",
+						"/playsound charger.over @a ~~~"
+					]
+				}
+			}
+		}
+	}
+}

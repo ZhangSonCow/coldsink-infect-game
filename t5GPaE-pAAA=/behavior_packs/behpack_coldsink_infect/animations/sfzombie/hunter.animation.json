@@ -1,0 +1,80 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.hunter_attack_light.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.25": [
+          "/tag @s add hunter_self",
+
+          "/execute @s[tag=maper] ^^1^ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=3] ~~~ playsound get_target @p[tag=hunter_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^1^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=3] 3 suicide",
+
+          "/execute @s[tag=!maper] ^^1^ execute @e[tag=!hunter_self,family=!tool,type=!item,r=3] ~~~ playsound get_target @p[tag=hunter_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^1^ damage @e[tag=!hunter_self,family=!tool,type=!item,r=3] 6 suicide",
+          
+          "/tag @s remove hunter_self"
+        ],
+        "0.42": [
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.hunter_attack_heavy.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.0": [
+          "/scoreboard players random @s wp_random 1 3",
+          "/tag @s add self",
+          "/execute @s[scores={wp_random=1},tag=!sound_interval] ~~~ playsound hunter.attack_big_1 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=2},tag=!sound_interval] ~~~ playsound hunter.attack_big_2 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=3},tag=!sound_interval] ~~~ playsound hunter.attack_big_3 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=1},tag=!sound_interval] ~~~ playsound hunter.attack_big_1.self @s",
+          "/execute @s[scores={wp_random=2},tag=!sound_interval] ~~~ playsound hunter.attack_big_2.self @s",
+          "/execute @s[scores={wp_random=3},tag=!sound_interval] ~~~ playsound hunter.attack_big_3.self @s",
+          "/tag @s remove self",
+          "/tag @s add sound_interval"
+        ],
+        "0.45": [
+          "/tag @s add hunter_self",
+
+          "/execute @s[tag=maper] ^^1.5^ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=4] ~~~ playsound get_target @p[tag=hunter_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=4] 4 suicide",
+
+          "/execute @s[tag=!maper] ^^1.5^ execute @e[tag=!hunter_self,family=!tool,type=!item,r=4] ~~~ playsound get_target @p[tag=hunter_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^1.5^ damage @e[tag=!hunter_self,family=!tool,type=!item,r=4] 10 suicide",
+          
+          "/tag @s remove hunter_self"
+        ],
+        "0.63": [
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.hunter_skill_timer.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "8.0": [
+          "/effect @s speed 0 3 true",
+          "/effect @s jump_boost 0 7 true",
+          "/effect @s speed 99999 1 true",
+          "/effect @s jump_boost 99999 2 true",
+          "/event entity @s time_skill_false",
+          "/title @s actionbar §9【扑袭】§f 效果结束"
+        ]
+      }
+    },
+    "animation.hunter_interval_count.func": {
+      "loop": true,
+      "animation_length": 1.0,
+      "timeline": {
+        "0.5": [
+          "/tag @s remove hunter_interval"
+        ]
+      }
+    }
+  }
+}

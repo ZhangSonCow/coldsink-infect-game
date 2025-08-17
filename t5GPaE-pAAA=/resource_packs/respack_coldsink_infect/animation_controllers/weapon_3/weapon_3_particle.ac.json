@@ -1,0 +1,45 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.weapon_3_particle": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"fire": "q.property('coldsink:action_status') == 1"
+						}
+					]
+				},
+				"fire": {
+					"animations": [ "weapon_3.particle" ],
+					"transitions": [
+						{
+							"default": "(q.property('coldsink:action_status') != 1 && !q.is_using_item) || q.property('coldsink:jockey_control') || q.property('coldsink:tnnk_howl_control')"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.weapon_3_particle.1st": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"fire": "q.property('coldsink:action_status') == 1"
+						}
+					]
+				},
+				"fire": {
+					"animations": [ "weapon_3.particle.1st" ],
+					"transitions": [
+						{
+							"default": "(q.property('coldsink:action_status') != 1 && !q.is_using_item) || q.property('coldsink:jockey_control') || q.property('coldsink:tnnk_howl_control')"
+						}
+					]
+				}
+			}
+		}
+	}
+}

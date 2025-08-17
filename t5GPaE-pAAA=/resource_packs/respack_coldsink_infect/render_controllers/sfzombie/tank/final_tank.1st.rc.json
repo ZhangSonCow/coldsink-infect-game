@@ -1,0 +1,15 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.final_tank.1st": {
+      "geometry": "geometry.final_tank.1st",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "textures": [ "texture.final_tank" ],
+      "is_hurt_color": {}
+    }
+  }
+}

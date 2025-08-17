@@ -1,0 +1,15 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.hunter.1st": {
+      "geometry": "geometry.hunter.1st",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "textures": [ "texture.hunter" ],
+      "is_hurt_color": {}
+    }
+  }
+}

@@ -1,0 +1,64 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:final_tnnk_ai",
+      "animations": {
+        "tank_idle.arm": "animation.tank.idle.arm",
+        "tank_idle.leg": "animation.tank.idle.leg",
+        "tank_move.arm": "animation.tank.move.arm",
+        "tank_move.leg": "animation.tank.move.leg",
+        "tank_attack1": "animation.tank.attack1",
+        "tank_attack2": "animation.tank.attack2",
+        "final_tank_skill": "animation.final_tank.skill",
+        "tank_howl_skill": "animation.tank.howl.skill",
+        "c.final_tank_ai": "controller.animation.final_tank_ai",
+        "c.tank_walk": "controller.animation.tank_walk",
+        "tank_fireball": "animation.tank_fireball",
+        "tank_fire": "animation.tank.fire",
+        "sign_facing": "animation.sign_facing"
+      },
+      "particle_effects": {
+        "tank_fire_big": "nacal_sdc:tank_fire_big",
+        "tank_fire_small": "nacal_sdc:tank_fire_small",
+        "tnnk_fireball_powering": "coldsink:tnnk_fireball_powering"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.random_choices = math.random(0, 100);"
+        ],
+        "animate": [
+          "c.final_tank_ai",
+          "c.tank_walk",
+          "tank_fire",
+          "sign_facing"
+        ]
+      },
+      "materials": {
+        "default": "entity_alphatest",
+        "nacal_tac_detect": "nacal_tac_detect",
+        "nacal_customblend":"nacal_customblend"
+      },
+      "textures": {
+        "final_tank": "textures/entity/final_tank",
+        "final_tank_sign": "textures/entity/final_tank_sign"
+      },
+      "geometry": {
+        "final_tank": "geometry.final_tank",
+        "boss_sign": "geometry.boss_sign"
+      },
+      "render_controllers": [
+        "controller.render.final_tank_sign",
+        {
+          "controller.render.final_tank": "q.health > 10"
+        },
+        {
+          "controller.render.final_tank.bling": "q.health < 11"
+        }
+      ],
+      "spawn_egg": {
+        "texture": "become_final_tnnk"
+      }
+    }
+  }
+}

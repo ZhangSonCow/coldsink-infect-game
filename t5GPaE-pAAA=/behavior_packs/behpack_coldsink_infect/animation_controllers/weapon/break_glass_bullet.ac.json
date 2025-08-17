@@ -1,0 +1,27 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.break_glass_bullet.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"glass": "q.property('coldsink:action_status') == 1"
+						}
+					]
+				},
+				"glass": {
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') != 1"
+						}
+					],
+					"on_entry": [
+						"/event entity @s[tag=break_glass] break_glass_bullet"
+					]
+				}
+			}
+		}
+	}
+}

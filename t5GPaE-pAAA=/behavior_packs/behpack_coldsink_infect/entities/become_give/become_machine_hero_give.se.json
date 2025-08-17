@@ -1,0 +1,92 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:become_machine_hero_give",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "animations": {
+        "c": "controller.animation.game_check.func"
+      },
+      "scripts": {
+        "animate": [
+          "c"
+        ]
+      }
+    },
+    "component_groups": {
+      "die": {
+        "minecraft:instant_despawn": {}
+      },
+      "check_tag": {
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:ageable": {
+          "duration": 0.1,
+          "grow_up": {
+            "event": "godie",
+            "target": "self"
+          }
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "tools" ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.0,
+        "height": 0.0
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:ageable": {
+        "duration": 0.1,
+        "grow_up": {
+          "event": "check_tag",
+          "target": "self"
+        }
+      },
+      "minecraft:variant": {
+        "value": 0
+      }
+
+      //behavivors
+
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "give @p coldsink:become_machine_hero",
+            "title @p actionbar §f已获取 §b[变身器-机械猎手]",
+            "playsound random.orb @p",
+            "tag @s add game_check_tag"
+          ]
+        }
+      },
+      "check_tag": {
+        "add": {
+          "component_groups": [
+            "check_tag"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "die"
+          ]
+        }
+      }
+    }
+  }
+}

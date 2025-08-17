@@ -1,0 +1,103 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.final_witch_ai_damage.func": {
+			"initial_state": "damage_1",
+			"states": {
+				"health_down": {
+					"transitions": [
+						{
+							"damage_2": "q.health <= 80 && q.health > 60"
+						},
+						{
+							"damage_3": "q.health <= 60 && q.health > 40"
+						},
+						{
+							"damage_4": "q.health <= 40 && q.health > 20"
+						},
+						{
+							"damage_5": "q.health <= 20"
+						}
+					]
+				},
+				"damage_1": {
+					"transitions": [
+						{
+							"health_down": "q.health <= 80"
+						}
+					],
+					"on_entry": [
+						"/event entity @s damage_1"
+					]
+				},
+				"damage_2": {
+					"transitions": [
+						{
+							"health_down": "q.health <= 60"
+						},
+						{
+							"damage_1": "q.health > 80"
+						}
+					],
+					"on_entry": [
+						"/event entity @s damage_2"
+					]
+				},
+				"damage_3": {
+					"transitions": [
+						{
+							"health_down": "q.health <= 40"
+						},
+						{
+							"damage_1": "q.health > 80"
+						},
+						{
+							"damage_2": "q.health > 60"
+						}
+					],
+					"on_entry": [
+						"/event entity @s damage_3"
+					]
+				},
+				"damage_4": {
+					"transitions": [
+						{
+							"health_down": "q.health <= 20"
+						},
+						{
+							"damage_1": "q.health > 80"
+						},
+						{
+							"damage_2": "q.health > 60"
+						},
+						{
+							"damage_3": "q.health > 40"
+						}
+					],
+					"on_entry": [
+						"/event entity @s damage_4"
+					]
+				},
+				"damage_5": {
+					"transitions": [
+						{
+							"damage_1": "q.health > 80"
+						},
+						{
+							"damage_2": "q.health > 60"
+						},
+						{
+							"damage_3": "q.health > 40"
+						},
+						{
+							"damage_4": "q.health > 20"
+						}
+					],
+					"on_entry": [
+						"/event entity @s damage_5"
+					]
+				}
+			}
+		}
+	}
+}

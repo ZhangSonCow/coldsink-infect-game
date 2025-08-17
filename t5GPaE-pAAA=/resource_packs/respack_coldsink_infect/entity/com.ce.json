@@ -1,0 +1,116 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "nacal_sdc:com",
+      "scripts": {
+        "initialize": [
+          "variable.color1 = math.random(0.0,0.2) ;",
+          "variable.color2 = math.random(0.0,0.2) ;",
+          "variable.color3 = math.random(0.0,0.2) ;",
+
+          "variable.armor_up = math.floor( math.random(0,10) ) ;",
+          "variable.armor_down = math.floor( math.random(0,9) ) ;"
+        ],
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+        ],
+        "animate": [
+          "walk_controller",
+          "attack_controller",
+          "look",
+          "idle",
+          {
+            "angrysound": "query.has_target == 1"
+          },
+          {
+            "sp4sound": "query.variant == 4"
+          },
+          {
+            "dirtout": "query.is_sheared == 1"
+          },
+          "detect_entity",
+          "detect_entity_2",
+          "detect_entity_3",
+          "detect_entity_4"
+        ]
+      },
+      "sound_effects": {
+        "angry": "sdc.common.angrysound",
+        "sp4sound": "sdc.common.clown"
+      },
+      "particle_effects": {
+        "dirtout1": "nacal_sdc:dirtout1",
+        "dirtout2": "nacal_sdc:dirtout2"
+      },
+      "materials": {
+        "default": "entity_alphatest",
+        "detect": "nacal_tac_detect"
+      },
+      "textures": {
+        "default": "textures/entity/com",
+        "armor_1": "textures/entity/com_armor/com_armor_1",
+        "armor_2": "textures/entity/com_armor/com_armor_2",
+        "armor_3": "textures/entity/com_armor/com_armor_3",
+        "armor_4": "textures/entity/com_armor/com_armor_4",
+        "armor_5": "textures/entity/com_armor/com_armor_5",
+        "armor_6": "textures/entity/com_armor/com_armor_6",
+        "armor_7": "textures/entity/com_armor/com_armor_7",
+        "armor_8": "textures/entity/com_armor/com_armor_8",
+        "armor_9": "textures/entity/com_armor/com_armor_9",
+        "armor_10": "textures/entity/com_armor/com_armor_10",
+
+        "sp_0": "textures/entity/com_armor/com_sp_0",
+        "sp_1": "textures/entity/com_armor/com_sp_1",
+        "sp_2": "textures/entity/com_armor/com_sp_2",
+        "sp_3": "textures/entity/com_armor/com_sp_3",
+        "sp_4": "textures/entity/com_armor/com_sp_4",
+        "sp_5": "textures/entity/com_armor/com_sp_5",
+        "sp_6": "textures/entity/com_armor/com_sp_6",
+
+        "detect": "textures/entity/detect_entity"
+      },
+      "geometry": {
+        "default": "geometry.com",
+        "armor_up": "geometry.com_armor_up",
+        "armor_down": "geometry.com_armor_down",
+        "sp": "geometry.com_sp",
+        "detect": "geometry.detect_entity"
+      },
+      "animations": {
+        "walk_controller": "controller.animation.com.walk",
+        "attack_controller": "controller.animation.com.attack",
+        "attack": "animation.com.attack",
+        "idle": "animation.com.idle",
+        "move": "animation.com.move",
+        "look": "animation.com.looktarget",
+        "angrysound": "animation.com.angrysound",
+        "sp4sound": "animation.com.sp4sound",
+        "dirtout": "animation.com.dirtout",
+
+        "detect_entity": "animation.detect_entity",
+        "detect_entity_2": "animation.detect_entity_2",
+        "detect_entity_3": "animation.detect_entity_3",
+        "detect_entity_4": "animation.detect_entity_4"
+      },
+      "render_controllers": [
+        "controller.render.com_2",
+        {
+          "controller.render.com_armor_up": "query.variant == 0"
+        },
+        {
+          "controller.render.com_armor_down": "query.variant == 0"
+        },
+        {
+          "controller.render.com_sp": "query.variant != 0"
+        },
+        {
+          "controller.render.com_detect": "query.skin_id == 2"
+        }
+      ],
+      "spawn_egg": {
+        "texture": "com_icon"
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.SFzombie_view",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 15,
+				"visible_bounds_height": 7,
+				"visible_bounds_offset": [0, 1.5, 0]
+			},
+			"bones": [
+				{
+					"name": "view",
+					"pivot": [0, 0, 15]
+				},
+				{
+					"name": "stars",
+					"parent": "view",
+					"pivot": [0.275, 27.55, 40],
+					"cubes": [
+						{
+							"origin": [-104, -13.4, 40],
+							"size": [208, 81, 0],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [127, 80]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

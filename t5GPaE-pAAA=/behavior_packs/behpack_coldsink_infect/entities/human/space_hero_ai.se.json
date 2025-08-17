@@ -1,0 +1,409 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:space_hero_ai",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "animations": {
+        "c": "controller.animation.space_hero_ai.func"
+      },
+      "scripts": {
+        "animate": [
+          "c"
+        ]
+      }
+    },
+
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      },
+      "walk": {
+        "minecraft:navigation.walk": {
+          "can_walk": true,
+          "can_pass_doors": true,
+          "can_break_doors": true,
+          "is_amphibious": true,
+          "avoid_damage_blocks": false
+        }
+      },
+      "climb": {
+        "minecraft:navigation.climb": {
+          "can_path_over_water": true,
+          "blocks_to_avoid": [
+            "minecraft:barrier"
+          ]
+        },
+        "minecraft:behavior.leap_at_target": {
+          "priority": 3,
+          "must_be_on_ground": true,
+          "set_persistent": true,
+          "target_dist": 128,
+          "yd": 0.6
+        }
+      },
+      "melee": {
+        "minecraft:behavior.delayed_attack": {
+          "priority": 0,
+          "attack_once": false,
+          "track_target": true,
+          "require_complete_path": false,
+          "random_stop_interval": 0,
+          "reach_multiplier": 5,
+          "speed_multiplier": 1,
+          "attack_duration": 0.2,
+          "hit_delay_pct": 0.2
+        }
+      },
+      "normal_box": {
+        "minecraft:knockback_resistance": {
+          "value": 0.5
+        }
+      },
+      "skill_box": {
+        "minecraft:knockback_resistance": {
+          "value": 0.0
+        },
+        "minecraft:is_sheared": {},
+        "minecraft:ageable": {
+          "duration": 3.0,
+          "grow_up": {
+            "event": "skill_over",
+            "target": "self"
+          }
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:nameable": {
+        "always_show": true,
+        "allow_name_tag_renaming": false
+      },
+      "minecraft:type_family": {
+        "family": [ "sdc", "player", "human_ai", "space_hero", "hero", "ai" ]
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/space_hero.loot.json"
+      },
+      "minecraft:behavior.avoid_mob_type": {
+        "priority": 0,
+        "max_dist": 5,
+        "max_flee": 6,
+        "remove_target": false,
+        "entity_types": [
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "acid"
+            },
+            "max_dist": 5,
+            "walk_speed_multiplier": 1.28,
+            "sprint_speed_multiplier": 1.28
+          }
+        ]
+      },
+      "minecraft:health": {
+        "value": 52,
+        "max": 52
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.9
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "reselect_targets": true,
+        "scan_interval": 50,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "monster"
+                },
+                {
+                  "test": "has_tag",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "neutral"
+                }
+              ]
+            },
+            "max_dist": 48
+          }
+        ],
+        "must_see": false
+      },
+      "minecraft:timer": {
+        "time": [8, 12],
+        "looping": true,
+        "time_down_event": {
+          "event": "skill",
+          "target": "self"
+        }
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 0.8
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 7
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 7,
+        "look_distance": 6,
+        "probability": 0.02
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test":"is_family",
+                    "subject": "other",
+                    "value":"boss"
+                  }
+                ]
+              }
+            },
+            "damage_multiplier": 1.5
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  }
+                ]
+              }
+            },
+            "cause": "all",
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "bullet"
+                  }
+                ]
+              }
+            },
+            "cause": "all",
+            "deals_damage": false
+          },
+          {
+            "cause": "fall",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:attack": {
+        "damage": 8
+      },
+      "minecraft:movement": {
+        "value": 0.38
+      },
+      "minecraft:follow_range": {
+        "value": 1024
+      },
+      "minecraft:jump.static": {},
+      "minecraft:physics": {},
+      "minecraft:movement.basic": {},
+
+      "minecraft:on_target_acquired": {
+        "event": "has_target",
+        "target": "self"
+      },
+      "minecraft:on_target_escape": {
+        "event": "lost_target",
+        "target": "self"
+      },
+
+      //behavivors
+
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "max_dist": 64,
+        "entity_types": {
+          "filters": {
+            "all_of": [
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "player"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "sdc"
+              }
+            ]
+          }
+        }
+      }
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "walk",
+            "melee",
+            "normal_box"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "playsound become_space_hero @a ~~~",
+            "tag @s add is_hero",
+            "tag @s add 游戏中",
+            "tag @s add com_point",
+            "event entity @s skill_check"
+          ]
+        }
+      },
+      "has_target": {
+        "remove": {
+          "component_groups": [
+            "walk"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "climb"
+          ]
+        }
+      },
+      "lost_target": {
+        "remove": {
+          "component_groups": [
+            "climb"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "walk"
+          ]
+        }
+      },
+      "skill_check": {
+        "queue_command": {
+          "command": [
+            "execute @e[family=!player,tag=!neutral,r=12,c=1] ~~~ event entity @e[type=coldsink:space_hero_ai,c=1] skill"
+          ]
+        }
+      },
+      "skill": {
+        "remove": {
+          "component_groups": [
+            "normal_box"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "skill_box"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "effect @s speed 3 1 true",
+            "effect @s invisibility 3 0 true",
+            "tag @s add space_hero_skill",
+            "summon coldsink:space_hero_spurt_tool ^^0.5^-0.8",
+            "playsound space_hero_skill @a ~~~",
+            "tag @s add no_any_hurt",
+            
+						"particle coldsink:space_hero_skill_1 ~~0.5~",
+						"particle coldsink:space_hero_skill_2 ~~0.5~",
+						"particle coldsink:space_hero_skill_3 ~~0.5~"
+          ]
+        }
+      },
+      "skill_over": {
+        "remove": {
+          "component_groups": [
+            "skill_box"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "normal_box"
+          ]
+        }
+      },
+      "spawn_com": {
+        "queue_command": {
+          "command": [
+            "summon nacal_sdc:com ~~~ dirtout",
+            "summon nacal_sdc:com ~~~ dirtout",
+            "summon nacal_sdc:com ~~~ dirtout",
+            "summon nacal_sdc:com ~~~ dirtout",
+            "summon nacal_sdc:com ~~~ dirtout"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      },
+
+      // modapi 触发的加分事件
+      
+      "addScore_8": {
+        "queue_command": {
+          "command": [
+            "scoreboard players add @s game_score 8"
+          ]
+        }
+      },
+      "addScore_10": {
+        "queue_command": {
+          "command": [
+            "scoreboard players add @s game_score 10"
+          ]
+        }
+      },
+      "addScore_3": {
+        "queue_command": {
+          "command": [
+            "scoreboard players add @s game_score 3"
+          ]
+        }
+      },
+      "addScore_20": {
+        "queue_command": {
+          "command": [
+            "scoreboard players add @s game_score 20"
+          ]
+        }
+      },
+      "addScore_30": {
+        "queue_command": {
+          "command": [
+            "scoreboard players add @s game_score 30"
+          ]
+        }
+      }
+    }
+  }
+}

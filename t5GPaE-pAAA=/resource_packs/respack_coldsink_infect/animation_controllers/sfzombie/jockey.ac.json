@@ -1,0 +1,189 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.jockey": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "jockey_idle.arm" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"move": "query.modified_move_speed > 0.1"
+						},
+						{
+							"attack_1": "!q.property('coldsink:freeze') && v.attack_time && !q.is_saddled && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "!q.property('coldsink:freeze') && v.attack_time && !q.is_saddled && variable.random_choices >= 50"
+						},
+						{
+							"attack_3": "!q.property('coldsink:freeze') && v.attack_time && q.is_saddled"
+						},
+						{
+							"ride": "!q.property('coldsink:freeze') && q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"move": {
+					"animations": [ "jockey_move.arm" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "query.modified_move_speed <= 0.1"
+						},
+						{
+							"attack_1": "v.attack_time && !q.is_saddled && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && !q.is_saddled && variable.random_choices >= 50"
+						},
+						{
+							"attack_3": "v.attack_time && q.is_saddled"
+						},
+						{
+							"ride": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"attack_1": {
+					"animations": [ "jockey_attack1" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						},
+						{
+							"ride": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"attack_2": {
+					"animations": [ "jockey_attack2" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						},
+						{
+							"ride": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"attack_3": {
+					"animations": [ "jockey_attack3" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						},
+						{
+							"ride": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"ride": {
+					"animations": [ "jockey_skill" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.jockey.1st": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "jockey_idle.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"attack_1": "!q.property('coldsink:freeze') && v.attack_time && !q.is_saddled && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "!q.property('coldsink:freeze') && v.attack_time && !q.is_saddled && variable.random_choices >= 50"
+						},
+						{
+							"attack_3": "!q.property('coldsink:freeze') && v.attack_time && q.is_saddled"
+						},
+						{
+							"ride": "!q.property('coldsink:freeze') && q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"attack_1": {
+					"animations": [ "jockey_attack1.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						},
+						{
+							"ride": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"attack_2": {
+					"animations": [ "jockey_attack2.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						},
+						{
+							"ride": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"attack_3": {
+					"animations": [ "jockey_attack3.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0 && !v.attack_time"
+						},
+						{
+							"ride": "q.property('coldsink:action_status') == 3"
+						}
+					]
+				},
+				"ride": {
+					"animations": [ "jockey_skill.1st" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				}
+			}
+		},
+
+		"controller.animation.jockey.walk": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "jockey_idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"walk": "q.modified_move_speed > 0.1"
+						}
+					]
+				},
+				"walk": {
+					"animations": [ "jockey_move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.modified_move_speed <= 0.1"
+						}
+					]
+				}
+			}
+		}
+	}
+}

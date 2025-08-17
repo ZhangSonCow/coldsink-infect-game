@@ -1,0 +1,138 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:final_box_red",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      },
+      "no_show_sign": {
+        "minecraft:is_sheared": {}
+      }
+    },
+    
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "final_box_red", "tool" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:health": {
+        "value": 2,
+        "max": 2,
+        "min": 1
+      },
+      
+      "minecraft:timer": {
+        "time": 0.1,
+        "time_down_event": {
+          "target": "self",
+          "event": "supply"
+        }
+      },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "maper"
+                  }
+                ]
+              },
+              "event": "supply_return_red",
+              "target": "other"
+            },
+            "swing": true,
+            "interact_text": "空手收回"
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:collision_box": {
+        "width": 1.2,
+        "height": 0.8
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "tag @s add neutral",
+            "tag @s add box"
+          ]
+        }
+      },
+      "supply": {
+        "queue_command": {
+          "command": [
+            "event entity @p[family=monster,family=!final_boss,r=1.8] get_final_box_red",
+
+            // "event entity @e[family=tnnk,family=ai,r=12] begin_find_box",
+            "execute @e[family=tnnk,family=ai,r=2.4,c=1] ~~~ tag @e[type=coldsink:final_box_red,r=2.4,c=1] add supplied",
+            "event entity @e[family=tnnk,family=ai,r=2.4,c=1] become_final_tnnk",
+            "execute @e[family=tnnk,family=ai,r=2.4,c=1] ~~~ particle nacal_sdc:final_wave_red",
+            "event entity @s[tag=supplied] godie",
+
+            // "event entity @e[family=witch,family=ai,r=12] begin_find_box",
+            "execute @e[family=witch,family=ai,r=2.4,c=1] ~~~ tag @e[type=coldsink:final_box_red,r=2.4,c=1] add supplied",
+            "event entity @e[family=witch,family=ai,r=2.4,c=1] become_final_witch",
+            "execute @e[family=witch,family=ai,r=2.4,c=1] ~~~ particle nacal_sdc:final_wave_purp",
+            "event entity @s[tag=supplied] godie",
+
+            // "event entity @e[type=coldsink:hunter,family=ai,r=12] begin_find_box",
+            // "event entity @e[type=coldsink:spitter,family=ai,r=12] begin_find_box",
+            // "event entity @e[type=coldsink:charger,family=ai,r=12] begin_find_box",
+            // "event entity @e[type=coldsink:jockey,family=ai,r=12] begin_find_box",
+            // "event entity @e[type=coldsink:boomer,family=ai,r=12] begin_find_box",
+            // "event entity @e[type=coldsink:smoker,family=ai,r=12] begin_find_box",
+            "execute @e[tag=normal_to_boss,r=2.4,c=1] ~~~ tag @e[type=coldsink:final_box_red,r=2.4,c=1] add supplied",
+            "event entity @e[tag=normal_to_boss,r=2.4,c=1] become_boss",
+            "event entity @s[tag=supplied] godie"
+          ]
+        }
+      },
+      "no_show_sign": {
+        "add": {
+          "component_groups": [
+            "no_show_sign"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+        // ,
+        // "queue_command": {
+        //   "command": [
+        //     "event entity @e[family=monster] stop_find_box"
+        //   ]
+        // }
+      }
+    }
+  }
+}

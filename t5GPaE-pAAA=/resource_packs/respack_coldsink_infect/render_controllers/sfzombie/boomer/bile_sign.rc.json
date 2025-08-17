@@ -1,0 +1,14 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.bile_sign": {
+      "geometry": "geometry.bile_sign",
+      "materials": [
+        {
+          "*": "material.nacal_tac_detect"
+        }
+      ],
+      "textures": [ "texture.bile_sign" ]
+    }
+  }
+}

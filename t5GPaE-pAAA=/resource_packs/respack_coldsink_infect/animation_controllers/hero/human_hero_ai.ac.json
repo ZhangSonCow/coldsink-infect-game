@@ -1,0 +1,73 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.human_hero_ai": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"human_hero_idle.arm"
+					],
+					"transitions": [
+						{
+							"attack_1": "v.attack_time && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && variable.random_choices >= 50"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"attack_1": {
+					"animations": [
+						"human_hero_attack1"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"attack_2": {
+					"animations": [
+						"human_hero_attack2"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		},
+		"controller.animation.human_hero_walk": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"human_hero_idle.leg"
+					],
+					"transitions": [
+						{
+							"move": "query.modified_move_speed > 0.1"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"move": {
+					"animations": [
+						"human_hero_move.leg"
+					],
+					"transitions": [
+						{
+							"default": "query.modified_move_speed <= 0.1"
+						}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		}
+	}
+}

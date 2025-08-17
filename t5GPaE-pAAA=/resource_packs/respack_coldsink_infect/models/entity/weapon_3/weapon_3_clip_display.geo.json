@@ -1,0 +1,49 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.weapon_3_clip_display",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 5,
+				"visible_bounds_height": 5,
+				"visible_bounds_offset": [0, 0.5, 0]
+			},
+			"bones": [
+				{
+					"name": "reload",
+					"pivot": [1, 0, -0.08],
+					"rotation": [0, 60, 0],
+					"cubes": [
+						{
+							"origin": [-0.96, 0, 1.0848],
+							"size": [1.92, 1.92, 0.96],
+							"uv": {
+								"north": {"uv": [8, 61], "uv_size": [3, 3]},
+								"east": {"uv": [47, 37], "uv_size": [0, 3]},
+								"south": {"uv": [11, 61], "uv_size": [3, 3]},
+								"west": {"uv": [44, 37], "uv_size": [0, 3]},
+								"up": {"uv": [50, 39], "uv_size": [3, 0]},
+								"down": {"uv": [40, 36], "uv_size": [3, 0]}
+							}
+						},
+						{
+							"origin": [-0.59, 0, -3.35],
+							"size": [1.18, 1.18, 4.3],
+							"inflate": 0.25,
+							"uv": {
+								"north": {"uv": [31, 60], "uv_size": [3, 3]},
+								"east": {"uv": [44, 9], "uv_size": [11, 3]},
+								"south": {"uv": [4, 61], "uv_size": [3, 3]},
+								"west": {"uv": [41, 45], "uv_size": [11, 3]},
+								"up": {"uv": [48, 21], "uv_size": [3, 11]},
+								"down": {"uv": [41, 59], "uv_size": [3, -11]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

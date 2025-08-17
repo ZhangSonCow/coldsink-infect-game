@@ -1,0 +1,46 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.final_hero_ai.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"attack": "v.attack_time"
+						},
+						{
+							"death": "!q.is_alive"
+						}
+					]
+				},
+				"attack": {
+					"transitions": [
+						{
+							"default": "q.any_animation_finished"
+						},
+						{
+							"death": "!q.is_alive"
+						}
+					],
+					"on_entry": [
+						"/scoreboard players random @s wp_random 1 2",
+						"/execute @s[scores={wp_random=1}] ~~~ playsound final_hero_attack @a ~~~",
+						"/execute @s[scores={wp_random=2}] ~~~ playsound final_hero_attack @a ~~~ 3 1.2 3"
+					]
+				},
+				"death": {
+					"on_entry": [
+						"/execute @s[tag=游戏中] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§b【终极猎手】§f [\"},{\"selector\":\"@s\"},{\"text\":\"] §b已死亡\"}]}",
+						"/execute @s[tag=游戏中] ~~~ function game/dead_keep_score",
+						"/execute @s[tag=游戏中] ~~~ playsound hero_death @a",
+						"/execute @s[tag=!游戏中] ~~~ playsound hero_death @a[r=32]",
+						"/summon coldsink:dead_final_hero",
+						"/execute @s[tag=!游戏中] ~~~ event entity @e[type=coldsink:dead_final_hero,c=1] despawn",
+						"/event entity @s godie"
+					]
+				}
+			}
+		}
+	}
+}

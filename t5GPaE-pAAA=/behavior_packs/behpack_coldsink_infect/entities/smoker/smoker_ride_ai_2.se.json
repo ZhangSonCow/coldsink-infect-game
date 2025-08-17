@@ -1,0 +1,118 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:smoker_ride_ai_2",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:health": {
+        "value": 2,
+        "max": 2,
+        "min": 1
+      },
+      "minecraft:timer": {
+        "time": 0.05,
+        "time_down_event": {
+          "target": "self",
+          "event": "lock"
+        }
+      },
+      "minecraft:leashable": {
+				"soft_distance": 0.1,
+				"hard_distance": 1,
+				"max_distance": 128,
+				"can_be_stolen": false,
+				"on_unleash": {
+					"event": "godie",
+          "target": "self"
+				}
+			},
+      "minecraft:ageable": {
+        "duration": 8,
+        "grow_up": {
+          "event": "godie"
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 0.01,
+        "height": 0.01
+      },
+      "minecraft:physics": {}
+
+      //behavivors
+
+    },
+
+    "events": {
+      "lock": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s[tag=get_target] bool 0",
+            "execute @s[tag=get_target] ~~~ execute @e[family=player,tag=!neutral,r=5,c=1] ~~~ scoreboard players set @e[type=coldsink:smoker_ride_ai_2,c=1] bool 1",
+            "event entity @s[scores={bool=0},tag=get_target] godie",
+
+            "execute @s ~~~ detect ~~-1~ air -1 effect @s levitation 1 0 true",
+            "tp @e[family=player,tag=!neutral,r=5,c=1] @s[tag=get_target]",
+            "execute @s[tag=get_target] ~~~ effect @e[family=player,tag=!neutral,r=5,c=1] slowness 4 5 true",
+            "execute @s[tag=smoker_ride_clear] ~~~ execute @e[type=coldsink:smoker_ride_ai_1,r=2.4,c=1] ~~~ tag @s add clear",
+            "execute @s[tag=smoker_ride_clear] ~~~ execute @e[type=coldsink:smoker_ride_ai_1,r=2.4,c=1] ~~~ tag @e[type=coldsink:smoker_ride_ai_2,r=2.4,c=1] add clear",
+            "execute @s[tag=smoker_ride_clear] ~~~ execute @e[type=coldsink:smoker_ride_ai_1,r=2.4,c=1] ~~~ event entity @e[type=!player,family=smoker,c=1] skill_over",
+            "event entity @e[tag=clear] godie",
+            
+            "scoreboard players operation @e[type=!player,family=smoker] smoker_check = @s smoker_time",
+            "execute @e[type=!player,family=smoker] ~~~ scoreboard players operation @s smoker_check -= @s smoker_time",
+            "scoreboard players operation @s smoker_check = @e[type=!player,family=smoker,scores={smoker_check=0}] smoker_time",
+            "scoreboard players operation @s smoker_check -= @s smoker_time",
+            "execute @e[type=!player,family=smoker,scores={smoker_check=0}] ~~~ tp @s ~~~ facing @e[type=coldsink:smoker_ride_ai_2,scores={smoker_check=0},tag=get_target,rm=0.8,c=1]"
+          ]
+        }
+      },
+      "delay_clear": {
+        "queue_command": {
+          "command": [
+            "tag @s add smoker_ride_clear"
+          ]
+        }
+      },
+      "godie": {
+        "queue_command": {
+          "command": [
+            "scoreboard players operation @e[type=!player,family=smoker] smoker_check = @s smoker_time",
+            "execute @e[type=!player,family=smoker] ~~~ scoreboard players operation @s smoker_check -= @s smoker_time",
+            "scoreboard players reset @e[type=!player,family=smoker,scores={smoker_check=0}] smoker_check",
+            "event entity @e[type=!player,family=smoker,scores={smoker_check=0}] skill_over",
+            "effect @e[type=!player,family=smoker,scores={smoker_check=0}] slowness 0 8 true",
+            "kill @e[type=item,name=拴绳,c=1]",
+            "tag @s add two_die",
+            "execute @e[type=coldsink:smoker_ride_ai_1] ~~~ scoreboard players operation @s smoker_check = @e[tag=two_die,c=1] smoker_time",
+            "execute @e[type=coldsink:smoker_ride_ai_1] ~~~ scoreboard players operation @s smoker_check -= @s smoker_time",
+            "event entity @e[type=coldsink:smoker_ride_ai_1,scores={smoker_check=0}] godie"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

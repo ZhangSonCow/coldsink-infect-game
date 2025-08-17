@@ -1,0 +1,133 @@
+﻿
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:tnnk_fireball",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball"
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.5,
+        "height": 0.5
+      },
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:timer": {
+        "time": 0.1,
+        "time_down_event": {
+          "target": "self",
+          "event": "check"
+        }
+      },
+      "minecraft:ageable": {
+        "duration": 12,
+        "grow_up": {
+          "event": "godie"
+        }
+      },
+      "minecraft:projectile": {
+        "anchor": 1,
+        "on_hit": {
+          "impact_damage": {
+            "damage": 0,
+            "knockback": false,
+            "destroy_on_hit": true
+          },
+          "definition_event": {
+            "affect_projectile": true,
+            "affect_shooter": false,
+            "affect_target": false,
+            "affect_splash_area": false,
+            "event_trigger": {
+              "event": "fireball",
+              "target": "self"
+            }
+          },
+          "stick_in_ground": {
+            "shake_time": 1
+          }
+        },
+        "power": 1.2,
+        "gravity": 0.0,
+        "liquid_inertia": 0.95
+      },
+      "minecraft:physics": {},
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "fireball": {
+        "queue_command": {
+          "command": [
+            "execute @s[scores={tnnk_fireball=1}] ~~~ particle coldsink:tnnk_fireball_blast_1",
+            "execute @s[scores={tnnk_fireball=2}] ~~~ particle coldsink:tnnk_fireball_blast_2",
+            "execute @s[scores={tnnk_fireball=3}] ~~~ particle coldsink:tnnk_fireball_blast_3",
+            "playsound tnnk.fireball.blast @a ~~~",
+            "camerashake add @a[r=24] 0.8 0.5 positional",
+
+            "scoreboard players operation @a[tag=is_final_tnnk] tnnk_check = @s tnnk_time",
+            "execute @a[tag=is_final_tnnk] ~~~ scoreboard players operation @s tnnk_check -= @s tnnk_time",
+
+            // 地图
+            "execute @s[tag=maper,scores={tnnk_fireball=1}] ~~~ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=2.4,c=1] ~~~ tag @e[type=coldsink:tnnk_fireball,c=1] add get",
+            "execute @s[tag=maper,scores={tnnk_fireball=2}] ~~~ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=3.6,c=1] ~~~ tag @e[type=coldsink:tnnk_fireball,c=1] add get",
+            "execute @s[tag=maper,scores={tnnk_fireball=3}] ~~~ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=5,c=1] ~~~ tag @e[type=coldsink:tnnk_fireball,c=1] add get",
+            "execute @s[tag=maper,tag=get] ~~~ title @a[tag=is_final_tnnk,scores={tnnk_check=0}] actionbar §l§6火球成功命中目标！",
+            "execute @s[tag=maper,tag=get] ~~~ playsound reward @a[tag=is_final_tnnk,scores={tnnk_check=0}]",
+            "execute @s[tag=maper,scores={tnnk_fireball=1}] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=2.4] 6 suicide",
+            "execute @s[tag=maper,scores={tnnk_fireball=2}] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=3.6] 10 suicide",
+            "execute @s[tag=maper,scores={tnnk_fireball=3}] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] 16 suicide",
+
+            //模组
+            "execute @s[tag=!maper,scores={tnnk_fireball=1}] ~~~ execute @e[family=!final_tnnk,family=!tool,r=2.4,c=1] ~~~ tag @e[type=coldsink:tnnk_fireball,c=1] add get",
+            "execute @s[tag=!maper,scores={tnnk_fireball=2}] ~~~ execute @e[family=!final_tnnk,family=!tool,r=3.6,c=1] ~~~ tag @e[type=coldsink:tnnk_fireball,c=1] add get",
+            "execute @s[tag=!maper,scores={tnnk_fireball=3}] ~~~ execute @e[family=!final_tnnk,family=!tool,r=5,c=1] ~~~ tag @e[type=coldsink:tnnk_fireball,c=1] add get",
+            "execute @s[tag=!maper,tag=get] ~~~ title @a[tag=is_final_tnnk,scores={tnnk_check=0}] actionbar §l§6火球成功命中目标！",
+            "execute @s[tag=!maper,tag=get] ~~~ playsound reward @a[tag=is_final_tnnk,scores={tnnk_check=0}]",
+            "execute @s[tag=!maper,scores={tnnk_fireball=1}] ~~~ damage @e[family=!final_tnnk,family=!tool,r=2.4] 8 suicide",
+            "execute @s[tag=!maper,scores={tnnk_fireball=2}] ~~~ damage @e[family=!final_tnnk,family=!tool,r=3.6] 13 suicide",
+            "execute @s[tag=!maper,scores={tnnk_fireball=3}] ~~~ damage @e[family=!final_tnnk,family=!tool,r=5] 20 suicide"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      },
+      "check": {
+        "queue_command": {
+          "command": [
+            "execute @s[tag=!spawned] ~~~ scoreboard players operation @s tnnk_time = @p[tag=is_final_tnnk] tnnk_time",
+            "execute @s[tag=!spawned] ~~~ scoreboard players operation @s tnnk_fireball = @p[tag=is_final_tnnk] tnnk_fireball",
+            "execute @s[tag=!spawned] ~~~ execute @p[tag=is_final_tnnk] ~~~ execute @s[tag=maper] ~~~ tag @e[type=coldsink:tnnk_fireball,c=1] add maper",
+            "tag @s[tag=!spawned] add neutral",
+            "tag @s[tag=!spawned] add spawned"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:jockey",
+      "animations": {
+        "jockey_idle.arm": "animation.jockey.idle.arm",
+        "jockey_idle.leg": "animation.jockey.idle.leg",
+        "jockey_move.arm": "animation.jockey.move.arm",
+        "jockey_move.leg": "animation.jockey.move.leg",
+        "jockey_attack1": "animation.jockey.attack1",
+        "jockey_attack2": "animation.jockey.attack2",
+        "jockey_skill": "animation.jockey.skill",
+        "c.jockey_ai": "controller.animation.jockey_ai",
+        "c.jockey_walk": "controller.animation.jockey_walk"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.random_choices = math.random(0, 100);"
+        ],
+        "animate": [
+          "c.jockey_ai",
+          "c.jockey_walk"
+        ]
+      },
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/jockey"
+      },
+      "geometry": {
+        "default": "geometry.jockey"
+      },
+      "render_controllers": [
+        "controller.render.com"
+      ],
+      "spawn_egg": {
+        "base_color": "#736c6b",
+        "overlay_color": "#D1D6D7"
+      }
+    }
+  }
+}

@@ -1,0 +1,131 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.hunter_ai": {
+			"states": {
+				"default": {
+					"animations": [
+						"hunter_idle.arm"
+					],
+					"transitions": [
+						{
+							"move": "query.modified_move_speed > 0.1 && q.is_on_ground"
+						},
+						{
+							"attack_1": "v.attack_time && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && variable.random_choices >= 50"
+						},
+						{
+							"skill": "!q.is_on_ground"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"move": {
+					"animations": [
+						"hunter_move.arm"
+					],
+					"transitions": [
+						{
+							"default": "query.modified_move_speed <= 0.1 && q.is_on_ground"
+						},
+						{
+							"attack_1": "v.attack_time && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && variable.random_choices >= 50"
+						},
+						{
+							"skill": "!q.is_on_ground"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"attack_1": {
+					"animations": [
+						"hunter_attack1"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"attack_2": {
+					"animations": [
+						"hunter_attack2"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"skill": {
+					"animations": [
+						"hunter_jump.arm"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "q.is_on_ground"
+						},
+						{
+							"attack_1": "v.attack_time && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && variable.random_choices >= 50"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.hunter_walk": {
+			"states": {
+				"default": {
+					"animations": [
+						"hunter_idle.leg"
+					],
+					"transitions": [
+						{
+							"move": "query.modified_move_speed > 0.1 && q.is_on_ground"
+						},
+						{
+							"skill": "!q.is_on_ground"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"move": {
+					"animations": [
+						"hunter_move.leg"
+					],
+					"transitions": [
+						{
+							"default": "query.modified_move_speed <= 0.1 && q.is_on_ground"
+						},
+						{
+							"skill": "!q.is_on_ground"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"skill": {
+					"animations": [
+						"hunter_jump.leg"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "q.is_on_ground"
+						}
+					]
+				}
+			}
+		}
+	}
+}

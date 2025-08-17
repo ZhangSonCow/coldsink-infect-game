@@ -1,0 +1,79 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "nacal_tac:raid_x",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "raid_die": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "tac", "bullet", "tool" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:timer": {
+        "time": [ 0.5, 0.7 ],
+        "time_down_event": {
+          "event": "raid_spawn"
+        }
+      },
+      "minecraft:is_baby": {},
+      "minecraft:ageable": {
+        "duration": 4.2,
+        "grow_up": {
+          "event": "godie"
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 0.001,
+        "height": 0.001
+      }
+
+      //behavivors
+
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "tag @s add neutral"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "raid_die"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "playsound sdc.clip @a[r=32] ~~~ 1 1 0.1"
+          ]
+        }
+      },
+      "raid_spawn": {
+        "queue_command": {
+          "command": [
+            "summon nacal_tac:raid_single ~ ~5 ~",
+            "scoreboard players operation @e[type=nacal_tac:raid_single,y=~5,c=1] raid_time = @s raid_time",
+            "tp ~8 ~ ~"
+          ]
+        }
+      }
+    }
+  }
+}

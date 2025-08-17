@@ -1,0 +1,32 @@
+{
+    "format_version": "1.18",
+    "minecraft:recipe_shaped": {
+      "description": {
+        "identifier": "coldsink:become_boomer"
+      },
+      "tags": [ "crafting_table" ],
+      "pattern": [
+        "SAS",
+        "ABA",
+        "SAS"
+      ],
+      "key": {
+        "S": {
+          "item": "coldsink:boomer_soul"
+        },
+        "A": {
+          "item": "blaze_powder"
+        },
+        "B": {
+          "item": "tnt"
+        }
+      },
+      "result": [
+        {
+          "item": "coldsink:become_boomer_give_spawn_egg",
+          "count": 1
+        }
+      ]
+    }
+  }
+  

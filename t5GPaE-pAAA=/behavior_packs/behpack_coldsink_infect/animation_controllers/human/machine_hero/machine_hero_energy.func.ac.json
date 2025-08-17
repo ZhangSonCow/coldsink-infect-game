@@ -1,0 +1,25 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.machine_hero_energy.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "machine_hero_energy" ],
+					"transitions": [
+						{
+							"fire": "q.property('coldsink:action_status') == 4"
+						}
+					]
+				},
+				"fire": {
+					"transitions": [
+						{
+							"default": "!q.is_using_item && q.property('coldsink:action_status') != 4"
+						}
+					]
+				}
+			}
+		}
+	}
+}

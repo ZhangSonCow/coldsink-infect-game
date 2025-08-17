@@ -1,0 +1,69 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:cheat_tool",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:timer": {
+        "time": 3,
+        "time_down_event": {
+          "target": "self",
+          "event": "no_cheat"
+        }
+      },
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:health": {
+        "value": 2,
+        "max": 2,
+        "min": 1
+      },
+      "minecraft:collision_box": {
+          "width": 0.0,
+          "height": 0.0
+      },
+      "minecraft:movement": {
+        "value": 0.0
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+      "no_cheat": {
+        "queue_command": {
+          "command": [
+            "tag @a[tag=!maper] add maper",
+            "execute @a[m=c,name=!一只爱浪的小冷辰,name=!RelyingPants365,tag=游戏中] ~~~ say §l§b在对局中开启创造模式，已恢复冒险！",
+            "gamemode 2 @a[m=c,name=!一只爱浪的小冷辰,name=!RelyingPants365,tag=游戏中]",
+            "gamerule commandblocksenabled true",
+            "effect @a[family=player,tag=游戏中] resistance 0 255 true",
+            "effect @a[family=player,tag=游戏中] regeneration 0 255 true",
+            "effect @a[family=player,tag=游戏中,tag=!wilder] speed 0 255 true",
+            "effect @a[family=player,tag=游戏中,tag=!neutral] invisibility 0 255 true"
+          ]
+        }
+      },
+      "cjdlsbqjbwyqsyqxzsxz": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

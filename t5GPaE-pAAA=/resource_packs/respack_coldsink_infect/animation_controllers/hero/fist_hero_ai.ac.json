@@ -1,0 +1,73 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.fist_hero_ai": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "fist_hero.idle.arm" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"attack": "v.attack_time"
+						}
+					]
+				},
+				"attack": {
+					"animations": [ "fist_hero.attack" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					]
+				}
+			}
+		},
+
+		"controller.animation.fist_hero_walk": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [ "fist_hero.idle.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"walk": "q.modified_move_speed > 0.1"
+						}
+					]
+				},
+				"walk": {
+					"animations": [ "fist_hero.move.leg" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.modified_move_speed <= 0.1"
+						}
+					]
+				}
+			}
+		},
+
+		"controller.animation.fist_hero.skill_ai": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"skill": "q.is_sheared"
+						}
+					]
+				},
+				"skill": {
+					"animations": [ "fist_hero.skill" ],
+					"transitions": [
+						{
+							"default": "!q.is_sheared"
+						}
+					]
+				}
+			}
+		}
+	}
+}

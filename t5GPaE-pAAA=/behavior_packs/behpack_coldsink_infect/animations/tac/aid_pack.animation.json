@@ -1,0 +1,17 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.aid_pack.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "4.0": [
+          "/title @s actionbar §l§c急救包使用完毕",
+          "/playsound aid_over @a ~~~",
+          "/effect @s instant_health 1 10 true",
+          "/clear @s[m=!c] coldsink:aid_pack 0 1"
+        ]
+      }
+    }
+  }
+}

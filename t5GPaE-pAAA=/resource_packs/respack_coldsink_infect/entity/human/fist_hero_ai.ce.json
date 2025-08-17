@@ -1,0 +1,62 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:fist_hero_ai",
+      "animations": {
+        "fist_hero.idle.arm": "animation.fist_hero.idle.arm",
+        "fist_hero.idle.leg": "animation.fist_hero.idle.leg",
+        "fist_hero.move.leg": "animation.fist_hero.move.leg",
+        "fist_hero.attack": "animation.fist_hero.attack",
+        "c.fist_hero_ai": "controller.animation.fist_hero_ai",
+        "c.fist_hero_walk": "controller.animation.fist_hero_walk",
+        "c.fist_hero.skill_ai": "controller.animation.fist_hero.skill_ai",
+        "fist_hero.skill": "animation.fist_hero.skill",
+        "fist_hero.particle": "animation.fist_hero.particle",
+        "fist_hero.look": "animation.fist_hero.look",
+        "sign_facing": "animation.sign_facing"
+      },
+      "scripts": {
+        "initialize": [
+          "variable.player_x_rotation=0.0;"
+        ],
+        "pre_animation": [
+          "variable.random_choices = math.random(0, 100);"
+        ],
+        "animate": [
+          "c.fist_hero_ai",
+          "c.fist_hero_walk",
+          "c.fist_hero.skill_ai",
+          {
+            "fist_hero.particle": "!q.is_sheared"
+          },
+          "fist_hero.look",
+          "sign_facing"
+        ]
+      },
+      "materials": {
+        "default": "entity_alphatest",
+        "nacal_tac_detect": "nacal_tac_detect",
+        "nacal_customblend":"nacal_customblend"
+      },
+      "particle_effects": {
+        "fist_hero.particle": "coldsink:fist_hero",
+        "fist_hero_attack": "nacal_sdc:fist_hero_attack",
+        "fist_hero_shield_1": "coldsink:fist_hero_shield_1",
+        "fist_hero_shield_2": "coldsink:fist_hero_shield_2"
+      },
+      "textures": {
+        "default": "textures/entity/fist_hero",
+        "fist_hero_sign": "textures/entity/fist_hero_sign"
+      },
+      "geometry": {
+        "default": "geometry.fist_hero",
+        "human_sign": "geometry.human_sign"
+      },
+      "render_controllers": [ "controller.render.com", "controller.render.fist_hero_sign" ],
+      "spawn_egg": {
+        "texture": "become_fist_hero"
+      }
+    }
+  }
+}

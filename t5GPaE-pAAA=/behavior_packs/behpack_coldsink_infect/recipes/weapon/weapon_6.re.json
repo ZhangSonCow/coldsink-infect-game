@@ -1,0 +1,32 @@
+{
+    "format_version": "1.18",
+    "minecraft:recipe_shaped": {
+      "description": {
+        "identifier": "coldsink:weapon_6"
+      },
+      "tags": [ "crafting_table" ],
+      "pattern": [
+        "  O",
+        "OIO",
+        " PI"
+      ],
+      "key": {
+        "O": {
+          "item": "obsidian"
+        },
+        "I": {
+          "item": "iron_ingot"
+        },
+        "P": {
+          "item": "coldsink:weapon_6_clip"
+        }
+      },
+      "result": [
+        {
+          "item": "coldsink:weapon_6_display_spawn_egg",
+          "count": 1
+        }
+      ]
+    }
+  }
+  

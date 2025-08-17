@@ -1,0 +1,32 @@
+{
+    "format_version": "1.18",
+    "minecraft:recipe_shaped": {
+      "description": {
+        "identifier": "coldsink:become_tnnk"
+      },
+      "tags": [ "crafting_table" ],
+      "pattern": [
+        "SAS",
+        "ABA",
+        "SAS"
+      ],
+      "key": {
+        "S": {
+          "item": "coldsink:tnnk_soul"
+        },
+        "A": {
+          "item": "nether_wart"
+        },
+        "B": {
+          "item": "pointed_dripstone"
+        }
+      },
+      "result": [
+        {
+          "item": "coldsink:become_tnnk_give_spawn_egg",
+          "count": 1
+        }
+      ]
+    }
+  }
+  

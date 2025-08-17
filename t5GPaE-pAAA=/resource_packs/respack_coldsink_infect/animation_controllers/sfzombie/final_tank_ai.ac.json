@@ -1,0 +1,97 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.final_tank_ai": {
+			"states": {
+				"default": {
+					"animations": [
+						"tank_idle.arm"
+					],
+					"transitions": [
+						{
+							"move": "query.modified_move_speed > 0.1 && !q.is_sheared"
+						},
+						{
+							"attack_1": "v.attack_time && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && variable.random_choices >= 50"
+						},
+						{
+							"skill": "q.is_sheared"
+						},
+						{
+							"howl": "q.is_stunned"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"move": {
+					"animations": [
+						"tank_move.arm"
+					],
+					"transitions": [
+						{
+							"default": "query.modified_move_speed <= 0.1 && !q.is_sheared"
+						},
+						{
+							"attack_1": "v.attack_time && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && variable.random_choices >= 50"
+						},
+						{
+							"skill": "q.is_sheared"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"attack_1": {
+					"animations": [
+						"tank_attack1"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"attack_2": {
+					"animations": [
+						"tank_attack2"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"skill": {
+					"animations": [
+						"final_tank_skill",
+						"tank_fireball"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!q.is_sheared"
+						}
+					]
+				},
+				"howl": {
+					"animations": [
+						"tank_howl_skill"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!q.is_stunned"
+						}
+					]
+				}
+			}
+		}
+	}
+}

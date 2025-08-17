@@ -1,0 +1,75 @@
+﻿{
+  "format_version": "1.20.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "nacal_tac:detect_throw",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball"
+    },
+    "component_groups": {
+      "detect_die": {
+        "minecraft:transformation": {
+          "into": "nacal_tac:detect_stay<minecraft:entity_spawned>",
+          "keep_owner": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "bullet", "tool" ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.3,
+        "height": 0.3
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "stick_in_ground": {},
+          "definition_event": {
+            "affect_projectile": true,
+            "affect_shooter": false,
+            "affect_target": false,
+            "affect_splash_area": false,
+            "event_trigger": {
+              "event": "detect_die"
+            }
+          }
+        },
+        "power": 1.4,
+        "gravity": 0.05,
+        "angle_offset": -10
+      },
+      "minecraft:physics": {},
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "tag @s add neutral"
+          ]
+        }
+      },
+      "detect_die": {
+        "queue_command": {
+          "command": [
+            "playsound tac.hit_light @a ~~~ 1 1"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "detect_die"
+          ]
+        }
+      }
+    }
+  }
+}
