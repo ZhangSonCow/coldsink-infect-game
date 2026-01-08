@@ -1,9 +1,9 @@
 {
   "modules": [
     {
-      "description": "拿起武器、变身英雄，与末世的特感怪物们，展开殊死决斗！",
+      "description": "",
       "type": "data",
-      "uuid": "b6c1dd0b-532f-4d51-a397-c3b584eab265",
+      "uuid": "14502085-9c4a-470f-9666-ec2d2b069dd2",
       "version": [
         0,
         0,
@@ -12,9 +12,9 @@
     }
   ],
   "header": {
-    "description": "拿起武器、变身英雄，与末世的特感怪物们，展开殊死决斗！",
-    "name": "特感生化-行为包",
-    "uuid": "902b27e4-fdc3-441c-b307-56c23972bfa6",
+    "description": "",
+    "name": "behavior_pack",
+    "uuid": "a05bcc97-4916-4c66-8b06-c681a695f9aa",
     "version": [
       0,
       0,

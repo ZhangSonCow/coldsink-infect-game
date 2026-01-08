@@ -22,12 +22,12 @@
 
           "/execute @s[tag=maper] ^^2.5^ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] ~~~ playsound get_target @p[tag=final_tank_self,tag=!no_hit_sound]",
           "/execute @s[tag=maper] ^^2.5^ effect @e[family=player,family=!tool,type=!item,tag=!neutral,tag=!no_any_hurt,r=5] slowness 2 2 true",
-          "/execute @s[tag=maper] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] 6 suicide",
-          "/execute @s[tag=maper] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=5] 4 suicide",
+          "/execute @s[tag=maper] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] 6 suicide entity @s",
+          "/execute @s[tag=maper] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=5] 4 suicide entity @s",
 
           "/execute @s[tag=!maper] ^^2.5^ execute @e[tag=!final_tank_self,family=!tool,type=!item,r=5] ~~~ playsound get_target @p[tag=final_tank_self,tag=!no_hit_sound]",
           "/execute @s[tag=!maper] ^^2.5^ effect @e[tag=!final_tank_self,family=!tool,type=!item,tag=!no_any_hurt,r=5] slowness 2 2 true",
-          "/execute @s[tag=!maper] ^^2.5^ damage @e[tag=!final_tank_self,family=!tool,type=!item,r=5] 14 suicide",
+          "/execute @s[tag=!maper] ^^2.5^ damage @e[tag=!final_tank_self,family=!tool,type=!item,r=5] 14 suicide entity @s",
           
           "/tag @s remove final_tank_self"
         ],
@@ -57,12 +57,12 @@
 
           "/execute @s[tag=maper] ^^3^ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=6] ~~~ playsound get_target @p[tag=final_tank_self,tag=!no_hit_sound]",
           "/execute @s[tag=maper] ^^3^ effect @e[family=player,family=!tool,type=!item,tag=!neutral,tag=!no_any_hurt,r=6] levitation 1 1 true",
-          "/execute @s[tag=maper] ^^3^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=6] 11 suicide",
-          "/execute @s[tag=maper] ^^3^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=6] 8 suicide",
+          "/execute @s[tag=maper] ^^3^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=6] 11 suicide entity @s",
+          "/execute @s[tag=maper] ^^3^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=6] 8 suicide entity @s",
 
           "/execute @s[tag=!maper] ^^3^ execute @e[tag=!final_tank_self,family=!tool,type=!item,r=6] ~~~ playsound get_target @p[tag=final_tank_self,tag=!no_hit_sound]",
           "/execute @s[tag=maper] ^^3^ effect @e[tag=!final_tank_self,family=!tool,type=!item,tag=!no_any_hurt,r=6] levitation 1 1 true",
-          "/execute @s[tag=!maper] ^^3^ damage @e[tag=!final_tank_self,family=!tool,type=!item,r=6] 30 suicide",
+          "/execute @s[tag=!maper] ^^3^ damage @e[tag=!final_tank_self,family=!tool,type=!item,r=6] 30 suicide entity @s",
           
           "/tag @s remove final_tank_self"
         ],
@@ -76,8 +76,6 @@
       "animation_length": 20.0,
       "timeline": {
         "0.0": [
-          "/scoreboard objectives add tnnk_time dummy tnnk_time",
-          "/scoreboard objectives add tnnk_check dummy tnnk_check",
           "/scoreboard players add tnnk_count tnnk_time 1",
           "/scoreboard players operation @s tnnk_time = tnnk_count tnnk_time",
           "/execute @s[scores={tnnk_time=999..}] ~~~ scoreboard players set tnnk_count tnnk_time 0",
@@ -114,8 +112,8 @@
       "timeline": {
         "0.0": [
           "/particle nacal_sdc:tnnk_blast ~~0.8~",
-          "/execute @s[tag=maper] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=8] 6 suicide",
-          "/execute @s[tag=!maper] ~~~ damage @e[tag=!tnnk_self,r=8] 6 suicide",
+          "/execute @s[tag=maper] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=8] 6 suicide entity @s",
+          "/execute @s[tag=!maper] ~~~ damage @e[tag=!tnnk_self,r=8] 6 suicide entity @s",
           "/tag @s remove tnnk_self",
           "/replaceitem entity @s[hasitem={item=coldsink:skill_cooldown,quantity=0}] slot.hotbar 8 barrier 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}"
         ],

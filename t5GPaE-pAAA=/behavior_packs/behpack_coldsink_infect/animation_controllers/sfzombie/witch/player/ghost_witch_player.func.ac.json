@@ -1,0 +1,117 @@
+{
+	"format_version": "1.18.0",
+	"animation_controllers": {
+		"controller.animation.ghost_witch_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"cry": "q.property('coldsink:action_status') == 4"
+						},
+						{
+							"attack_light": "v.attack_time && !q.is_saddled"
+						},
+						{
+							"attack_heavy": "v.attack_time && q.is_saddled"
+						},
+						{
+							"skill_lightball": "q.is_using_item && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:ghost_witch_skill')"
+						}
+					]
+				},
+				"cry": {
+					"animations": [ "witch_cry_sound" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"attack_light": "v.attack_time && !q.is_saddled"
+						},
+						{
+							"attack_heavy": "v.attack_time && q.is_saddled"
+						}
+					]
+				},
+				"attack_light": {
+					"animations": [ "ghost_witch_attack_light" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_light"
+					]
+				},
+				"attack_heavy": {
+					"animations": [ "ghost_witch_attack_heavy" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_heavy"
+					]
+				},
+				"skill_lightball": {
+					"transitions": [
+						{
+							"skill_end": "!(q.is_using_item && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:ghost_witch_skill'))"
+						}
+					],
+					"on_entry": [
+						"/effect @s slowness 99999 0 true",
+						"/scoreboard players add witch_count witch_time 1",
+						"/scoreboard players operation @s witch_time = witch_count witch_time",
+						"/execute @s[scores={witch_time=999..}] ~~~ scoreboard players set witch_count witch_time 0",
+						"/playsound ghost.witch.skill_powering @a[r=16] ~~~"
+					],
+					"on_exit": [
+						"/effect @s slowness 0 1 true",
+						"/event entity @s action_skill",
+						"/playsound ghost.witch.skill_throw @a[r=16] ~~~"
+					]
+				},
+				"skill_end": {
+					"animations": [ "ghost_witch_skill_end" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_exit": [
+						"/title @s actionbar §l§b光球已掷出",
+						"/event entity @s coldsink:ghost_witch_lightball",
+						"/replaceitem entity @s slot.hotbar 8 coldsink:ghost_witch_skill_pre 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}"
+					]
+				}
+			}
+		},
+
+		// 技能持续时间控制
+
+		"controller.animation.ghost_witch_skill_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"skill": "q.is_item_name_any('slot.hotbar', 8, 'coldsink:ghost_witch_skill_end')"
+						}
+					]
+				},
+				"skill": {
+					"animations": [ "ghost_witch_skill_timer", "ghost_witch_skill_over" ],
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.hotbar', 8, 'coldsink:ghost_witch_skill_end')"
+						}
+					]
+				}
+			}
+		}
+	}
+}

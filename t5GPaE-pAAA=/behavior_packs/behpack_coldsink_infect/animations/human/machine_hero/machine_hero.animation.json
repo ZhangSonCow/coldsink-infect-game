@@ -3,7 +3,7 @@
   "animations": {
     "animation.machine_hero_energy.func": {
       "loop": true,
-      "animation_length": 0.3,
+      "animation_length": 0.5,
       "timeline": {
         "0.0": [
           "/scoreboard players add @s[scores={bullet_hero=..119}] bullet_hero 1",
@@ -38,12 +38,12 @@
         "0.2": [
           "/tag @s add machine_hero_self",
 
-          "/execute @s[tag=maper] ^^1.75^ execute @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] ~~~ playsound get_target @p[tag=machine_hero_self,tag=!no_hit_sound]",
-          "/execute @s[tag=maper] ^^1.75^ tag @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] add melee_damage",
-          "/execute @s[tag=maper] ^^1.75^ damage @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,tag=!no_any_hurt,r=4] 20 suicide",
+          "/execute @s[tag=maper] ^^1.75^ execute @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] ~~~ playsound get_target @p[tag=machine_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^1.75^ tag @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] add melee_damage",
+          "/execute @s[tag=maper] ^^1.75^ damage @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,tag=!no_any_hurt,r=4] 20 suicide entity @s",
 
-          "/execute @s[tag=!maper] ^^1.75^ execute @e[tag=!machine_hero_self,family=!fort,family=!tool,family=!tools,type=!item,r=4] ~~~ playsound get_target @p[tag=machine_hero_self,tag=!no_hit_sound]",
-          "/execute @s[tag=!maper] ^^1.75^ damage @e[tag=!machine_hero_self,family=!fort,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=4] 20 suicide",
+          "/execute @s[tag=!maper] ^^1.75^ execute @e[tag=!machine_hero_self,family=!tool,family=!tools,type=!item,r=4] ~~~ playsound get_target @p[tag=machine_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^1.75^ damage @e[tag=!machine_hero_self,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=4] 20 suicide entity @s",
           
           "/tag @s remove machine_hero_self"
         ],
@@ -62,12 +62,12 @@
           "/playsound machine_hero_attack_big @a[tag=!machine_hero_self] ~~~",
           "/playsound machine_hero_attack_big.self @s",
 
-          "/execute @s[tag=maper] ^^3.25^ execute @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=5] ~~~ playsound get_target @p[tag=machine_hero_self,tag=!no_hit_sound]",
-          "/execute @s[tag=maper] ^^3.25^ tag @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=5] add melee_damage",
-          "/execute @s[tag=maper] ^^3.25^ damage @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,tag=!no_any_hurt,r=5] 38 suicide",
+          "/execute @s[tag=maper] ^^3.25^ execute @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=5] ~~~ playsound get_target @p[tag=machine_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^3.25^ tag @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=5] add melee_damage",
+          "/execute @s[tag=maper] ^^3.25^ damage @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,tag=!no_any_hurt,r=5] 38 suicide entity @s",
 
-          "/execute @s[tag=!maper] ^^3.25^ execute @e[tag=!machine_hero_self,family=!fort,family=!tool,family=!tools,type=!item,r=5] ~~~ playsound get_target @p[tag=machine_hero_self,tag=!no_hit_sound]",
-          "/execute @s[tag=!maper] ^^3.25^ damage @e[tag=!machine_hero_self,family=!fort,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=5] 38 suicide",
+          "/execute @s[tag=!maper] ^^3.25^ execute @e[tag=!machine_hero_self,family=!tool,family=!tools,type=!item,r=5] ~~~ playsound get_target @p[tag=machine_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^3.25^ damage @e[tag=!machine_hero_self,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=5] 38 suicide entity @s",
           
           "/tag @s remove machine_hero_self"
         ],

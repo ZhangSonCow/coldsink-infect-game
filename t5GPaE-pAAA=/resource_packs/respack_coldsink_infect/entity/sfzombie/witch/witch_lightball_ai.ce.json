@@ -1,0 +1,29 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:witch_lightball_ai",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "particle_effects": {
+        "ghost_witch_light_ball": "nacal_sdc:ghost_witch_light_ball"
+      },
+      "animations": {
+        "lightball": "animation.ghost_witch.lightball"
+      },
+      "scripts": {
+        "animate": [
+          "lightball"
+        ]
+      },
+      "textures": {
+        "default": "textures/entity/ghost_witch"
+      },
+      "geometry": {
+        "default": "geometry.ghost_witch_lightball"
+      },
+      "render_controllers": [ "controller.render.com" ]
+    }
+  }
+}

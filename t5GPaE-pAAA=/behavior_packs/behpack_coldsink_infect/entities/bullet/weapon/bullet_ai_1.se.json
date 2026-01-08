@@ -95,8 +95,8 @@
             "execute @e[c=1,family=!bullet,family=!player,tag=!neutral,r=3.2] ~~~ particle coldsink:hit_blast_1 ~~0.8~",
             "execute @e[c=1,family=!bullet,family=!player,tag=!neutral,r=3.2] ~~~ particle coldsink:hit_circle_1 ~~1.2~",
             "damage @e[c=1,family=!bullet,family=!player,tag=!neutral,tag=!no_any_hurt,r=3.2] 3 suicide",
-            "execute @e[c=1,family=!bullet,family=!player,tag=!neutral,r=3.2] ~~~ effect @s[tag=!is_tnnk] slowness 1 2 true",
-            "execute @e[c=1,family=!bullet,family=!player,tag=!neutral,r=3.2] ~~~ effect @s[tag=is_tnnk] slowness 1 1 true",
+            "execute @e[c=1,family=!bullet,family=!player,tag=!neutral,r=3.2] ~~~ effect @s[family=!tnnk_hard] slowness 1 2 true",
+            "execute @e[c=1,family=!bullet,family=!player,tag=!neutral,r=3.2] ~~~ effect @s[family=tnnk_hard] slowness 1 1 true",
             "execute @e[c=1,family=!bullet,family=!player,tag=!neutral,r=3.2] ~~~ kill @e[type=coldsink:bullet_ai_1,r=3.2,c=1]"
           ]
         }

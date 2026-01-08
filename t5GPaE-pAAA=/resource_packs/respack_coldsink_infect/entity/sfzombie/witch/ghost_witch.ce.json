@@ -1,0 +1,58 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:ghost_witch",
+      "animations": {
+        "witch_idle.arm": "animation.witch_0.idle.arm",
+        "witch_idle.leg": "animation.witch_0.idle.leg",
+        "witch_move.arm": "animation.witch_0.move.arm",
+        "witch_move.leg": "animation.witch_0.move.leg",
+        "witch_attack1": "animation.witch_0.attack1",
+        "witch_attack2": "animation.witch_0.attack2",
+        "c.ghost_witch_ai": "controller.animation.ghost_witch_ai",
+        "c.witch_walk": "controller.animation.witch_walk",
+        "witch_fire_ghost": "animation.witch.fire_ghost",
+        "sign_facing": "animation.sign_facing",
+        "ghost_witch.skill_powering": "animation.ghost_witch.skill_powering",
+        "ghost_witch.skill_throw": "animation.ghost_witch.skill_throw"
+      },
+      "particle_effects": {
+        "witch_fire_ghost": "nacal_sdc:witch_fire_ghost",
+        "ghost_witch_light_ball": "nacal_sdc:ghost_witch_light_ball",
+        "ghost_witch_light_circle": "nacal_sdc:ghost_witch_light_circle"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.random_choices = math.random(0, 100);"
+        ],
+        "animate": [
+          "c.ghost_witch_ai",
+          "c.witch_walk",
+          "sign_facing",
+          "witch_fire_ghost"
+        ]
+      },
+      "materials": {
+        "default": "entity_alphatest",
+        "nacal_tac_detect": "nacal_tac_detect",
+        "nacal_customblend":"nacal_customblend"
+      },
+      "textures": {
+        "ghost_witch": "textures/entity/ghost_witch",
+        "ghost_witch_sign": "textures/entity/ghost_witch_sign"
+      },
+      "geometry": {
+        "ghost_witch": "geometry.ghost_witch",
+        "boss_sign": "geometry.boss_sign"
+      },
+      "render_controllers": [
+        "controller.render.ghost_witch"
+      ],
+      "spawn_egg": {
+        "base_color": "#145CA4",
+        "overlay_color": "#59CCCC"
+      }
+    }
+  }
+}

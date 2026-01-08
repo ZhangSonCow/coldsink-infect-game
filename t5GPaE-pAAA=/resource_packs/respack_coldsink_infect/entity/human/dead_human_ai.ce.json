@@ -32,7 +32,21 @@
         "skin_12": "textures/entity/human/human_12",
         "skin_13": "textures/entity/human/human_13",
         "skin_14": "textures/entity/human/human_14",
-        "skin_15": "textures/entity/human/human_15"
+        "skin_15": "textures/entity/human/human_15",
+        "skin_16": "textures/entity/human/human_16",
+        "skin_17": "textures/entity/human/human_17",
+        "skin_18": "textures/entity/human/human_18",
+        "skin_19": "textures/entity/human/human_19",
+        "skin_20": "textures/entity/human/human_20",
+        "skin_21": "textures/entity/human/human_21",
+        "skin_22": "textures/entity/human/human_22",
+        "skin_23": "textures/entity/human/human_23",
+        "skin_24": "textures/entity/human/human_24",
+        "skin_25": "textures/entity/human/human_25",
+        "skin_26": "textures/entity/human/human_26",
+        "skin_27": "textures/entity/human/human_27",
+        "skin_28": "textures/entity/human/human_28",
+        "skin_29": "textures/entity/human/human_29"
       },
       "geometry": {
         "default": "geometry.humanoid.custom"

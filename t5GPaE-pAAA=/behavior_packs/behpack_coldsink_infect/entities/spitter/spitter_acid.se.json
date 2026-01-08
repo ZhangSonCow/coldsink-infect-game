@@ -78,9 +78,9 @@
             "tag @s remove get_target",
 
             "scoreboard players add @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] spitter_count 1",
-            "damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=1..4},r=5] 2 suicide",
-            "damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=5..7},r=5] 3 suicide",
-            "damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=8..},r=5] 4 suicide",
+            "damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=1..4},r=5] 2 suicide entity @p[family=spitter,scores={spitter_check=0}]",
+            "damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=5..7},r=5] 3 suicide entity @p[family=spitter,scores={spitter_check=0}]",
+            "damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=8..},r=5] 4 suicide entity @p[family=spitter,scores={spitter_check=0}]",
             "scoreboard players reset @e[family=player,family=!tool,type=!item,tag=!neutral,rm=5,r=10] spitter_count"
           ]
         }
@@ -97,9 +97,9 @@
             "tag @s remove get_target",
 
             "scoreboard players add @e[family=!spitter,family=!tool,r=5] spitter_count 1",
-            "damage @e[family=!spitter,family=!tool,scores={spitter_count=1..4},r=5] 2 suicide",
-            "damage @e[family=!spitter,family=!tool,scores={spitter_count=5..7},r=5] 3 suicide",
-            "damage @e[family=!spitter,family=!tool,scores={spitter_count=8..},r=5] 4 suicide",
+            "damage @e[family=!spitter,family=!tool,scores={spitter_count=1..4},r=5] 2 suicide entity @p[family=spitter,scores={spitter_check=0}]",
+            "damage @e[family=!spitter,family=!tool,scores={spitter_count=5..7},r=5] 3 suicide entity @p[family=spitter,scores={spitter_check=0}]",
+            "damage @e[family=!spitter,family=!tool,scores={spitter_count=8..},r=5] 4 suicide entity @p[family=spitter,scores={spitter_check=0}]",
             "scoreboard players reset @e[family=!spitter,family=!tool,rm=5,r=10] spitter_count"
           ]
         }

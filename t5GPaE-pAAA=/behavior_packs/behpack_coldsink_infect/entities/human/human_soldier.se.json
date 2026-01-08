@@ -16,9 +16,7 @@
         ]
       }
     },
-
     "component_groups": {
-
       "godie": {
         "minecraft:instant_despawn": {}
       },
@@ -35,7 +33,6 @@
       "coldsink:jockey.control": {
         "minecraft:out_of_control": {}
       },
-
       "stop_shoot_run": {
         "minecraft:is_ignited": {},
         "minecraft:behavior.avoid_mob_type": {
@@ -187,7 +184,25 @@
           "swing": true
         }
       },
-
+      "weapon_7": {
+        "minecraft:variant": {
+          "value": 7
+        },
+        "minecraft:movement": {
+          "value": 0.37
+        },
+        "minecraft:shooter": {
+          "def": "coldsink:bullet_ai_7"
+        },
+        "minecraft:behavior.ranged_attack": {
+          "priority": 2,
+          "attack_interval_min": 0.3,
+          "attack_interval_max": 0.4,
+          "burst_shots": 1,
+          "attack_radius": 108,
+          "swing": true
+        }
+      },
       "melee_1": {
         "minecraft:mark_variant": {
           "value": 1
@@ -213,7 +228,6 @@
           "value": 5
         }
       },
-
       "skin_1": {
         "minecraft:skin_id": {
           "value": 0
@@ -288,12 +302,85 @@
         "minecraft:skin_id": {
           "value": 14
         }
+      },
+      "skin_16": {
+        "minecraft:skin_id": {
+          "value": 15
+        }
+      },
+      "skin_17": {
+        "minecraft:skin_id": {
+          "value": 16
+        }
+      },
+      "skin_18": {
+        "minecraft:skin_id": {
+          "value": 17
+        }
+      },
+      "skin_19": {
+        "minecraft:skin_id": {
+          "value": 18
+        }
+      },
+      "skin_20": {
+        "minecraft:skin_id": {
+          "value": 19
+        }
+      },
+      "skin_21": {
+        "minecraft:skin_id": {
+          "value": 20
+        }
+      },
+      "skin_22": {
+        "minecraft:skin_id": {
+          "value": 21
+        }
+      },
+      "skin_23": {
+        "minecraft:skin_id": {
+          "value": 22
+        }
+      },
+      "skin_24": {
+        "minecraft:skin_id": {
+          "value": 23
+        }
+      },
+      "skin_25": {
+        "minecraft:skin_id": {
+          "value": 24
+        }
+      },
+      "skin_26": {
+        "minecraft:skin_id": {
+          "value": 25
+        }
+      },
+      "skin_27": {
+        "minecraft:skin_id": {
+          "value": 26
+        }
+      },
+      "skin_28": {
+        "minecraft:skin_id": {
+          "value": 27
+        }
+      },
+      "skin_29": {
+        "minecraft:skin_id": {
+          "value": 28
+        }
       }
     },
-
     "components": {
       "minecraft:type_family": {
-        "family": [ "sdc", "player", "human_ai" ]
+        "family": [
+          "sdc",
+          "player",
+          "human_ai"
+        ]
       },
       "minecraft:behavior.avoid_mob_type": {
         "priority": 0,
@@ -314,12 +401,19 @@
         ]
       },
       "minecraft:rideable": {
-        "family_types": [ "jockey_ai", "tool" ],
+        "family_types": [
+          "jockey_ai",
+          "tool"
+        ],
         "controlling_seat": 1,
         "seat_count": 10,
         "seats": [
           {
-            "position": [ 0, 1.6, 0 ]
+            "position": [
+              0,
+              1.6,
+              0
+            ]
           }
         ]
       },
@@ -355,10 +449,7 @@
         "is_amphibious": true,
         "can_float": true
       },
-
-
       //behavivors
-
       "minecraft:behavior.trade_with_player": {},
       "minecraft:behavior.random_stroll": {
         "priority": 6,
@@ -434,7 +525,6 @@
         "priority": 0
       }
     },
-
     "events": {
       "random_weapon": {
         "sequence": [
@@ -477,6 +567,14 @@
                 "add": {
                   "component_groups": [
                     "weapon_5"
+                  ]
+                }
+              },
+              {
+                "weight": 20,
+                "add": {
+                  "component_groups": [
+                    "weapon_7"
                   ]
                 }
               }
@@ -637,6 +735,104 @@
         "add": {
           "component_groups": [
             "skin_15"
+          ]
+        }
+      },
+      "skin_16": {
+        "add": {
+          "component_groups": [
+            "skin_16"
+          ]
+        }
+      },
+      "skin_17": {
+        "add": {
+          "component_groups": [
+            "skin_17"
+          ]
+        }
+      },
+      "skin_18": {
+        "add": {
+          "component_groups": [
+            "skin_18"
+          ]
+        }
+      },
+      "skin_19": {
+        "add": {
+          "component_groups": [
+            "skin_19"
+          ]
+        }
+      },
+      "skin_20": {
+        "add": {
+          "component_groups": [
+            "skin_20"
+          ]
+        }
+      },
+      "skin_21": {
+        "add": {
+          "component_groups": [
+            "skin_21"
+          ]
+        }
+      },
+      "skin_22": {
+        "add": {
+          "component_groups": [
+            "skin_22"
+          ]
+        }
+      },
+      "skin_23": {
+        "add": {
+          "component_groups": [
+            "skin_23"
+          ]
+        }
+      },
+      "skin_24": {
+        "add": {
+          "component_groups": [
+            "skin_24"
+          ]
+        }
+      },
+      "skin_25": {
+        "add": {
+          "component_groups": [
+            "skin_25"
+          ]
+        }
+      },
+      "skin_26": {
+        "add": {
+          "component_groups": [
+            "skin_26"
+          ]
+        }
+      },
+      "skin_27": {
+        "add": {
+          "component_groups": [
+            "skin_27"
+          ]
+        }
+      },
+      "skin_28": {
+        "add": {
+          "component_groups": [
+            "skin_28"
+          ]
+        }
+      },
+      "skin_29": {
+        "add": {
+          "component_groups": [
+            "skin_29"
           ]
         }
       },

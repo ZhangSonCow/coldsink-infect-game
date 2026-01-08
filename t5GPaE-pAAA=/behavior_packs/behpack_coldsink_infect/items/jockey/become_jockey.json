@@ -15,7 +15,7 @@
         "texture": "become_jockey"
       },
       "minecraft:display_name": {
-        "value": "扮演 Jockey"
+        "value": "扮演 §3Jockey"
       },
       "minecraft:use_duration": 99999,
       "minecraft:food": {

@@ -1,0 +1,85 @@
+{
+	"format_version": "1.18.0",
+	"animation_controllers": {
+		"controller.animation.queen_witch_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"cry": "q.property('coldsink:action_status') == 4"
+						},
+						{
+							"attack_light": "v.attack_time && !q.is_saddled"
+						},
+						{
+							"attack_heavy": "v.attack_time && q.is_saddled"
+						}
+					]
+				},
+				"cry": {
+					"animations": [ "witch_cry_sound" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"attack_light": "v.attack_time && !q.is_saddled"
+						},
+						{
+							"attack_heavy": "v.attack_time && q.is_saddled"
+						}
+					]
+				},
+				"attack_light": {
+					"animations": [ "queen_witch_attack_light" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_light"
+					]
+				},
+				"attack_heavy": {
+					"animations": [ "queen_witch_attack_heavy" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_heavy"
+					]
+				}
+			}
+		},
+
+		// 技能持续时间控制
+
+		"controller.animation.queen_witch_skill_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"skill": "q.property('coldsink:time_skill')"
+						}
+					]
+				},
+				"skill": {
+					"animations": [ "queen_witch_skill_timer", "queen_witch_skill_buff" ],
+					"transitions": [
+						{
+							"default": "!q.property('coldsink:time_skill')"
+						}
+					],
+					"on_exit": [
+						"/function sfzombie/queen_witch_skill_patch"
+					]
+				}
+			}
+		}
+	}
+}

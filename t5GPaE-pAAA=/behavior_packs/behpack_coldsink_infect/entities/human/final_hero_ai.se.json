@@ -370,7 +370,7 @@
             "execute @s ^^3.5^ execute @e[family=!player,tag=!neutral,r=7] ~~~ particle nacal_sdc:final_hero_blast",
             "execute @s ^^3.5^ execute @e[family=!player,tag=!neutral,r=7] ~~~ particle nacal_sdc:final_hero_smoke",
             "execute @s ^^3.5^ tag @e[family=!player,tag=!neutral,r=7] add melee_damage",
-            "execute @s ^^3.5^ damage @e[family=!player,tag=!neutral,r=7] 10 suicide",
+            "execute @s ^^3.5^ damage @e[family=!player,tag=!neutral,r=7] 10 suicide entity @s",
             "execute @s ^^3.5^ effect @e[family=!player,tag=!neutral,r=7] slowness 4 0 true"
           ]
         }
@@ -391,7 +391,7 @@
             "execute @s ^^3.5^ execute @e[family=!player,tag=!neutral,r=7] ~~~ particle nacal_sdc:final_hero_blast",
             "execute @s ^^3.5^ execute @e[family=!player,tag=!neutral,r=7] ~~~ particle nacal_sdc:final_hero_smoke",
             "execute @s ^^3.5^ tag @e[family=!player,tag=!neutral,r=7] add melee_damage",
-            "execute @s ^^3.5^ damage @e[family=!player,tag=!neutral,r=7] 10 suicide",
+            "execute @s ^^3.5^ damage @e[family=!player,tag=!neutral,r=7] 10 suicide entity @s",
             "execute @s ^^3.5^ effect @e[family=!player,tag=!neutral,r=7] slowness 4 0 true"
           ]
         }
@@ -412,7 +412,7 @@
             "execute @s ^^3.5^ execute @e[family=!player,tag=!neutral,r=7] ~~~ particle nacal_sdc:final_hero_blast",
             "execute @s ^^3.5^ execute @e[family=!player,tag=!neutral,r=7] ~~~ particle nacal_sdc:final_hero_smoke",
             "execute @s ^^3.5^ tag @e[family=!player,tag=!neutral,r=7] add melee_damage",
-            "execute @s ^^3.5^ damage @e[family=!player,tag=!neutral,r=7] 15 suicide",
+            "execute @s ^^3.5^ damage @e[family=!player,tag=!neutral,r=7] 15 suicide entity @s",
             "execute @s ^^3.5^ effect @e[family=!player,tag=!neutral,r=7] slowness 4 1 true"
           ]
         }
@@ -433,7 +433,7 @@
             "execute @s ^^3.5^ execute @e[family=!player,tag=!neutral,r=7] ~~~ particle nacal_sdc:final_hero_blast",
             "execute @s ^^3.5^ execute @e[family=!player,tag=!neutral,r=7] ~~~ particle nacal_sdc:final_hero_smoke",
             "execute @s ^^3.5^ tag @e[family=!player,tag=!neutral,r=7] add melee_damage",
-            "execute @s ^^3.5^ damage @e[family=!player,tag=!neutral,r=7] 15 suicide",
+            "execute @s ^^3.5^ damage @e[family=!player,tag=!neutral,r=7] 15 suicide entity @s",
             "execute @s ^^3.5^ effect @e[family=!player,tag=!neutral,r=7] slowness 4 1 true"
           ]
         }

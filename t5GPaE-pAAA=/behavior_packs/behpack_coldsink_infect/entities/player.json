@@ -134,6 +134,22 @@
         "ctrl.final_tank_cooldown_player.func": "controller.animation.final_tank_cooldown_player.func",
         "final_tank_skill_cooldown": "animation.final_tank_skill_cooldown.func",
         "final_tank_skill_howl_timer": "animation.final_tank_skill_howl_timer.func",
+
+        "ctrl.tyrant_tank_player.func": "controller.animation.tyrant_tank_player.func",
+        "tyrant_tank_attack_light": "animation.tyrant_tank_attack_light.func",
+        "tyrant_tank_attack_heavy": "animation.tyrant_tank_attack_heavy.func",
+        "tyrant_tank_skill_timer": "animation.tyrant_tank_skill_timer.func",
+        "tyrant_tank_skill_howl_timer": "animation.tyrant_tank_skill_howl_timer.func",
+        "ctrl.tyrant_tank_buff_player": "controller.animation.tyrant_tank_buff_player.func",
+        "tyrant_tank_buff_timer": "animation.tyrant_tank_buff_timer.func",
+
+        "ctrl.armor_tank_player.func": "controller.animation.armor_tank_player.func",
+        "armor_tank_attack_light": "animation.armor_tank_attack_light.func",
+        "armor_tank_attack_heavy": "animation.armor_tank_attack_heavy.func",
+        "armor_tank_skill_timer": "animation.armor_tank_skill_timer.func",
+        "armor_tank_skill_howl_timer": "animation.armor_tank_skill_howl_timer.func",
+        "ctrl.armor_tank_buff_player": "controller.animation.armor_tank_buff_player.func",
+        "armor_tank_buff_timer": "animation.armor_tank_buff_timer.func",
         
         "ctrl.witch_player.func": "controller.animation.witch_player.func",
         "witch_attack_light": "animation.witch_attack_light.func",
@@ -150,6 +166,25 @@
         "final_witch_skill_timer": "animation.final_witch_skill_timer.func",
         "final_witch_skill_smoke": "animation.final_witch_skill_smoke.func",
         "ctrl.final_witch_damage_player": "controller.animation.final_witch_damage_player.func",
+        
+        "ctrl.ghost_witch_player.func": "controller.animation.ghost_witch_player.func",
+        "ghost_witch_attack_light": "animation.ghost_witch_attack_light.func",
+        "ghost_witch_attack_heavy": "animation.ghost_witch_attack_heavy.func",
+        "ctrl.ghost_witch_skill_player": "controller.animation.ghost_witch_skill_player.func",
+        "ghost_witch_skill_timer": "animation.ghost_witch_skill_timer.func",
+        "ghost_witch_skill_over": "animation.ghost_witch_skill_over.func",
+        "ghost_witch_skill_end": "animation.ghost_witch_skill_end.func",
+        "ctrl.ghost_witch_damage_player": "controller.animation.ghost_witch_damage_player.func",
+        "ctrl.ghost_witch_cooldown_player.func": "controller.animation.ghost_witch_cooldown_player.func",
+        "ghost_witch_skill_cooldown": "animation.ghost_witch_skill_cooldown.func",
+        
+        "ctrl.queen_witch_player.func": "controller.animation.queen_witch_player.func",
+        "queen_witch_attack_light": "animation.queen_witch_attack_light.func",
+        "queen_witch_attack_heavy": "animation.queen_witch_attack_heavy.func",
+        "ctrl.queen_witch_skill_player": "controller.animation.queen_witch_skill_player.func",
+        "queen_witch_skill_timer": "animation.queen_witch_skill_timer.func",
+        "queen_witch_skill_buff": "animation.queen_witch_skill_buff.func",
+        "ctrl.queen_witch_damage_player": "controller.animation.queen_witch_damage_player.func",
 
         // 英雄
 
@@ -286,10 +321,10 @@
           // 特感
           "ctrl.sfzombie_sound_interval",
           {
-            "ctrl.sfzombie_idle_sound.func": "(q.variant >= 1 && q.variant <= 8) || q.variant == 11 || q.variant == 12"
+            "ctrl.sfzombie_idle_sound.func": "(q.variant >= 1 && q.variant <= 8) || q.variant == 11 || q.variant == 12 || q.variant > 20"
           },
           {
-            "ctrl.sfzombie_stay_heal.func": "(q.variant >= 1 && q.variant <= 8) || q.variant == 11 || q.variant == 12"
+            "ctrl.sfzombie_stay_heal.func": "(q.variant >= 1 && q.variant <= 8) || q.variant == 11 || q.variant == 12 || q.variant > 20"
           },
           {
             "ctrl.hunter_player.func": "q.variant == 1 && !q.property('coldsink:freeze')"
@@ -325,7 +360,7 @@
             "ctrl.final_tank_cooldown_player.func": "q.variant == 11"
           },
           {
-            "ctrl.tank_move_sound.func": "q.variant == 7 || q.variant == 11"
+            "ctrl.tank_move_sound.func": "q.variant == 7 || q.variant == 11 || q.variant == 21 || q.variant == 23"
           },
           {
             "ctrl.witch_player.func": "q.variant == 8 && !q.property('coldsink:freeze')"
@@ -344,6 +379,42 @@
           },
           {
             "ctrl.final_witch_damage_player": "q.variant == 12"
+          },
+          {
+            "ctrl.ghost_witch_player.func": "q.variant == 22 && !q.property('coldsink:freeze')"
+          },
+          {
+            "ctrl.ghost_witch_skill_player": "q.variant == 22"
+          },
+          {
+            "ctrl.tyrant_tank_player.func": "q.variant == 21 && !q.property('coldsink:freeze')"
+          },
+          {
+            "ctrl.tyrant_tank_buff_player": "q.variant == 21"
+          },
+          {
+            "ctrl.ghost_witch_skill_player": "q.variant == 22"
+          },
+          {
+            "ctrl.ghost_witch_damage_player": "q.variant == 22"
+          },
+          {
+            "ctrl.ghost_witch_cooldown_player.func": "q.variant == 22 && q.is_item_name_any('slot.hotbar', 8, 'coldsink:skill_cooldown')"
+          },
+          {
+            "ctrl.armor_tank_player.func": "q.variant == 23 && !q.property('coldsink:freeze')"
+          },
+          {
+            "ctrl.armor_tank_buff_player": "q.variant == 23"
+          },
+          {
+            "ctrl.queen_witch_player.func": "q.variant == 24 && !q.property('coldsink:freeze')"
+          },
+          {
+            "ctrl.queen_witch_skill_player": "q.variant == 24"
+          },
+          {
+            "ctrl.queen_witch_damage_player": "q.variant == 24"
           },
 
           // 英雄
@@ -837,6 +908,113 @@
       "normal_show_name": {
         "minecraft:nameable": {
           "always_show": true
+        }
+      },
+
+      //tyrant_tank
+
+      "coldsink:is_tyrant_tnnk": {
+        "minecraft:variant": {
+          "value": 21
+        },
+        "minecraft:type_family": {
+          "family": [
+            "monster",
+            "boss",
+            "tyrant_boss",
+            "tyrant_tnnk",
+            "tnnk_hard"
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        },
+        "minecraft:collision_box": {
+          "width": 1.5,
+          "height": 2.3
+        }
+      },
+
+      //ghost_witch
+
+      "coldsink:is_ghost_witch": {
+        "minecraft:variant": {
+          "value": 22
+        },
+        "minecraft:type_family": {
+          "family": [
+            "monster",
+            "boss",
+            "ghost_boss",
+            "ghost_witch"
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        },
+        "minecraft:collision_box": {
+          "width": 0.55,
+          "height": 2.0
+        }
+      },
+      "coldsink:ghost_witch_lightball": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "single_use": true,
+              "spawn_entity": "coldsink:witch_lightball",
+              "num_to_spawn": 1
+            }
+          ]
+        }
+      },
+
+      //armor_tank
+
+      "coldsink:is_armor_tnnk": {
+        "minecraft:variant": {
+          "value": 23
+        },
+        "minecraft:type_family": {
+          "family": [
+            "monster",
+            "boss",
+            "armor_boss",
+            "armor_tnnk",
+            "tnnk_hard"
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        },
+        "minecraft:collision_box": {
+          "width": 1.5,
+          "height": 2.3
+        }
+      },
+
+      //queen_witch
+
+      "coldsink:is_queen_witch": {
+        "minecraft:variant": {
+          "value": 24
+        },
+        "minecraft:type_family": {
+          "family": [
+            "monster",
+            "boss",
+            "queen_boss",
+            "queen_witch"
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        },
+        "minecraft:collision_box": {
+          "width": 0.55,
+          "height": 2.0
         }
       },
       
@@ -1409,6 +1587,188 @@
       // 近战轻重击模式判断（变身通用）
       "melee_big": {
         "minecraft:is_saddled": {}
+      },
+
+      // 常规-伤害传感器
+      "coldsink:normal_damage_sensor": {
+        "minecraft:damage_sensor": {
+          "triggers": [
+            // 地图玩家：人类间取消队伤
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "has_tag",
+                      "subject": "self",
+                      "value": "maper"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "self",
+                      "value": "player"
+                    }
+                  ]
+                }
+              },
+              "cause": "all",
+              "deals_damage": false
+            },
+            // 地图玩家：免疫摔伤
+            {
+              "on_damage": {
+                "filters": {
+                  "any_of": [
+                    {
+                      "test": "has_tag",
+                      "subject": "self",
+                      "value": "maper"
+                    }
+                  ]
+                }
+              },
+              "cause": "fall",
+              "deals_damage": false
+            },
+            // 作为特感被人类玩家推开
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "self",
+                      "value": "monster"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test":"has_damage",
+                      "value":"attack"
+                    },
+                    {
+                      "test": "has_tag",
+                      "subject": "other",
+                      "operator": "!=",
+                      "value": "is_hero"
+                    }
+                  ]
+                },
+                "event": "knockback",
+                "target": "self"
+              }
+            },
+            // 被人机猎手刀灭
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test":"has_damage",
+                      "value":"fatal",
+                      "operator": "="
+                    },
+                    {
+                      "test": "has_tag",
+                      "subject": "other",
+                      "value": "is_hero"
+                    },
+                    {
+                      "test": "has_damage",
+                      "operator": "!=",
+                      "value": "projectile"
+                    }
+                  ]
+                },
+                "event": "melee_tag_by_hero",
+                "target": "self"
+              }
+            },
+            // 作为英雄，受到Boss特感人机伤害*2
+            {
+              "on_damage": {
+                "filters": {
+                  "any_of": [
+                    {
+                      "test":"has_tag",
+                      "subject": "self",
+                      "value":"is_hero"
+                    },
+                    {
+                      "test":"is_family",
+                      "subject": "other",
+                      "value":"boss"
+                    }
+                  ]
+                }
+              },
+              "damage_multiplier": 2.0
+            }
+          ]
+        }
+      },
+
+      // 装甲泰坦-伤害传感器
+      "coldsink:armor_tank_damage_sensor": {
+        "minecraft:damage_sensor": {
+          "triggers": [
+            // 受到子弹直击伤害减半
+            {
+              "cause": "projectile",
+              "damage_multiplier": 0.5
+            },
+            // 地图玩家：免疫摔伤
+            {
+              "on_damage": {
+                "filters": {
+                  "any_of": [
+                    {
+                      "test": "has_tag",
+                      "subject": "self",
+                      "value": "maper"
+                    }
+                  ]
+                }
+              },
+              "cause": "fall",
+              "deals_damage": false
+            },
+            // 被人机猎手刀灭
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test":"has_damage",
+                      "value":"fatal",
+                      "operator": "="
+                    },
+                    {
+                      "test": "has_tag",
+                      "subject": "other",
+                      "value": "is_hero"
+                    },
+                    {
+                      "test": "has_damage",
+                      "operator": "!=",
+                      "value": "projectile"
+                    }
+                  ]
+                },
+                "event": "melee_tag_by_hero",
+                "target": "self"
+              }
+            }
+          ]
+        }
       }
 
     },
@@ -1416,129 +1776,6 @@
       // 默认variant为 0
       "minecraft:variant": {
         "value": 0
-      },
-      "minecraft:damage_sensor": {
-        "triggers": [
-          // 地图玩家：人类间取消队伤
-          {
-            "on_damage": {
-              "filters": {
-                "all_of": [
-                  {
-                    "test": "has_tag",
-                    "subject": "self",
-                    "value": "maper"
-                  },
-                  {
-                    "test": "is_family",
-                    "subject": "other",
-                    "value": "player"
-                  },
-                  {
-                    "test": "is_family",
-                    "subject": "self",
-                    "value": "player"
-                  }
-                ]
-              }
-            },
-            "cause": "all",
-            "deals_damage": false
-          },
-          // 地图玩家：免疫摔伤
-          {
-            "on_damage": {
-              "filters": {
-                "any_of": [
-                  {
-                    "test": "has_tag",
-                    "subject": "self",
-                    "value": "maper"
-                  }
-                ]
-              }
-            },
-            "cause": "fall",
-            "deals_damage": false
-          },
-          // 作为特感被人类玩家推开
-          {
-            "on_damage": {
-              "filters": {
-                "all_of": [
-                  {
-                    "test": "is_family",
-                    "subject": "self",
-                    "value": "monster"
-                  },
-                  {
-                    "test": "is_family",
-                    "subject": "other",
-                    "value": "player"
-                  },
-                  {
-                    "test":"has_damage",
-                    "value":"attack"
-                  },
-                  {
-                    "test": "has_tag",
-                    "subject": "other",
-                    "operator": "!=",
-                    "value": "is_hero"
-                  }
-                ]
-              },
-              "event": "knockback",
-              "target": "self"
-            }
-          },
-          // 被人机猎手刀灭
-          {
-            "on_damage": {
-              "filters": {
-                "all_of": [
-                  {
-                    "test":"has_damage",
-                    "value":"fatal",
-                    "operator": "="
-                  },
-                  {
-                    "test": "has_tag",
-                    "subject": "other",
-                    "value": "is_hero"
-                  },
-                  {
-                    "test": "has_damage",
-                    "operator": "!=",
-                    "value": "projectile"
-                  }
-                ]
-              },
-              "event": "melee_tag_by_hero",
-              "target": "self"
-            }
-          },
-          // 作为英雄，受到Boss特感人机伤害*2
-          {
-            "on_damage": {
-              "filters": {
-                "any_of": [
-                  {
-                    "test":"has_tag",
-                    "subject": "self",
-                    "value":"is_hero"
-                  },
-                  {
-                    "test":"is_family",
-                    "subject": "other",
-                    "value":"boss"
-                  }
-                ]
-              }
-            },
-            "damage_multiplier": 2.0
-          }
-        ]
       },
       "minecraft:experience_reward": {
         "on_death": "Math.Min(query.player_level * 7, 100)"
@@ -1876,6 +2113,11 @@
             "coldsink:is_witch",
             "coldsink:is_final_tnnk",
             "coldsink:is_final_witch",
+            "coldsink:is_tyrant_tnnk",
+            "coldsink:is_ghost_witch",
+            "coldsink:is_armor_tnnk",
+            
+            "coldsink:is_queen_witch",
             "coldsink:is_human_hero",
             "coldsink:is_final_hero",
             "coldsink:is_savior_hero",
@@ -1889,7 +2131,6 @@
         },
         "queue_command": {
           "command": [
-            "tag @s remove no_any_hurt",
             // 删除变身标签
             "tag @s remove is_hunter",
             "tag @s remove is_spitter",
@@ -1901,6 +2142,10 @@
             "tag @s remove is_witch",
             "tag @s remove is_final_tnnk",
             "tag @s remove is_final_witch",
+            "tag @s remove is_tyrant_tnnk",
+            "tag @s remove is_ghost_witch",
+            "tag @s remove is_armor_tnnk",
+            "tag @s remove is_queen_witch",
             "tag @s remove is_boss",
             "tag @s remove is_human_hero",
             "tag @s remove is_final_hero",
@@ -1950,6 +2195,8 @@
             "event entity @s freeze_no",
 						"inputpermission set @s camera enabled",
 						"inputpermission set @s movement enabled",
+            "tag @s remove no_any_hurt",
+            "tag @s[tag=maper] remove super_supply",
 
             "scoreboard objectives add player_death dummy player_death",
             "scoreboard objectives add player_respawn dummy player_respawn",
@@ -1984,7 +2231,13 @@
       "coldsink:add_default": {
         "add": {
           "component_groups" :[
-            "coldsink:default"
+            "coldsink:default",
+            "coldsink:normal_damage_sensor"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "coldsink:armor_tank_damage_sensor"
           ]
         }
       },
@@ -2339,6 +2592,7 @@
             
 						"tellraw @s {\"rawtext\":[{\"text\":\"§l§f【提示】§c 原地不动可自愈 \"}]}",
 						"replaceitem entity @s slot.hotbar 0 coldsink:big_attack 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s[tag=!maper] slot.hotbar 6 barrier 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
 						"replaceitem entity @s slot.hotbar 7 coldsink:tnnk_howl_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
 						"replaceitem entity @s slot.hotbar 8 coldsink:tnnk_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
             "event entity @s coldsink:exit_lie_down",
@@ -2436,6 +2690,8 @@
             
 						"tellraw @s {\"rawtext\":[{\"text\":\"§l§f【提示】§c 原地不动可自愈 \"}]}",
 						"replaceitem entity @s slot.hotbar 0 coldsink:big_attack 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s[tag=!maper] slot.hotbar 6 barrier 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s[tag=!maper] slot.hotbar 7 barrier 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
 						"replaceitem entity @s slot.hotbar 8 coldsink:witch_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
             "event entity @s coldsink:exit_lie_down",
 
@@ -2480,6 +2736,8 @@
             "scoreboard objectives add sfzombie_stay dummy sfzombie_stay",
             "scoreboard objectives add tnnk_move dummy tnnk_move",
             "scoreboard objectives add tnnk_fireball dummy tnnk_fireball",
+            "scoreboard objectives add tnnk_time dummy tnnk_time",
+            "scoreboard objectives add tnnk_check dummy tnnk_check",
             
             "effect @s clear",
             "effect @s saturation 99999 10 true",
@@ -2519,7 +2777,6 @@
           "command": [
             "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
             "tag @s remove neutral",
-
             "tag @s remove no_any_hurt",
             
 						"execute @s[tag=游戏中,tag=!is_final_witch] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§d恶灵女巫§f \"},{\"selector\":\"@s\"},{\"text\":\" §d登场了！\"}]}",
@@ -2574,6 +2831,189 @@
         "add": {
           "component_groups": [
             "normal_show_name"
+          ]
+        }
+      },
+
+      //tyrant_tank
+
+      "coldsink:become_tyrant_tnnk": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+            
+						"execute @s[tag=游戏中,tag=!is_tyrant_tnnk] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§8暴君泰坦§f \"},{\"selector\":\"@s\"},{\"text\":\" §8登场了！\"}]}",
+            "tag @s[tag=maper] remove super_supply",
+            
+            "event entity @s coldsink:add_tyrant_tnnk",
+            "tag @s add is_tyrant_tnnk",
+            "tag @s add is_boss",
+            "scoreboard objectives add idle_time dummy idle_time",
+            "scoreboard objectives add sfzombie_stay dummy sfzombie_stay",
+            "scoreboard objectives add tnnk_move dummy tnnk_move",
+            "scoreboard objectives add tnnk_fireball dummy tnnk_fireball",
+            
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s speed 99999 1 true",
+            "effect @s jump_boost 99999 0 true",
+            "effect @s health_boost 99999 19 true",
+            "effect @s instant_health 1 10 true",
+            
+						"replaceitem entity @s slot.hotbar 0 coldsink:big_attack 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 7 coldsink:tyrant_tnnk_howl_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 8 coldsink:tyrant_tnnk_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "title @s actionbar §f已扮演 §8暴君泰坦",
+            "playsound become.final.tnnk @a[tag=游戏中]"
+          ]
+        }
+      },
+      "coldsink:add_tyrant_tnnk": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_tyrant_tnnk",
+            "coldsink:armor_tank_damage_sensor"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "coldsink:normal_damage_sensor"
+          ]
+        }
+      },
+
+      //ghost_witch
+
+      "coldsink:become_ghost_witch": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+            "tag @s remove no_any_hurt",
+            
+						"execute @s[tag=游戏中,tag=!is_ghost_witch] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§b幽鬼女巫§f \"},{\"selector\":\"@s\"},{\"text\":\" §b登场了！\"}]}",
+            "tag @s[tag=maper] remove super_supply",
+            
+            "event entity @s coldsink:add_ghost_witch",
+            "tag @s add is_ghost_witch",
+            "tag @s add is_boss",
+            "scoreboard objectives add idle_time dummy idle_time",
+            "scoreboard objectives add sfzombie_stay dummy sfzombie_stay",
+            "scoreboard objectives add witch_time dummy witch_time",
+            "scoreboard objectives add witch_check dummy witch_check",
+            
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s speed 99999 1 true",
+            "effect @s jump_boost 99999 0 true",
+            "effect @s health_boost 99999 14 true",
+            "effect @s instant_health 1 10 true",
+            
+						"replaceitem entity @s slot.hotbar 0 coldsink:big_attack 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 8 coldsink:ghost_witch_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "title @s actionbar §f已扮演 §b幽鬼女巫",
+            "playsound become.final.witch @a[tag=游戏中]"
+          ]
+        }
+      },
+      "coldsink:add_ghost_witch": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_ghost_witch"
+          ]
+        }
+      },
+      "coldsink:ghost_witch_lightball": {
+        "add": {
+          "component_groups": [
+            "coldsink:ghost_witch_lightball"
+          ]
+        }
+      },
+
+      //armor_tank
+
+      "coldsink:become_armor_tnnk": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+            
+						"execute @s[tag=游戏中,tag=!is_armor_tnnk] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§6装甲泰坦§f \"},{\"selector\":\"@s\"},{\"text\":\" §6登场了！\"}]}",
+            "tag @s[tag=maper] remove super_supply",
+            
+            "event entity @s coldsink:add_armor_tnnk",
+            "tag @s add is_armor_tnnk",
+            "tag @s add is_boss",
+            "scoreboard objectives add idle_time dummy idle_time",
+            "scoreboard objectives add sfzombie_stay dummy sfzombie_stay",
+            "scoreboard objectives add tnnk_move dummy tnnk_move",
+            "scoreboard objectives add tnnk_fireball dummy tnnk_fireball",
+            
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s speed 99999 1 true",
+            "effect @s jump_boost 99999 0 true",
+            "effect @s health_boost 99999 29 true",
+            "effect @s instant_health 1 10 true",
+            
+						"replaceitem entity @s slot.hotbar 0 coldsink:big_attack 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 7 coldsink:armor_tnnk_howl_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 8 coldsink:armor_tnnk_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "title @s actionbar §f已扮演 §6装甲泰坦",
+            "playsound become.final.tnnk @a[tag=游戏中]"
+          ]
+        }
+      },
+      "coldsink:add_armor_tnnk": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_armor_tnnk"
+          ]
+        }
+      },
+
+      //queen_witch
+
+      "coldsink:become_queen_witch": {
+        "queue_command": {
+          "command": [
+            "clear @s[tag=maper]",  // 地图玩家：恢复变身时清空背包
+            "tag @s remove neutral",
+            "tag @s remove no_any_hurt",
+            
+						"execute @s[tag=游戏中,tag=!is_queen_witch] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§2妖皇女巫§f \"},{\"selector\":\"@s\"},{\"text\":\" §2登场了！\"}]}",
+            "tag @s[tag=maper] remove super_supply",
+            
+            "event entity @s coldsink:add_queen_witch",
+            "tag @s add is_queen_witch",
+            "tag @s add is_boss",
+            "scoreboard objectives add idle_time dummy idle_time",
+            "scoreboard objectives add sfzombie_stay dummy sfzombie_stay",
+            
+            "effect @s clear",
+            "effect @s saturation 99999 10 true",
+            "effect @s weakness 99999 10 true",
+            "effect @s speed 99999 1 true",
+            "effect @s jump_boost 99999 0 true",
+            "effect @s health_boost 99999 24 true",
+            "effect @s instant_health 1 10 true",
+            
+						"replaceitem entity @s slot.hotbar 0 coldsink:big_attack 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+						"replaceitem entity @s slot.hotbar 8 coldsink:queen_witch_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "title @s actionbar §f已扮演 §2妖皇女巫",
+            "playsound become.final.witch @a[tag=游戏中]"
+          ]
+        }
+      },
+      "coldsink:add_queen_witch": {
+        "add": {
+          "component_groups" :[
+            "coldsink:is_queen_witch"
           ]
         }
       },
@@ -3444,14 +3884,24 @@
         "queue_command": {
           "command": [
             "execute @s[family=tnnk] ~~~ execute @e[type=coldsink:final_box_red,c=1] ~~~ particle nacal_sdc:final_wave_red",
-            "event entity @s[family=tnnk] coldsink:become_final_tnnk",
+            // "event entity @s[family=tnnk] coldsink:become_final_tnnk",
+            "replaceitem entity @s[family=tnnk,tag=maper] slot.hotbar 3 coldsink:become_final_tnnk 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[family=tnnk,tag=maper] slot.hotbar 4 coldsink:become_tyrant_tnnk 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[family=tnnk,tag=maper] slot.hotbar 5 coldsink:become_armor_tnnk 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
             "clear @s[family=tnnk] coldsink:become_tnnk 0 1",
-            "give @s[family=tnnk,tag=!maper] coldsink:become_final_tnnk 1 0 {\"item_lock\":{\"mode\":\"lock_in_inventory\"}}",
+            "replaceitem entity @s[family=tnnk,tag=!maper] slot.hotbar 3 coldsink:middle_final_tnnk 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[family=tnnk,tag=!maper] slot.hotbar 4 coldsink:middle_tyrant_tnnk 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[family=tnnk,tag=!maper] slot.hotbar 5 coldsink:middle_armor_tnnk 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
             
             "execute @s[family=witch] ~~~ execute @e[type=coldsink:final_box_red,c=1] ~~~ particle nacal_sdc:final_wave_purp",
-            "event entity @s[family=witch] coldsink:become_final_witch",
+            // "event entity @s[family=witch] coldsink:become_final_witch",
+            "replaceitem entity @s[family=witch,tag=maper] slot.hotbar 4 coldsink:become_final_witch 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[family=witch,tag=maper] slot.hotbar 5 coldsink:become_ghost_witch 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[family=witch,tag=maper] slot.hotbar 6 coldsink:become_queen_witch 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
             "clear @s[family=witch] coldsink:become_witch 0 1",
-            "give @s[family=witch,tag=!maper] coldsink:become_final_witch 1 0 {\"item_lock\":{\"mode\":\"lock_in_inventory\"}}",
+            "replaceitem entity @s[family=witch,tag=!maper] slot.hotbar 4 coldsink:middle_final_witch 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[family=witch,tag=!maper] slot.hotbar 5 coldsink:middle_ghost_witch 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @s[family=witch,tag=!maper] slot.hotbar 6 coldsink:middle_queen_witch 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
             
             "execute @s[family=monster,family=!boss,tag=!neutral] ~~~ tag @e[type=coldsink:final_box_red,c=1] add supplied",
             "tellraw @s[family=monster,family=!boss,tag=!neutral] {\"rawtext\":[{\"text\":\"§l§c已拾取红色补给箱 §6可进化为特殊幽灵\"}]}",

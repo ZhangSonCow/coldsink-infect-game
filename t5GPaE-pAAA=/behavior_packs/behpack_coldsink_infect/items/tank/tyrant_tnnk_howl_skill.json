@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "coldsink:tyrant_tnnk_howl_skill",
+      "menu_category": {  
+        "group": "itemGroup.name.arrow",  
+        "category": "equipment", 
+        "is_hidden_in_commands": false 
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": {
+        "texture": "tnnk_howl_skill"
+      },
+      "minecraft:display_name": {
+        "value": "§8手持 [长按/右键] 控制增伤"
+      },
+      "minecraft:cooldown": {
+        "category": "tryant_tnnk_howl_skill",
+        "duration": 18
+      },
+      "minecraft:use_duration": 99999,
+      "minecraft:food": {
+        "can_always_eat": true
+      }
+    }
+  }
+}

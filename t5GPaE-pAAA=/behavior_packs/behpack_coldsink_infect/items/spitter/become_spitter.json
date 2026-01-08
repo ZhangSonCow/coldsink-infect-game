@@ -15,7 +15,7 @@
         "texture": "become_spitter"
       },
       "minecraft:display_name": {
-        "value": "扮演 Spitter"
+        "value": "扮演 §aSpitter"
       },
       "minecraft:use_duration": 99999,
       "minecraft:food": {

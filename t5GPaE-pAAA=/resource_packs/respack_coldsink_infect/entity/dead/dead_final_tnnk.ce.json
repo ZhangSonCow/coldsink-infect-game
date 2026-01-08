@@ -18,7 +18,7 @@
         ]
       },
       "textures": {
-        "default": "textures/entity/final_tank_glow"
+        "default": "textures/entity/final_tank"
       },
       "geometry": {
         "default": "geometry.final_tank"

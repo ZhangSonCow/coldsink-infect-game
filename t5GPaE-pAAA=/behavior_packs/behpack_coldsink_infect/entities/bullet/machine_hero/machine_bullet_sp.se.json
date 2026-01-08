@@ -80,7 +80,8 @@
             "execute @e[family=monster,tag=!neutral,r=3.2,c=1] ~~~ particle coldsink:hit_circle_machine ~~1.2~",
             "damage @e[family=monster,tag=!neutral,r=3.2,tag=!no_any_hurt,c=1] 4 suicide",
             "execute @e[family=monster,tag=!neutral,r=3.2,c=1] ~~~ effect @s[family=!tnnk_hard] slowness 1 2 true",
-            "execute @e[family=monster,tag=!neutral,r=3.2,c=1] ~~~ effect @s[family=tnnk_hard] slowness 1 1 true",
+            "execute @e[family=monster,tag=!neutral,r=3.2,c=1] ~~~ effect @s[family=tnnk_hard,tag=!is_tyrant_tnnk] slowness 1 1 true",
+            "execute @e[family=monster,tag=!neutral,r=3.2,c=1] ~~~ effect @s[family=tnnk_hard,tag=!is_tyrant_tnnk] slowness 1 0 true",
             "execute @e[family=monster,tag=!neutral,r=3.2,c=1] ~~~ kill @e[type=coldsink:machine_bullet_sp,r=3.2,c=1]"
           ]
         }

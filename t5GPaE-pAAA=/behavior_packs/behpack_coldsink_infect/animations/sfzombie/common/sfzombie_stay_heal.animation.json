@@ -10,7 +10,9 @@
           "/title @s[scores={sfzombie_stay=8..}] actionbar §c回复生命中...",
 
           "/event entity @s[family=witch,scores={sfzombie_stay=7}] action_skill_other",
-          "/event entity @s[family=final_witch,scores={sfzombie_stay=7}] action_skill_other"
+          "/event entity @s[family=final_witch,scores={sfzombie_stay=7}] action_skill_other",
+          "/event entity @s[family=ghost_witch,scores={sfzombie_stay=7}] action_skill_other",
+          "/event entity @s[family=queen_witch,scores={sfzombie_stay=7}] action_skill_other"
         ]
       }
     },

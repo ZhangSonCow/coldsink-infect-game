@@ -91,14 +91,14 @@
 
             // "event entity @e[family=tnnk,family=ai,r=12] begin_find_box",
             "execute @e[family=tnnk,family=ai,r=2.4,c=1] ~~~ tag @e[type=coldsink:final_box_red,r=2.4,c=1] add supplied",
-            "event entity @e[family=tnnk,family=ai,r=2.4,c=1] become_final_tnnk",
+            "event entity @e[family=tnnk,family=ai,r=2.4,c=1] become_random_tnnk",
             "execute @e[family=tnnk,family=ai,r=2.4,c=1] ~~~ particle nacal_sdc:final_wave_red",
             "event entity @s[tag=supplied] godie",
 
             // "event entity @e[family=witch,family=ai,r=12] begin_find_box",
             "execute @e[family=witch,family=ai,r=2.4,c=1] ~~~ tag @e[type=coldsink:final_box_red,r=2.4,c=1] add supplied",
-            "event entity @e[family=witch,family=ai,r=2.4,c=1] become_final_witch",
-            "execute @e[family=witch,family=ai,r=2.4,c=1] ~~~ particle nacal_sdc:final_wave_purp",
+            "event entity @e[family=witch,family=ai,r=2.4,c=1] become_random_witch",
+            "execute @e[family=witch,family=ai,r=2.4,c=1] ~~~ particle nacal_sdc:final_wave_red",
             "event entity @s[tag=supplied] godie",
 
             // "event entity @e[type=coldsink:hunter,family=ai,r=12] begin_find_box",

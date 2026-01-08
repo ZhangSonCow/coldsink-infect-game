@@ -122,7 +122,7 @@
 
             "event entity @e[r=2.4,family=!player,tag=!neutral,family=!bullet] coldsink:hurting",
             "effect @e[r=2.4,family=!player,tag=!neutral,family=!bullet,type=!coldsink:smoker_tongue_throw] slowness 4 1 true",
-            "damage @e[r=2.4,family=!player,tag=!neutral,family=!bullet,type=!coldsink:smoker_tongue_throw] 20 suicide",
+            "damage @e[r=2.4,family=!player,tag=!neutral,family=!bullet,type=!coldsink:smoker_tongue_throw] 20 suicide entity @p[scores={mineset_check=0}]",
             "title @p[scores={mineset_check=0}] actionbar §b触发霜息地雷！",
             "playsound tac.mineset_boom @a[r=32] ~~~ 1 1 0.5",
             "particle nacal_tac:mineset_boom",

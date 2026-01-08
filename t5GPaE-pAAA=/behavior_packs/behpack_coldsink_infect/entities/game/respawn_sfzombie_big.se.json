@@ -85,6 +85,20 @@
 			"execute @s[scores={wp_random=1},name=碍登] ~~~ summon coldsink:tnnk_ai 碍登",
 			"execute @s[scores={wp_random=1},name=牛腩面面] ~~~ summon coldsink:tnnk_ai 牛腩面面",
 			"execute @s[scores={wp_random=1},name=蚕币] ~~~ summon coldsink:tnnk_ai 蚕币",
+			"execute @s[scores={wp_random=1},name=肿渴] ~~~ summon coldsink:tnnk_ai 肿渴",
+			"execute @s[scores={wp_random=1},name=天浊] ~~~ summon coldsink:tnnk_ai 天浊",
+			"execute @s[scores={wp_random=1},name=大窑队长] ~~~ summon coldsink:tnnk_ai 大窑队长",
+			"execute @s[scores={wp_random=1},name=小圆] ~~~ summon coldsink:tnnk_ai 小圆",
+			"execute @s[scores={wp_random=1},name=冰开水] ~~~ summon coldsink:tnnk_ai 冰开水",
+			"execute @s[scores={wp_random=1},name=呐咔] ~~~ summon coldsink:tnnk_ai 呐咔",
+			"execute @s[scores={wp_random=1},name=古德英钠夫] ~~~ summon coldsink:tnnk_ai 古德英钠夫",
+			"execute @s[scores={wp_random=1},name=及及] ~~~ summon coldsink:tnnk_ai 及及",
+			"execute @s[scores={wp_random=1},name=衣阳悯雨] ~~~ summon coldsink:tnnk_ai 衣阳悯雨",
+			"execute @s[scores={wp_random=1},name=冰薄zxc] ~~~ summon coldsink:tnnk_ai 冰薄zxc",
+			"execute @s[scores={wp_random=1},name=凋玲玲] ~~~ summon coldsink:tnnk_ai 凋玲玲",
+			"execute @s[scores={wp_random=1},name=宏烧甜鱼OWO] ~~~ summon coldsink:tnnk_ai 宏烧甜鱼OWO",
+			"execute @s[scores={wp_random=1},name=火机面] ~~~ summon coldsink:tnnk_ai 火机面",
+			"execute @s[scores={wp_random=1},name=一个被浪的尸体] ~~~ summon coldsink:tnnk_ai 一个被浪的尸体",
 
             "execute @s[scores={wp_random=2},name=忆知艾郎得晓愣沉] ~~~ summon coldsink:witch_ai 忆知艾郎得晓愣沉",
 			"execute @s[scores={wp_random=2},name=绿画娜] ~~~ summon coldsink:witch_ai 绿画娜",
@@ -101,6 +115,20 @@
 			"execute @s[scores={wp_random=2},name=碍登] ~~~ summon coldsink:witch_ai 碍登",
 			"execute @s[scores={wp_random=2},name=牛腩面面] ~~~ summon coldsink:witch_ai 牛腩面面",
 			"execute @s[scores={wp_random=2},name=蚕币] ~~~ summon coldsink:witch_ai 蚕币",
+			"execute @s[scores={wp_random=2},name=肿渴] ~~~ summon coldsink:witch_ai 肿渴",
+			"execute @s[scores={wp_random=2},name=天浊] ~~~ summon coldsink:witch_ai 天浊",
+			"execute @s[scores={wp_random=2},name=大窑队长] ~~~ summon coldsink:witch_ai 大窑队长",
+			"execute @s[scores={wp_random=2},name=小圆] ~~~ summon coldsink:witch_ai 小圆",
+			"execute @s[scores={wp_random=2},name=冰开水] ~~~ summon coldsink:witch_ai 冰开水",
+			"execute @s[scores={wp_random=2},name=呐咔] ~~~ summon coldsink:witch_ai 呐咔",
+			"execute @s[scores={wp_random=2},name=古德英钠夫] ~~~ summon coldsink:witch_ai 古德英钠夫",
+			"execute @s[scores={wp_random=2},name=及及] ~~~ summon coldsink:witch_ai 及及",
+			"execute @s[scores={wp_random=2},name=衣阳悯雨] ~~~ summon coldsink:witch_ai 衣阳悯雨",
+			"execute @s[scores={wp_random=2},name=冰薄zxc] ~~~ summon coldsink:witch_ai 冰薄zxc",
+			"execute @s[scores={wp_random=2},name=凋玲玲] ~~~ summon coldsink:witch_ai 凋玲玲",
+			"execute @s[scores={wp_random=2},name=宏烧甜鱼OWO] ~~~ summon coldsink:witch_ai 宏烧甜鱼OWO",
+			"execute @s[scores={wp_random=2},name=火机面] ~~~ summon coldsink:witch_ai 火机面",
+			"execute @s[scores={wp_random=2},name=一个被浪的尸体] ~~~ summon coldsink:witch_ai 一个被浪的尸体",
 
 			// 分数同步
 			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie_big,name=忆知艾郎得晓愣沉,c=1] game_score = @s[name=忆知艾郎得晓愣沉] game_score",
@@ -117,7 +145,21 @@
 			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie_big,name=麟蔑,c=1] game_score = @s[name=麟蔑] game_score",
 			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie_big,name=碍登,c=1] game_score = @s[name=碍登] game_score",
 			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie_big,name=牛腩面面,c=1] game_score = @s[name=牛腩面面] game_score",
-			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie_big,name=蚕币,c=1] game_score = @s[name=蚕币] game_score"
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie_big,name=蚕币,c=1] game_score = @s[name=蚕币] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie_big,name=肿渴,c=1] game_score = @s[name=肿渴] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie_big,name=天浊,c=1] game_score = @s[name=天浊] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie_big,name=大窑队长,c=1] game_score = @s[name=大窑队长] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie_big,name=小圆,c=1] game_score = @s[name=小圆] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie_big,name=冰开水,c=1] game_score = @s[name=冰开水] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie_big,name=呐咔,c=1] game_score = @s[name=呐咔] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie_big,name=古德英钠夫,c=1] game_score = @s[name=古德英钠夫] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie_big,name=及及,c=1] game_score = @s[name=及及] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie_big,name=衣阳悯雨,c=1] game_score = @s[name=衣阳悯雨] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie_big,name=冰薄zxc,c=1] game_score = @s[name=冰薄zxc] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie_big,name=凋玲玲,c=1] game_score = @s[name=凋玲玲] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie_big,name=宏烧甜鱼OWO,c=1] game_score = @s[name=宏烧甜鱼OWO] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie_big,name=火机面,c=1] game_score = @s[name=火机面] game_score",
+			"scoreboard players operation @e[type=!coldsink:respawn_sfzombie_big,name=一个被浪的尸体,c=1] game_score = @s[name=一个被浪的尸体] game_score"
 		  ]
 		}
 	  },
@@ -157,12 +199,9 @@
 			"execute @s[scores={count=5,wp_random=2}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] -143 -54 153",
 			"execute @s[scores={count=5,wp_random=3}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] -172 -54 129",
 			"execute @s[scores={count=5,wp_random=4}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] -165 -54 173",
-			"execute @s[scores={count=5,wp_random=5}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] -119 -54 171"
-		  ]
-		},
-		"add": {
-			"component_groups": [
-			  "godie"
+			"execute @s[scores={count=5,wp_random=5}] ~~~ tp @e[type=!player,family=!player,tag=!neutral,tag=!respawn_tool,r=2,c=1] -119 -54 171",
+
+			"event entity @s godie"
 		  ]
 		}
 	  },

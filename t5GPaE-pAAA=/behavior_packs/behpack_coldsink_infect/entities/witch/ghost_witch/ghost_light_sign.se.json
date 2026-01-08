@@ -1,0 +1,85 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:ghost_light_sign",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:is_sheared": {},
+        "minecraft:instant_despawn": {}
+      }
+    },
+    
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:timer": {
+        "time": 0.5,
+        "time_down_event": {
+          "event": "count",
+          "target": "self"
+        }
+      },
+      "minecraft:ageable": {
+        "duration": 30,
+        "grow_up": {
+          "event": "godie"
+        }
+      },
+      "minecraft:health": {
+        "value": 2,
+        "max": 2,
+        "min": 1
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:collision_box": {
+        "width": 0.0,
+        "height": 0.0
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "tag @s add neutral"
+          ]
+        }
+      },
+      "count": {
+        "queue_command": {
+          "command": [
+            "execute @s[tag=maper] ~~~ effect @e[family=player,family=!tool,type=!item,tag=!neutral,r=8] slowness 1 0 true",
+            "execute @s[tag=!maper] ~~~ effect @e[family=!monster,family=!tool,type=!item,tag=!neutral,r=8] slowness 1 0 true",
+            "execute @s ~~~ detect ~~-1~ barrier -1 tp @s ~~-2~"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

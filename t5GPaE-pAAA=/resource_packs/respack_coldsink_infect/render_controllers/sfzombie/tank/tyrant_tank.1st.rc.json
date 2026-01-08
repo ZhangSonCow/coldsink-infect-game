@@ -1,0 +1,15 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.tyrant_tank.1st": {
+      "geometry": "geometry.tyrant_tank.1st",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "textures": [ "texture.tyrant_tank" ],
+      "is_hurt_color": {}
+    }
+  }
+}

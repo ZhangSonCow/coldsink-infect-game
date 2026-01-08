@@ -25,12 +25,8 @@
       "shoot_now": {
         "minecraft:behavior.ranged_attack": {
           "priority": 0,
-          //"attack_interval": 12,
-          "attack_radius": 128,
-          "attack_radius_min": 1,
-          "charge_charged_trigger": 3,
-          "charge_shoot_trigger": 2,
-          "burst_shots": 1
+          "attack_interval": 1,
+          "attack_radius": 64
         }
       },
       "skill": {

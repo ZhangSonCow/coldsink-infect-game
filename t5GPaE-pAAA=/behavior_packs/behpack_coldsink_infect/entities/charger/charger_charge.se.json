@@ -220,7 +220,7 @@
             "event entity @p[family=charger,scores={charger_check=0}] action_clear",
             "scoreboard players reset @e[family=charger,scores={charger_check=0}] charger_time",
 
-            "execute @s[tag=!damaged] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=3.2] 5 suicide",
+            "execute @s[tag=!damaged] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=3.2] 5 suicide entity @p[family=charger,r=3.2]",
             "tag @s add damaged",
             "effect @e[family=player,family=!tool,type=!item,tag=!neutral,r=3.2] slowness 4 2 true"
           ]
@@ -247,7 +247,7 @@
             "event entity @p[family=charger,scores={charger_check=0}] action_clear",
             "scoreboard players reset @e[family=charger,scores={charger_check=0}] charger_time",
 
-            "execute @s[tag=!damaged] ~~~ damage @e[family=!charger,family=!tool,r=3.2] 5 suicide",
+            "execute @s[tag=!damaged] ~~~ damage @e[family=!charger,family=!tool,r=3.2] 5 suicide entity @p[family=charger,r=3.2]",
             "tag @s add damaged",
             "effect @e[family=!charger,family=!tool,r=3.2] slowness 4 2 true"
           ]

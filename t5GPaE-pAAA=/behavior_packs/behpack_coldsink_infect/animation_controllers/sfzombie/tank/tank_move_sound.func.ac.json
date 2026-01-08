@@ -7,7 +7,7 @@
 				"default": {
 					"transitions": [
 						{
-							"move": "q.is_moving"
+							"move": "q.is_moving && q.is_on_ground"
 						}
 					]
 				},
@@ -15,7 +15,7 @@
 					"animations": [ "tank_move_sound" ],
 					"transitions": [
 						{
-							"default": "!q.is_moving"
+							"default": "!q.is_moving || !q.is_on_ground"
 						}
 					]
 				}

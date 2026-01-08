@@ -15,7 +15,7 @@
         "texture": "become_tnnk"
       },
       "minecraft:display_name": {
-        "value": "扮演 Tαnk"
+        "value": "扮演 §7Tαnk"
       },
       "minecraft:use_duration": 99999,
       "minecraft:food": {

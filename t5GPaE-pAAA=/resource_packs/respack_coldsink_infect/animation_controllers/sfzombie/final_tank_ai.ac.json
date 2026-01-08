@@ -42,6 +42,9 @@
 						},
 						{
 							"skill": "q.is_sheared"
+						},
+						{
+							"howl": "q.is_stunned"
 						}
 					],
 					"blend_transition": 0.1
@@ -53,6 +56,12 @@
 					"transitions": [
 						{
 							"default": "query.all_animations_finished"
+						},
+						{
+							"skill": "q.is_sheared"
+						},
+						{
+							"howl": "q.is_stunned"
 						}
 					],
 					"blend_transition": 0.1
@@ -64,6 +73,12 @@
 					"transitions": [
 						{
 							"default": "query.all_animations_finished"
+						},
+						{
+							"skill": "q.is_sheared"
+						},
+						{
+							"howl": "q.is_stunned"
 						}
 					],
 					"blend_transition": 0.1

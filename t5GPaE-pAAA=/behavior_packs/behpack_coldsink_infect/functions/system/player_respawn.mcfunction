@@ -9,6 +9,10 @@ execute @e[family=tnnk,scores={player_respawn=1}] ~~~ function sfzombie/respawn/
 execute @e[family=witch,scores={player_respawn=1}] ~~~ function sfzombie/respawn/witch_respawn
 execute @e[family=final_tnnk,scores={player_respawn=1}] ~~~ function sfzombie/respawn/final_tnnk_respawn
 execute @e[family=final_witch,scores={player_respawn=1}] ~~~ function sfzombie/respawn/final_witch_respawn
+execute @e[family=tyrant_tnnk,scores={player_respawn=1}] ~~~ function sfzombie/respawn/tyrant_tnnk_respawn
+execute @e[family=ghost_witch,scores={player_respawn=1}] ~~~ function sfzombie/respawn/ghost_witch_respawn
+execute @e[family=armor_tnnk,scores={player_respawn=1}] ~~~ function sfzombie/respawn/armor_tnnk_respawn
+execute @e[family=queen_witch,scores={player_respawn=1}] ~~~ function sfzombie/respawn/queen_witch_respawn
 execute @e[family=human_hero,scores={player_respawn=1}] ~~~ function human/respawn/human_hero_respawn
 execute @e[family=final_hero,scores={player_respawn=1}] ~~~ function human/respawn/final_hero_respawn
 execute @e[family=savior_hero,scores={player_respawn=1}] ~~~ function human/respawn/savior_hero_respawn

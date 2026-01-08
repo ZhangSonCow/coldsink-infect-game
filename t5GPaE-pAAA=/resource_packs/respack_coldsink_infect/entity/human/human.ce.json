@@ -7,7 +7,7 @@
         "default": "entity_alphatest",
         "nacal_tac_detect": "nacal_tac_detect",
         "nacal_customblend":"nacal_customblend",
-        "netease_entity_metallic": "entity_alphatest"
+        "netease_entity_metallic": "netease_entity_metallic"
       },
       "animations": {
         "jockey_control": "animation.jockey.control",

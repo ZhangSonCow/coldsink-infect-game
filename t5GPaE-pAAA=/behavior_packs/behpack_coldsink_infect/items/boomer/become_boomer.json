@@ -15,7 +15,7 @@
         "texture": "become_boomer"
       },
       "minecraft:display_name": {
-        "value": "扮演 Boomer"
+        "value": "扮演 §eBoomer"
       },
       "minecraft:use_duration": 99999,
       "minecraft:food": {

@@ -15,7 +15,7 @@
         "texture": "become_smoker"
       },
       "minecraft:display_name": {
-        "value": "扮演 Smoker"
+        "value": "扮演 §6Smoker"
       },
       "minecraft:use_duration": 99999,
       "minecraft:food": {

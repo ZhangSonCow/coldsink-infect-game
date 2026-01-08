@@ -28,7 +28,7 @@
       "minecraft:ageable": {
         "duration": 0.1,
         "grow_up": {
-          "event": "godie",
+          "event": "spawn",
           "target": "self"
         }
       },
@@ -52,7 +52,7 @@
         "queue_command": {
           "command": [
             "scoreboard objectives add wp_random dummy wp_random",
-            "scoreboard players random @s wp_random 1 15"
+            "scoreboard players random @s wp_random 1 29"
           ]
         }
       },
@@ -161,7 +161,105 @@
           ]
         }
       },
-      "godie": {
+      "name_16": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 16"
+          ]
+        }
+      },
+      "name_17": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 17"
+          ]
+        }
+      },
+      "name_18": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 18"
+          ]
+        }
+      },
+      "name_19": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 19"
+          ]
+        }
+      },
+      "name_20": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 20"
+          ]
+        }
+      },
+      "name_21": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 21"
+          ]
+        }
+      },
+      "name_22": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 22"
+          ]
+        }
+      },
+      "name_23": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 23"
+          ]
+        }
+      },
+      "name_24": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 24"
+          ]
+        }
+      },
+      "name_25": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 25"
+          ]
+        }
+      },
+      "name_26": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 26"
+          ]
+        }
+      },
+      "name_27": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 27"
+          ]
+        }
+      },
+      "name_28": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 28"
+          ]
+        }
+      },
+      "name_29": {
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s wp_random 29"
+          ]
+        }
+      },
+      "spawn": {
         "queue_command": {
           "command": [
             "execute @s[scores={wp_random=1}] ~~~ summon coldsink:human_soldier ~~~ skin_1 忆知艾郎得晓愣沉",
@@ -179,10 +277,27 @@
             "execute @s[scores={wp_random=13}] ~~~ summon coldsink:human_soldier ~~~ skin_13 碍登",
             "execute @s[scores={wp_random=14}] ~~~ summon coldsink:human_soldier ~~~ skin_14 牛腩面面",
             "execute @s[scores={wp_random=15}] ~~~ summon coldsink:human_soldier ~~~ skin_15 蚕币",
+            "execute @s[scores={wp_random=16}] ~~~ summon coldsink:human_soldier ~~~ skin_16 肿渴",
+            "execute @s[scores={wp_random=17}] ~~~ summon coldsink:human_soldier ~~~ skin_17 天浊",
+            "execute @s[scores={wp_random=18}] ~~~ summon coldsink:human_soldier ~~~ skin_18 大窑队长",
+            "execute @s[scores={wp_random=19}] ~~~ summon coldsink:human_soldier ~~~ skin_19 小圆",
+            "execute @s[scores={wp_random=20}] ~~~ summon coldsink:human_soldier ~~~ skin_20 冰开水",
+            "execute @s[scores={wp_random=21}] ~~~ summon coldsink:human_soldier ~~~ skin_21 呐咔",
+            "execute @s[scores={wp_random=22}] ~~~ summon coldsink:human_soldier ~~~ skin_22 古德英钠夫",
+            "execute @s[scores={wp_random=23}] ~~~ summon coldsink:human_soldier ~~~ skin_23 及及",
+            "execute @s[scores={wp_random=24}] ~~~ summon coldsink:human_soldier ~~~ skin_24 衣阳悯雨",
+            "execute @s[scores={wp_random=25}] ~~~ summon coldsink:human_soldier ~~~ skin_25 冰薄zxc",
+            "execute @s[scores={wp_random=26}] ~~~ summon coldsink:human_soldier ~~~ skin_26 凋玲玲",
+            "execute @s[scores={wp_random=27}] ~~~ summon coldsink:human_soldier ~~~ skin_27 宏烧甜鱼OWO",
+            "execute @s[scores={wp_random=28}] ~~~ summon coldsink:human_soldier ~~~ skin_28 火机面",
+            "execute @s[scores={wp_random=29}] ~~~ summon coldsink:human_soldier ~~~ skin_29 一个被浪的尸体",
             "event entity @e[type=coldsink:human_soldier,tag=!random_weapon,c=1] random_weapon",
-            "tag @e[type=coldsink:human_soldier,tag=!random_weapon,c=1] add random_weapon"
+            "tag @e[type=coldsink:human_soldier,tag=!random_weapon,c=1] add random_weapon",
+            "event entity @s godie"
           ]
-        },
+        }
+      },
+      "godie": {
         "add": {
           "component_groups": [
             "godie"

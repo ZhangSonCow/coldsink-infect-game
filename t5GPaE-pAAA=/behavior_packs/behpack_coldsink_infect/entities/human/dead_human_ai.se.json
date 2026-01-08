@@ -86,6 +86,76 @@
         "minecraft:skin_id": {
           "value": 14
         }
+      },
+      "skin_16": {
+        "minecraft:skin_id": {
+          "value": 15
+        }
+      },
+      "skin_17": {
+        "minecraft:skin_id": {
+          "value": 16
+        }
+      },
+      "skin_18": {
+        "minecraft:skin_id": {
+          "value": 17
+        }
+      },
+      "skin_19": {
+        "minecraft:skin_id": {
+          "value": 18
+        }
+      },
+      "skin_20": {
+        "minecraft:skin_id": {
+          "value": 19
+        }
+      },
+      "skin_21": {
+        "minecraft:skin_id": {
+          "value": 20
+        }
+      },
+      "skin_22": {
+        "minecraft:skin_id": {
+          "value": 21
+        }
+      },
+      "skin_23": {
+        "minecraft:skin_id": {
+          "value": 22
+        }
+      },
+      "skin_24": {
+        "minecraft:skin_id": {
+          "value": 23
+        }
+      },
+      "skin_25": {
+        "minecraft:skin_id": {
+          "value": 24
+        }
+      },
+      "skin_26": {
+        "minecraft:skin_id": {
+          "value": 25
+        }
+      },
+      "skin_27": {
+        "minecraft:skin_id": {
+          "value": 26
+        }
+      },
+      "skin_28": {
+        "minecraft:skin_id": {
+          "value": 27
+        }
+      },
+      "skin_29": {
+        "minecraft:skin_id": {
+          "value": 28
+        }
       }
     },
     "components": {
@@ -130,111 +200,354 @@
       }
     },
     "events": {
-		"skin_1": {
+	    "skin_1": {
 			"add": {
-			  "component_groups": [
+				"component_groups": [
 				"skin_1"
-			  ]
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
 			}
-		  },
-		  "skin_2": {
+		},
+		"skin_2": {
 			"add": {
-			  "component_groups": [
+				"component_groups": [
 				"skin_2"
-			  ]
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
 			}
-		  },
-		  "skin_3": {
+		},
+		"skin_3": {
 			"add": {
-			  "component_groups": [
+				"component_groups": [
 				"skin_3"
-			  ]
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
 			}
-		  },
-		  "skin_4": {
+		},
+		"skin_4": {
 			"add": {
-			  "component_groups": [
+				"component_groups": [
 				"skin_4"
-			  ]
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
 			}
-		  },
-		  "skin_5": {
+		},
+		"skin_5": {
 			"add": {
-			  "component_groups": [
+				"component_groups": [
 				"skin_5"
-			  ]
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
 			}
-		  },
-		  "skin_6": {
+		},
+		"skin_6": {
 			"add": {
-			  "component_groups": [
+				"component_groups": [
 				"skin_6"
-			  ]
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
 			}
-		  },
-		  "skin_7": {
+		},
+		"skin_7": {
 			"add": {
-			  "component_groups": [
+				"component_groups": [
 				"skin_7"
-			  ]
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
 			}
-		  },
-		  "skin_8": {
+		},
+		"skin_8": {
 			"add": {
-			  "component_groups": [
+				"component_groups": [
 				"skin_8"
-			  ]
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
 			}
-		  },
-		  "skin_9": {
+		},
+		"skin_9": {
 			"add": {
-			  "component_groups": [
+				"component_groups": [
 				"skin_9"
-			  ]
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
 			}
-		  },
-		  "skin_10": {
+		},
+		"skin_10": {
 			"add": {
-			  "component_groups": [
+				"component_groups": [
 				"skin_10"
-			  ]
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
 			}
-		  },
-		  "skin_11": {
+		},
+		"skin_11": {
 			"add": {
-			  "component_groups": [
+				"component_groups": [
 				"skin_11"
-			  ]
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
 			}
-		  },
-		  "skin_12": {
+		},
+		"skin_12": {
 			"add": {
-			  "component_groups": [
+				"component_groups": [
 				"skin_12"
-			  ]
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
 			}
-		  },
-		  "skin_13": {
+		},
+		"skin_13": {
 			"add": {
-			  "component_groups": [
+				"component_groups": [
 				"skin_13"
-			  ]
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
 			}
-		  },
-		  "skin_14": {
+		},
+		"skin_14": {
 			"add": {
-			  "component_groups": [
+				"component_groups": [
 				"skin_14"
-			  ]
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
 			}
-		  },
-		  "skin_15": {
+		},
+		"skin_15": {
 			"add": {
-			  "component_groups": [
+				"component_groups": [
 				"skin_15"
-			  ]
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
 			}
-		  },
+		},
+		"skin_16": {
+			"add": {
+				"component_groups": [
+				"skin_16"
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
+			}
+		},
+		"skin_17": {
+			"add": {
+				"component_groups": [
+				"skin_17"
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
+			}
+		},
+		"skin_18": {
+			"add": {
+				"component_groups": [
+				"skin_18"
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
+			}
+		},
+		"skin_19": {
+			"add": {
+				"component_groups": [
+				"skin_19"
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
+			}
+		},
+		"skin_20": {
+			"add": {
+				"component_groups": [
+				"skin_20"
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
+			}
+		},
+		"skin_21": {
+			"add": {
+				"component_groups": [
+				"skin_21"
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
+			}
+		},
+		"skin_22": {
+			"add": {
+				"component_groups": [
+				"skin_22"
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
+			}
+		},
+		"skin_23": {
+			"add": {
+				"component_groups": [
+				"skin_23"
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
+			}
+		},
+		"skin_24": {
+			"add": {
+				"component_groups": [
+				"skin_24"
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
+			}
+		},
+		"skin_25": {
+			"add": {
+				"component_groups": [
+				"skin_25"
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
+			}
+		},
+		"skin_26": {
+			"add": {
+				"component_groups": [
+				"skin_26"
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
+			}
+		},
+		"skin_27": {
+			"add": {
+				"component_groups": [
+				"skin_27"
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
+			}
+		},
+		"skin_28": {
+			"add": {
+				"component_groups": [
+				"skin_28"
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
+			}
+		},
+		"skin_29": {
+			"add": {
+				"component_groups": [
+				"skin_29"
+				]
+			},
+			"queue_command": {
+				"command": [
+					"tag @s add neutral"
+				]
+			}
+		},
       "infect_spawn": {
         "queue_command": {
           "command": [
@@ -255,6 +568,20 @@
 			"execute @s[tag=!大母体,scores={wp_random=1},name=碍登] ~~~ summon coldsink:hunter_ai 碍登",
 			"execute @s[tag=!大母体,scores={wp_random=1},name=牛腩面面] ~~~ summon coldsink:hunter_ai 牛腩面面",
 			"execute @s[tag=!大母体,scores={wp_random=1},name=蚕币] ~~~ summon coldsink:hunter_ai 蚕币",
+			"execute @s[tag=!大母体,scores={wp_random=1},name=肿渴] ~~~ summon coldsink:hunter_ai 肿渴",
+			"execute @s[tag=!大母体,scores={wp_random=1},name=天浊] ~~~ summon coldsink:hunter_ai 天浊",
+			"execute @s[tag=!大母体,scores={wp_random=1},name=大窑队长] ~~~ summon coldsink:hunter_ai 大窑队长",
+			"execute @s[tag=!大母体,scores={wp_random=1},name=小圆] ~~~ summon coldsink:hunter_ai 小圆",
+			"execute @s[tag=!大母体,scores={wp_random=1},name=冰开水] ~~~ summon coldsink:hunter_ai 冰开水",
+			"execute @s[tag=!大母体,scores={wp_random=1},name=呐咔] ~~~ summon coldsink:hunter_ai 呐咔",
+			"execute @s[tag=!大母体,scores={wp_random=1},name=古德英钠夫] ~~~ summon coldsink:hunter_ai 古德英钠夫",
+			"execute @s[tag=!大母体,scores={wp_random=1},name=及及] ~~~ summon coldsink:hunter_ai 及及",
+			"execute @s[tag=!大母体,scores={wp_random=1},name=衣阳悯雨] ~~~ summon coldsink:hunter_ai 衣阳悯雨",
+			"execute @s[tag=!大母体,scores={wp_random=1},name=冰薄zxc] ~~~ summon coldsink:hunter_ai 冰薄zxc",
+			"execute @s[tag=!大母体,scores={wp_random=1},name=凋玲玲] ~~~ summon coldsink:hunter_ai 凋玲玲",
+			"execute @s[tag=!大母体,scores={wp_random=1},name=宏烧甜鱼OWO] ~~~ summon coldsink:hunter_ai 宏烧甜鱼OWO",
+			"execute @s[tag=!大母体,scores={wp_random=1},name=火机面] ~~~ summon coldsink:hunter_ai 火机面",
+			"execute @s[tag=!大母体,scores={wp_random=1},name=一个被浪的尸体] ~~~ summon coldsink:hunter_ai 一个被浪的尸体",
 
             "execute @s[tag=!大母体,scores={wp_random=2},name=忆知艾郎得晓愣沉] ~~~ summon coldsink:spitter_ai 忆知艾郎得晓愣沉",
 			"execute @s[tag=!大母体,scores={wp_random=2},name=绿画娜] ~~~ summon coldsink:spitter_ai 绿画娜",
@@ -271,6 +598,20 @@
 			"execute @s[tag=!大母体,scores={wp_random=2},name=碍登] ~~~ summon coldsink:spitter_ai 碍登",
 			"execute @s[tag=!大母体,scores={wp_random=2},name=牛腩面面] ~~~ summon coldsink:spitter_ai 牛腩面面",
 			"execute @s[tag=!大母体,scores={wp_random=2},name=蚕币] ~~~ summon coldsink:spitter_ai 蚕币",
+			"execute @s[tag=!大母体,scores={wp_random=2},name=肿渴] ~~~ summon coldsink:spitter_ai 肿渴",
+			"execute @s[tag=!大母体,scores={wp_random=2},name=天浊] ~~~ summon coldsink:spitter_ai 天浊",
+			"execute @s[tag=!大母体,scores={wp_random=2},name=大窑队长] ~~~ summon coldsink:spitter_ai 大窑队长",
+			"execute @s[tag=!大母体,scores={wp_random=2},name=小圆] ~~~ summon coldsink:spitter_ai 小圆",
+			"execute @s[tag=!大母体,scores={wp_random=2},name=冰开水] ~~~ summon coldsink:spitter_ai 冰开水",
+			"execute @s[tag=!大母体,scores={wp_random=2},name=呐咔] ~~~ summon coldsink:spitter_ai 呐咔",
+			"execute @s[tag=!大母体,scores={wp_random=2},name=古德英钠夫] ~~~ summon coldsink:spitter_ai 古德英钠夫",
+			"execute @s[tag=!大母体,scores={wp_random=2},name=及及] ~~~ summon coldsink:spitter_ai 及及",
+			"execute @s[tag=!大母体,scores={wp_random=2},name=衣阳悯雨] ~~~ summon coldsink:spitter_ai 衣阳悯雨",
+			"execute @s[tag=!大母体,scores={wp_random=2},name=冰薄zxc] ~~~ summon coldsink:spitter_ai 冰薄zxc",
+			"execute @s[tag=!大母体,scores={wp_random=2},name=凋玲玲] ~~~ summon coldsink:spitter_ai 凋玲玲",
+			"execute @s[tag=!大母体,scores={wp_random=2},name=宏烧甜鱼OWO] ~~~ summon coldsink:spitter_ai 宏烧甜鱼OWO",
+			"execute @s[tag=!大母体,scores={wp_random=2},name=火机面] ~~~ summon coldsink:spitter_ai 火机面",
+			"execute @s[tag=!大母体,scores={wp_random=2},name=一个被浪的尸体] ~~~ summon coldsink:spitter_ai 一个被浪的尸体",
 
             "execute @s[tag=!大母体,scores={wp_random=3},name=忆知艾郎得晓愣沉] ~~~ summon coldsink:charger_ai 忆知艾郎得晓愣沉",
 			"execute @s[tag=!大母体,scores={wp_random=3},name=绿画娜] ~~~ summon coldsink:charger_ai 绿画娜",
@@ -287,6 +628,20 @@
 			"execute @s[tag=!大母体,scores={wp_random=3},name=碍登] ~~~ summon coldsink:charger_ai 碍登",
 			"execute @s[tag=!大母体,scores={wp_random=3},name=牛腩面面] ~~~ summon coldsink:charger_ai 牛腩面面",
 			"execute @s[tag=!大母体,scores={wp_random=3},name=蚕币] ~~~ summon coldsink:charger_ai 蚕币",
+			"execute @s[tag=!大母体,scores={wp_random=3},name=肿渴] ~~~ summon coldsink:charger_ai 肿渴",
+			"execute @s[tag=!大母体,scores={wp_random=3},name=天浊] ~~~ summon coldsink:charger_ai 天浊",
+			"execute @s[tag=!大母体,scores={wp_random=3},name=大窑队长] ~~~ summon coldsink:charger_ai 大窑队长",
+			"execute @s[tag=!大母体,scores={wp_random=3},name=小圆] ~~~ summon coldsink:charger_ai 小圆",
+			"execute @s[tag=!大母体,scores={wp_random=3},name=冰开水] ~~~ summon coldsink:charger_ai 冰开水",
+			"execute @s[tag=!大母体,scores={wp_random=3},name=呐咔] ~~~ summon coldsink:charger_ai 呐咔",
+			"execute @s[tag=!大母体,scores={wp_random=3},name=古德英钠夫] ~~~ summon coldsink:charger_ai 古德英钠夫",
+			"execute @s[tag=!大母体,scores={wp_random=3},name=及及] ~~~ summon coldsink:charger_ai 及及",
+			"execute @s[tag=!大母体,scores={wp_random=3},name=衣阳悯雨] ~~~ summon coldsink:charger_ai 衣阳悯雨",
+			"execute @s[tag=!大母体,scores={wp_random=3},name=冰薄zxc] ~~~ summon coldsink:charger_ai 冰薄zxc",
+			"execute @s[tag=!大母体,scores={wp_random=3},name=凋玲玲] ~~~ summon coldsink:charger_ai 凋玲玲",
+			"execute @s[tag=!大母体,scores={wp_random=3},name=宏烧甜鱼OWO] ~~~ summon coldsink:charger_ai 宏烧甜鱼OWO",
+			"execute @s[tag=!大母体,scores={wp_random=3},name=火机面] ~~~ summon coldsink:charger_ai 火机面",
+			"execute @s[tag=!大母体,scores={wp_random=3},name=一个被浪的尸体] ~~~ summon coldsink:charger_ai 一个被浪的尸体",
 
             "execute @s[tag=!大母体,scores={wp_random=4},name=忆知艾郎得晓愣沉] ~~~ summon coldsink:jockey_ai 忆知艾郎得晓愣沉",
 			"execute @s[tag=!大母体,scores={wp_random=4},name=绿画娜] ~~~ summon coldsink:jockey_ai 绿画娜",
@@ -303,6 +658,20 @@
 			"execute @s[tag=!大母体,scores={wp_random=4},name=碍登] ~~~ summon coldsink:jockey_ai 碍登",
 			"execute @s[tag=!大母体,scores={wp_random=4},name=牛腩面面] ~~~ summon coldsink:jockey_ai 牛腩面面",
 			"execute @s[tag=!大母体,scores={wp_random=4},name=蚕币] ~~~ summon coldsink:jockey_ai 蚕币",
+			"execute @s[tag=!大母体,scores={wp_random=4},name=肿渴] ~~~ summon coldsink:jockey_ai 肿渴",
+			"execute @s[tag=!大母体,scores={wp_random=4},name=天浊] ~~~ summon coldsink:jockey_ai 天浊",
+			"execute @s[tag=!大母体,scores={wp_random=4},name=大窑队长] ~~~ summon coldsink:jockey_ai 大窑队长",
+			"execute @s[tag=!大母体,scores={wp_random=4},name=小圆] ~~~ summon coldsink:jockey_ai 小圆",
+			"execute @s[tag=!大母体,scores={wp_random=4},name=冰开水] ~~~ summon coldsink:jockey_ai 冰开水",
+			"execute @s[tag=!大母体,scores={wp_random=4},name=呐咔] ~~~ summon coldsink:jockey_ai 呐咔",
+			"execute @s[tag=!大母体,scores={wp_random=4},name=古德英钠夫] ~~~ summon coldsink:jockey_ai 古德英钠夫",
+			"execute @s[tag=!大母体,scores={wp_random=4},name=及及] ~~~ summon coldsink:jockey_ai 及及",
+			"execute @s[tag=!大母体,scores={wp_random=4},name=衣阳悯雨] ~~~ summon coldsink:jockey_ai 衣阳悯雨",
+			"execute @s[tag=!大母体,scores={wp_random=4},name=冰薄zxc] ~~~ summon coldsink:jockey_ai 冰薄zxc",
+			"execute @s[tag=!大母体,scores={wp_random=4},name=凋玲玲] ~~~ summon coldsink:jockey_ai 凋玲玲",
+			"execute @s[tag=!大母体,scores={wp_random=4},name=宏烧甜鱼OWO] ~~~ summon coldsink:jockey_ai 宏烧甜鱼OWO",
+			"execute @s[tag=!大母体,scores={wp_random=4},name=火机面] ~~~ summon coldsink:jockey_ai 火机面",
+			"execute @s[tag=!大母体,scores={wp_random=4},name=一个被浪的尸体] ~~~ summon coldsink:jockey_ai 一个被浪的尸体",
 
             "execute @s[tag=!大母体,scores={wp_random=5},name=忆知艾郎得晓愣沉] ~~~ summon coldsink:boomer_ai 忆知艾郎得晓愣沉",
 			"execute @s[tag=!大母体,scores={wp_random=5},name=绿画娜] ~~~ summon coldsink:boomer_ai 绿画娜",
@@ -319,6 +688,20 @@
 			"execute @s[tag=!大母体,scores={wp_random=5},name=碍登] ~~~ summon coldsink:boomer_ai 碍登",
 			"execute @s[tag=!大母体,scores={wp_random=5},name=牛腩面面] ~~~ summon coldsink:boomer_ai 牛腩面面",
 			"execute @s[tag=!大母体,scores={wp_random=5},name=蚕币] ~~~ summon coldsink:boomer_ai 蚕币",
+			"execute @s[tag=!大母体,scores={wp_random=5},name=肿渴] ~~~ summon coldsink:boomer_ai 肿渴",
+			"execute @s[tag=!大母体,scores={wp_random=5},name=天浊] ~~~ summon coldsink:boomer_ai 天浊",
+			"execute @s[tag=!大母体,scores={wp_random=5},name=大窑队长] ~~~ summon coldsink:boomer_ai 大窑队长",
+			"execute @s[tag=!大母体,scores={wp_random=5},name=小圆] ~~~ summon coldsink:boomer_ai 小圆",
+			"execute @s[tag=!大母体,scores={wp_random=5},name=冰开水] ~~~ summon coldsink:boomer_ai 冰开水",
+			"execute @s[tag=!大母体,scores={wp_random=5},name=呐咔] ~~~ summon coldsink:boomer_ai 呐咔",
+			"execute @s[tag=!大母体,scores={wp_random=5},name=古德英钠夫] ~~~ summon coldsink:boomer_ai 古德英钠夫",
+			"execute @s[tag=!大母体,scores={wp_random=5},name=及及] ~~~ summon coldsink:boomer_ai 及及",
+			"execute @s[tag=!大母体,scores={wp_random=5},name=衣阳悯雨] ~~~ summon coldsink:boomer_ai 衣阳悯雨",
+			"execute @s[tag=!大母体,scores={wp_random=5},name=冰薄zxc] ~~~ summon coldsink:boomer_ai 冰薄zxc",
+			"execute @s[tag=!大母体,scores={wp_random=5},name=凋玲玲] ~~~ summon coldsink:boomer_ai 凋玲玲",
+			"execute @s[tag=!大母体,scores={wp_random=5},name=宏烧甜鱼OWO] ~~~ summon coldsink:boomer_ai 宏烧甜鱼OWO",
+			"execute @s[tag=!大母体,scores={wp_random=5},name=火机面] ~~~ summon coldsink:boomer_ai 火机面",
+			"execute @s[tag=!大母体,scores={wp_random=5},name=一个被浪的尸体] ~~~ summon coldsink:boomer_ai 一个被浪的尸体",
 
             "execute @s[tag=!大母体,scores={wp_random=6},name=忆知艾郎得晓愣沉] ~~~ summon coldsink:smoker_ai 忆知艾郎得晓愣沉",
 			"execute @s[tag=!大母体,scores={wp_random=6},name=绿画娜] ~~~ summon coldsink:smoker_ai 绿画娜",
@@ -335,6 +718,20 @@
 			"execute @s[tag=!大母体,scores={wp_random=6},name=碍登] ~~~ summon coldsink:smoker_ai 碍登",
 			"execute @s[tag=!大母体,scores={wp_random=6},name=牛腩面面] ~~~ summon coldsink:smoker_ai 牛腩面面",
 			"execute @s[tag=!大母体,scores={wp_random=6},name=蚕币] ~~~ summon coldsink:smoker_ai 蚕币",
+			"execute @s[tag=!大母体,scores={wp_random=6},name=肿渴] ~~~ summon coldsink:smoker_ai 肿渴",
+			"execute @s[tag=!大母体,scores={wp_random=6},name=天浊] ~~~ summon coldsink:smoker_ai 天浊",
+			"execute @s[tag=!大母体,scores={wp_random=6},name=大窑队长] ~~~ summon coldsink:smoker_ai 大窑队长",
+			"execute @s[tag=!大母体,scores={wp_random=6},name=小圆] ~~~ summon coldsink:smoker_ai 小圆",
+			"execute @s[tag=!大母体,scores={wp_random=6},name=冰开水] ~~~ summon coldsink:smoker_ai 冰开水",
+			"execute @s[tag=!大母体,scores={wp_random=6},name=呐咔] ~~~ summon coldsink:smoker_ai 呐咔",
+			"execute @s[tag=!大母体,scores={wp_random=6},name=古德英钠夫] ~~~ summon coldsink:smoker_ai 古德英钠夫",
+			"execute @s[tag=!大母体,scores={wp_random=6},name=及及] ~~~ summon coldsink:smoker_ai 及及",
+			"execute @s[tag=!大母体,scores={wp_random=6},name=衣阳悯雨] ~~~ summon coldsink:smoker_ai 衣阳悯雨",
+			"execute @s[tag=!大母体,scores={wp_random=6},name=冰薄zxc] ~~~ summon coldsink:smoker_ai 冰薄zxc",
+			"execute @s[tag=!大母体,scores={wp_random=6},name=凋玲玲] ~~~ summon coldsink:smoker_ai 凋玲玲",
+			"execute @s[tag=!大母体,scores={wp_random=6},name=宏烧甜鱼OWO] ~~~ summon coldsink:smoker_ai 宏烧甜鱼OWO",
+			"execute @s[tag=!大母体,scores={wp_random=6},name=火机面] ~~~ summon coldsink:smoker_ai 火机面",
+			"execute @s[tag=!大母体,scores={wp_random=6},name=一个被浪的尸体] ~~~ summon coldsink:smoker_ai 一个被浪的尸体",
 
             "scoreboard players random @s[tag=大母体] wp_random 1 2",
 
@@ -353,6 +750,20 @@
 			"execute @s[tag=大母体,scores={wp_random=1},name=碍登] ~~~ summon coldsink:tnnk_ai 碍登",
 			"execute @s[tag=大母体,scores={wp_random=1},name=牛腩面面] ~~~ summon coldsink:tnnk_ai 牛腩面面",
 			"execute @s[tag=大母体,scores={wp_random=1},name=蚕币] ~~~ summon coldsink:tnnk_ai 蚕币",
+			"execute @s[tag=大母体,scores={wp_random=1},name=肿渴] ~~~ summon coldsink:tnnk_ai 肿渴",
+			"execute @s[tag=大母体,scores={wp_random=1},name=天浊] ~~~ summon coldsink:tnnk_ai 天浊",
+			"execute @s[tag=大母体,scores={wp_random=1},name=大窑队长] ~~~ summon coldsink:tnnk_ai 大窑队长",
+			"execute @s[tag=大母体,scores={wp_random=1},name=小圆] ~~~ summon coldsink:tnnk_ai 小圆",
+			"execute @s[tag=大母体,scores={wp_random=1},name=冰开水] ~~~ summon coldsink:tnnk_ai 冰开水",
+			"execute @s[tag=大母体,scores={wp_random=1},name=呐咔] ~~~ summon coldsink:tnnk_ai 呐咔",
+			"execute @s[tag=大母体,scores={wp_random=1},name=古德英钠夫] ~~~ summon coldsink:tnnk_ai 古德英钠夫",
+			"execute @s[tag=大母体,scores={wp_random=1},name=及及] ~~~ summon coldsink:tnnk_ai 及及",
+			"execute @s[tag=大母体,scores={wp_random=1},name=衣阳悯雨] ~~~ summon coldsink:tnnk_ai 衣阳悯雨",
+			"execute @s[tag=大母体,scores={wp_random=1},name=冰薄zxc] ~~~ summon coldsink:tnnk_ai 冰薄zxc",
+			"execute @s[tag=大母体,scores={wp_random=1},name=凋玲玲] ~~~ summon coldsink:tnnk_ai 凋玲玲",
+			"execute @s[tag=大母体,scores={wp_random=1},name=宏烧甜鱼OWO] ~~~ summon coldsink:tnnk_ai 宏烧甜鱼OWO",
+			"execute @s[tag=大母体,scores={wp_random=1},name=火机面] ~~~ summon coldsink:tnnk_ai 火机面",
+			"execute @s[tag=大母体,scores={wp_random=1},name=一个被浪的尸体] ~~~ summon coldsink:tnnk_ai 一个被浪的尸体",
 
 			"execute @s[tag=大母体,scores={wp_random=2},name=忆知艾郎得晓愣沉] ~~~ summon coldsink:witch_ai 忆知艾郎得晓愣沉",
 			"execute @s[tag=大母体,scores={wp_random=2},name=绿画娜] ~~~ summon coldsink:witch_ai 绿画娜",
@@ -369,6 +780,20 @@
 			"execute @s[tag=大母体,scores={wp_random=2},name=碍登] ~~~ summon coldsink:witch_ai 碍登",
 			"execute @s[tag=大母体,scores={wp_random=2},name=牛腩面面] ~~~ summon coldsink:witch_ai 牛腩面面",
 			"execute @s[tag=大母体,scores={wp_random=2},name=蚕币] ~~~ summon coldsink:witch_ai 蚕币",
+			"execute @s[tag=大母体,scores={wp_random=2},name=肿渴] ~~~ summon coldsink:witch_ai 肿渴",
+			"execute @s[tag=大母体,scores={wp_random=2},name=天浊] ~~~ summon coldsink:witch_ai 天浊",
+			"execute @s[tag=大母体,scores={wp_random=2},name=大窑队长] ~~~ summon coldsink:witch_ai 大窑队长",
+			"execute @s[tag=大母体,scores={wp_random=2},name=小圆] ~~~ summon coldsink:witch_ai 小圆",
+			"execute @s[tag=大母体,scores={wp_random=2},name=冰开水] ~~~ summon coldsink:witch_ai 冰开水",
+			"execute @s[tag=大母体,scores={wp_random=2},name=呐咔] ~~~ summon coldsink:witch_ai 呐咔",
+			"execute @s[tag=大母体,scores={wp_random=2},name=古德英钠夫] ~~~ summon coldsink:witch_ai 古德英钠夫",
+			"execute @s[tag=大母体,scores={wp_random=2},name=及及] ~~~ summon coldsink:witch_ai 及及",
+			"execute @s[tag=大母体,scores={wp_random=2},name=衣阳悯雨] ~~~ summon coldsink:witch_ai 衣阳悯雨",
+			"execute @s[tag=大母体,scores={wp_random=2},name=冰薄zxc] ~~~ summon coldsink:witch_ai 冰薄zxc",
+			"execute @s[tag=大母体,scores={wp_random=2},name=凋玲玲] ~~~ summon coldsink:witch_ai 凋玲玲",
+			"execute @s[tag=大母体,scores={wp_random=2},name=宏烧甜鱼OWO] ~~~ summon coldsink:witch_ai 宏烧甜鱼OWO",
+			"execute @s[tag=大母体,scores={wp_random=2},name=火机面] ~~~ summon coldsink:witch_ai 火机面",
+			"execute @s[tag=大母体,scores={wp_random=2},name=一个被浪的尸体] ~~~ summon coldsink:witch_ai 一个被浪的尸体",
 
 			// 分数同步
 			"scoreboard players operation @e[type=!coldsink:dead_human_ai,name=忆知艾郎得晓愣沉,c=1] game_score = @s[name=忆知艾郎得晓愣沉] game_score",
@@ -386,6 +811,20 @@
 			"scoreboard players operation @e[type=!coldsink:dead_human_ai,name=碍登,c=1] game_score = @s[name=碍登] game_score",
 			"scoreboard players operation @e[type=!coldsink:dead_human_ai,name=牛腩面面,c=1] game_score = @s[name=牛腩面面] game_score",
 			"scoreboard players operation @e[type=!coldsink:dead_human_ai,name=蚕币,c=1] game_score = @s[name=蚕币] game_score",
+			"scoreboard players operation @e[type=!coldsink:dead_human_ai,name=肿渴,c=1] game_score = @s[name=肿渴] game_score",
+			"scoreboard players operation @e[type=!coldsink:dead_human_ai,name=天浊,c=1] game_score = @s[name=天浊] game_score",
+			"scoreboard players operation @e[type=!coldsink:dead_human_ai,name=大窑队长,c=1] game_score = @s[name=大窑队长] game_score",
+			"scoreboard players operation @e[type=!coldsink:dead_human_ai,name=小圆,c=1] game_score = @s[name=小圆] game_score",
+			"scoreboard players operation @e[type=!coldsink:dead_human_ai,name=冰开水,c=1] game_score = @s[name=冰开水] game_score",
+			"scoreboard players operation @e[type=!coldsink:dead_human_ai,name=呐咔,c=1] game_score = @s[name=呐咔] game_score",
+			"scoreboard players operation @e[type=!coldsink:dead_human_ai,name=古德英钠夫,c=1] game_score = @s[name=古德英钠夫] game_score",
+			"scoreboard players operation @e[type=!coldsink:dead_human_ai,name=及及,c=1] game_score = @s[name=及及] game_score",
+			"scoreboard players operation @e[type=!coldsink:dead_human_ai,name=衣阳悯雨,c=1] game_score = @s[name=衣阳悯雨] game_score",
+			"scoreboard players operation @e[type=!coldsink:dead_human_ai,name=冰薄zxc,c=1] game_score = @s[name=冰薄zxc] game_score",
+			"scoreboard players operation @e[type=!coldsink:dead_human_ai,name=凋玲玲,c=1] game_score = @s[name=凋玲玲] game_score",
+			"scoreboard players operation @e[type=!coldsink:dead_human_ai,name=宏烧甜鱼OWO,c=1] game_score = @s[name=宏烧甜鱼OWO] game_score",
+			"scoreboard players operation @e[type=!coldsink:dead_human_ai,name=火机面,c=1] game_score = @s[name=火机面] game_score",
+			"scoreboard players operation @e[type=!coldsink:dead_human_ai,name=一个被浪的尸体,c=1] game_score = @s[name=一个被浪的尸体] game_score",
 
 			"event entity @s godie"
           ]

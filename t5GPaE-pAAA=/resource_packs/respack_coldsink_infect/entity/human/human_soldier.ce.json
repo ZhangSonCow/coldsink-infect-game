@@ -8,14 +8,15 @@
         "blend": "entity_alphablend",
         "nacal_tac_detect": "nacal_tac_detect",
         "nacal_customblend":"nacal_customblend",
-        "netease_entity_metallic": "entity_alphatest"
+        "netease_entity_metallic": "netease_entity_metallic"
       },
       "particle_effects": {
         "weapon_fire_1": "coldsink:weapon_fire_1",
         "weapon_fire_2": "coldsink:weapon_fire_2",
         "weapon_fire_3": "coldsink:weapon_fire_3",
         "weapon_fire_4": "coldsink:weapon_fire_4",
-        "weapon_fire_5": "coldsink:weapon_fire_5"
+        "weapon_fire_5": "coldsink:weapon_fire_5",
+        "weapon_fire_7": "coldsink:weapon_fire_7"
       },
       "animations": {
         "look_at_target": "animation.player.look_at_target.ui",
@@ -28,6 +29,7 @@
         "weapon_3.idle": "animation.weapon_3.idle",
         "weapon_4.idle": "animation.weapon_4.idle",
         "weapon_5.idle": "animation.weapon_5.idle",
+        "weapon_7.idle": "animation.weapon_7.idle",
         "melee_1.idle": "animation.melee_1.idle",
         "melee_2.idle": "animation.melee_2.idle",
         "melee_3.idle": "animation.melee_3.idle",
@@ -37,7 +39,8 @@
         "weapon_2.rotation": "animation.weapon_2.rotation",
         "weapon_3.rotation": "animation.weapon_3.rotation",
         "weapon_4.rotation": "animation.weapon_4.rotation",
-        "weapon_5.rotation": "animation.weapon_5.rotation"
+        "weapon_5.rotation": "animation.weapon_5.rotation",
+        "weapon_7.rotation": "animation.weapon_7.rotation"
       },
       "scripts": {
         "initialize": [
@@ -100,6 +103,12 @@
             "weapon_5.rotation": "q.variant == 5 && !q.is_ignited"
           },
           {
+            "weapon_7.idle": "q.variant == 7 && !q.is_ignited"
+          },
+          {
+            "weapon_7.rotation": "q.variant == 7 && !q.is_ignited"
+          },
+          {
             "melee_1.idle": "q.mark_variant == 1 && q.is_ignited"
           },
           {
@@ -125,6 +134,7 @@
         "weapon_3": "textures/entity/weapon_3",
         "weapon_4": "textures/entity/weapon_4",
         "weapon_5": "textures/entity/weapon_5",
+        "weapon_7": "textures/entity/weapon_7",
         "melee_1": "textures/entity/melee_1",
         "melee_2": "textures/entity/melee_2",
         "melee_3": "textures/entity/melee_3",
@@ -145,7 +155,21 @@
         "skin_12": "textures/entity/human/human_12",
         "skin_13": "textures/entity/human/human_13",
         "skin_14": "textures/entity/human/human_14",
-        "skin_15": "textures/entity/human/human_15"
+        "skin_15": "textures/entity/human/human_15",
+        "skin_16": "textures/entity/human/human_16",
+        "skin_17": "textures/entity/human/human_17",
+        "skin_18": "textures/entity/human/human_18",
+        "skin_19": "textures/entity/human/human_19",
+        "skin_20": "textures/entity/human/human_20",
+        "skin_21": "textures/entity/human/human_21",
+        "skin_22": "textures/entity/human/human_22",
+        "skin_23": "textures/entity/human/human_23",
+        "skin_24": "textures/entity/human/human_24",
+        "skin_25": "textures/entity/human/human_25",
+        "skin_26": "textures/entity/human/human_26",
+        "skin_27": "textures/entity/human/human_27",
+        "skin_28": "textures/entity/human/human_28",
+        "skin_29": "textures/entity/human/human_29"
       },
       "geometry": {
         "default": "geometry.humanoid.custom",
@@ -156,6 +180,7 @@
         "weapon_3": "geometry.weapon_3",
         "weapon_4": "geometry.weapon_4",
         "weapon_5": "geometry.weapon_5",
+        "weapon_7": "geometry.weapon_7",
         "melee_1": "geometry.melee_1",
         "melee_2": "geometry.melee_2",
         "melee_3": "geometry.melee_3",
@@ -181,6 +206,9 @@
         },
         {
           "controller.render.weapon_5": "q.variant == 5 && !q.is_ignited"
+        },
+        {
+          "controller.render.weapon_7": "q.variant == 7 && !q.is_ignited"
         },
         {
           "controller.render.melee_1_default": "q.mark_variant == 1 && q.is_ignited"

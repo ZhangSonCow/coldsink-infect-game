@@ -40,18 +40,15 @@
         "nacal_customblend":"nacal_customblend"
       },
       "textures": {
-        "default": "textures/entity/final_tank",
+        "final_tank": "textures/entity/final_tank",
         "final_tank_sign": "textures/entity/final_tank_sign"
       },
       "geometry": {
-        "default": "geometry.final_tank",
+        "final_tank": "geometry.final_tank",
         "boss_sign": "geometry.boss_sign"
       },
       "render_controllers": [
-        "controller.render.com",
-        {
-          "controller.render.final_tank_sign": "q.is_ignited"
-        }
+        "controller.render.final_tank"
       ],
       "spawn_egg": {
         "base_color": "#DA5405",

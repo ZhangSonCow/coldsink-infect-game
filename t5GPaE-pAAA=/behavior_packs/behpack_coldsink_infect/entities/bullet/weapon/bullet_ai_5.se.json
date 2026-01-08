@@ -99,8 +99,8 @@
             "execute @e[c=1,family=!bullet,family=!player,tag=!neutral,r=3.2] ~~~ particle coldsink:hit_blast_5 ~~0.8~",
             "execute @e[c=1,family=!bullet,family=!player,tag=!neutral,r=3.2] ~~~ particle coldsink:hit_circle_5 ~~1.2~",
             "execute @s[tag=!get] ~~~ damage @e[c=1,family=!bullet,family=!player,tag=!neutral,tag=!no_any_hurt,r=3.2] 2 suicide",
-            "execute @e[c=1,family=!bullet,family=!player,tag=!neutral,r=3.2] ~~~ effect @s[tag=!is_tnnk] slowness 1 1 true",
-            "execute @e[c=1,family=!bullet,family=!player,tag=!neutral,r=3.2] ~~~ effect @s[tag=is_tnnk] slowness 1 0 true",
+            "execute @e[c=1,family=!bullet,family=!player,tag=!neutral,r=3.2] ~~~ effect @s[family=!tnnk_hard] slowness 1 1 true",
+            "execute @e[c=1,family=!bullet,family=!player,tag=!neutral,r=3.2] ~~~ effect @s[family=tnnk_hard] slowness 1 0 true",
             "execute @e[c=1,family=!bullet,family=!player,tag=!neutral,r=3.2] ~~~ tag @e[type=coldsink:bullet_ai_5,r=3.2,c=1] add get",
             "execute @e[c=1,family=!bullet,family=!player,tag=!neutral,r=3.2] ~~~ effect @e[type=coldsink:bullet_ai_5,r=3.2,c=1] invisibility 5 0 true"
           ]

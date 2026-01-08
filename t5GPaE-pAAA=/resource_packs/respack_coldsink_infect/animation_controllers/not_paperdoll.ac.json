@@ -98,10 +98,10 @@
 							"ctrl.smoker.1st": "q.variant == 6 && v.is_first_person"
 						},
 						{
-							"ctrl.tank": "q.variant == 7 && !v.is_first_person"
+							"ctrl.tank.walk": "(q.variant == 7 || q.variant == 11 || q.variant == 21 || (q.variant == 23 && q.property('coldsink:action_status') != 3) ) && !v.is_first_person"
 						},
 						{
-							"ctrl.tank.walk": "q.variant == 7 && !v.is_first_person"
+							"ctrl.tank": "q.variant == 7 && !v.is_first_person"
 						},
 						{
 							"ctrl.tank.1st": "q.variant == 7 && v.is_first_person"
@@ -110,25 +110,61 @@
 							"ctrl.final_tank": "q.variant == 11 && !v.is_first_person"
 						},
 						{
-							"ctrl.final_tank.walk": "q.variant == 11 && !v.is_first_person"
-						},
-						{
 							"ctrl.final_tank.1st": "q.variant == 11 && v.is_first_person"
 						},
 						{
 							"tank_fire": "q.variant == 11 && !v.is_first_person"
 						},
 						{
-							"ctrl.witch": "(q.variant == 8 || q.variant == 12) && !v.is_first_person"
+							"ctrl.tyrant_tank": "q.variant == 21 && !v.is_first_person"
 						},
 						{
-							"ctrl.witch.walk": "(q.variant == 8 || q.variant == 12) && !v.is_first_person"
+							"ctrl.tyrant_tank.1st": "q.variant == 21 && v.is_first_person"
 						},
 						{
-							"ctrl.witch.1st": "(q.variant == 8 || q.variant == 12) && v.is_first_person"
+							"ctrl.tyrant_tank.buff": "q.variant == 21 && !v.is_first_person"
+						},
+						{
+							"ctrl.tyrant_tank.buff.1st": "q.variant == 21 && v.is_first_person"
+						},
+						{
+							"tank_fire_tyrant": "q.variant == 21 && !v.is_first_person"
+						},
+						{
+							"ctrl.armor_tank": "q.variant == 23 && !v.is_first_person"
+						},
+						{
+							"ctrl.armor_tank.1st": "q.variant == 23 && v.is_first_person"
+						},
+						{
+							"ctrl.armor_tank.shield": "q.variant == 23"
+						},
+						{
+							"tank_fire_armor": "q.variant == 23 && !v.is_first_person"
+						},
+						{
+							"ctrl.witch": "(q.variant == 8 || q.variant == 12 || q.variant == 24) && !v.is_first_person"
+						},
+						{
+							"ctrl.witch.walk": "(q.variant == 8 || q.variant == 12 || q.variant == 22 || q.variant == 24) && !v.is_first_person"
+						},
+						{
+							"ctrl.witch.1st": "(q.variant == 8 || q.variant == 12 || q.variant == 24) && v.is_first_person"
+						},
+						{
+							"ctrl.ghost_witch": "q.variant == 22 && !v.is_first_person"
+						},
+						{
+							"ctrl.ghost_witch.1st": "q.variant == 22 && v.is_first_person"
 						},
 						{
 							"witch_fire": "q.variant == 12 && !v.is_first_person && !q.property('coldsink:time_skill')"
+						},
+						{
+							"witch_fire_ghost": "q.variant == 22 && !v.is_first_person"
+						},
+						{
+							"witch_fire_queen": "q.variant == 24 && !v.is_first_person"
 						},
 						{
 							"ctrl.witch.skill": "!v.is_first_person && q.variant == 8 && q.property('coldsink:time_skill')"

@@ -109,6 +109,47 @@
           ]
         }
       },
+      "random_final_hero": {
+        "queue_command": {
+          "command": [
+            "tag @r[type=player,tag=游戏中,tag=!neutral] add random_hero",
+            "clear @p[tag=random_hero]",
+            "title @p[tag=random_hero] title §b请选择成为的英雄",
+            "effect @p[tag=random_hero] slowness 99999 10 true",
+            "tag @p[tag=random_hero] add neutral",
+            "replaceitem entity @p[tag=random_hero] slot.hotbar 0 coldsink:become_human_hero 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @p[tag=random_hero] slot.hotbar 1 coldsink:become_savior_hero 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @p[tag=random_hero] slot.hotbar 3 coldsink:become_final_hero 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @p[tag=random_hero] slot.hotbar 4 coldsink:become_space_hero 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @p[tag=random_hero] slot.hotbar 5 coldsink:become_redeem_hero 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @p[tag=random_hero] slot.hotbar 6 coldsink:become_fist_hero 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @p[tag=random_hero] slot.hotbar 7 coldsink:become_machine_hero 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "tag * remove random_hero",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "random_final_boss": {
+        "queue_command": {
+          "command": [
+            "tag @r[type=player,tag=游戏中,tag=!neutral] add random_boss",
+            "clear @p[tag=random_boss]",
+            "title @p[tag=random_boss] title §c请选择成为的特感",
+            "effect @p[tag=random_boss] slowness 99999 10 true",
+            "tag @p[tag=random_boss] add neutral",
+            "replaceitem entity @p[tag=random_boss] slot.hotbar 0 coldsink:become_tnnk 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @p[tag=random_boss] slot.hotbar 1 coldsink:become_witch 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @p[tag=random_boss] slot.hotbar 3 coldsink:become_final_tnnk 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @p[tag=random_boss] slot.hotbar 4 coldsink:become_final_witch 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @p[tag=random_boss] slot.hotbar 5 coldsink:become_tyrant_tnnk 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @p[tag=random_boss] slot.hotbar 6 coldsink:become_ghost_witch 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @p[tag=random_boss] slot.hotbar 7 coldsink:become_armor_tnnk 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "replaceitem entity @p[tag=random_boss] slot.hotbar 8 coldsink:become_queen_witch 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+            "tag * remove random_boss",
+            "event entity @s godie"
+          ]
+        }
+      },
       "godie": {
         "add": {
           "component_groups": [

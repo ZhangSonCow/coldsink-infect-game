@@ -45,7 +45,7 @@
         "anchor": 2,
         "on_hit": {
           "impact_damage": {
-            "damage": 7,
+            "damage": 8,
             "knockback": false,
             "destroy_on_hit": true
           },

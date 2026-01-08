@@ -40,7 +40,7 @@
           "impact_damage": {
             "damage": 0,
             "knockback": false,
-            "destroy_on_hit": true
+            "destroy_on_hit": false
           },
           "definition_event": {
             "affect_projectile": true,
@@ -73,16 +73,12 @@
       "fireball": {
         "queue_command": {
           "command": [
-            "damage @e[family=player,r=3.6] 10 suicide",
-            "particle coldsink:tnnk_fireball_blast_2",
-            "playsound tnnk.fireball.blast @a ~~~",
-            "camerashake add @a[r=24] 0.8 0.5 positional",
-            "kill @s"
-          ]
-        },
-        "add": {
-          "component_groups": [
-            "godie"
+            "execute @s[tag=!done] ~~~ damage @e[family=player,r=3.6] 10 suicide entity @e[type=!player,family=final_tnnk,c=1]",
+            "execute @s[tag=!done] ~~~ particle coldsink:tnnk_fireball_blast_2",
+            "execute @s[tag=!done] ~~~ playsound tnnk.fireball.blast @a ~~~",
+            "execute @s[tag=!done] ~~~ camerashake add @a[r=24] 0.8 0.5 positional",
+            "tag @s add done",
+            "event entity @s godie"
           ]
         }
       },

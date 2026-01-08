@@ -28,7 +28,7 @@
 					],
 					"on_entry": [
 						"/scoreboard players set @s witch_damage 1",
-						"/title @s actionbar §d当前攻击等级 §f1/5"
+						"/title @s actionbar §7当前攻击等级 §f1/5"
 					]
 				},
 				"damage_2": {
@@ -42,7 +42,7 @@
 					],
 					"on_entry": [
 						"/scoreboard players set @s witch_damage 2",
-						"/title @s actionbar §d当前攻击等级 §f2/5"
+						"/title @s actionbar §7当前攻击等级 §f2/5"
 					]
 				},
 				"damage_3": {
@@ -59,7 +59,7 @@
 					],
 					"on_entry": [
 						"/scoreboard players set @s witch_damage 3",
-						"/title @s actionbar §d当前攻击等级 §f3/5"
+						"/title @s actionbar §7当前攻击等级 §f3/5"
 					]
 				},
 				"damage_4": {
@@ -79,7 +79,7 @@
 					],
 					"on_entry": [
 						"/scoreboard players set @s witch_damage 4",
-						"/title @s actionbar §d当前攻击等级 §f4/5"
+						"/title @s actionbar §7当前攻击等级 §f4/5"
 					]
 				},
 				"damage_5": {
@@ -99,7 +99,7 @@
 					],
 					"on_entry": [
 						"/scoreboard players set @s witch_damage 5",
-						"/title @s actionbar §d当前攻击等级 §f5/5"
+						"/title @s actionbar §7当前攻击等级 §f5/5"
 					]
 				}
 			}

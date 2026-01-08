@@ -137,7 +137,7 @@
             "event entity @e[type=!player,family=charger,c=1,scores={charger_check=0}] skill_over",
             "scoreboard players reset @e[type=!player,family=charger,c=1,scores={charger_check=0}] charger_time",
 
-            "execute @s[tag=!damaged] ~~~ damage @e[family=player,tag=!neutral,r=3.2] 5 suicide",
+            "execute @s[tag=!damaged] ~~~ damage @e[family=player,tag=!neutral,r=3.2] 5 suicide entity @e[type=!player,family=charger,r=3.2,c=1]",
             "tag @s add damaged",
             "effect @e[family=player,tag=!neutral,r=3.2] slowness 4 2 true",
             "playsound charger.over @a ~~~"

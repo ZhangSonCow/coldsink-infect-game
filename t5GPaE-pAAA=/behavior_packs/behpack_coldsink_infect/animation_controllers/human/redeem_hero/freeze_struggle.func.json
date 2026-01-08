@@ -17,7 +17,7 @@
             }
           ],
           "on_entry": [
-            "/scoreboard players add @s freeze_time 5"
+            "/scoreboard players add @s freeze_time 8"
           ]
         }
       }

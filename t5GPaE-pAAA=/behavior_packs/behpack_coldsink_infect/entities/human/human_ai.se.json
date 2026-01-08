@@ -16,9 +16,7 @@
         ]
       }
     },
-
     "component_groups": {
-
       "godie": {
         "minecraft:instant_despawn": {}
       },
@@ -35,7 +33,6 @@
       "coldsink:jockey.control": {
         "minecraft:out_of_control": {}
       },
-
       "stop_shoot_run": {
         "minecraft:is_ignited": {},
         "minecraft:behavior.avoid_mob_type": {
@@ -187,7 +184,25 @@
           "swing": true
         }
       },
-
+      "weapon_7": {
+        "minecraft:variant": {
+          "value": 7
+        },
+        "minecraft:movement": {
+          "value": 0.37
+        },
+        "minecraft:shooter": {
+          "def": "coldsink:bullet_ai_7"
+        },
+        "minecraft:behavior.ranged_attack": {
+          "priority": 2,
+          "attack_interval_min": 0.3,
+          "attack_interval_max": 0.4,
+          "burst_shots": 1,
+          "attack_radius": 108,
+          "swing": true
+        }
+      },
       "melee_1": {
         "minecraft:mark_variant": {
           "value": 1
@@ -213,7 +228,6 @@
           "value": 5
         }
       },
-
       "skin_1": {
         "minecraft:skin_id": {
           "value": 0
@@ -288,12 +302,85 @@
         "minecraft:skin_id": {
           "value": 14
         }
+      },
+      "skin_16": {
+        "minecraft:skin_id": {
+          "value": 15
+        }
+      },
+      "skin_17": {
+        "minecraft:skin_id": {
+          "value": 16
+        }
+      },
+      "skin_18": {
+        "minecraft:skin_id": {
+          "value": 17
+        }
+      },
+      "skin_19": {
+        "minecraft:skin_id": {
+          "value": 18
+        }
+      },
+      "skin_20": {
+        "minecraft:skin_id": {
+          "value": 19
+        }
+      },
+      "skin_21": {
+        "minecraft:skin_id": {
+          "value": 20
+        }
+      },
+      "skin_22": {
+        "minecraft:skin_id": {
+          "value": 21
+        }
+      },
+      "skin_23": {
+        "minecraft:skin_id": {
+          "value": 22
+        }
+      },
+      "skin_24": {
+        "minecraft:skin_id": {
+          "value": 23
+        }
+      },
+      "skin_25": {
+        "minecraft:skin_id": {
+          "value": 24
+        }
+      },
+      "skin_26": {
+        "minecraft:skin_id": {
+          "value": 25
+        }
+      },
+      "skin_27": {
+        "minecraft:skin_id": {
+          "value": 26
+        }
+      },
+      "skin_28": {
+        "minecraft:skin_id": {
+          "value": 27
+        }
+      },
+      "skin_29": {
+        "minecraft:skin_id": {
+          "value": 28
+        }
       }
     },
-
     "components": {
       "minecraft:type_family": {
-        "family": [ "sdc", "player", "human_ai" ]
+        "family": [
+          "sdc",
+          "player",
+          "human_ai"
+        ]
       },
       "minecraft:behavior.avoid_mob_type": {
         "priority": 0,
@@ -314,12 +401,19 @@
         ]
       },
       "minecraft:rideable": {
-        "family_types": [ "jockey_ai", "tool" ],
+        "family_types": [
+          "jockey_ai",
+          "tool"
+        ],
         "controlling_seat": 1,
         "seat_count": 10,
         "seats": [
           {
-            "position": [ 0, 1.6, 0 ]
+            "position": [
+              0,
+              1.6,
+              0
+            ]
           }
         ]
       },
@@ -410,10 +504,7 @@
         "is_amphibious": true,
         "can_float": true
       },
-
-
       //behavivors
-
       "minecraft:behavior.trade_with_player": {},
       "minecraft:behavior.random_stroll": {
         "priority": 6,
@@ -489,7 +580,6 @@
         "priority": 0
       }
     },
-
     "events": {
       "random_weapon": {
         "sequence": [
@@ -532,6 +622,14 @@
                 "add": {
                   "component_groups": [
                     "weapon_5"
+                  ]
+                }
+              },
+              {
+                "weight": 20,
+                "add": {
+                  "component_groups": [
+                    "weapon_7"
                   ]
                 }
               }
@@ -705,6 +803,104 @@
           ]
         }
       },
+      "skin_16": {
+        "add": {
+          "component_groups": [
+            "skin_16"
+          ]
+        }
+      },
+      "skin_17": {
+        "add": {
+          "component_groups": [
+            "skin_17"
+          ]
+        }
+      },
+      "skin_18": {
+        "add": {
+          "component_groups": [
+            "skin_18"
+          ]
+        }
+      },
+      "skin_19": {
+        "add": {
+          "component_groups": [
+            "skin_19"
+          ]
+        }
+      },
+      "skin_20": {
+        "add": {
+          "component_groups": [
+            "skin_20"
+          ]
+        }
+      },
+      "skin_21": {
+        "add": {
+          "component_groups": [
+            "skin_21"
+          ]
+        }
+      },
+      "skin_22": {
+        "add": {
+          "component_groups": [
+            "skin_22"
+          ]
+        }
+      },
+      "skin_23": {
+        "add": {
+          "component_groups": [
+            "skin_23"
+          ]
+        }
+      },
+      "skin_24": {
+        "add": {
+          "component_groups": [
+            "skin_24"
+          ]
+        }
+      },
+      "skin_25": {
+        "add": {
+          "component_groups": [
+            "skin_25"
+          ]
+        }
+      },
+      "skin_26": {
+        "add": {
+          "component_groups": [
+            "skin_26"
+          ]
+        }
+      },
+      "skin_27": {
+        "add": {
+          "component_groups": [
+            "skin_27"
+          ]
+        }
+      },
+      "skin_28": {
+        "add": {
+          "component_groups": [
+            "skin_28"
+          ]
+        }
+      },
+      "skin_29": {
+        "add": {
+          "component_groups": [
+            "skin_29"
+          ]
+        }
+      },
       "start_shoot": {
         "add": {
           "component_groups": [
@@ -783,6 +979,17 @@
           ]
         }
       },
+      "be_sfzombie": {
+        "queue_command": {
+          "command": [
+						"scoreboard players operation @e[type=coldsink:dead_human_ai,c=1] game_score = @s game_score",
+						"tag @e[type=coldsink:dead_human_ai,tag=!游戏中,c=1] add 游戏中",
+						"execute @s[tag=大母体] ~~~ tag @e[type=coldsink:dead_human_ai,tag=!大母体,c=1] add 大母体",
+						"execute @s[tag=大母体] ~~~ event entity @e[type=coldsink:dead_human_ai,tag=大母体,r=2,c=1] infect_spawn",
+            "event entity @s godie"
+          ]
+        }
+      },
       "godie": {
         "add": {
           "component_groups": [
@@ -808,7 +1015,20 @@
             "execute @s[name=碍登] ~~~ summon coldsink:human_hero_ai 碍登",
             "execute @s[name=牛腩面面] ~~~ summon coldsink:human_hero_ai 牛腩面面",
             "execute @s[name=蚕币] ~~~ summon coldsink:human_hero_ai 蚕币",
-
+            "execute @s[name=肿渴] ~~~ summon coldsink:human_hero_ai 肿渴",
+            "execute @s[name=天浊] ~~~ summon coldsink:human_hero_ai 天浊",
+            "execute @s[name=大窑队长] ~~~ summon coldsink:human_hero_ai 大窑队长",
+            "execute @s[name=小圆] ~~~ summon coldsink:human_hero_ai 小圆",
+            "execute @s[name=冰开水] ~~~ summon coldsink:human_hero_ai 冰开水",
+            "execute @s[name=呐咔] ~~~ summon coldsink:human_hero_ai 呐咔",
+            "execute @s[name=古德英钠夫] ~~~ summon coldsink:human_hero_ai 古德英钠夫",
+            "execute @s[name=及及] ~~~ summon coldsink:human_hero_ai 及及",
+            "execute @s[name=衣阳悯雨] ~~~ summon coldsink:human_hero_ai 衣阳悯雨",
+            "execute @s[name=冰薄zxc] ~~~ summon coldsink:human_hero_ai 冰薄zxc",
+            "execute @s[name=凋玲玲] ~~~ summon coldsink:human_hero_ai 凋玲玲",
+            "execute @s[name=宏烧甜鱼OWO] ~~~ summon coldsink:human_hero_ai 宏烧甜鱼OWO",
+            "execute @s[name=火机面] ~~~ summon coldsink:human_hero_ai 火机面",
+            "execute @s[name=一个被浪的尸体] ~~~ summon coldsink:human_hero_ai 一个被浪的尸体",
             "scoreboard players operation @e[type=coldsink:human_hero_ai,name=忆知艾郎得晓愣沉,c=1] game_score = @s[name=忆知艾郎得晓愣沉] game_score",
             "scoreboard players operation @e[type=coldsink:human_hero_ai,name=绿画娜,c=1] game_score = @s[name=绿画娜] game_score",
             "scoreboard players operation @e[type=coldsink:human_hero_ai,name=飙啼菌,c=1] game_score = @s[name=飙啼菌] game_score",
@@ -824,8 +1044,21 @@
             "scoreboard players operation @e[type=coldsink:human_hero_ai,name=碍登,c=1] game_score = @s[name=碍登] game_score",
             "scoreboard players operation @e[type=coldsink:human_hero_ai,name=牛腩面面,c=1] game_score = @s[name=牛腩面面] game_score",
             "scoreboard players operation @e[type=coldsink:human_hero_ai,name=蚕币,c=1] game_score = @s[name=蚕币] game_score",
-
-						"tellraw @a {\"rawtext\":[{\"text\":\"§6幽灵猎手§f \"},{\"selector\":\"@s\"},{\"text\":\" §6已现身！\"}]}",
+            "scoreboard players operation @e[type=coldsink:human_hero_ai,name=肿渴,c=1] game_score = @s[name=肿渴] game_score",
+            "scoreboard players operation @e[type=coldsink:human_hero_ai,name=天浊,c=1] game_score = @s[name=天浊] game_score",
+            "scoreboard players operation @e[type=coldsink:human_hero_ai,name=大窑队长,c=1] game_score = @s[name=大窑队长] game_score",
+            "scoreboard players operation @e[type=coldsink:human_hero_ai,name=小圆,c=1] game_score = @s[name=小圆] game_score",
+            "scoreboard players operation @e[type=coldsink:human_hero_ai,name=冰开水,c=1] game_score = @s[name=冰开水] game_score",
+            "scoreboard players operation @e[type=coldsink:human_hero_ai,name=呐咔,c=1] game_score = @s[name=呐咔] game_score",
+            "scoreboard players operation @e[type=coldsink:human_hero_ai,name=古德英钠夫,c=1] game_score = @s[name=古德英钠夫] game_score",
+            "scoreboard players operation @e[type=coldsink:human_hero_ai,name=及及,c=1] game_score = @s[name=及及] game_score",
+            "scoreboard players operation @e[type=coldsink:human_hero_ai,name=衣阳悯雨,c=1] game_score = @s[name=衣阳悯雨] game_score",
+            "scoreboard players operation @e[type=coldsink:human_hero_ai,name=冰薄zxc,c=1] game_score = @s[name=冰薄zxc] game_score",
+            "scoreboard players operation @e[type=coldsink:human_hero_ai,name=凋玲玲,c=1] game_score = @s[name=凋玲玲] game_score",
+            "scoreboard players operation @e[type=coldsink:human_hero_ai,name=宏烧甜鱼OWO,c=1] game_score = @s[name=宏烧甜鱼OWO] game_score",
+            "scoreboard players operation @e[type=coldsink:human_hero_ai,name=火机面,c=1] game_score = @s[name=火机面] game_score",
+            "scoreboard players operation @e[type=coldsink:human_hero_ai,name=一个被浪的尸体,c=1] game_score = @s[name=一个被浪的尸体] game_score",
+            "tellraw @a {\"rawtext\":[{\"text\":\"§6幽灵猎手§f \"},{\"selector\":\"@s\"},{\"text\":\" §6已现身！\"}]}",
             "event entity @s godie"
           ]
         }
@@ -848,7 +1081,20 @@
             "execute @s[name=碍登] ~~~ summon coldsink:savior_hero_ai 碍登",
             "execute @s[name=牛腩面面] ~~~ summon coldsink:savior_hero_ai 牛腩面面",
             "execute @s[name=蚕币] ~~~ summon coldsink:savior_hero_ai 蚕币",
-
+            "execute @s[name=肿渴] ~~~ summon coldsink:savior_hero_ai 肿渴",
+            "execute @s[name=天浊] ~~~ summon coldsink:savior_hero_ai 天浊",
+            "execute @s[name=大窑队长] ~~~ summon coldsink:savior_hero_ai 大窑队长",
+            "execute @s[name=小圆] ~~~ summon coldsink:savior_hero_ai 小圆",
+            "execute @s[name=冰开水] ~~~ summon coldsink:savior_hero_ai 冰开水",
+            "execute @s[name=呐咔] ~~~ summon coldsink:savior_hero_ai 呐咔",
+            "execute @s[name=古德英钠夫] ~~~ summon coldsink:savior_hero_ai 古德英钠夫",
+            "execute @s[name=及及] ~~~ summon coldsink:savior_hero_ai 及及",
+            "execute @s[name=衣阳悯雨] ~~~ summon coldsink:savior_hero_ai 衣阳悯雨",
+            "execute @s[name=冰薄zxc] ~~~ summon coldsink:savior_hero_ai 冰薄zxc",
+            "execute @s[name=凋玲玲] ~~~ summon coldsink:savior_hero_ai 凋玲玲",
+            "execute @s[name=宏烧甜鱼OWO] ~~~ summon coldsink:savior_hero_ai 宏烧甜鱼OWO",
+            "execute @s[name=火机面] ~~~ summon coldsink:savior_hero_ai 火机面",
+            "execute @s[name=一个被浪的尸体] ~~~ summon coldsink:savior_hero_ai 一个被浪的尸体",
             "scoreboard players operation @e[type=coldsink:savior_hero_ai,name=忆知艾郎得晓愣沉,c=1] game_score = @s[name=忆知艾郎得晓愣沉] game_score",
             "scoreboard players operation @e[type=coldsink:savior_hero_ai,name=绿画娜,c=1] game_score = @s[name=绿画娜] game_score",
             "scoreboard players operation @e[type=coldsink:savior_hero_ai,name=飙啼菌,c=1] game_score = @s[name=飙啼菌] game_score",
@@ -864,9 +1110,22 @@
             "scoreboard players operation @e[type=coldsink:savior_hero_ai,name=碍登,c=1] game_score = @s[name=碍登] game_score",
             "scoreboard players operation @e[type=coldsink:savior_hero_ai,name=牛腩面面,c=1] game_score = @s[name=牛腩面面] game_score",
             "scoreboard players operation @e[type=coldsink:savior_hero_ai,name=蚕币,c=1] game_score = @s[name=蚕币] game_score",
-            
-						"execute @s[tag=!random_hero] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§6\"},{\"selector\":\"@s\"},{\"text\":\" §6被选为 救世主\"}]}",
-						"execute @s[tag=random_hero] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§6救世主§f \"},{\"selector\":\"@s\"},{\"text\":\" §6已现身！\"}]}",
+            "scoreboard players operation @e[type=coldsink:savior_hero_ai,name=肿渴,c=1] game_score = @s[name=肿渴] game_score",
+            "scoreboard players operation @e[type=coldsink:savior_hero_ai,name=天浊,c=1] game_score = @s[name=天浊] game_score",
+            "scoreboard players operation @e[type=coldsink:savior_hero_ai,name=大窑队长,c=1] game_score = @s[name=大窑队长] game_score",
+            "scoreboard players operation @e[type=coldsink:savior_hero_ai,name=小圆,c=1] game_score = @s[name=小圆] game_score",
+            "scoreboard players operation @e[type=coldsink:savior_hero_ai,name=冰开水,c=1] game_score = @s[name=冰开水] game_score",
+            "scoreboard players operation @e[type=coldsink:savior_hero_ai,name=呐咔,c=1] game_score = @s[name=呐咔] game_score",
+            "scoreboard players operation @e[type=coldsink:savior_hero_ai,name=古德英钠夫,c=1] game_score = @s[name=古德英钠夫] game_score",
+            "scoreboard players operation @e[type=coldsink:savior_hero_ai,name=及及,c=1] game_score = @s[name=及及] game_score",
+            "scoreboard players operation @e[type=coldsink:savior_hero_ai,name=衣阳悯雨,c=1] game_score = @s[name=衣阳悯雨] game_score",
+            "scoreboard players operation @e[type=coldsink:savior_hero_ai,name=冰薄zxc,c=1] game_score = @s[name=冰薄zxc] game_score",
+            "scoreboard players operation @e[type=coldsink:savior_hero_ai,name=凋玲玲,c=1] game_score = @s[name=凋玲玲] game_score",
+            "scoreboard players operation @e[type=coldsink:savior_hero_ai,name=宏烧甜鱼OWO,c=1] game_score = @s[name=宏烧甜鱼OWO] game_score",
+            "scoreboard players operation @e[type=coldsink:savior_hero_ai,name=火机面,c=1] game_score = @s[name=火机面] game_score",
+            "scoreboard players operation @e[type=coldsink:savior_hero_ai,name=一个被浪的尸体,c=1] game_score = @s[name=一个被浪的尸体] game_score",
+            "execute @s[tag=!random_hero] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§6\"},{\"selector\":\"@s\"},{\"text\":\" §6被选为 救世主\"}]}",
+            "execute @s[tag=random_hero] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§6救世主§f \"},{\"selector\":\"@s\"},{\"text\":\" §6已现身！\"}]}",
             "event entity @s godie"
           ]
         }
@@ -892,9 +1151,38 @@
           ]
         }
       },
-
+      "random_final_hero": {
+        "queue_command": {
+          "command": [
+            "scoreboard players random @s wp_random 1 7",
+            "execute @s[scores={wp_random=1}] ~~~ function game/spawn/human_hero",
+            "execute @s[scores={wp_random=2}] ~~~ function game/spawn/savior_hero",
+            "execute @s[scores={wp_random=3}] ~~~ function game/spawn/final_hero",
+            "execute @s[scores={wp_random=4}] ~~~ function game/spawn/space_hero",
+            "execute @s[scores={wp_random=5}] ~~~ function game/spawn/redeem_hero",
+            "execute @s[scores={wp_random=6}] ~~~ function game/spawn/fist_hero",
+            "execute @s[scores={wp_random=7}] ~~~ function game/spawn/machine_hero",
+            "event entity @s godie"
+          ]
+        }
+      },
+      "random_final_boss": {
+        "queue_command": {
+          "command": [
+            "scoreboard players random @s wp_random 1 8",
+            "execute @s[scores={wp_random=1}] ~~~ function game/spawn/tnnk",
+            "execute @s[scores={wp_random=2}] ~~~ function game/spawn/witch",
+            "execute @s[scores={wp_random=3}] ~~~ function game/spawn/final_tnnk",
+            "execute @s[scores={wp_random=4}] ~~~ function game/spawn/final_witch",
+            "execute @s[scores={wp_random=5}] ~~~ function game/spawn/tyrant_tnnk",
+            "execute @s[scores={wp_random=6}] ~~~ function game/spawn/ghost_witch",
+            "execute @s[scores={wp_random=7}] ~~~ function game/spawn/armor_tnnk",
+            "execute @s[scores={wp_random=8}] ~~~ function game/spawn/queen_witch",
+            "event entity @s godie"
+          ]
+        }
+      },
       // modapi 触发的加分事件
-
       "addScore_1": {
         "queue_command": {
           "command": [

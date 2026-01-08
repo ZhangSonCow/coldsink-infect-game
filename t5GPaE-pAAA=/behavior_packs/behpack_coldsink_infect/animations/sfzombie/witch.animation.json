@@ -21,23 +21,23 @@
           "/tag @s add witch_self",
 
           "/execute @s[tag=maper] ^^1.5^ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=3] ~~~ playsound get_target @p[tag=witch_self,tag=!no_hit_sound]",
-          "/execute @s[tag=maper,scores={witch_damage=1}] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=3] 3 suicide",
-          "/execute @s[tag=maper,scores={witch_damage=1}] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=3] 1 suicide",
-          "/execute @s[tag=maper,scores={witch_damage=2}] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=3] 4 suicide",
-          "/execute @s[tag=maper,scores={witch_damage=2}] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=3] 3 suicide",
-          "/execute @s[tag=maper,scores={witch_damage=3}] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=3] 5 suicide",
-          "/execute @s[tag=maper,scores={witch_damage=3}] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=3] 5 suicide",
-          "/execute @s[tag=maper,scores={witch_damage=4}] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=3] 6 suicide",
-          "/execute @s[tag=maper,scores={witch_damage=4}] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=3] 7 suicide",
-          "/execute @s[tag=maper,scores={witch_damage=5}] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=3] 7 suicide",
-          "/execute @s[tag=maper,scores={witch_damage=5}] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=3] 9 suicide",
+          "/execute @s[tag=maper,scores={witch_damage=1}] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=3] 3 suicide entity @s",
+          "/execute @s[tag=maper,scores={witch_damage=1}] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=3] 1 suicide entity @s",
+          "/execute @s[tag=maper,scores={witch_damage=2}] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=3] 4 suicide entity @s",
+          "/execute @s[tag=maper,scores={witch_damage=2}] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=3] 3 suicide entity @s",
+          "/execute @s[tag=maper,scores={witch_damage=3}] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=3] 5 suicide entity @s",
+          "/execute @s[tag=maper,scores={witch_damage=3}] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=3] 5 suicide entity @s",
+          "/execute @s[tag=maper,scores={witch_damage=4}] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=3] 6 suicide entity @s",
+          "/execute @s[tag=maper,scores={witch_damage=4}] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=3] 7 suicide entity @s",
+          "/execute @s[tag=maper,scores={witch_damage=5}] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=3] 7 suicide entity @s",
+          "/execute @s[tag=maper,scores={witch_damage=5}] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=3] 9 suicide entity @s",
 
           "/execute @s[tag=!maper] ^^1.5^ execute @e[tag=!witch_self,family=!tool,type=!item,r=3] ~~~ playsound get_target @p[tag=witch_self,tag=!no_hit_sound]",
-          "/execute @s[tag=!maper,scores={witch_damage=1}] ^^1.5^ damage @e[tag=!witch_self,family=!tool,type=!item,r=3] 7 suicide",
-          "/execute @s[tag=!maper,scores={witch_damage=2}] ^^1.5^ damage @e[tag=!witch_self,family=!tool,type=!item,r=3] 9 suicide",
-          "/execute @s[tag=!maper,scores={witch_damage=3}] ^^1.5^ damage @e[tag=!witch_self,family=!tool,type=!item,r=3] 11 suicide",
-          "/execute @s[tag=!maper,scores={witch_damage=4}] ^^1.5^ damage @e[tag=!witch_self,family=!tool,type=!item,r=3] 13 suicide",
-          "/execute @s[tag=!maper,scores={witch_damage=5}] ^^1.5^ damage @e[tag=!witch_self,family=!tool,type=!item,r=3] 15 suicide",
+          "/execute @s[tag=!maper,scores={witch_damage=1}] ^^1.5^ damage @e[tag=!witch_self,family=!tool,type=!item,r=3] 7 suicide entity @s",
+          "/execute @s[tag=!maper,scores={witch_damage=2}] ^^1.5^ damage @e[tag=!witch_self,family=!tool,type=!item,r=3] 9 suicide entity @s",
+          "/execute @s[tag=!maper,scores={witch_damage=3}] ^^1.5^ damage @e[tag=!witch_self,family=!tool,type=!item,r=3] 11 suicide entity @s",
+          "/execute @s[tag=!maper,scores={witch_damage=4}] ^^1.5^ damage @e[tag=!witch_self,family=!tool,type=!item,r=3] 13 suicide entity @s",
+          "/execute @s[tag=!maper,scores={witch_damage=5}] ^^1.5^ damage @e[tag=!witch_self,family=!tool,type=!item,r=3] 15 suicide entity @s",
           
           "/tag @s remove witch_self"
         ],
@@ -66,23 +66,23 @@
           "/tag @s add witch_self",
 
           "/execute @s[tag=maper] ^^2.5^ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] ~~~ playsound get_target @p[tag=witch_self,tag=!no_hit_sound]",
-          "/execute @s[tag=maper,scores={witch_damage=1}] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] 5 suicide",
-          "/execute @s[tag=maper,scores={witch_damage=1}] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=5] 2 suicide",
-          "/execute @s[tag=maper,scores={witch_damage=2}] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] 7 suicide",
-          "/execute @s[tag=maper,scores={witch_damage=2}] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=5] 4 suicide",
-          "/execute @s[tag=maper,scores={witch_damage=3}] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] 9 suicide",
-          "/execute @s[tag=maper,scores={witch_damage=3}] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=5] 6 suicide",
-          "/execute @s[tag=maper,scores={witch_damage=4}] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] 11 suicide",
-          "/execute @s[tag=maper,scores={witch_damage=4}] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=5] 8 suicide",
-          "/execute @s[tag=maper,scores={witch_damage=5}] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] 13 suicide",
-          "/execute @s[tag=maper,scores={witch_damage=5}] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=5] 10 suicide",
+          "/execute @s[tag=maper,scores={witch_damage=1}] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] 5 suicide entity @s",
+          "/execute @s[tag=maper,scores={witch_damage=1}] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=5] 2 suicide entity @s",
+          "/execute @s[tag=maper,scores={witch_damage=2}] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] 7 suicide entity @s",
+          "/execute @s[tag=maper,scores={witch_damage=2}] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=5] 4 suicide entity @s",
+          "/execute @s[tag=maper,scores={witch_damage=3}] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] 9 suicide entity @s",
+          "/execute @s[tag=maper,scores={witch_damage=3}] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=5] 6 suicide entity @s",
+          "/execute @s[tag=maper,scores={witch_damage=4}] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] 11 suicide entity @s",
+          "/execute @s[tag=maper,scores={witch_damage=4}] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=5] 8 suicide entity @s",
+          "/execute @s[tag=maper,scores={witch_damage=5}] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] 13 suicide entity @s",
+          "/execute @s[tag=maper,scores={witch_damage=5}] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=5] 10 suicide entity @s",
           
           "/execute @s[tag=!maper] ^^2.5^ execute @e[tag=!witch_self,family=!tool,type=!item,r=5] ~~~ playsound get_target @p[tag=witch_self,tag=!no_hit_sound]",
-          "/execute @s[tag=!maper,scores={witch_damage=1}] ^^2.5^ damage @e[tag=!witch_self,family=!tool,type=!item,r=5] 16 suicide",
-          "/execute @s[tag=!maper,scores={witch_damage=2}] ^^2.5^ damage @e[tag=!witch_self,family=!tool,type=!item,r=5] 19 suicide",
-          "/execute @s[tag=!maper,scores={witch_damage=3}] ^^2.5^ damage @e[tag=!witch_self,family=!tool,type=!item,r=5] 22 suicide",
-          "/execute @s[tag=!maper,scores={witch_damage=4}] ^^2.5^ damage @e[tag=!witch_self,family=!tool,type=!item,r=5] 25 suicide",
-          "/execute @s[tag=!maper,scores={witch_damage=5}] ^^2.5^ damage @e[tag=!witch_self,family=!tool,type=!item,r=5] 28 suicide",
+          "/execute @s[tag=!maper,scores={witch_damage=1}] ^^2.5^ damage @e[tag=!witch_self,family=!tool,type=!item,r=5] 16 suicide entity @s",
+          "/execute @s[tag=!maper,scores={witch_damage=2}] ^^2.5^ damage @e[tag=!witch_self,family=!tool,type=!item,r=5] 19 suicide entity @s",
+          "/execute @s[tag=!maper,scores={witch_damage=3}] ^^2.5^ damage @e[tag=!witch_self,family=!tool,type=!item,r=5] 22 suicide entity @s",
+          "/execute @s[tag=!maper,scores={witch_damage=4}] ^^2.5^ damage @e[tag=!witch_self,family=!tool,type=!item,r=5] 25 suicide entity @s",
+          "/execute @s[tag=!maper,scores={witch_damage=5}] ^^2.5^ damage @e[tag=!witch_self,family=!tool,type=!item,r=5] 28 suicide entity @s",
           
           "/tag @s remove witch_self"
         ],
@@ -95,7 +95,7 @@
       "loop": false,
       "animation_length": 20.0,
       "timeline": {
-        "5.0": [
+        "4.0": [
           "/effect @s speed 0 3 true",
           "/effect @s resistance 0 11 true",
           "/effect @s speed 99999 1 true",
@@ -107,7 +107,7 @@
       "loop": false,
       "animation_length": 20.0,
       "timeline": {
-        "5.0": [
+        "4.0": [
           "/effect @s speed 0 3 true",
           "/effect @s resistance 0 11 true",
           "/event entity @s skill_over"

@@ -9,10 +9,10 @@
           "/tag @s add charger_self",
 
           "/execute @s[tag=maper] ^^1.5^ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=4] ~~~ playsound get_target @p[tag=charger_self,tag=!no_hit_sound]",
-          "/execute @s[tag=maper] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=4] 4 suicide",
+          "/execute @s[tag=maper] ^^1.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=4] 4 suicide entity @s",
 
           "/execute @s[tag=!maper] ^^1.5^ execute @e[tag=!charger_self,family=!tool,type=!item,r=4] ~~~ playsound get_target @p[tag=charger_self,tag=!no_hit_sound]",
-          "/execute @s[tag=!maper] ^^1.5^ damage @e[tag=!charger_self,family=!tool,type=!item,r=4] 10 suicide",
+          "/execute @s[tag=!maper] ^^1.5^ damage @e[tag=!charger_self,family=!tool,type=!item,r=4] 10 suicide entity @s",
           
           "/tag @s remove charger_self"
         ],
@@ -41,10 +41,10 @@
           "/tag @s add charger_self",
 
           "/execute @s[tag=maper] ^^2.5^ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=6] ~~~ playsound get_target @p[tag=charger_self,tag=!no_hit_sound]",
-          "/execute @s[tag=maper] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=6] 6 suicide",
+          "/execute @s[tag=maper] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=6] 6 suicide entity @s",
 
           "/execute @s[tag=!maper] ^^2.5^ execute @e[tag=!charger_self,family=!tool,type=!item,r=6] ~~~ playsound get_target @p[tag=charger_self,tag=!no_hit_sound]",
-          "/execute @s[tag=!maper] ^^2.5^ damage @e[tag=!charger_self,family=!tool,type=!item,r=6] 18 suicide",
+          "/execute @s[tag=!maper] ^^2.5^ damage @e[tag=!charger_self,family=!tool,type=!item,r=6] 18 suicide entity @s",
           
           "/tag @s remove charger_self"
         ],

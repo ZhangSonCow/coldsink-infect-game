@@ -19,9 +19,9 @@
         "0.3": [
           "/tag @s add melee_1_self",
 
-          "/execute @s[tag=maper] ^^1.75^ execute @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=3.5] ~~~ playsound get_target @p[tag=melee_1_self,tag=!no_hit_sound]",
-          "/execute @s[tag=maper] ^^1.75^ tag @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=3.5] add melee_damage",
-          "/execute @s[tag=maper] ^^1.75^ damage @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=3.5] 2 entity_attack entity @s",
+          "/execute @s[tag=maper] ^^1.75^ execute @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=3.5] ~~~ playsound get_target @p[tag=melee_1_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^1.75^ tag @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=3.5] add melee_damage",
+          "/execute @s[tag=maper] ^^1.75^ damage @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=3.5] 2 entity_attack entity @s",
 
           "/execute @s[tag=!maper,tag=!no_friend_hurt] ^^1.75^ execute @e[tag=!melee_1_self,family=!tool,family=!tools,type=!item,r=3.5] ~~~ playsound get_target @p[tag=melee_1_self,tag=!no_hit_sound]",
           "/execute @s[tag=!maper,tag=!no_friend_hurt] ^^1.75^ damage @e[tag=!melee_1_self,family=!tool,family=!tools,type=!item,r=3.5] 11 entity_attack entity @s",
@@ -49,9 +49,9 @@
         "1.0": [
           "/tag @s add melee_1_self",
 
-          "/execute @s[tag=maper] ^^2.25^ execute @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4.5] ~~~ playsound get_target @p[tag=melee_1_self,tag=!no_hit_sound]",
-          "/execute @s[tag=maper] ^^2.25^ tag @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4.5] add melee_damage",
-          "/execute @s[tag=maper] ^^2.25^ damage @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4.5] 4 entity_attack entity @s",
+          "/execute @s[tag=maper] ^^2.25^ execute @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=4.5] ~~~ playsound get_target @p[tag=melee_1_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^2.25^ tag @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=4.5] add melee_damage",
+          "/execute @s[tag=maper] ^^2.25^ damage @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=4.5] 4 entity_attack entity @s",
 
           "/execute @s[tag=!maper,tag=!no_friend_hurt] ^^2.25^ execute @e[tag=!melee_1_self,family=!tool,family=!tools,type=!item,r=4.5] ~~~ playsound get_target @p[tag=melee_1_self,tag=!no_hit_sound]",
           "/execute @s[tag=!maper,tag=!no_friend_hurt] ^^2.25^ damage @e[tag=!melee_1_self,family=!tool,family=!tools,type=!item,r=4.5] 24 entity_attack entity @s",

@@ -7,7 +7,7 @@
       "is_summonable": true,
       "is_experimental": false,
       "animations": {
-        "c": "controller.animation.final_tank_ai.func",
+        "c": "controller.animation.final_tnnk_ai.func",
         "c.walk": "controller.animation.tank_move_sound.func",
         "tank_move_sound": "animation.tank_move_sound.func",
         "sound_interval": "animation.sfzombie_sound_interval.func"
@@ -152,7 +152,7 @@
         "allow_name_tag_renaming": false
       },
       "minecraft:type_family": {
-        "family": [ "mob", "sdc", "monster","special", "final_tnnk", "boss", "final_boss", "ai" ]
+        "family": [ "mob", "sdc", "monster","special", "final_tnnk", "tnnk_hard", "boss", "final_boss", "ai" ]
       },
       "minecraft:health": {
         "value": 120,
@@ -478,7 +478,7 @@
             "event entity @a[m=!c,family=player,family=!tool,tag=!neutral,tag=!is_hero,r=8] coldsink:tnnk_howl_control",
             
             "particle nacal_sdc:tnnk_blast ~~0.8~",
-            "damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=8] 6 suicide"
+            "damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=8] 6 suicide entity @s"
           ]
         }
       },

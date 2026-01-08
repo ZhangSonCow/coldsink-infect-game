@@ -84,7 +84,7 @@
             "camerashake add @a[tag=!noshake,r=16] 0.3 0.2 positional",
             "particle nacal_tac:force_wave ~ ~ ~",
             "event entity @e[family=!player,tag=!neutral,family=!bullet,r=1.8] coldsink:hurting",
-            "damage @e[family=!player,tag=!neutral,family=!bullet,r=1.8] 12 suicide"
+            "damage @e[family=!player,tag=!neutral,family=!bullet,r=1.8] 12 suicide entity @s"
           ]
         },
         "add": {

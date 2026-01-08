@@ -5,7 +5,7 @@
       "identifier": "coldsink:melee_1_display",
       "materials": {
         "default": "entity_alphablend",
-        "netease_entity_metallic_blend": "entity_alphablend"
+        "netease_entity_metallic_blend": "netease_entity_alphatest_metallic_blend"
       },
       "textures": {
         "default": "textures/entity/melee_1"

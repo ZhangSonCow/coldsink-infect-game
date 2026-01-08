@@ -1,0 +1,114 @@
+{
+	"format_version": "1.18.0",
+	"animation_controllers": {
+		"controller.animation.armor_tank_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"attack_light": "v.attack_time && !q.is_saddled"
+						},
+						{
+							"attack_heavy": "v.attack_time && q.is_saddled"
+						},
+						{
+							"skill_pre": "q.property('coldsink:action_status') == 3"
+						},
+						{
+							"skill_howl": "q.property('coldsink:action_status') == 4"
+						}
+					]
+				},
+				"attack_light": {
+					"animations": [ "armor_tank_attack_light" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_light"
+					]
+				},
+				"attack_heavy": {
+					"animations": [ "armor_tank_attack_heavy" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_heavy"
+					]
+				},
+				"skill_pre": {
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"skill": "!q.is_on_ground"
+						}
+					]
+				},
+				"skill": {
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						},
+						{
+							"skill_end": "q.is_on_ground"
+						}
+					]
+				},
+				"skill_end": {
+					"animations": [ "armor_tank_skill_timer" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				},
+				"skill_howl": {
+					"animations": [ "armor_tank_skill_howl_timer" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				}
+			}
+		},
+
+		// 咆哮增益持续时间
+
+		"controller.animation.armor_tank_buff_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"skill": "q.property('coldsink:time_skill')"
+						}
+					]
+				},
+				"skill": {
+					"animations": [ "armor_tank_buff_timer" ],
+					"transitions": [
+						{
+							"default": "!q.property('coldsink:time_skill')"
+						}
+					],
+					"on_entry": [
+						"/effect @s resistance 5 10 true",
+						"/tag @s add no_any_hurt"
+					],
+					"on_exit": [
+						"/tag @s remove no_any_hurt"
+					]
+				}
+			}
+		}
+	}
+}

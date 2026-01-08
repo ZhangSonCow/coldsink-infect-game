@@ -83,7 +83,7 @@
             "tag @a[tag=detectdbsbibad] remove detectdbsbibad",
 
             "event entity @e[family=!player,tag=!neutral,family=!bullet,r=12] coldsink:hurting",
-            "damage @e[family=!player,tag=!neutral,family=!bullet,r=12] 24 suicide",
+            "damage @e[family=!player,tag=!neutral,family=!bullet,r=12] 24 suicide entity @s",
             "effect @e[family=!player,tag=!neutral,family=!bullet,r=12] slowness 5 2 true",
             "particle nacal_tac:detect_boom ~~~"
           ]

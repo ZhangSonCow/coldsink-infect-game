@@ -1,0 +1,71 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:tyrant_tnnk_ai",
+      "animations": {
+        "tank_idle.arm": "animation.tank.idle.arm",
+        "tank_idle.leg": "animation.tank.idle.leg",
+        "tank_move.arm": "animation.tank.move.arm",
+        "tank_move.leg": "animation.tank.move.leg",
+        "tank_attack1": "animation.tank.attack1",
+        "tank_attack2": "animation.tank.attack2",
+        "tyrant_tank_skill": "animation.tyrant_tank.skill",
+        "tank_howl_skill": "animation.tank.howl.skill",
+        "c.tyrant_tank_ai": "controller.animation.tyrant_tank_ai",
+        "c.tank_walk": "controller.animation.tank_walk",
+        "tank_fire_tyrant": "animation.tank.fire_tyrant",
+        "sign_facing": "animation.sign_facing",
+        "tyrant_tank.buff": "animation.tyrant_tank.buff"
+      },
+      "particle_effects": {
+        "tank_fire_tyrant_big": "nacal_sdc:tank_fire_tyrant_big",
+        "tank_fire_tyrant_small": "nacal_sdc:tank_fire_tyrant_small",
+        "tyrant_tnnk_skill_1": "nacal_sdc:tyrant_tnnk_skill_1",
+        "tyrant_tnnk_skill_2": "nacal_sdc:tyrant_tnnk_skill_2",
+        "tyrant_tnnk_skill_3": "nacal_sdc:tyrant_tnnk_skill_3",
+        "tyrant_tnnk_skill_4": "nacal_sdc:tyrant_tnnk_skill_4",
+        "tyrant_tnnk_buff": "nacal_sdc:tyrant_tnnk_buff"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.random_choices = math.random(0, 100);"
+        ],
+        "animate": [
+          "c.tyrant_tank_ai",
+          "c.tank_walk",
+          "tank_fire_tyrant",
+          "sign_facing",
+          {
+            "tyrant_tank.buff": "q.is_ignited"
+          }
+        ]
+      },
+      "materials": {
+        "default": "entity_alphatest",
+        "nacal_tac_detect": "nacal_tac_detect",
+        "nacal_customblend":"nacal_customblend"
+      },
+      "textures": {
+        "tyrant_tank": "textures/entity/tyrant_tank",
+        "tyrant_tank_sign": "textures/entity/tyrant_tank_sign"
+      },
+      "geometry": {
+        "tyrant_tank": "geometry.tyrant_tank",
+        "boss_sign": "geometry.boss_sign"
+      },
+      "render_controllers": [
+        "controller.render.tyrant_tank_sign",
+        {
+          "controller.render.tyrant_tank": "q.health > 10"
+        },
+        {
+          "controller.render.tyrant_tank.bling": "q.health < 11"
+        }
+      ],
+      "spawn_egg": {
+        "texture": "become_tyrant_tnnk"
+      }
+    }
+  }
+}

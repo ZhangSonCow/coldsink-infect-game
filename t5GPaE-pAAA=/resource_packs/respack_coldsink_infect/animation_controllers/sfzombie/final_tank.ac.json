@@ -169,30 +169,6 @@
 					]
 				}
 			}
-		},
-
-		"controller.animation.final_tank.walk": {
-			"initial_state": "default",
-			"states": {
-				"default": {
-					"animations": [ "tank_idle.leg" ],
-					"blend_transition": 0.1,
-					"transitions": [
-						{
-							"walk": "q.modified_move_speed > 0.1"
-						}
-					]
-				},
-				"walk": {
-					"animations": [ "tank_move.leg" ],
-					"blend_transition": 0.1,
-					"transitions": [
-						{
-							"default": "q.modified_move_speed <= 0.1"
-						}
-					]
-				}
-			}
 		}
 	}
 }

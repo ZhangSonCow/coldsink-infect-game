@@ -95,12 +95,12 @@
 					"on_exit": [
 						"/execute @s[tag=!hunter_interval,tag=maper] ~~~ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=2.8,c=1] ~~~ playsound reward @p[family=hunter,tag=!hunter_interval]",
 						"/execute @s[tag=!hunter_interval,tag=maper] ~~~ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=2.8,c=1] ~~~ title @p[family=hunter,tag=!hunter_interval] actionbar §l§9成功扑中目标造成伤害！",
-						"/execute @s[tag=!hunter_interval,tag=maper] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=2.8,c=1] 2 suicide",
+						"/execute @s[tag=!hunter_interval,tag=maper] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=2.8,c=1] 2 suicide entity @s",
 
 						"/tag @s[tag=!hunter_interval,tag=!maper] add hunter_self",
 						"/execute @s[tag=!hunter_interval,tag=!maper] ~~~ execute @e[tag=!hunter_self,r=2.8,c=1] ~~~ playsound reward @p[family=hunter,tag=!hunter_interval]",
 						"/execute @s[tag=!hunter_interval,tag=!maper] ~~~ execute @e[tag=!hunter_self,r=2.8,c=1] ~~~ title @p[family=hunter,tag=!hunter_interval] actionbar §l§9成功扑中目标造成伤害！",
-						"/execute @s[tag=!hunter_interval,tag=!maper] ~~~ damage @e[tag=!hunter_self,r=2.8,c=1] 2 suicide",
+						"/execute @s[tag=!hunter_interval,tag=!maper] ~~~ damage @e[tag=!hunter_self,r=2.8,c=1] 2 suicide entity @s",
 						"/tag @s[tag=!hunter_interval,tag=!maper] remove hunter_self",
 
 						"/tag @s add hunter_interval"

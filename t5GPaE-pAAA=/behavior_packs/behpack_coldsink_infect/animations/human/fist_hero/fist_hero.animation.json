@@ -25,48 +25,48 @@
         "0.2": [
           "/tag @s add fist_hero_self",
 
-          "/execute @s[tag=maper] ^^1.5^ execute @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
-          "/execute @s[tag=maper] ^^1.5^ tag @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] add melee_damage",
-          "/execute @s[tag=maper] ^^1.5^ damage @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,tag=!no_any_hurt,r=4] 4 suicide",
+          "/execute @s[tag=maper] ^^1.5^ execute @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^1.5^ tag @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] add melee_damage",
+          "/execute @s[tag=maper] ^^1.5^ damage @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,tag=!no_any_hurt,r=4] 4 suicide entity @s",
 
-          "/execute @s[tag=!maper] ^^1.5^ execute @e[tag=!fist_hero_self,family=!fist_shield,family=!tool,family=!tools,type=!item,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
-          "/execute @s[tag=!maper] ^^1.5^ damage @e[tag=!fist_hero_self,family=!fist_shield,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=4] 4 suicide",
+          "/execute @s[tag=!maper] ^^1.5^ execute @e[tag=!fist_hero_self,family=!tool,family=!tools,type=!item,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^1.5^ damage @e[tag=!fist_hero_self,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=4] 4 suicide entity @s",
           
           "/tag @s remove fist_hero_self"
         ],
         "0.3": [
           "/tag @s add fist_hero_self",
 
-          "/execute @s[tag=maper] ^^1.5^ execute @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
-          "/execute @s[tag=maper] ^^1.5^ tag @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] add melee_damage",
-          "/execute @s[tag=maper] ^^1.5^ damage @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,tag=!no_any_hurt,r=4] 4 suicide",
+          "/execute @s[tag=maper] ^^1.5^ execute @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^1.5^ tag @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] add melee_damage",
+          "/execute @s[tag=maper] ^^1.5^ damage @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,tag=!no_any_hurt,r=4] 4 suicide entity @s",
 
-          "/execute @s[tag=!maper] ^^1.5^ execute @e[tag=!fist_hero_self,family=!fist_shield,family=!tool,family=!tools,type=!item,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
-          "/execute @s[tag=!maper] ^^1.5^ damage @e[tag=!fist_hero_self,family=!fist_shield,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=4] 4 suicide",
+          "/execute @s[tag=!maper] ^^1.5^ execute @e[tag=!fist_hero_self,family=!tool,family=!tools,type=!item,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^1.5^ damage @e[tag=!fist_hero_self,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=4] 4 suicide entity @s",
           
           "/tag @s remove fist_hero_self"
         ],
         "0.4": [
           "/tag @s add fist_hero_self",
 
-          "/execute @s[tag=maper] ^^1.5^ execute @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
-          "/execute @s[tag=maper] ^^1.5^ tag @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] add melee_damage",
-          "/execute @s[tag=maper] ^^1.5^ damage @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,tag=!no_any_hurt,r=4] 4 suicide",
+          "/execute @s[tag=maper] ^^1.5^ execute @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^1.5^ tag @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] add melee_damage",
+          "/execute @s[tag=maper] ^^1.5^ damage @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,tag=!no_any_hurt,r=4] 4 suicide entity @s",
 
-          "/execute @s[tag=!maper] ^^1.5^ execute @e[tag=!fist_hero_self,family=!fist_shield,family=!tool,family=!tools,type=!item,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
-          "/execute @s[tag=!maper] ^^1.5^ damage @e[tag=!fist_hero_self,family=!fist_shield,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=4] 4 suicide",
+          "/execute @s[tag=!maper] ^^1.5^ execute @e[tag=!fist_hero_self,family=!tool,family=!tools,type=!item,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^1.5^ damage @e[tag=!fist_hero_self,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=4] 4 suicide entity @s",
           
           "/tag @s remove fist_hero_self"
         ],
         "0.5": [
           "/tag @s add fist_hero_self",
 
-          "/execute @s[tag=maper] ^^1.5^ execute @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
-          "/execute @s[tag=maper] ^^1.5^ tag @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] add melee_damage",
-          "/execute @s[tag=maper] ^^1.5^ damage @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,tag=!no_any_hurt,r=4] 4 suicide",
+          "/execute @s[tag=maper] ^^1.5^ execute @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^1.5^ tag @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=4] add melee_damage",
+          "/execute @s[tag=maper] ^^1.5^ damage @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,tag=!no_any_hurt,r=4] 4 suicide entity @s",
 
-          "/execute @s[tag=!maper] ^^1.5^ execute @e[tag=!fist_hero_self,family=!fist_shield,family=!tool,family=!tools,type=!item,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
-          "/execute @s[tag=!maper] ^^1.5^ damage @e[tag=!fist_hero_self,family=!fist_shield,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=4] 4 suicide",
+          "/execute @s[tag=!maper] ^^1.5^ execute @e[tag=!fist_hero_self,family=!tool,family=!tools,type=!item,r=4] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^1.5^ damage @e[tag=!fist_hero_self,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=4] 4 suicide entity @s",
           
           "/tag @s remove fist_hero_self"
         ],
@@ -88,12 +88,12 @@
         "1.0": [
           "/tag @s add fist_hero_self",
 
-          "/execute @s[tag=maper] ^^2.5^ execute @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=5] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
-          "/execute @s[tag=maper] ^^2.5^ tag @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,r=5] add melee_damage",
-          "/execute @s[tag=maper] ^^2.5^ damage @e[family=monster,family=!fort,family=!tool,family=!tools,type=!item,tag=!neutral,tag=!no_any_hurt,r=5] 38 suicide",
+          "/execute @s[tag=maper] ^^2.5^ execute @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=5] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^2.5^ tag @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=5] add melee_damage",
+          "/execute @s[tag=maper] ^^2.5^ damage @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,tag=!no_any_hurt,r=5] 38 suicide entity @s",
 
-          "/execute @s[tag=!maper] ^^2.5^ execute @e[tag=!fist_hero_self,family=!fist_shield,family=!tool,family=!tools,type=!item,r=5] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
-          "/execute @s[tag=!maper] ^^2.5^ damage @e[tag=!fist_hero_self,family=!fist_shield,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=5] 38 suicide",
+          "/execute @s[tag=!maper] ^^2.5^ execute @e[tag=!fist_hero_self,family=!tool,family=!tools,type=!item,r=5] ~~~ playsound get_target @p[tag=fist_hero_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^2.5^ damage @e[tag=!fist_hero_self,family=!tool,family=!tools,type=!item,tag=!no_any_hurt,r=5] 38 suicide entity @s",
           
           "/tag @s remove fist_hero_self"
         ],

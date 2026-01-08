@@ -35,7 +35,7 @@
           "impact_damage": {
             // "damage": 0,
             "knockback": false,
-            "destroy_on_hit": true
+            "destroy_on_hit": false
           },
           "definition_event": {
             "affect_projectile": true,
@@ -68,19 +68,16 @@
     },
     "events": {
       "shot_tar": {
-        "add": {
-          "component_groups": [
-            "die"
-          ]
-        },
         "queue_command": {
           "command": [
-            "particle coldsink:redeem_hero_grenade ~~~",
-            "damage @e[family=!player,family=!tool,family=!tools,r=8] 16 suicide",
-            "effect @e[family=!player,family=!tool,family=!tools,r=8] slowness 5 10 true",
-            "effect @e[family=!player,family=!tool,family=!tools,r=8] weakness 5 10 true",
-            "playsound redeem_hero_freeze @a ~~~",
-            "event entity @a[family=!player,family=!tool,family=!tools,r=8] freeze_yes"
+            "execute @s[tag=!done] ~~~ particle coldsink:redeem_hero_grenade ~~~",
+            "execute @s[tag=!done] ~~~ damage @e[family=!player,family=!tool,family=!tools,r=8] 16 suicide entity @s",
+            "execute @s[tag=!done] ~~~ effect @e[family=!player,family=!tool,family=!tools,r=8] slowness 5 10 true",
+            "execute @s[tag=!done] ~~~ effect @e[family=!player,family=!tool,family=!tools,r=8] weakness 5 10 true",
+            "execute @s[tag=!done] ~~~ playsound redeem_hero_freeze @a ~~~",
+            "execute @s[tag=!done] ~~~ event entity @a[family=!player,family=!tool,family=!tools,r=8] freeze_yes",
+            "tag @s add done",
+            "event entity @s godie"
           ]
         }
       },

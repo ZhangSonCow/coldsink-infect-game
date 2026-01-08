@@ -1,0 +1,30 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:ghost_light_sign_ai",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "particle_effects": {
+        "ghost_witch_light_sign_1": "nacal_sdc:ghost_witch_light_sign_1",
+        "ghost_witch_light_sign_2": "nacal_sdc:ghost_witch_light_sign_2"
+      },
+      "animations": {
+        "sign": "animation.ghost_witch.light_sign"
+      },
+      "scripts": {
+        "animate": [
+          "sign"
+        ]
+      },
+      "textures": {
+        "default": "textures/entity/ghost_witch"
+      },
+      "geometry": {
+        "default": "geometry.ghost_witch_lightball"
+      },
+      "render_controllers": [ "controller.render.com" ]
+    }
+  }
+}

@@ -15,7 +15,7 @@
         "texture": "become_witch"
       },
       "minecraft:display_name": {
-        "value": "扮演 Witch"
+        "value": "扮演 §7Witch"
       },
       "minecraft:use_duration": 99999,
       "minecraft:food": {

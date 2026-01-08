@@ -15,11 +15,11 @@
         "texture": "witch_skill"
       },
       "minecraft:display_name": {
-        "value": "§d手持 [长按/右键] 获得增益"
+        "value": "§d手持 [长按/右键] 隐匿回血"
       },
       "minecraft:cooldown": {
-        "category": "witch_skill",
-        "duration": 24
+        "category": "final_witch_skill",
+        "duration": 18
       },
       "minecraft:use_duration": 99999,
       "minecraft:food": {

@@ -2112,6 +2112,60 @@
         }
       ]
     },
+    "tyrant.tnnk.skill": {
+      "category": "neutral",
+      "sounds": [
+        {
+          "name": "sounds/tank/tyrant_tnnk_skill",
+          "stream": true
+        }
+      ]
+    },
+    "tyrant.tnnk.skill.self": {
+      "category": "music",
+      "sounds": [
+        {
+          "name": "sounds/tank/tyrant_tnnk_skill",
+          "stream": true
+        }
+      ]
+    },
+    "tyrant.tnnk.skill_1": {
+      "category": "neutral",
+      "sounds": [
+        {
+          "name": "sounds/tank/tyrant_tnnk_skill_1",
+          "stream": true
+        }
+      ]
+    },
+    "tyrant.tnnk.skill_2": {
+      "category": "neutral",
+      "sounds": [
+        {
+          "name": "sounds/tank/tyrant_tnnk_skill_2",
+          "stream": true
+        }
+      ]
+    },
+    "armor.tnnk.skill_1": {
+      "category": "neutral",
+      "sounds": [
+        {
+          "name": "sounds/tank/armor_tnnk_skill_1",
+          "stream": true
+        }
+      ]
+    },
+    "armor.tnnk.skill_2": {
+      "category": "neutral",
+      "sounds": [
+        {
+          "name": "sounds/tank/armor_tnnk_skill_2",
+          "stream": true
+        }
+      ]
+    },
     //witch
     "witch.death": {
       "category": "music",
@@ -2397,6 +2451,60 @@
       "sounds": [
         {
           "name": "sounds/witch/final_witch_skill",
+          "stream": true
+        }
+      ]
+    },
+    "ghost.witch.skill_powering": {
+      "category": "neutral",
+      "sounds": [
+        {
+          "name": "sounds/witch/ghost_witch_skill_powering",
+          "stream": true
+        }
+      ]
+    },
+    "ghost.witch.skill_throw": {
+      "category": "neutral",
+      "sounds": [
+        {
+          "name": "sounds/witch/ghost_witch_skill_throw",
+          "stream": true
+        }
+      ]
+    },
+    "ghost.witch.skill_end": {
+      "category": "neutral",
+      "sounds": [
+        {
+          "name": "sounds/witch/ghost_witch_skill_end",
+          "stream": true
+        }
+      ]
+    },
+    "ghost.witch.skill_end.self": {
+      "category": "music",
+      "sounds": [
+        {
+          "name": "sounds/witch/ghost_witch_skill_end",
+          "stream": true
+        }
+      ]
+    },
+    "queen.witch.skill": {
+      "category": "neutral",
+      "sounds": [
+        {
+          "name": "sounds/witch/queen_witch_skill",
+          "stream": true
+        }
+      ]
+    },
+    "queen.witch.skill.self": {
+      "category": "music",
+      "sounds": [
+        {
+          "name": "sounds/witch/queen_witch_skill",
           "stream": true
         }
       ]

@@ -381,11 +381,12 @@
             "tag @s add redeem_hero_self",
 
             "execute @e[family=!tool,tag=!redeem_hero_self,r=5,c=1] ~~~ execute @s[family=monster,family=!boss,type=player] ~~~ tag @s add redeem_cure",
+            "execute @e[family=!tool,tag=!redeem_hero_self,r=5,c=1] ~~~ execute @s[family=monster,family=!boss] ~~~ summon coldsink:redeem_cure_tool ~~~ redeem_hero_cure",
             "execute @e[family=!tool,tag=!redeem_hero_self,r=5,c=1] ~~~ execute @s[family=monster,family=!boss] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§a\"},{\"selector\":\"@e[type=coldsink:redeem_hero_ai,tag=redeem_hero_self,c=1]\"},{\"text\":\" [治愈] \"},{\"selector\":\"@s\"}]}",
             "execute @e[family=!tool,tag=!redeem_hero_self,r=5,c=1] ~~~ event entity @s[family=monster,family=!boss,type=!zombie_villager] coldsink:default",
             "execute @e[family=!tool,tag=!redeem_hero_self,r=5,c=1] ~~~ event entity @s[type=zombie_villager] villager_converted",
             
-            "execute @e[family=!tool,tag=!redeem_hero_self,r=5,c=1] ~~~ damage @s[family=monster,family=boss] 50 suicide",
+            "execute @e[family=!tool,tag=!redeem_hero_self,r=5,c=1] ~~~ damage @s[family=monster,family=boss] 50 suicide entity @p[tag=redeem_hero_self]",
 
             "execute @e[family=!tool,tag=!redeem_hero_self,r=5,c=1] ~~~ effect @s[family=player] instant_health 1 3 true",
             "execute @e[family=!tool,tag=!redeem_hero_self,r=5,c=1] ~~~ title @s[family=player] actionbar §a救赎猎手§r @e[type=coldsink:redeem_hero_ai,tag=redeem_hero_self,c=1] §a治疗了你",

@@ -47,8 +47,9 @@
         "queue_command": {
           "command": [
             "tag @a[tag=!maper] add maper",
-            "execute @a[m=c,name=!一只爱浪的小冷辰,name=!RelyingPants365,tag=游戏中] ~~~ say §l§b在对局中开启创造模式，已恢复冒险！",
-            "gamemode 2 @a[m=c,name=!一只爱浪的小冷辰,name=!RelyingPants365,tag=游戏中]",
+            "execute @p[tag=游戏中] ~~~ execute @a[m=c,name=!一只爱浪的小冷辰,name=!RelyingPants365] ~~~ say §l§b在对局中开启创造模式，已恢复冒险！",
+            "execute @p[tag=游戏中] ~~~ gamemode 2 @a[m=c,name=!一只爱浪的小冷辰,name=!RelyingPants365]",
+            "gamemode 2 @a[m=s]",
             "gamerule commandblocksenabled true",
             "effect @a[family=player,tag=游戏中] resistance 0 255 true",
             "effect @a[family=player,tag=游戏中] regeneration 0 255 true",

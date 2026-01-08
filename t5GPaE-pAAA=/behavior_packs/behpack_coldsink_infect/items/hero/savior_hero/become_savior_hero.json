@@ -15,7 +15,7 @@
         "texture": "become_savior_hero"
       },
       "minecraft:display_name": {
-        "value": "§6变身为 [救世主]"
+        "value": "§6变身为 §6[救世主]"
       },
       "minecraft:use_duration": 99999,
       "minecraft:food": {

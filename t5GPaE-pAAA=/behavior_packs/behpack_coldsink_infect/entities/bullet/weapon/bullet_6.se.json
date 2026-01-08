@@ -85,9 +85,9 @@
             "event entity @e[type=!coldsink:bullet_6,family=!tool,type=!item,r=8] coldsink:hurting",
             "particle coldsink:bullet_6_boom ~~~",
             "playsound savior_hero_weapon_2.boom @a ~~~",
-            "damage @e[type=!coldsink:bullet_6,family=!tool,type=!item,tag=!no_any_hurt,r=3] 30 suicide",
-            "damage @e[type=!coldsink:bullet_6,family=!tool,type=!item,tag=!no_any_hurt,r=5,rm=3] 18 suicide",
-            "damage @e[type=!coldsink:bullet_6,family=!tool,type=!item,tag=!no_any_hurt,r=8,rm=5] 8 suicide",
+            "damage @e[type=!coldsink:bullet_6,family=!tool,type=!item,tag=!no_any_hurt,r=3] 30 suicide entity @s",
+            "damage @e[type=!coldsink:bullet_6,family=!tool,type=!item,tag=!no_any_hurt,r=5,rm=3] 18 suicide entity @s",
+            "damage @e[type=!coldsink:bullet_6,family=!tool,type=!item,tag=!no_any_hurt,r=8,rm=5] 8 suicide entity @s",
             "execute @e[type=!coldsink:bullet_6,family=!tool,type=!item,r=8] ~~~ effect @s[family=!tnnk_hard] slowness 1 0 true",
             "event entity @s godie"
           ]

@@ -69,7 +69,7 @@
 						"/stopsound @a[r=16] fist_hero_skill",
 						"/playsound fist_hero_skill_boom @a[r=16]",
 						"/particle nacal_sdc:fist_hero_blast ~~~",
-						"/damage @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=8] 20 suicide"
+						"/damage @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=8] 20 suicide entity @s"
 					]
 				}
 			}

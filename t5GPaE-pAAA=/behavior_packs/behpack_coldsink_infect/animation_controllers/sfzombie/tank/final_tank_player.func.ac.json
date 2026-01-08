@@ -49,7 +49,11 @@
 							"default": "!(q.is_using_item && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_tnnk_skill'))"
 						}
 					],
+					"on_entry": [
+						"/effect @s slowness 99999 0 true"
+					],
 					"on_exit": [
+						"/effect @s slowness 0 1 true",
 						"/title @s actionbar §l§c火球已掷出！",
 						"/event entity @s coldsink:final_tnnk_fireball",
 						"/replaceitem entity @s slot.hotbar 8 coldsink:skill_cooldown 12 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}"

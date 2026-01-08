@@ -1,0 +1,129 @@
+﻿
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "coldsink:witch_lightball",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball"
+    },
+    "component_groups": {
+      "godie": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.5,
+        "height": 0.5
+      },
+      "minecraft:type_family": {
+        "family": [ "tool" ]
+      },
+      "minecraft:timer": {
+        "time": 0.1,
+        "time_down_event": {
+          "target": "self",
+          "event": "check"
+        }
+      },
+      "minecraft:ageable": {
+        "duration": 8,
+        "grow_up": {
+          "event": "godie"
+        }
+      },
+      "minecraft:projectile": {
+        "anchor": 1,
+        "on_hit": {
+          "impact_damage": {
+            "damage": 0,
+            "knockback": false,
+            "destroy_on_hit": true
+          },
+          "definition_event": {
+            "affect_projectile": true,
+            "affect_shooter": false,
+            "affect_target": false,
+            "affect_splash_area": false,
+            "event_trigger": {
+              "event": "lightball",
+              "target": "self"
+            }
+          },
+          "stick_in_ground": {
+            "shake_time": 1
+          }
+        },
+        "power": 1.2,
+        "gravity": 0.01,
+        "liquid_inertia": 0.95
+      },
+      "minecraft:physics": {},
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "lightball": {
+        "queue_command": {
+          "command": [
+            // 清除旧标记
+            "scoreboard players operation @e[type=coldsink:ghost_light_sign] witch_check = @s witch_time",
+            "execute @e[type=coldsink:ghost_light_sign] ~~~ scoreboard players operation @s witch_check -= @s witch_time",
+            "event entity @e[type=coldsink:ghost_light_sign,scores={witch_check=0},c=1] godie",
+
+            "scoreboard players operation @a[tag=is_ghost_witch] witch_check = @s witch_time",
+            "execute @a[tag=is_ghost_witch] ~~~ scoreboard players operation @s witch_check -= @s witch_time",
+
+            // 地图
+            "execute @s[tag=maper] ~~~ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=5,c=1] ~~~ tag @e[type=coldsink:witch_lightball,c=1] add get",
+            "execute @s[tag=maper,tag=get] ~~~ title @a[tag=is_ghost_witch,scores={witch_check=0}] actionbar §l§b光球成功命中目标！",
+            "execute @s[tag=maper,tag=get] ~~~ playsound reward @a[tag=is_ghost_witch,scores={witch_check=0}]",
+            "execute @s[tag=maper] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] 8 suicide entity @p[tag=is_ghost_witch,scores={witch_check=0}]",
+            "execute @s[tag=maper] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=5] 4 suicide entity @p[tag=is_ghost_witch,scores={witch_check=0}]",
+
+            //模组
+            "execute @s[tag=!maper] ~~~ execute @e[family=!final_witch,family=!tool,r=5,c=1] ~~~ tag @e[type=coldsink:witch_lightball,c=1] add get",
+            "execute @s[tag=!maper,tag=get] ~~~ title @a[tag=is_ghost_witch,scores={witch_check=0}] actionbar §l§b光球成功命中目标！",
+            "execute @s[tag=!maper,tag=get] ~~~ playsound reward @a[tag=is_ghost_witch,scores={witch_check=0}]",
+            "execute @s[tag=!maper] ~~~ damage @e[family=!final_witch,family=!tool,r=5] 12 suicide entity @p[tag=is_ghost_witch,scores={witch_check=0}]",
+
+            // 生成光束
+            "summon coldsink:ghost_light_sign",
+            "scoreboard players operation @e[type=coldsink:ghost_light_sign,r=2,c=1] witch_time = @s witch_time",
+            "execute @s[tag=maper] ~~~ tag @e[type=coldsink:ghost_light_sign,r=2,c=1] add maper",
+            "replaceitem entity @p[tag=is_ghost_witch,scores={witch_check=0}] slot.hotbar 8 coldsink:ghost_witch_skill_end 31 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+
+            "particle coldsink:ghost_witch_boom ~~~",
+
+            "event entity @s godie"
+          ]
+        }
+      },
+      "check": {
+        "queue_command": {
+          "command": [
+            "execute @s[tag=!spawned] ~~~ scoreboard players operation @s witch_time = @p[tag=is_ghost_witch] witch_time",
+            "execute @s[tag=!spawned] ~~~ execute @p[tag=is_ghost_witch] ~~~ execute @s[tag=maper] ~~~ tag @e[type=coldsink:witch_lightball,c=1] add maper",
+            "tag @s[tag=!spawned] add neutral",
+            "tag @s[tag=!spawned] add spawned"
+          ]
+        }
+      },
+      "godie": {
+        "add": {
+          "component_groups": [
+            "godie"
+          ]
+        }
+      }
+    }
+  }
+}

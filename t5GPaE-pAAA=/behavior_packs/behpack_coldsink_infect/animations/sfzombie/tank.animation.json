@@ -22,12 +22,12 @@
 
           "/execute @s[tag=maper] ^^2.5^ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] ~~~ playsound get_target @p[tag=tank_self,tag=!no_hit_sound]",
           "/execute @s[tag=maper] ^^2.5^ effect @e[family=player,family=!tool,type=!item,tag=!neutral,tag=!no_any_hurt,r=5] slowness 2 1 true",
-          "/execute @s[tag=maper] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] 5 suicide",
-          "/execute @s[tag=maper] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=5] 3 suicide",
+          "/execute @s[tag=maper] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] 5 suicide entity @s",
+          "/execute @s[tag=maper] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=5] 3 suicide entity @s",
 
           "/execute @s[tag=!maper] ^^2.5^ execute @e[tag=!tank_self,family=!tool,type=!item,r=5] ~~~ playsound get_target @p[tag=tank_self,tag=!no_hit_sound]",
           "/execute @s[tag=!maper] ^^2.5^ effect @e[tag=!tank_self,family=!tool,type=!item,tag=!no_any_hurt,r=5] slowness 2 1 true",
-          "/execute @s[tag=!maper] ^^2.5^ damage @e[tag=!tank_self,family=!tool,type=!item,r=5] 11 suicide",
+          "/execute @s[tag=!maper] ^^2.5^ damage @e[tag=!tank_self,family=!tool,type=!item,r=5] 11 suicide entity @s",
           
           "/tag @s remove tank_self"
         ],
@@ -57,12 +57,12 @@
 
           "/execute @s[tag=maper] ^^3^ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=6] ~~~ playsound get_target @p[tag=tank_self,tag=!no_hit_sound]",
           "/execute @s[tag=maper] ^^3^ effect @e[family=player,family=!tool,type=!item,tag=!neutral,tag=!no_any_hurt,r=6] levitation 1 0 true",
-          "/execute @s[tag=maper] ^^3^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=6] 9 suicide",
-          "/execute @s[tag=maper] ^^3^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=6] 6 suicide",
+          "/execute @s[tag=maper] ^^3^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=6] 9 suicide entity @s",
+          "/execute @s[tag=maper] ^^3^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=6] 6 suicide entity @s",
 
           "/execute @s[tag=!maper] ^^3^ execute @e[tag=!tank_self,family=!tool,type=!item,r=6] ~~~ playsound get_target @p[tag=tank_self,tag=!no_hit_sound]",
           "/execute @s[tag=maper] ^^3^ effect @e[tag=!tank_self,family=!tool,type=!item,tag=!no_any_hurt,r=6] levitation 1 0 true",
-          "/execute @s[tag=!maper] ^^3^ damage @e[tag=!tank_self,family=!tool,type=!item,r=6] 24 suicide",
+          "/execute @s[tag=!maper] ^^3^ damage @e[tag=!tank_self,family=!tool,type=!item,r=6] 24 suicide entity @s",
           
           "/tag @s remove tank_self"
         ],

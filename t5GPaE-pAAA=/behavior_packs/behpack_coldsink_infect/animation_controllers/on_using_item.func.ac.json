@@ -6,6 +6,13 @@
                 "default": {
                     "transitions": [
                         {
+                            "tem": "!q.is_using_item"
+                        }
+                    ]
+                },
+                "tem": {
+                    "transitions": [
+                        {
                             "using": "q.is_using_item"
                         }
                     ]
@@ -25,6 +32,10 @@
                         {"become_witch": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_witch')"},
                         {"become_final_tnnk": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_final_tnnk')"},
                         {"become_final_witch": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_final_witch')"},
+                        {"become_tyrant_tnnk": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_tyrant_tnnk')"},
+                        {"become_ghost_witch": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_ghost_witch')"},
+                        {"become_armor_tnnk": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_armor_tnnk')"},
+                        {"become_queen_witch": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_queen_witch')"},
                         // 特感技能
                         {"hunter_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:hunter_skill')"},
                         {"spitter_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:spitter_skill')"},
@@ -38,8 +49,15 @@
                         {"smoker_smoke_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:smoker_smoke_skill')"},
                         {"tnnk_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:tnnk_skill')"},
                         {"tnnk_howl_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:tnnk_howl_skill')"},
-                        {"final_witch_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_witch_skill')"},
                         {"witch_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:witch_skill')"},
+                        {"final_witch_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_witch_skill')"},
+                        {"tyrant_tnnk_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:tyrant_tnnk_skill')"},
+                        {"tyrant_tnnk_howl_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:tyrant_tnnk_howl_skill')"},
+                        {"armor_tnnk_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:armor_tnnk_skill')"},
+                        {"ghost_witch_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:ghost_witch_skill')"},
+                        {"ghost_witch_skill_end": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:ghost_witch_skill_end')"},
+                        {"armor_tnnk_howl_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:armor_tnnk_howl_skill')"},
+                        {"queen_witch_skill": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:queen_witch_skill')"},
                         // 英雄变身
                         {"become_human_hero": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_human_hero')"},
                         {"become_savior_hero": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:become_savior_hero')"},
@@ -62,6 +80,13 @@
                         {"middle_space_hero": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:middle_space_hero')"},
                         {"middle_redeem_hero": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:middle_redeem_hero')"},
                         {"middle_fist_hero": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:middle_fist_hero')"},
+                        // 特感Boss进化选择
+                        {"middle_final_tnnk": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:middle_final_tnnk')"},
+                        {"middle_final_witch": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:middle_final_witch')"},
+                        {"middle_tyrant_tnnk": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:middle_tyrant_tnnk')"},
+                        {"middle_ghost_witch": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:middle_ghost_witch')"},
+                        {"middle_armor_tnnk": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:middle_armor_tnnk')"},
+                        {"middle_queen_witch": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:middle_queen_tnnk')"},
 						// 切换轻重击
                         {"change_attack": "q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:big_attack') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:human_hero_weapon') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_hero_weapon') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:machine_hero_melee') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:space_hero_weapon') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:redeem_hero_weapon') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:fist_hero_weapon') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:final_double_sword') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_1') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_2') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_3') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_4') || q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:melee_5')"},
 						// 道具
@@ -129,6 +154,22 @@
                     "transitions": [{"default": "!q.is_using_item"}],
                     "on_entry": ["/function item/sfzombie/become_final_witch"]
                 },
+                "become_tyrant_tnnk": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/sfzombie/become_tyrant_tnnk"]
+                },
+                "become_ghost_witch": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/sfzombie/become_ghost_witch"]
+                },
+                "become_armor_tnnk": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/sfzombie/become_armor_tnnk"]
+                },
+                "become_queen_witch": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/sfzombie/become_queen_witch"]
+                },
 				// 特感技能
                 "hunter_skill": {
                     "transitions": [{"default": "!q.is_using_item"}],
@@ -176,7 +217,7 @@
                 },
                 "tnnk_howl_skill": {
                     "transitions": [{"default": "!q.is_using_item"}],
-                    "on_entry": ["/execute @s[family=tnnk] ~~~ function item/sfzombie/tnnk_howl_skill"]
+                    "on_entry": ["/execute @s[family=tnnk] ~~~ function item/sfzombie/tnnk_howl_skill", "/execute @s[family=final_tnnk] ~~~ function item/sfzombie/tnnk_howl_skill"]
                 },
                 "witch_skill": {
                     "transitions": [{"default": "!q.is_using_item"}],
@@ -184,7 +225,34 @@
                 },
                 "final_witch_skill": {
                     "transitions": [{"default": "!q.is_using_item"}],
-                    "on_entry": ["/execute @s[family=final_tnnk] ~~~ function item/sfzombie/final_witch_skill"]
+                    "on_entry": ["/execute @s[family=final_witch] ~~~ function item/sfzombie/final_witch_skill"]
+                },
+                "tyrant_tnnk_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=tyrant_tnnk] ~~~ function item/sfzombie/tyrant_tnnk_skill"]
+                },
+                "tyrant_tnnk_howl_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=tyrant_tnnk] ~~~ function item/sfzombie/tnnk_howl_skill"]
+                },
+                "armor_tnnk_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=armor_tnnk] ~~~ function item/sfzombie/armor_tnnk_skill"]
+                },
+                "ghost_witch_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}]
+                },
+                "ghost_witch_skill_end": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=ghost_witch] ~~~ function item/sfzombie/ghost_witch_skill_end"]
+                },
+                "armor_tnnk_howl_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=armor_tnnk] ~~~ function item/sfzombie/tnnk_howl_skill"]
+                },
+                "queen_witch_skill": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/execute @s[family=queen_witch] ~~~ function item/sfzombie/queen_witch_skill"]
                 },
 				// 英雄变身
                 "become_human_hero": {
@@ -264,6 +332,31 @@
                 "middle_fist_hero": {
                     "transitions": [{"default": "!q.is_using_item"}],
                     "on_entry": ["/function item/human/middle_fist_hero"]
+                },
+                // 特感Boss进化选择
+                "middle_final_tnnk": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/sfzombie/middle_final_tnnk"]
+                },
+                "middle_final_witch": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/sfzombie/middle_final_witch"]
+                },
+                "middle_tyrant_tnnk": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/sfzombie/middle_tyrant_tnnk"]
+                },
+                "middle_ghost_witch": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/sfzombie/middle_ghost_witch"]
+                },
+                "middle_armor_tnnk": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/sfzombie/middle_armor_tnnk"]
+                },
+                "middle_queen_witch": {
+                    "transitions": [{"default": "!q.is_using_item"}],
+                    "on_entry": ["/function item/sfzombie/middle_queen_witch"]
                 },
 				// 切换轻重击
                 "change_attack": {

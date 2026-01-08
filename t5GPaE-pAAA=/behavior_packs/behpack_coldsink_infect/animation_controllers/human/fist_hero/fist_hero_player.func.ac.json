@@ -91,9 +91,9 @@
 						"/particle nacal_sdc:fist_hero_blast ~~~",
 
           				"/tag @s add fist_skill_self",
-						"/execute @s[tag=maper] ~~~ damage @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=8] 20 suicide",
+						"/execute @s[tag=maper] ~~~ damage @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=8] 20 suicide entity @s",
 						"/execute @s[tag=maper] ~~~ execute @e[family=monster,family=!tool,family=!tools,type=!item,tag=!neutral,r=8] ~~~ playsound get_target @p[tag=fist_skill_self,tag=!no_hit_sound]",
-						"/execute @s[tag=!maper] ~~~ damage @e[tag=!fist_skill_self,family=!tool,family=!tools,type=!item,r=8] 20 suicide",
+						"/execute @s[tag=!maper] ~~~ damage @e[tag=!fist_skill_self,family=!tool,family=!tools,type=!item,r=8] 20 suicide entity @s",
 						"/execute @s[tag=!maper] ~~~ execute @e[tag=!fist_skill_self,family=!tool,family=!tools,type=!item,r=8] ~~~ playsound get_target @p[tag=fist_skill_self,tag=!no_hit_sound]",
 						"/tag @s remove fist_skill_self"
 					]

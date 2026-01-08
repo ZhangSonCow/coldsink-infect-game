@@ -1,0 +1,14 @@
+effect @a[family=hunter] speed 99999 1 true
+effect @a[family=spitter] speed 99999 0 true
+effect @a[family=charger] speed 99999 0 true
+effect @a[family=jockey] speed 99999 1 true
+effect @a[family=boomer] speed 99999 0 true
+effect @a[family=smoker] speed 99999 0 true
+effect @a[family=tnnk] speed 99999 0 true
+effect @a[family=final_tnnk] speed 99999 0 true
+effect @a[family=tyrant_tnnk] speed 99999 0 true
+effect @a[family=armor_tnnk] speed 99999 0 true
+effect @a[family=witch] speed 99999 1 true
+effect @a[family=final_witch] speed 99999 1 true
+effect @a[family=ghost_witch] speed 99999 1 true
+effect @a[family=queen_witch] speed 99999 1 true

@@ -1,9 +1,9 @@
 {
   "modules": [
     {
-      "description": "拿起武器、变身英雄，与末世的特感怪物们，展开殊死决斗！",
+      "description": "",
       "type": "resources",
-      "uuid": "4d219e87-1bcd-493c-a0d5-92b7f7fc14d6",
+      "uuid": "9bb1369e-e692-4bc8-950b-4b748c3631a2",
       "version": [
         0,
         0,
@@ -12,9 +12,9 @@
     }
   ],
   "header": {
-    "description": "拿起武器、变身英雄，与末世的特感怪物们，展开殊死决斗！",
-    "name": "特感生化-资源包",
-    "uuid": "c8c44461-db48-4899-93b3-800b82158e52",
+    "description": "",
+    "name": "resource_pack",
+    "uuid": "4f396332-b8fd-450c-9776-6e32a67aee24",
     "version": [
       0,
       0,

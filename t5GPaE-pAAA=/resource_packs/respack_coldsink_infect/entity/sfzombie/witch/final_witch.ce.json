@@ -37,18 +37,15 @@
         "nacal_customblend":"nacal_customblend"
       },
       "textures": {
-        "default": "textures/entity/final_witch",
+        "final_witch": "textures/entity/final_witch",
         "final_witch_sign": "textures/entity/final_witch_sign"
       },
       "geometry": {
-        "default": "geometry.witch_0",
+        "witch_0": "geometry.witch_0",
         "boss_sign": "geometry.boss_sign"
       },
       "render_controllers": [
-        "controller.render.com",
-        {
-          "controller.render.final_witch_sign": "q.is_ignited"
-        }
+        "controller.render.final_witch"
       ],
       "spawn_egg": {
         "base_color": "#1a1b69",

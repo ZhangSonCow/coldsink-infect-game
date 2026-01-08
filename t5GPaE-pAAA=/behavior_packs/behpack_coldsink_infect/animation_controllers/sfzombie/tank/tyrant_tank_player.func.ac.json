@@ -1,0 +1,93 @@
+{
+	"format_version": "1.18.0",
+	"animation_controllers": {
+		"controller.animation.tyrant_tank_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"attack_light": "v.attack_time && !q.is_saddled"
+						},
+						{
+							"attack_heavy": "v.attack_time && q.is_saddled"
+						},
+						{
+							"skill": "q.property('coldsink:action_status') == 3"
+						},
+						{
+							"skill_howl": "q.property('coldsink:action_status') == 4"
+						}
+					]
+				},
+				"attack_light": {
+					"animations": [ "tyrant_tank_attack_light" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_light"
+					]
+				},
+				"attack_heavy": {
+					"animations": [ "tyrant_tank_attack_heavy" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					],
+					"on_entry": [
+						"/event entity @s action_attack_heavy"
+					]
+				},
+				"skill": {
+					"animations": [ "tyrant_tank_skill_timer" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				},
+				"skill_howl": {
+					"animations": [ "tyrant_tank_skill_howl_timer" ],
+					"transitions": [
+						{
+							"default": "q.property('coldsink:action_status') == 0"
+						}
+					]
+				}
+			}
+		},
+
+		// 咆哮增益持续时间
+
+		"controller.animation.tyrant_tank_buff_player.func": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"skill": "q.property('coldsink:time_skill')"
+						}
+					]
+				},
+				"skill": {
+					"animations": [ "tyrant_tank_buff_timer" ],
+					"transitions": [
+						{
+							"default": "!q.property('coldsink:time_skill')"
+						}
+					],
+					"on_entry": [
+						"/tag @s add tyrant_buff"
+					],
+					"on_exit": [
+						"/tag @s remove tyrant_buff"
+					]
+				}
+			}
+		}
+	}
+}

@@ -85,18 +85,18 @@
             "particle coldsink:machine_hero_boom ~~~",
             "playsound machine_hero_boom @a ~~~",
 
-            "execute @s[tag=maper] ~~~ eevent entity @e[c=1,family=monster,family=!tool,tag=!neutral,r=12] coldsink:hurting",
+            "execute @s[tag=maper] ~~~ event entity @e[c=1,family=monster,family=!tool,tag=!neutral,r=12] coldsink:hurting",
             "execute @s[tag=maper] ~~~ tag @e[family=monster,family=!tool,tag=!neutral,r=12] add machine_back",
-            "execute @s[tag=maper] ~~~ damage @e[family=monster,family=!tool,tag=!neutral,tag=!no_any_hurt,r=5] 48 suicide",
-            "execute @s[tag=maper] ~~~ damage @e[family=monster,family=!tool,tag=!neutral,tag=!no_any_hurt,r=8,rm=5] 28 suicide",
-            "execute @s[tag=maper] ~~~ damage @e[family=monster,family=!tool,tag=!neutral,tag=!no_any_hurt,r=12,rm=8] 12 suicide",
+            "execute @s[tag=maper] ~~~ damage @e[family=monster,family=!tool,tag=!neutral,tag=!no_any_hurt,r=5] 48 suicide entity @s",
+            "execute @s[tag=maper] ~~~ damage @e[family=monster,family=!tool,tag=!neutral,tag=!no_any_hurt,r=8,rm=5] 28 suicide entity @s",
+            "execute @s[tag=maper] ~~~ damage @e[family=monster,family=!tool,tag=!neutral,tag=!no_any_hurt,r=12,rm=8] 12 suicide entity @s",
             "execute @s[tag=maper] ~~~ effect @e[family=monster,family=!tool,tag=!neutral,r=12] slowness 4 1 true",
 
-            "execute @s[tag=!maper] ~~~ eevent entity @e[c=1,family=!machine_hero,family=!tool,type=!item,r=12] coldsink:hurting",
+            "execute @s[tag=!maper] ~~~ event entity @e[c=1,family=!machine_hero,family=!tool,type=!item,r=12] coldsink:hurting",
             "execute @s[tag=!maper] ~~~ tag @e[family=!machine_hero,family=!tool,type=!item,r=12] add machine_back",
-            "execute @s[tag=!maper] ~~~ damage @e[family=!machine_hero,family=!tool,type=!item,tag=!no_any_hurt,r=5] 48 suicide",
-            "execute @s[tag=!maper] ~~~ damage @e[family=!machine_hero,family=!tool,type=!item,tag=!no_any_hurt,r=8,rm=5] 28 suicide",
-            "execute @s[tag=!maper] ~~~ damage @e[family=!machine_hero,family=!tool,type=!item,tag=!no_any_hurt,r=12,rm=8] 12 suicide",
+            "execute @s[tag=!maper] ~~~ damage @e[family=!machine_hero,family=!tool,type=!item,tag=!no_any_hurt,r=5] 48 suicide entity @s",
+            "execute @s[tag=!maper] ~~~ damage @e[family=!machine_hero,family=!tool,type=!item,tag=!no_any_hurt,r=8,rm=5] 28 suicide entity @s",
+            "execute @s[tag=!maper] ~~~ damage @e[family=!machine_hero,family=!tool,type=!item,tag=!no_any_hurt,r=12,rm=8] 12 suicide entity @s",
             "execute @s[tag=!maper] ~~~ effect @e[family=!machine_hero,family=!tool,type=!item,r=12] slowness 4 1 true"
           ]
         }

@@ -8,7 +8,7 @@
 					"animations": [ "sfzombie_stay_heal", "sfzombie_heal_effect" ],
 					"transitions": [
 						{
-							"move": "q.is_moving || v.attack_time || (q.property('coldsink:action_status') > 0 && q.variant != 8 && q.variant != 12) || (q.property('coldsink:action_status') > 0 && (q.variant == 8 || q.variant == 12) && q.property('coldsink:action_status') != 4)"
+							"move": "q.is_moving || v.attack_time || (q.property('coldsink:action_status') > 0 && q.variant != 8 && q.variant != 12 && q.variant != 22 && q.variant != 24) || (q.property('coldsink:action_status') > 0 && (q.variant == 8 || q.variant == 12 || q.variant == 22 || q.variant == 24) && q.property('coldsink:action_status') != 4) || (q.is_using_item && q.is_item_name_any('slot.weapon.mainhand', 0, 'coldsink:ghost_witch_skill'))"
 						}
 					],
 					"on_entry": [
@@ -17,6 +17,8 @@
 					"on_exit": [
 						"/execute @s[family=witch,scores={sfzombie_stay=7..}] ~~~ function sfzombie/witch_alarm",
 						"/execute @s[family=final_witch,scores={sfzombie_stay=7..}] ~~~ function sfzombie/final_witch_alarm",
+						"/execute @s[family=ghost_witch,scores={sfzombie_stay=7..}] ~~~ function sfzombie/final_witch_alarm",
+						"/execute @s[family=queen_witch,scores={sfzombie_stay=7..}] ~~~ function sfzombie/final_witch_alarm",
 						
 						"/title @s[tag=stay_heal] actionbar §f",
 						"/tag @s remove stay_heal",

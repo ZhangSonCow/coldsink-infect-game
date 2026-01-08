@@ -15,7 +15,7 @@
         "texture": "become_human_hero"
       },
       "minecraft:display_name": {
-        "value": "§6变身为 [幽灵猎手]"
+        "value": "§6变身为 §6[幽灵猎手]"
       },
       "minecraft:use_duration": 99999,
       "minecraft:food": {

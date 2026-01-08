@@ -349,6 +349,18 @@
     "become_final_witch": {
       "textures": "textures/items/become/final_witch_icon"
     },
+    "become_tyrant_tnnk": {
+      "textures": "textures/items/become/tyrant_tank_icon"
+    },
+    "become_ghost_witch": {
+      "textures": "textures/items/become/ghost_witch_icon"
+    },
+    "become_armor_tnnk": {
+      "textures": "textures/items/become/armor_tank_icon"
+    },
+    "become_queen_witch": {
+      "textures": "textures/items/become/queen_witch_icon"
+    },
     "hunter_skill": {
       "textures": "textures/items/become/hunter_skill"
     },
@@ -379,6 +391,9 @@
     "witch_skill": {
       "textures": "textures/items/become/witch_skill"
     },
+    "witch_skill_change": {
+      "textures": "textures/items/become/witch_skill_change"
+    },
     "become_hunter_give": {
       "textures": "textures/items/give/hunter_give"
     },
@@ -408,6 +423,18 @@
     },
     "become_final_witch_give": {
       "textures": "textures/items/give/final_witch_give"
+    },
+    "become_tyrant_tnnk_give": {
+      "textures": "textures/items/give/tyrant_tank_give"
+    },
+    "become_ghost_witch_give": {
+      "textures": "textures/items/give/ghost_witch_give"
+    },
+    "become_armor_tnnk_give": {
+      "textures": "textures/items/give/armor_tank_give"
+    },
+    "become_queen_witch_give": {
+      "textures": "textures/items/give/queen_witch_give"
     },
     
     // 投掷道具

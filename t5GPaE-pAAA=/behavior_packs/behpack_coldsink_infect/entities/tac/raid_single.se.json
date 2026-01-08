@@ -58,7 +58,7 @@
             "playsound tac.he @a ~~~ 1 1 0.1",
             "effect @e[family=!player,tag=!neutral,family=!bullet,r=8] slowness 3 0 true",
             "event entity @e[family=!player,tag=!neutral,family=!bullet,r=8] coldsink:hurting",
-            "damage @e[family=!player,tag=!neutral,family=!bullet,r=8] 16 suicide",
+            "damage @e[family=!player,tag=!neutral,family=!bullet,r=8] 16 suicide entity @p[scores={raid_check=0}]",
             "particle nacal_tac:burn_2 ~ ~0.2 ~"
           ]
         },

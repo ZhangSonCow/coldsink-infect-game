@@ -68,13 +68,13 @@
 
             "scoreboard players add @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] spitter_count 1",
             
-            "execute @s[tag=!dead_acid] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=1..4},r=5] 1 suicide",
-            "execute @s[tag=!dead_acid] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=5..7},r=5] 2 suicide",
-            "execute @s[tag=!dead_acid] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=8..},r=5] 3 suicide",
+            "execute @s[tag=!dead_acid] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=1..4},r=5] 1 suicide entity @e[type=!player,family=!spitter,scores={spitter_check=0},c=1]",
+            "execute @s[tag=!dead_acid] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=5..7},r=5] 2 suicide entity @e[type=!player,family=!spitter,scores={spitter_check=0},c=1]",
+            "execute @s[tag=!dead_acid] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=8..},r=5] 3 suicide entity @e[type=!player,family=!spitter,scores={spitter_check=0},c=1]",
 
-            "execute @s[tag=dead_acid] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=1..4},r=5] 1 suicide",
-            "execute @s[tag=dead_acid] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=5..7},r=5] 2 suicide",
-            "execute @s[tag=dead_acid] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=8..},r=5] 3 suicide",
+            "execute @s[tag=dead_acid] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=1..4},r=5] 1 suicide entity @s",
+            "execute @s[tag=dead_acid] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=5..7},r=5] 2 suicide entity @s",
+            "execute @s[tag=dead_acid] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,scores={spitter_count=8..},r=5] 3 suicide entity @s",
             
             "scoreboard players reset @e[family=player,family=!tool,type=!item,tag=!neutral,rm=5,r=10] spitter_count"
           ]

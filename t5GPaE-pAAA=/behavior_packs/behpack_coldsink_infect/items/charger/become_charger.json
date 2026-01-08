@@ -15,7 +15,7 @@
         "texture": "become_charger"
       },
       "minecraft:display_name": {
-        "value": "扮演 Charger"
+        "value": "扮演 §7Charger"
       },
       "minecraft:use_duration": 99999,
       "minecraft:food": {

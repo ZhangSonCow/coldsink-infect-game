@@ -15,7 +15,7 @@
         "texture": "become_redeem_hero"
       },
       "minecraft:display_name": {
-        "value": "§b变身为 [救赎猎手]"
+        "value": "§b变身为 §b[救赎猎手]"
       },
       "minecraft:use_duration": 99999,
       "minecraft:food": {

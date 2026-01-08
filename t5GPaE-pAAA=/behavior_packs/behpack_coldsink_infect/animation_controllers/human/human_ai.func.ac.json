@@ -24,7 +24,7 @@
 				},
 				"death": {
 					"on_entry": [
-						"/execute @s[tag=!母体,tag=!大母体] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§4\"},{\"selector\":\"@s\"},{\"text\":\" 被感染\"}]}",
+						// "/execute @s[tag=!母体,tag=!大母体] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§4\"},{\"selector\":\"@s\"},{\"text\":\" 被感染\"}]}",
 						"/execute @s[type=coldsink:human_ai,tag=母体] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§4\"},{\"selector\":\"@s\"},{\"text\":\" 被选为母体\"}]}",
 						"/execute @s[type=coldsink:human_ai,tag=大母体] ~~~ tellraw @a {\"rawtext\":[{\"text\":\"§4\"},{\"selector\":\"@s\"},{\"text\":\" 被选为特殊母体\"}]}",
 						"/execute @s[type=coldsink:human_ai,tag=!母体,tag=!大母体] ~~~ playsound human_infect @a",
@@ -43,11 +43,22 @@
 						"/execute @s[type=coldsink:human_ai,name=碍登] ~~~ summon coldsink:dead_human_ai ~~~ skin_13 碍登",
 						"/execute @s[type=coldsink:human_ai,name=牛腩面面] ~~~ summon coldsink:dead_human_ai ~~~ skin_14 牛腩面面",
 						"/execute @s[type=coldsink:human_ai,name=蚕币] ~~~ summon coldsink:dead_human_ai ~~~ skin_15 蚕币",
-						"/execute @s[type=coldsink:human_ai] ~~~ scoreboard players operation @e[type=coldsink:dead_human_ai,c=1] game_score = @s game_score",
-						"/execute @s[type=coldsink:human_ai] ~~~ tag @e[type=coldsink:dead_human_ai,tag=!游戏中,c=1] add 游戏中",
-						"/execute @s[type=coldsink:human_ai,tag=大母体] ~~~ tag @e[type=coldsink:dead_human_ai,c=1] add 大母体",
+						"/execute @s[type=coldsink:human_ai,name=肿渴] ~~~ summon coldsink:dead_human_ai ~~~ skin_16 肿渴",
+						"/execute @s[type=coldsink:human_ai,name=天浊] ~~~ summon coldsink:dead_human_ai ~~~ skin_17 天浊",
+						"/execute @s[type=coldsink:human_ai,name=大窑队长] ~~~ summon coldsink:dead_human_ai ~~~ skin_18 大窑队长",
+						"/execute @s[type=coldsink:human_ai,name=小圆] ~~~ summon coldsink:dead_human_ai ~~~ skin_19 小圆",
+						"/execute @s[type=coldsink:human_ai,name=冰开水] ~~~ summon coldsink:dead_human_ai ~~~ skin_20 冰开水",
+						"/execute @s[type=coldsink:human_ai,name=呐咔] ~~~ summon coldsink:dead_human_ai ~~~ skin_21 呐咔",
+						"/execute @s[type=coldsink:human_ai,name=古德英钠夫] ~~~ summon coldsink:dead_human_ai ~~~ skin_22 古德英钠夫",
+						"/execute @s[type=coldsink:human_ai,name=及及] ~~~ summon coldsink:dead_human_ai ~~~ skin_23 及及",
+						"/execute @s[type=coldsink:human_ai,name=衣阳悯雨] ~~~ summon coldsink:dead_human_ai ~~~ skin_24 衣阳悯雨",
+						"/execute @s[type=coldsink:human_ai,name=冰薄zxc] ~~~ summon coldsink:dead_human_ai ~~~ skin_25 冰薄zxc",
+						"/execute @s[type=coldsink:human_ai,name=凋玲玲] ~~~ summon coldsink:dead_human_ai ~~~ skin_26 凋玲玲",
+						"/execute @s[type=coldsink:human_ai,name=宏烧甜鱼OWO] ~~~ summon coldsink:dead_human_ai ~~~ skin_27 宏烧甜鱼OWO",
+						"/execute @s[type=coldsink:human_ai,name=火机面] ~~~ summon coldsink:dead_human_ai ~~~ skin_28 火机面",
+						"/execute @s[type=coldsink:human_ai,name=一个被浪的尸体] ~~~ summon coldsink:dead_human_ai ~~~ skin_29 一个被浪的尸体",
 						
-						"/event entity @s[type=coldsink:human_ai] godie"
+						"/event entity @s[type=coldsink:human_ai] be_sfzombie"
 					]
 				}
 			}

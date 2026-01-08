@@ -15,7 +15,7 @@
         "texture": "become_final_tnnk"
       },
       "minecraft:display_name": {
-        "value": "扮演 炼狱泰坦"
+        "value": "扮演 §c炼狱泰坦"
       },
       "minecraft:use_duration": 99999,
       "minecraft:food": {

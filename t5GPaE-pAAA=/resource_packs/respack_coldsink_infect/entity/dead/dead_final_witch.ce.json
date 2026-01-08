@@ -18,10 +18,10 @@
         ]
       },
       "textures": {
-        "default": "textures/entity/final_witch_glow"
+        "default": "textures/entity/final_witch"
       },
       "geometry": {
-        "default": "geometry.final_witch"
+        "default": "geometry.witch_0"
       },
       "render_controllers": [ "controller.render.com" ],
       "spawn_egg": {

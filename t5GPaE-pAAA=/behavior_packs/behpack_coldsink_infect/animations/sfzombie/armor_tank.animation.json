@@ -1,0 +1,135 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.armor_tank_attack_light.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.0": [
+          "/scoreboard players random @s wp_random 1 3",
+          "/tag @s add self",
+          "/execute @s[scores={wp_random=1},tag=!sound_interval] ~~~ playsound tank.attack_1 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=2},tag=!sound_interval] ~~~ playsound tank.attack_2 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=3},tag=!sound_interval] ~~~ playsound tank.attack_3 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=1},tag=!sound_interval] ~~~ playsound tank.attack_1.self @s",
+          "/execute @s[scores={wp_random=2},tag=!sound_interval] ~~~ playsound tank.attack_2.self @s",
+          "/execute @s[scores={wp_random=3},tag=!sound_interval] ~~~ playsound tank.attack_3.self @s",
+          "/tag @s remove self",
+          "/tag @s add sound_interval"
+        ],
+        "0.75": [
+          "/tag @s add armor_tank_self",
+
+          "/execute @s[tag=maper] ^^2.5^ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] ~~~ playsound get_target @p[tag=armor_tank_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^2.5^ effect @e[family=player,family=!tool,type=!item,tag=!neutral,tag=!no_any_hurt,r=5] slowness 2 2 true",
+          "/execute @s[tag=maper] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=5] 6 suicide entity @s",
+          "/execute @s[tag=maper] ^^2.5^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=5] 4 suicide entity @s",
+
+          "/execute @s[tag=!maper] ^^2.5^ execute @e[tag=!armor_tank_self,family=!tool,type=!item,r=5] ~~~ playsound get_target @p[tag=armor_tank_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ^^2.5^ effect @e[tag=!armor_tank_self,family=!tool,type=!item,tag=!no_any_hurt,r=5] slowness 2 2 true",
+          "/execute @s[tag=!maper] ^^2.5^ damage @e[tag=!armor_tank_self,family=!tool,type=!item,r=5] 14 suicide entity @s",
+          
+          "/tag @s remove armor_tank_self"
+        ],
+        "1.3": [
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.armor_tank_attack_heavy.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.0": [
+          "/scoreboard players random @s wp_random 1 3",
+          "/tag @s add self",
+          "/execute @s[scores={wp_random=1},tag=!sound_interval] ~~~ playsound tank.attack_big_1 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=2},tag=!sound_interval] ~~~ playsound tank.attack_big_2 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=3},tag=!sound_interval] ~~~ playsound tank.attack_big_3 @a[tag=!self] ~~~",
+          "/execute @s[scores={wp_random=1},tag=!sound_interval] ~~~ playsound tank.attack_big_1.self @s",
+          "/execute @s[scores={wp_random=2},tag=!sound_interval] ~~~ playsound tank.attack_big_2.self @s",
+          "/execute @s[scores={wp_random=3},tag=!sound_interval] ~~~ playsound tank.attack_big_3.self @s",
+          "/tag @s remove self",
+          "/tag @s add sound_interval"
+        ],
+        "1.15": [
+          "/tag @s add armor_tank_self",
+
+          "/execute @s[tag=maper] ^^3^ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=6] ~~~ playsound get_target @p[tag=armor_tank_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^3^ effect @e[family=player,family=!tool,type=!item,tag=!neutral,tag=!no_any_hurt,r=6] levitation 1 1 true",
+          "/execute @s[tag=maper] ^^3^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=6] 11 suicide entity @s",
+          "/execute @s[tag=maper] ^^3^ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=6] 8 suicide entity @s",
+
+          "/execute @s[tag=!maper] ^^3^ execute @e[tag=!armor_tank_self,family=!tool,type=!item,r=6] ~~~ playsound get_target @p[tag=armor_tank_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ^^3^ effect @e[tag=!armor_tank_self,family=!tool,type=!item,tag=!no_any_hurt,r=6] levitation 1 1 true",
+          "/execute @s[tag=!maper] ^^3^ damage @e[tag=!armor_tank_self,family=!tool,type=!item,r=6] 30 suicide entity @s",
+          
+          "/tag @s remove armor_tank_self"
+        ],
+        "1.8": [
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.armor_tank_skill_timer.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "0.0": [
+          "/effect @s slowness 1 4 true",
+          
+          "/tag @s add armor_tank_self",
+
+          "/execute @s[tag=maper,type=player] ~~~ execute @e[family=player,family=!tool,type=!item,tag=!neutral,r=12] ~~~ playsound get_target @p[tag=armor_tank_self,tag=!no_hit_sound]",
+          "/execute @s[tag=maper] ~~~ effect @e[family=player,family=!tool,type=!item,tag=!neutral,tag=!no_any_hurt,r=12] levitation 1 5 true",
+          "/execute @s[tag=maper] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=12] 12 suicide entity @s",
+          "/execute @s[tag=maper] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,tag=is_hero,r=12] 8 suicide entity @s",
+
+          "/execute @s[tag=!maper,type=player] ~~~ execute @e[tag=!armor_tank_self,family=!tool,type=!item,r=12] ~~~ playsound get_target @p[tag=armor_tank_self,tag=!no_hit_sound]",
+          "/execute @s[tag=!maper] ~~~ effect @e[tag=!armor_tank_self,family=!tool,type=!item,tag=!no_any_hurt,r=12] levitation 1 5 true",
+          "/execute @s[tag=!maper] ~~~ damage @e[tag=!armor_tank_self,family=!tool,type=!item,r=12] 36 suicide entity @s",
+          
+          "/tag @s remove armor_tank_self",
+
+          "/playsound armor.tnnk.skill_2 @a[r=16] ~~~",
+          
+          "/particle nacal_sdc:armor_tnnk_skill_2 ~~~",
+          "/particle nacal_sdc:armor_tnnk_skill_3 ~~~"
+        ],
+        "0.75": [
+          "/event entity @s[type=player] action_clear",
+          "/event entity @s[type=!player] skill_over",
+          "/effect @s slowness 0 5 true"
+        ]
+      }
+    },
+    "animation.armor_tank_skill_howl_timer.func": {
+      "loop": false,
+      "animation_length": 2.0,
+      "timeline": {
+        "0.0": [
+          "/particle nacal_sdc:armor_tnnk_blast ~~0.8~",
+          "/execute @s[tag=maper] ~~~ damage @e[family=player,family=!tool,type=!item,tag=!neutral,r=8] 6 suicide entity @s",
+          "/execute @s[tag=!maper] ~~~ damage @e[tag=!tnnk_self,r=8] 6 suicide entity @s",
+          "/tag @s remove tnnk_self",
+          "/replaceitem entity @s[hasitem={item=coldsink:skill_cooldown,quantity=0}] slot.hotbar 8 barrier 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}"
+        ],
+        "1.0": [
+          "/replaceitem entity @s[hasitem={item=coldsink:skill_cooldown,quantity=0}] slot.hotbar 8 coldsink:armor_tnnk_skill 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+          "/event entity @s action_clear"
+        ]
+      }
+    },
+    "animation.armor_tank_buff_timer.func": {
+      "loop": false,
+      "animation_length": 10.0,
+      "timeline": {
+        "5.0": [
+          "/title @s[type=player] actionbar §6无敌免伤结束",
+          "/event entity @s[type=player] time_skill_false",
+          "/event entity @s[type=!player] buff_over"
+        ]
+      }
+    }
+  }
+}

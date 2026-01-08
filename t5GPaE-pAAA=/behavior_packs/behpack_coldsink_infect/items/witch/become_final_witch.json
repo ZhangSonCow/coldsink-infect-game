@@ -15,7 +15,7 @@
         "texture": "become_final_witch"
       },
       "minecraft:display_name": {
-        "value": "扮演 恶灵女巫"
+        "value": "扮演 §d恶灵女巫"
       },
       "minecraft:use_duration": 99999,
       "minecraft:food": {

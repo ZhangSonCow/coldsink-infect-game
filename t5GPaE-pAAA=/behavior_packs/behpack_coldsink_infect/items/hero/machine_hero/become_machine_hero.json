@@ -15,7 +15,7 @@
         "texture": "become_machine_hero"
       },
       "minecraft:display_name": {
-        "value": "§b变身为 [机械猎手]"
+        "value": "§b变身为 §b[机械猎手]"
       },
       "minecraft:use_duration": 99999,
       "minecraft:food": {

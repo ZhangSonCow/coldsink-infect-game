@@ -12,6 +12,10 @@ execute @a[family=tnnk,scores={player_death=0}] ~~~ function sfzombie/death/tnnk
 execute @a[family=witch,scores={player_death=0}] ~~~ function sfzombie/death/witch_death
 execute @a[family=final_tnnk,scores={player_death=0}] ~~~ function sfzombie/death/final_tnnk_death
 execute @a[family=final_witch,scores={player_death=0}] ~~~ function sfzombie/death/final_witch_death
+execute @a[family=tyrant_tnnk,scores={player_death=0}] ~~~ function sfzombie/death/tyrant_tnnk_death
+execute @a[family=ghost_witch,scores={player_death=0}] ~~~ function sfzombie/death/ghost_witch_death
+execute @a[family=armor_tnnk,scores={player_death=0}] ~~~ function sfzombie/death/armor_tnnk_death
+execute @a[family=queen_witch,scores={player_death=0}] ~~~ function sfzombie/death/queen_witch_death
 execute @a[family=human_hero,scores={player_death=0}] ~~~ function human/death/human_hero_death
 execute @a[family=final_hero,scores={player_death=0}] ~~~ function human/death/final_hero_death
 execute @a[family=savior_hero,scores={player_death=0}] ~~~ function human/death/savior_hero_death

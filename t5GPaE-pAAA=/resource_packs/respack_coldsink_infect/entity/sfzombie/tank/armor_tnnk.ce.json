@@ -1,0 +1,63 @@
+﻿{
+  "format_version": "1.12.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "coldsink:armor_tnnk",
+      "animations": {
+        "tank_idle.arm": "animation.tank.idle.arm",
+        "tank_idle.leg": "animation.tank.idle.leg",
+        "tank_move.arm": "animation.tank.move.arm",
+        "tank_move.leg": "animation.tank.move.leg",
+        "tank_attack1": "animation.tank.attack1",
+        "tank_attack2": "animation.tank.attack2",
+        "tank_howl_skill": "animation.tank.howl.skill",
+        "c.armor_tank_ai": "controller.animation.armor_tank_ai",
+        "c.tank_walk": "controller.animation.tank_walk",
+        "tank_fire_armor": "animation.tank.fire_armor",
+        "sign_facing": "animation.sign_facing",
+        "armor_tank_skill": "animation.armor_tank.skill",
+        "armor_tank_skill_end": "animation.armor_tank.skill_end",
+        "armor_tank.shield": "animation.armor_tank.shield"
+      },
+      "particle_effects": {
+        "tank_fire_armor_big": "nacal_sdc:tank_fire_armor_big",
+        "tank_fire_armor_small": "nacal_sdc:tank_fire_armor_small",
+        "armor_tnnk_shield": "nacal_sdc:armor_tnnk_shield_ai"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.random_choices = math.random(0, 100);"
+        ],
+        "animate": [
+          "c.armor_tank_ai",
+          "c.tank_walk",
+          "tank_fire_armor",
+          "sign_facing",
+          {
+            "armor_tank.shield": "q.is_ignited"
+          }
+        ]
+      },
+      "materials": {
+        "default": "entity_alphatest",
+        "nacal_tac_detect": "nacal_tac_detect",
+        "nacal_customblend":"nacal_customblend"
+      },
+      "textures": {
+        "armor_tank": "textures/entity/armor_tank",
+        "armor_tank_sign": "textures/entity/armor_tank_sign"
+      },
+      "geometry": {
+        "armor_tank": "geometry.armor_tank",
+        "boss_sign": "geometry.boss_sign"
+      },
+      "render_controllers": [
+        "controller.render.armor_tank"
+      ],
+      "spawn_egg": {
+        "base_color": "#B2483B",
+        "overlay_color": "#B5BABB"
+      }
+    }
+  }
+}

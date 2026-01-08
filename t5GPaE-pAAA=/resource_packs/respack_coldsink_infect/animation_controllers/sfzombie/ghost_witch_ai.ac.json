@@ -1,0 +1,98 @@
+{
+	"format_version": "1.12.0",
+	"animation_controllers": {
+		"controller.animation.ghost_witch_ai": {
+			"states": {
+				"default": {
+					"animations": [
+						"witch_idle.arm"
+					],
+					"transitions": [
+						{
+							"skill": "q.is_ignited"
+						},
+						{
+							"move": "query.modified_move_speed > 0.1 && !q.is_sheared"
+						},
+						{
+							"attack_1": "v.attack_time && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && variable.random_choices >= 50"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"skill": {
+					"animations": [ "ghost_witch.skill_powering" ],
+					"blend_transition": 0.0,
+					"transitions": [
+						{
+							"skill_end": "q.is_sheared"
+						},
+						{
+							"default": "!q.is_ignited"
+						}
+					]
+				},
+				"skill_end": {
+					"animations": [ "ghost_witch.skill_throw" ],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "!q.is_sheared"
+						}
+					]
+				},
+				"move": {
+					"animations": [
+						"witch_move.arm"
+					],
+					"transitions": [
+						{
+							"skill": "q.is_ignited"
+						},
+						{
+							"default": "query.modified_move_speed <= 0.1 && !q.is_sheared"
+						},
+						{
+							"attack_1": "v.attack_time && variable.random_choices < 50"
+						},
+						{
+							"attack_2": "v.attack_time && variable.random_choices >= 50"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"attack_1": {
+					"animations": [
+						"witch_attack1"
+					],
+					"transitions": [
+						{
+							"skill": "q.is_ignited"
+						},
+						{
+							"default": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"attack_2": {
+					"animations": [
+						"witch_attack2"
+					],
+					"transitions": [
+						{
+							"skill": "q.is_ignited"
+						},
+						{
+							"default": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		}
+	}
+}

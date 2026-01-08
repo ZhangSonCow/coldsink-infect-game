@@ -15,7 +15,7 @@
         "texture": "become_hunter"
       },
       "minecraft:display_name": {
-        "value": "扮演 Hunter"
+        "value": "扮演 §9Hunter"
       },
       "minecraft:use_duration": 99999,
       "minecraft:food": {

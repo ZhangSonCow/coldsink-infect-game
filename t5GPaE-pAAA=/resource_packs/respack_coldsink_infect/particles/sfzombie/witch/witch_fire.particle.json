@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "nacal_sdc:witch_fire",
 			"basic_render_parameters": {
-				"material": "particles_blend",
+				"material": "particles_add",
 				"texture": "textures/particle/particles"
 			}
 		},
