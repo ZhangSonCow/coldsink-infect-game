@@ -47,17 +47,37 @@
       "minecraft:entity_spawned": {
         "randomize": [
           {
-            "weight": 70,
+            "weight": 40,
             "remove": {
             }
           },
           {
-            "weight": 30,
+            "weight": 20,
             "remove": {
             },
             "queue_command": {
               "command": [
                 "summon coldsink:final_witch"
+              ]
+            }
+          },
+          {
+            "weight": 20,
+            "remove": {
+            },
+            "queue_command": {
+              "command": [
+                "summon coldsink:ghost_witch"
+              ]
+            }
+          },
+          {
+            "weight": 20,
+            "remove": {
+            },
+            "queue_command": {
+              "command": [
+                "summon coldsink:queen_witch"
               ]
             }
           }

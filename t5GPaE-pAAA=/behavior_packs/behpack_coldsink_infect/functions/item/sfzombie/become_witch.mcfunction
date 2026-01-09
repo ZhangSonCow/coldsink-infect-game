@@ -38,6 +38,8 @@ event entity @s[tag=back] coldsink:default
 title @s[tag=back] actionbar 已变回人类
 clear @s[tag=back] coldsink:big_attack
 clear @s[tag=back] coldsink:witch_skill
+replaceitem entity @s[tag=back] slot.hotbar 6 air
+replaceitem entity @s[tag=back] slot.hotbar 7 air
 replaceitem entity @s[tag=back] slot.weapon.mainhand 1 coldsink:become_witch 1 0
 tag @s remove back
 

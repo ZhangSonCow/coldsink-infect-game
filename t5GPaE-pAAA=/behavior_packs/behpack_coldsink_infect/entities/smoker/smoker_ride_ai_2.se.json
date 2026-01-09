@@ -62,6 +62,13 @@
     },
 
     "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "gamerule sendcommandfeedback false"
+          ]
+        }
+      },
       "lock": {
         "queue_command": {
           "command": [

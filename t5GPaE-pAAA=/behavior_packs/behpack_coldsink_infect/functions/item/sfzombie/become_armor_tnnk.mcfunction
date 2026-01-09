@@ -37,7 +37,7 @@ event entity @s[tag=back] coldsink:default
 title @s[tag=back] actionbar 已变回人类
 clear @s[tag=back] coldsink:big_attack
 replaceitem entity @s[tag=back] slot.hotbar 8 air
-clear @s[tag=back] coldsink:tnnk_howl_skill
+clear @s[tag=back] coldsink:armor_tnnk_howl_skill
 replaceitem entity @s[tag=back] slot.weapon.mainhand 1 coldsink:become_armor_tnnk 1 0
 tag @s remove back
 

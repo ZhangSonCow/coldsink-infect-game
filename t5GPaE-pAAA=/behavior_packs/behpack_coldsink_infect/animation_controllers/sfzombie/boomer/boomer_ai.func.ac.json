@@ -28,7 +28,7 @@
 						"/damage @e[family=player,tag=!neutral,r=2] 5 suicide entity @s",
 						"/event entity @e[family=player,tag=!neutral,r=6] coldsink:boomer_bile",
 						"/title @a[family=player,tag=!neutral,r=6] actionbar §eBoomer在你附近爆炸！",
-						"/effect @e[type=coldsink:human_ai,r=6] slowness 10 2 true",
+						"/effect @e[family=human_ai,r=6] slowness 10 2 true",
 						"/particle nacal_sdc:boomer_death_explode ~~~",
 						"/particle nacal_sdc:boomer_death_bottom ~~~",
 						"/particle nacal_sdc:boomer_death_bleed ~~~",

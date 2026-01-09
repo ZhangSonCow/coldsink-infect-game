@@ -35,15 +35,15 @@
         "nacal_customblend":"nacal_customblend"
       },
       "textures": {
-        "queen_witch": "textures/entity/queen_witch",
+        "default": "textures/entity/queen_witch",
         "queen_witch_sign": "textures/entity/queen_witch_sign"
       },
       "geometry": {
-        "witch_0": "geometry.witch_0",
+        "default": "geometry.witch_0",
         "boss_sign": "geometry.boss_sign"
       },
       "render_controllers": [
-        "controller.render.queen_witch"
+        "controller.render.com"
       ],
       "spawn_egg": {
         "base_color": "#04661E",

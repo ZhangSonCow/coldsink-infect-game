@@ -388,6 +388,7 @@
         },
         "queue_command": {
           "command": [
+            "gamerule sendcommandfeedback false",
             "tag @s add jockey_skill",
             "execute @e[family=player,tag=!neutral,tag=jockey_riding,r=3.6,c=1] ~~~ tp @e[type=!player,family=jockey,c=1] ~~1.5~",
             "playsound jockey.skill @a ~~~",

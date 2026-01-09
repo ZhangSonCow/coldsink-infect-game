@@ -39,15 +39,15 @@
         "nacal_customblend":"nacal_customblend"
       },
       "textures": {
-        "ghost_witch": "textures/entity/ghost_witch",
+        "default": "textures/entity/ghost_witch",
         "ghost_witch_sign": "textures/entity/ghost_witch_sign"
       },
       "geometry": {
-        "ghost_witch": "geometry.ghost_witch",
+        "default": "geometry.ghost_witch",
         "boss_sign": "geometry.boss_sign"
       },
       "render_controllers": [
-        "controller.render.ghost_witch"
+        "controller.render.com"
       ],
       "spawn_egg": {
         "base_color": "#145CA4",

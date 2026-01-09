@@ -47,15 +47,15 @@
         "nacal_customblend":"nacal_customblend"
       },
       "textures": {
-        "tyrant_tank": "textures/entity/tyrant_tank",
+        "default": "textures/entity/tyrant_tank",
         "tyrant_tank_sign": "textures/entity/tyrant_tank_sign"
       },
       "geometry": {
-        "tyrant_tank": "geometry.tyrant_tank",
+        "default": "geometry.tyrant_tank",
         "boss_sign": "geometry.boss_sign"
       },
       "render_controllers": [
-        "controller.render.tyrant_tank"
+        "controller.render.com"
       ],
       "spawn_egg": {
         "base_color": "#1E2C2C",

@@ -41,6 +41,8 @@ clear @s[tag=back,tag=!is_final_tnnk] coldsink:big_attack
 clear @s[tag=back,tag=!is_final_tnnk] coldsink:tnnk_skill
 clear @s[tag=back,tag=!is_final_tnnk] coldsink:tnnk_howl_skill
 clear @s[tag=back,tag=!is_final_tnnk] coldsink:final_tnnk_skill
+replaceitem entity @s[tag=back,tag=!is_final_tnnk] slot.hotbar 6 air
+replaceitem entity @s[tag=back,tag=!is_final_tnnk] slot.hotbar 7 air
 replaceitem entity @s[tag=back,tag=!is_final_tnnk] slot.weapon.mainhand 1 coldsink:become_tnnk 1 0
 tag @s[tag=!is_final_tnnk] remove back
 

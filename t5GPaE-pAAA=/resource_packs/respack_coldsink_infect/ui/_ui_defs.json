@@ -1,8 +1,0 @@
-{
-    "ui_defs": [
-        "ui/infectscorepanel.json",
-        "ui/modset.json",
-        "ui/netease_editor_template_namespace.json",
-        "ui/xlk_button.json"
-    ]
-}

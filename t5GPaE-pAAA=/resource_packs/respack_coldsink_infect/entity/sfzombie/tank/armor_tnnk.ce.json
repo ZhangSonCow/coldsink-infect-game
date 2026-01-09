@@ -44,15 +44,15 @@
         "nacal_customblend":"nacal_customblend"
       },
       "textures": {
-        "armor_tank": "textures/entity/armor_tank",
+        "default": "textures/entity/armor_tank",
         "armor_tank_sign": "textures/entity/armor_tank_sign"
       },
       "geometry": {
-        "armor_tank": "geometry.armor_tank",
+        "default": "geometry.armor_tank",
         "boss_sign": "geometry.boss_sign"
       },
       "render_controllers": [
-        "controller.render.armor_tank"
+        "controller.render.com"
       ],
       "spawn_egg": {
         "base_color": "#B2483B",

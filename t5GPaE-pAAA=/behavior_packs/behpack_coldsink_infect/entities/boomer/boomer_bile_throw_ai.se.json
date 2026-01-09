@@ -78,7 +78,7 @@
             "particle nacal_sdc:boomer_bile_throw ~~~",
             "event entity @e[family=player,tag=!neutral,r=1.2] coldsink:boomer_bile",
             "execute @e[family=player,tag=!neutral,r=1.2] ~~~ scoreboard players add @e[type=coldsink:boomer_ai,c=1] game_score 1",
-            "effect @e[type=coldsink:human_ai,r=1.2] slowness 10 2 true"
+            "effect @e[family=human_ai,r=1.2] slowness 10 2 true"
           ]
         }
       },

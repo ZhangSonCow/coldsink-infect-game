@@ -81,7 +81,7 @@
       "minecraft:entity_spawned": {
         "queue_command": {
           "command": [
-            "playanimation @e[type=coldsink:human_ai,c=1] animation.weapon_2.particle",
+            "playanimation @e[family=human_ai,c=1] animation.weapon_2.particle",
             "playsound weapon_2.piu @a ~~~"
           ]
         }

@@ -15,6 +15,11 @@
       }
     },
     "components": {
+			"minecraft:tick_world": {
+				"distance_to_players": 128,
+				"never_despawn": false,
+				"radius": 2
+			},
       "minecraft:collision_box": {
         "width": 0.5,
         "height": 0.5

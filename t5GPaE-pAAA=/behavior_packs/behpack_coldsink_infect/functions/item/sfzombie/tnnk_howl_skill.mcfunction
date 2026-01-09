@@ -7,8 +7,8 @@ title @s[tag=is_armor_tnnk] actionbar §6【咆哮】 §f未命中目标
 event entity @s[tag=is_tyrant_tnnk] time_skill_true
 event entity @s[tag=is_armor_tnnk] time_skill_true
 
-ride @e[type=coldsink:human_ai,r=8] summon_rider coldsink:tnnk_howl_tool
-event entity @e[type=coldsink:human_ai,r=8] stop_shoot_run
+ride @e[family=human_ai,r=8] summon_rider coldsink:tnnk_howl_tool
+event entity @e[family=human_ai,r=8] stop_shoot_run
 
 scoreboard players random @s wp_random 1 3
 execute @s[scores={wp_random=1}] ~~~ playsound tank.howl_1 @a ~~~
